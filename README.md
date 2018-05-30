@@ -1,0 +1,1 @@
+# SPA Angular editable components
