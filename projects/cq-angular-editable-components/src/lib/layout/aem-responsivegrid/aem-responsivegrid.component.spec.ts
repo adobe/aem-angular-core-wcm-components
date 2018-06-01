@@ -24,7 +24,7 @@ import { AEMResponsiveGridComponent } from "./aem-responsivegrid.component";
 import { Component1 } from "../../test/test-comp1.component";
 import { Component2 } from "../../test/test-comp2.component";
 import { Component3 } from "../../test/test-comp3.component";
-import Constants from "../constants";
+import { Constants } from "../constants";
 
 describe('AEMResponsivegrid', () => {
   let component: AEMResponsiveGridComponent;

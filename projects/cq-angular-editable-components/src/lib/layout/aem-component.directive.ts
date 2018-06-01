@@ -20,8 +20,8 @@ import { ComponentMapping } from "./component-mapping";
 
 import { PageModelManager } from '@adobe/cq-spa-page-model-manager';
 
-import Constants from "./constants";
-import Utils from "./utils";
+import { Constants } from "./constants";
+import { Utils } from "./utils";
 
 
 const PLACEHOLDER_CLASS_NAME = 'cq-placeholder';

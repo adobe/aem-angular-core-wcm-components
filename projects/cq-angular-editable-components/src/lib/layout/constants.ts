@@ -17,7 +17,7 @@
 
 import {Constants as PMConstants} from '@adobe/cq-spa-page-model-manager';
 
-const Constants = {
+export const Constants = {
 
     /**
      * Class names associated with a new section component
@@ -62,5 +62,3 @@ const Constants = {
      */
     HIERARCHY_TYPE_PROP: ':hierarchyType'
 };
-
-export default Constants;

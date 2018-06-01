@@ -16,8 +16,8 @@
 
 import { Component } from '@angular/core';
 import { AEMContainerComponent } from '../aem-container/aem-container.component';
-import Utils from "../utils";
-import Constants from "../constants";
+import { Utils } from "../utils";
+import { Constants } from "../constants";
 
 const PLACEHOLDER_CLASS_NAMES = Constants.NEW_SECTION_CLASS_NAMES + ' aem-Grid-newComponent';
 

@@ -15,7 +15,7 @@
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 import { Component, Input } from '@angular/core';
-import Constants from '../constants';
+import { Constants } from '../constants';
 
 const CONTAINER_CLASS_NAMES = 'aem-container';
 

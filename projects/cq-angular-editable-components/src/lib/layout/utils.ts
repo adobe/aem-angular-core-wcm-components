@@ -47,7 +47,7 @@ function getWCMMode() {
  * Helper functions for interacting with the AEM environment
  *
  */
-const Utils = {
+export const Utils = {
 
     /**
      * Is the app used in the context of the AEM Page editor
@@ -58,5 +58,3 @@ const Utils = {
         return wcmMode && (EDIT_MODE === wcmMode || PREVIEW_MODE === wcmMode);
     }
 };
-
-export default Utils;
