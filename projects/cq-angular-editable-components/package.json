@@ -1,6 +1,6 @@
 {
   "name": "@adobe/cq-angular-editable-components",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "peerDependencies": {
     "@adobe/cq-spa-component-mapping": "0.0.15",
     "@adobe/cq-spa-page-model-manager": "0.0.23",
