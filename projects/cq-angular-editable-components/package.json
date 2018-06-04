@@ -1,0 +1,13 @@
+{
+  "name": "@adobe/cq-angular-editable-components",
+  "version": "0.0.5",
+  "peerDependencies": {
+    "@adobe/cq-spa-component-mapping": "0.0.15",
+    "@adobe/cq-spa-page-model-manager": "0.0.23",
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-spa-release-local/"
+  }
+}
