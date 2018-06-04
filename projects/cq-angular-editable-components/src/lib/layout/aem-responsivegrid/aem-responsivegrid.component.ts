@@ -30,14 +30,23 @@ const PLACEHOLDER_CLASS_NAMES = Constants.NEW_SECTION_CLASS_NAMES + ' aem-Grid-n
   templateUrl: './aem-responsivegrid.component.html',
 })
 export class AEMResponsiveGridComponent extends AEMContainerComponent {
-  isInEditMode() {
-    return true;
+  /**
+   * Returns weather of not we are in the editor
+   */
+  get isInEditMode() {
+    return Utils.isInEditor();
   }
 
+  /**
+   * Returns the placeholder classes
+   */
   get placeholderClass() {
     return PLACEHOLDER_CLASS_NAMES;
   }
 
+  /**
+   * Returns the placeholder path
+   */
   get placeholdePath() {
     return this.path && this.path + "/*";
   }

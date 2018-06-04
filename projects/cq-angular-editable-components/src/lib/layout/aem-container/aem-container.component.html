@@ -1,5 +1,5 @@
 <div [class]="gridClasses">
   <ng-container *ngFor="let itemKey of itemsOrder">
-    <ng-container [aemComponent] [data]='getItem(itemKey)' [pagePath]='getPagePath()' [path]='getDataPath(itemKey)' [modelName]='itemKey'></ng-container>
+    <ng-container [aemComponent] [cqModel]='getItem(itemKey)' [pagePath]='getPagePath()' [path]='getDataPath(itemKey)' [modelName]='itemKey'></ng-container>
   </ng-container>
 </div>

@@ -47,7 +47,7 @@ describe('AEMContainerComponent', () => {
 
   it('generates the correct layout', () => {
     let layout = require("../../test/data/layout.json");
-    component.data = layout;
+    component.cqModel = layout;
     fixture.detectChanges();
     let element = fixture.nativeElement;
     expect(element.classList.contains('aem-container')).toBeTruthy();
@@ -81,7 +81,7 @@ describe('AEMContainerComponent', () => {
 
   it("updates the title", () => {
     let layout = require("../../test/data/layout.json");
-    component.data = layout;
+    component.cqModel = layout;
     fixture.detectChanges();
     let element = fixture.nativeElement.querySelector('test-comp1[data-cq-data-path="root/responsivegrid/component1"]');
     expect(element).toBeDefined();

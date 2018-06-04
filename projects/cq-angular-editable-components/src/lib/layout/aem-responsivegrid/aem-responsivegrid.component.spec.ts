@@ -53,7 +53,7 @@ describe('AEMResponsivegrid', () => {
 
   it('should create placeholder', () => {
     let layout = require("../../test/data/layout.json");
-    component.data = layout;
+    component.cqModel = layout;
     fixture.detectChanges();
     let element = fixture.nativeElement;
 

@@ -28,46 +28,68 @@ const CONTAINER_CLASS_NAMES = 'aem-container';
   templateUrl: './aem-container.component.html'
 })
 export class AEMContainerComponent {
-  @Input() data:any;
+  @Input() cqModel:any;
   @Input() path:string = '';
   @Input() pagePath:string = '';
   @Input() modelName:string = '';
 
   constructor() {}
 
+  /**
+   * Returns the aggregated path of this container path and the provided path
+   *
+   * @param path - the provided path to aggregate with the container path
+   */
   getDataPath(path) {
     return this.path ? this.path + "/" + path : path;
   }
 
+  /**
+   * Return the page path from the data, defaulting to the provided pagePath to the container.
+   */
   getPagePath() {
-    return this.data[Constants.PATH_PROP] || this.pagePath;
+    return this.cqModel[Constants.PATH_PROP] || this.pagePath;
   }
 
+  /**
+   * Returns the item data from the cqModel
+   *
+   * @param itemKey - the itemKey to look for in the items.
+   */
   getItem(itemKey) {
-    return this.data[Constants.ITEMS_PROP][itemKey];
+    return this.cqModel[Constants.ITEMS_PROP][itemKey];
   }
 
+  /**
+   * Returns the itemsOrder array from the cqModel
+   */
   get itemsOrder() {
-    return this.data && this.data[Constants.ITEMS_ORDER_PROP];
+    return this.cqModel && this.cqModel[Constants.ITEMS_ORDER_PROP];
   }
 
+  /**
+   * Returns the gridClasses for the cqModel of the container
+   */
   get gridClasses() {
-    return this.data && (this.data["gridClassNames"] || '');
+    return this.cqModel && (this.cqModel["gridClassNames"] || '');
   }
 
+  /**
+   * Returns the class names of the container based on the data from the cqModel
+   */
   get classNames() {
-      if (!this.data) {
+      if (!this.cqModel) {
           return '';
       }
 
       let classNames = CONTAINER_CLASS_NAMES;
 
-      if (this.data.classNames) {
-          classNames += ' ' + (this.data.classNames || '') ;
+      if (this.cqModel.classNames) {
+          classNames += ' ' + (this.cqModel.classNames || '') ;
       }
 
-      if (this.data.columnClassNames) {
-          classNames += ' ' + (this.data.columnClassNames || '');
+      if (this.cqModel.columnClassNames) {
+          classNames += ' ' + (this.cqModel.columnClassNames || '');
       }
 
       return classNames;

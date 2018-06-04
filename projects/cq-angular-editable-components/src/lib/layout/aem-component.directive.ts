@@ -36,6 +36,12 @@ export class AEMComponentDirective {
   private _component:ComponentRef<any>;
   private _oldClasses:string;
 
+  @Input() cqModel:any;
+  @Input() path:string;
+  @Input() pagePath:string;
+  @Input() modelName:string;
+  @Input() aemComponent;
+
   constructor(
     private renderer: Renderer2,
     private viewContainer: ViewContainerRef,
@@ -43,126 +49,145 @@ export class AEMComponentDirective {
     private ngZone: NgZone) {
   }
 
-    @Input() data:any;
-    @Output() dataChange =  new EventEmitter<any>();
-    @Input() path:string;
-    @Input() pagePath:string;
-    @Input() modelName:string;
+  ngOnInit() {
+    this.renderComponent(ComponentMapping.get(this.type));
+  }
 
-    @Input() set aemComponent(data:any) {}
-    ngOnInit() {
-      this.renderComponent(ComponentMapping.get(this.type));
+  /**
+   * Returns the type of the cqModel if exists.
+   */
+  get type() {
+    return this.cqModel && this.cqModel[":type"];
+  }
+
+  /**
+   * Returns the column classes of the cqModel
+   */
+  get columnClasses() {
+    return this.cqModel && (this.cqModel.columnClassNames || '');
+  }
+
+  /**
+   * Updates the cqModel
+   */
+  private updateCqModel() {
+    let self = this;
+    // Fetching the latest data for the item at the given path
+    this.getCqModel().then(model => {
+        this.ngZone.run(() => {
+          model[Constants.DATA_PATH_PROP] = this.path;
+          this.cqModel = model;
+          this.updateComponentData();
+          this.setupElement();
+          let editConfig = ComponentMapping.getEditConfig(ComponentMapping.get(this.type));
+          if (editConfig) {
+            this.setupPlaceholder(editConfig);
+          }
+        });
+    });
+  }
+
+  /**
+   * Returns the Cq Model
+   *
+   */
+  private getCqModel() {
+      return PageModelManager.getData({pagePath: this.pagePath, dataPath: this.path});
+  }
+
+  /**
+   * Renders a component dynamically based on the component definition
+   *
+   * @param componentDefinition The component definition to render
+   */
+  private renderComponent(componentDefinition:any) {
+    if (componentDefinition) {
+      const factory = this.factoryResolver.resolveComponentFactory(componentDefinition);
+      this.viewContainer.clear();
+      this._component = this.viewContainer.createComponent(factory);
+
+      this.updateComponentData();
+      this.setupElement();
+      let editConfig = ComponentMapping.getEditConfig(componentDefinition);
+      if (editConfig && Utils.isInEditor) {
+        this.setupPlaceholder(editConfig);
+      }
+      PageModelManager.removeListener({pagePath: this.pagePath, dataPath: this.path, callback: this.updateCqModel.bind(this) });
+      PageModelManager.addListener({pagePath: this.pagePath, dataPath: this.path, callback: this.updateCqModel.bind(this) });
     }
+  }
 
-    get type() {
-      return this.data && this.data[":type"];
-    }
+  /**
+   * Updates the data of the component based the data of the directive
+   */
+  private updateComponentData() {
+    this._component.instance.cqModel = this.cqModel;
+    this._component.instance.path = this.path;
+    this._component.instance.pagePath = this.pagePath;
+    this._component.instance.modelName = this.modelName;
 
-    updateData() {
-      let self = this;
-      // Fetching the latest data for the item at the given path
-      this.getData().then(model => {
-          this.ngZone.run(() => {
-            model[Constants.DATA_PATH_PROP] = this.path;
-            this.data = model;
-            this.updateComponentData();
-            this.setupElement();
-            let editConfig = ComponentMapping.getEditConfig(ComponentMapping.get(this.type));
-            if (editConfig) {
-              this.setupPlaceholder(editConfig);
-            }
-          });
+  }
+
+  /**
+   * Setups the DOM element, setting the classes and attributes needed for the AEM editor.
+   */
+  private setupElement()  {
+    if (this._oldClasses) {
+      let oldClasses = this._oldClasses.split(' ');
+      oldClasses.forEach((columnClass) => {
+        this.renderer.removeClass(this._component.location.nativeElement, columnClass);
       });
     }
 
-    getData() {
-        return PageModelManager.getData({pagePath: this.pagePath, dataPath: this.path});
-    }
-
-    renderComponent(componentDefinition:any) {
-      if (componentDefinition) {
-        const factory = this.factoryResolver.resolveComponentFactory(componentDefinition);
-        this.viewContainer.clear();
-        this._component = this.viewContainer.createComponent(factory);
-
-        this.updateComponentData();
-        this.setupElement();
-        let editConfig = ComponentMapping.getEditConfig(componentDefinition);
-        if (editConfig) {
-          this.setupPlaceholder(editConfig);
-        }
-        PageModelManager.removeListener({pagePath: this.pagePath, dataPath: this.path, callback: this.updateData.bind(this) });
-        PageModelManager.addListener({pagePath: this.pagePath, dataPath: this.path, callback: this.updateData.bind(this) });
-      }
-    }
-
-    createAttribute(object, name) {
-      Object.defineProperty(object, name, {
-        get: () => {
-          return this[name];
-        },
-        set: (value) => { this[name] = value }
+    this._oldClasses = this.columnClasses;
+    // Manually add the classes
+    if (this.columnClasses) {
+      let classes = this.columnClasses.split(' ');
+      classes.forEach((columnClass) => {
+        this.renderer.addClass(this._component.location.nativeElement, columnClass);
       });
     }
 
-    private updateComponentData() {
-      this._component.instance.data = this.data;
-      this._component.instance.path = this.path;
-      this._component.instance.pagePath = this.pagePath;
-      this._component.instance.modelName = this.modelName;
-
+    if (this.path) {
+      this.renderer.setAttribute(this._component.location.nativeElement, "data-cq-data-path" ,this.path);
     }
 
-    private setupElement()  {
-      if (this._oldClasses) {
-        let oldClasses = this._oldClasses.split(' ');
-        oldClasses.forEach((columnClass) => {
-          this.renderer.removeClass(this._component.location.nativeElement, columnClass);
-        });
-      }
+  }
 
-      this._oldClasses = this.columnClasses;
-      // Manually add the classes
-      if (this.columnClasses) {
-        let classes = this.columnClasses.split(' ');
-        classes.forEach((columnClass) => {
-          this.renderer.addClass(this._component.location.nativeElement, columnClass);
-        });
-      }
+  /**
+   * Setups the placeholder of needed for the AEM editor
+   *
+   * @param editConfig - the editConfig, which will dictate the classes to be added on.
+   */
+  private setupPlaceholder(editConfig) {
+    // Remove previous drag and drop class names
+    this.renderer.removeClass(this._component.location.nativeElement, DRAG_DROP_CLASS_NAME + editConfig.dragDropName);
 
-      if (this.path) {
-        this.renderer.setAttribute(this._component.location.nativeElement, "data-cq-data-path" ,this.path);
-      }
-
+    if (editConfig.dragDropName && editConfig.dragDropName.trim().length > 0) {
+        this.renderer.addClass(this._component.location.nativeElement, DRAG_DROP_CLASS_NAME + editConfig.dragDropName);
     }
 
-    setupPlaceholder(editConfig) {
-      // Remove previous drag and drop class names
-      this.renderer.removeClass(this._component.location.nativeElement, DRAG_DROP_CLASS_NAME + editConfig.dragDropName);
-
-      if (editConfig.dragDropName && editConfig.dragDropName.trim().length > 0) {
-          this.renderer.addClass(this._component.location.nativeElement, DRAG_DROP_CLASS_NAME + editConfig.dragDropName);
-      }
-
-      if (this.usePlaceholder(editConfig)) {
-          this.renderer.addClass(this._component.location.nativeElement, PLACEHOLDER_CLASS_NAME);
-          this._component.location.nativeElement.dataset.emptytext = editConfig.emptyLabel;
-      } else {
-          this.renderer.removeClass(this._component.location.nativeElement, PLACEHOLDER_CLASS_NAME);
-          delete this._component.location.nativeElement.dataset.emptytext;
-      }
+    if (this.usePlaceholder(editConfig)) {
+        this.renderer.addClass(this._component.location.nativeElement, PLACEHOLDER_CLASS_NAME);
+        this._component.location.nativeElement.dataset.emptytext = editConfig.emptyLabel;
+    } else {
+        this.renderer.removeClass(this._component.location.nativeElement, PLACEHOLDER_CLASS_NAME);
+        delete this._component.location.nativeElement.dataset.emptytext;
     }
+  }
 
-    usePlaceholder(editConfig) {
-      return editConfig.isEmpty && typeof editConfig.isEmpty === "function" && editConfig.isEmpty(this.data);
-    }
+  /**
+   * Determines if the placeholder should e displayed.
+   *
+   * @param editConfig - the edit config of the directive
+   */
+  private usePlaceholder(editConfig) {
+    return editConfig.isEmpty && typeof editConfig.isEmpty === "function" && editConfig.isEmpty(this.cqModel);
+  }
 
-    ngOnDestroy() {
-      PageModelManager.removeListener({pagePath: this.pagePath, dataPath: this.path, callback: this.updateData.bind(this) });
-      this._component && this._component.destroy();
-    }
+  ngOnDestroy() {
+    PageModelManager.removeListener({pagePath: this.pagePath, dataPath: this.path, callback: this.updateCqModel.bind(this) });
+    this._component && this._component.destroy();
+  }
 
-    get columnClasses() {
-      return this.data && (this.data.columnClassNames || '');
-    }
 }

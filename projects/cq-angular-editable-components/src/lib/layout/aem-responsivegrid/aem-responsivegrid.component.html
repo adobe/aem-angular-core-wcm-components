@@ -1,6 +1,6 @@
 <div [class]="gridClasses">
   <ng-container *ngFor="let itemKey of itemsOrder">
-    <ng-container [aemComponent] [data]='data[":items"][itemKey]' [pagePath]='getPagePath()' [path]='getDataPath(itemKey)' [modelName]='itemKey'></ng-container>
+    <ng-container [aemComponent] [cqModel]='getItem(itemKey)' [pagePath]='getPagePath()' [path]='getDataPath(itemKey)' [modelName]='itemKey'></ng-container>
   </ng-container>
-  <div [attr.data-cq-data-path]="placeholdePath" [class]="placeholderClass"></div>
+  <div *ngIf="isInEditMode" [attr.data-cq-data-path]="placeholdePath" [class]="placeholderClass"></div>
 </div>
