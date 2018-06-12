@@ -12,7 +12,11 @@
     "version": "git add -A",
     "postversion": "git push && git push --tags"
   },
-  "private": true,
+  "author": "Adobe Systems Inc.",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "registry": "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-cq-spa-release-local"
+  },
   "dependencies": {
     "@angular/common": "^6.0.0",
     "@angular/core": "^6.0.0",
