@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "preversion": "npm run build && npm run test && npm run docs && npm run readme",
+    "preversion": "npm run build",
     "version": "git add -A",
     "postversion": "git push && git push --tags"
   },
