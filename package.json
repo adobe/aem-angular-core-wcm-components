@@ -1,5 +1,5 @@
 {
-  "name": "@adobe/spa-angular-editable-components",
+  "name": "@adobe/cq-angular-editable-components",
   "version": "0.0.5-beta.0",
   "scripts": {
     "ng": "ng",
