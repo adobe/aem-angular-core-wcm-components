@@ -2,7 +2,7 @@
   "name": "@adobe/cq-angular-editable-components",
   "version": "0.0.5",
   "scripts": {
-    "preversion": "cd ../.. && ng build cq-angular-editable-components",
+    "preversion": "cd ../.. && ng build cq-angular-editable-components && cd -",
     "version": "git add -A",
     "postversion": "git push && git push --tags"
   },
