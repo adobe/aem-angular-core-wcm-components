@@ -1,11 +1,6 @@
 {
   "name": "@adobe/cq-angular-editable-components",
   "version": "0.0.5",
-  "scripts": {
-    "preversion": "cd ../.. && ng build cq-angular-editable-components && cd -",
-    "version": "git add -A",
-    "postversion": "git push && git push --tags"
-  },
   "author": "Adobe Systems Inc.",
   "license": "Apache-2.0",
   "publishConfig": {
