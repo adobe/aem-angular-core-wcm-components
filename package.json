@@ -8,10 +8,7 @@
     "test": "ng test",
     "test-debug": "ng test --watch=true",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "preversion": "ng build cq-angular-editable-components",
-    "version": "git add -A",
-    "postversion": "git push && git push --tags"
+    "e2e": "ng e2e"
   },
   "author": "Adobe Systems Inc.",
   "license": "Apache-2.0",

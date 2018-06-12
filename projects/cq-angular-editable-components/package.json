@@ -1,13 +1,20 @@
 {
   "name": "@adobe/cq-angular-editable-components",
-  "version": "0.0.5-beta.2",
+  "version": "0.0.5",
+  "scripts": {
+    "preversion": "cd ../.. && ng build cq-angular-editable-components",
+    "version": "git add -A",
+    "postversion": "git push && git push --tags"
+  },
+  "author": "Adobe Systems Inc.",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "registry": "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-spa-release-local/"
+  },
   "peerDependencies": {
     "@adobe/cq-spa-component-mapping": "0.0.15-beta.1",
     "@adobe/cq-spa-page-model-manager": "0.0.23-beta.1",
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
-  },
-  "publishConfig": {
-    "registry": "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-spa-release-local/"
   }
 }
