@@ -1,16 +1,14 @@
 {
-  "name": "@adobe/cq-angular-editable-components",
-  "version": "0.0.5-beta.4",
+  "name": "@adobe/cq-root-angular-editable-components",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
+    "test-debug": "ng test --watch=true",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "preversion": "npm run build",
-    "version": "git add -A",
-    "postversion": "git push && git push --tags"
+    "e2e": "ng e2e"
   },
   "author": "Adobe Systems Inc.",
   "license": "Apache-2.0",
@@ -18,8 +16,6 @@
     "registry": "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-cq-spa-release-local"
   },
   "dependencies": {
-    "@adobe/cq-spa-component-mapping": "0.0.15-beta.1",
-    "@adobe/cq-spa-page-model-manager": "0.0.23-beta.1",
     "@angular/common": "^6.0.0",
     "@angular/core": "^6.0.0",
     "@angular/compiler": "^6.0.0",
@@ -34,6 +30,8 @@
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
+    "@adobe/cq-spa-component-mapping": "0.0.15-beta.1",
+    "@adobe/cq-spa-page-model-manager": "0.0.23-beta.1",
     "@angular-devkit/build-angular": "~0.6.1",
     "@angular-devkit/build-ng-packagr": "~0.6.6",
     "@angular/cli": "~6.0.1",
