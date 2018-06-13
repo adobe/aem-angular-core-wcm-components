@@ -28,10 +28,19 @@
 // For now we support only one argument - the new version.
 
 const { spawn } = require('child_process');
+const path = require('path');
 const args = process.argv.slice(2);
 console.log(args);
 if (args && args.length) {
   let version = args[0];
-  let npmVersion = spawn('npm', ['version', version],
-    {stdio: [process.stdin, process.stdout, process.stderr]});
+  let libNpmVersion = spawn('npm', ['version', version],
+    {
+      stdio: [process.stdin, process.stdout, process.stderr],
+      cwd: path.resolve(__dirname, 'projects', 'cq-angular-editable-components')
+    });
+  let rootVersion = spawn('npm', ['version', version],
+    {
+      stdio: [process.stdin, process.stdout, process.stderr],
+      cwd: path.resolve(__dirname)
+    });
 }
