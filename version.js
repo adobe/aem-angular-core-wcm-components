@@ -38,7 +38,7 @@ if (args && args.length) {
       stdio: [process.stdin, process.stdout, process.stderr],
       cwd: path.resolve(__dirname, 'projects', 'cq-angular-editable-components')
     });
-  let rootVersion = spawn('npm', ['version', version],
+  let rootVersion = spawn('npm', ['version', version, '-f'],
     {
       stdio: [process.stdin, process.stdout, process.stderr],
       cwd: path.resolve(__dirname)
