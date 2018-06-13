@@ -33,7 +33,7 @@ const args = process.argv.slice(2);
 console.log(args);
 if (args && args.length) {
   let version = args[0];
-  let libNpmVersion = spawn('npm', ['version', version],
+  let libNpmVersion = spawn('npm', ['--no-git-tag-version', 'version', version],
     {
       stdio: [process.stdin, process.stdout, process.stderr],
       cwd: path.resolve(__dirname, 'projects', 'cq-angular-editable-components')
