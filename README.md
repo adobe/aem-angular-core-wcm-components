@@ -17,17 +17,22 @@ Run `ng build cq-angular-editable-components` to build the library. The build ar
 
 ## Publishing the library
 
-Our process requires that every publish is based on a released version. Therefore the first step is to
-release the package.
+Our process requires that every publish is based on a released version.  
+Therefore the first step is to release the package.  
+### Releasing the package
 Because our goal was to keep in sync the version of the app package.json and the library package.json we have created a `version` script that will take care of running `npm version` on both the library and the application.
+
 Example:
 ```
 node version.js 0.0.1
 ```
-This command will run `npm --no-git-tag-version version 0.0.1` in the library folder and then it will run
-`npm version 0.0.1 -f` in the application folder. The `-f` option is needed because the first npm version will force the git environment to be dirty.
 
-In order to publish you will need to go to the library folder and run `npm publish` after the version step. 
+This command will run `npm --no-git-tag-version version 0.0.1` in the library folder and then it will run
+`npm version 0.0.1 -f` in the application folder.  
+The `-f` option is needed because the first npm version will force the git environment to be dirty.
+
+### Publishing
+In order to publish you will need to go to the library folder and run `npm publish` after releasing the package.
 
 ## Running unit tests
 
