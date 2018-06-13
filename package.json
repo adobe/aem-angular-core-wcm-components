@@ -1,6 +1,6 @@
 {
   "name": "@adobe/cq-root-angular-editable-components",
-  "version": "0.0.5-beta.6",
+  "version": "0.0.5-beta7",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
