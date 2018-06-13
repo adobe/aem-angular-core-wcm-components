@@ -34,6 +34,4 @@ if (args && args.length) {
   let version = args[0];
   let npmVersion = spawn('npm', ['version', version],
     {stdio: [process.stdin, process.stdout, process.stderr]});
-  let libNpmVersion = spawn('cd projects/cq-angular-editable-components && npm', ['version', version],
-    {stdio: [process.stdin, process.stdout, process.stderr]});
 }
