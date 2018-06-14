@@ -20,6 +20,7 @@ import { AEMContainerComponent } from '../aem-container/aem-container.component'
 import { Utils } from "../utils";
 import { Constants } from "../constants";
 
+const CONTAINER_CLASS_NAMES = 'aem-container';
 const PLACEHOLDER_CLASS_NAMES = Constants.NEW_SECTION_CLASS_NAMES + ' aem-Grid-newComponent';
 
 @Component({
@@ -50,5 +51,33 @@ export class AEMResponsiveGridComponent extends AEMContainerComponent {
    */
   get placeholdePath() {
     return this.path && this.path + "/*";
+  }
+
+    /**
+   * Returns the gridClasses for the cqModel of the container
+   */
+  get gridClasses() {
+    return this.cqModel && (this.cqModel["gridClassNames"] || '');
+  }
+
+    /**
+   * Returns the class names of the container based on the data from the cqModel
+   */
+  get classNames() {
+    if (!this.cqModel) {
+        return '';
+    }
+
+    let classNames = CONTAINER_CLASS_NAMES;
+
+    if (this.cqModel.classNames) {
+        classNames += ' ' + (this.cqModel.classNames || '') ;
+    }
+
+    if (this.cqModel.columnClassNames) {
+        classNames += ' ' + (this.cqModel.columnClassNames || '');
+    }
+
+    return classNames;
   }
 }
