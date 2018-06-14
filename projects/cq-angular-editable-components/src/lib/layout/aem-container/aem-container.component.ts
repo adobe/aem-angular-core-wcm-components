@@ -18,12 +18,9 @@
 import { Component, Input } from '@angular/core';
 import { Constants } from '../constants';
 
-const CONTAINER_CLASS_NAMES = 'aem-container';
-
 @Component({
   selector: 'aem-container',
   host: {
-      '[class]': 'classNames',
       '[attr.data-cq-data-path]':'path'
   },
   templateUrl: './aem-container.component.html'
@@ -67,33 +64,5 @@ export class AEMContainerComponent {
   get itemsOrder() {
     return this.cqModel && this.cqModel[Constants.ITEMS_ORDER_PROP];
   }
-
-  /**
-   * Returns the gridClasses for the cqModel of the container
-   */
-  get gridClasses() {
-    return this.cqModel && (this.cqModel["gridClassNames"] || '');
-  }
-
-  /**
-   * Returns the class names of the container based on the data from the cqModel
-   */
-  get classNames() {
-      if (!this.cqModel) {
-          return '';
-      }
-
-      let classNames = CONTAINER_CLASS_NAMES;
-
-      if (this.cqModel.classNames) {
-          classNames += ' ' + (this.cqModel.classNames || '') ;
-      }
-
-      if (this.cqModel.columnClassNames) {
-          classNames += ' ' + (this.cqModel.columnClassNames || '');
-      }
-
-      return classNames;
-    }
 }
 
