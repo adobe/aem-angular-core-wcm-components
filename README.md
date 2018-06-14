@@ -32,7 +32,27 @@ This command will run `npm --no-git-tag-version version 0.0.1` in the library fo
 The `-f` option is needed because the first npm version will force the git environment to be dirty.
 
 ### Publishing
-In order to publish you will need to go to the library folder and run `npm publish` after releasing the package.
+In order to publish you will need to build the library:
+```
+ng build cq-angular-editable-components
+```
+And then publish the built artifacts
+```
+cd dist/cq-angular-editable-components
+npm publish
+```
+
+We have also added a npm script that can run the above commands together:
+```
+npm run publish-lib
+```
+
+Please not that any argument added to this script will go to the last command.  In this case the last command is `npm publish`.  
+Therefore you can add all the arguments `npm publish` takes to `npm run publish-lib`.  
+Example, publishing a public package:
+```
+npm run publish-lib -- --private=false
+```
 
 ## Running unit tests
 

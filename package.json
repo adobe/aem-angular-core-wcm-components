@@ -9,7 +9,7 @@
     "test-debug": "ng test --watch=true",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "trans-version": "cd projects/cq-angular-editable-components && npm version --transver && cd - && npm version --transver",
+    "publish-lib": "ng build cq-angular-editable-components && cd dist/cq-angular-editable-components && npm publish",
     "version": "git add -A",
     "postversion": "git push && git push --tags"
   },
