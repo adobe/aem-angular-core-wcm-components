@@ -67,8 +67,7 @@ describe('AEMContainerComponent', () => {
     component.cqModel = layout;
     fixture.detectChanges();
     let element = fixture.nativeElement;
-    expect(element.classList.contains('aem-container')).toBeTruthy();
-    element = checkComponent(element.firstElementChild.firstElementChild,
+    element = checkComponent(element.firstElementChild,
       "aem-responsivegrid", "root", "aem-container");
 
     element = checkComponent(element.firstElementChild.firstElementChild, "aem-responsivegrid",

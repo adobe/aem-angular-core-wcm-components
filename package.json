@@ -11,7 +11,10 @@
     "e2e": "ng e2e",
     "publish-lib": "ng build cq-angular-editable-components && cd dist/cq-angular-editable-components && npm publish",
     "version": "git add -A",
-    "postversion": "git push && git push --tags"
+    "preversion": "ng build cq-angular-editable-components && ng test cq-angular-editable-components && npm run docs && node update-doc.js && npm run readme && rm DOCUMENTATION.md && cp README.md dist/cq-angular-editable-components/",
+    "postversion": "git push && git push --tags",
+    "docs": "node_modules/.bin/typedoc --theme markdown --options typedoc.js projects/cq-angular-editable-components/src/lib --mode file --target ES6 --mdHideSources",
+    "readme": "node_modules/markdown-include/bin/cli.js markdown-include.config.json"
   },
   "author": "Adobe Systems Inc.",
   "license": "Apache-2.0",
@@ -57,6 +60,9 @@
     "tsickle": ">=0.25.5",
     "tslib": "^1.7.1",
     "tslint": "~5.9.1",
+    "typedoc": "^0.11.1",
+    "typedoc-plugin-markdown": "^1.1.13",
+    "markdown-include": "^0.4.3",
     "typescript": "~2.7.2"
   }
 }
