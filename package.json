@@ -10,8 +10,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "publish-lib": "ng build cq-angular-editable-components && cd dist/cq-angular-editable-components && npm publish",
-    "version": "git add -A",
-    "preversion": "ng build cq-angular-editable-components && ng test cq-angular-editable-components && npm run docs && node update-doc.js && npm run readme && rm DOCUMENTATION.md && cp README.md dist/cq-angular-editable-components/",
+    "version": "npm run docs && node update-doc.js && npm run readme && rm DOCUMENTATION.md && cp README.md dist/cq-angular-editable-components/ && git add -A",
+    "preversion": "ng build cq-angular-editable-components && ng test cq-angular-editable-components",
     "postversion": "git push && git push --tags",
     "docs": "node_modules/.bin/typedoc --theme markdown --options typedoc.js projects/cq-angular-editable-components/src/lib --mode file --target ES6 --mdHideSources",
     "readme": "node_modules/markdown-include/bin/cli.js markdown-include.config.json"
@@ -36,8 +36,8 @@
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
-    "@adobe/cq-spa-component-mapping": "0.0.15-beta.1",
-    "@adobe/cq-spa-page-model-manager": "0.0.23-beta.1",
+    "@adobe/cq-spa-component-mapping": "0.0.16",
+    "@adobe/cq-spa-page-model-manager": "0.0.24",
     "@angular-devkit/build-angular": "~0.6.1",
     "@angular-devkit/build-ng-packagr": "~0.6.6",
     "@angular/cli": "~6.0.1",
