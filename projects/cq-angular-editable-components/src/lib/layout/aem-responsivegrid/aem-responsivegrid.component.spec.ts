@@ -54,7 +54,12 @@ describe('AEMResponsivegrid', () => {
 
   it('should create placeholder', () => {
     let layout = require("../../test/data/layout.json");
-    component.cqModel = layout;
+    component.items = layout[Constants.ITEMS_PROP];
+    component.itemsOrder = layout[Constants.ITEMS_ORDER_PROP];
+    component.gridClassNames = layout.gridClassNames;
+    component.columnClassNames = layout.columnClassNames;
+    component.classNames = layout.classNames;
+
     fixture.detectChanges();
     let element = fixture.nativeElement;
 

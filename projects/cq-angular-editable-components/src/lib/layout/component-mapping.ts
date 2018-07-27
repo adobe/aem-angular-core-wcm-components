@@ -18,7 +18,7 @@
 import { ComponentMapping as SPAComponentMapping } from "@adobe/cq-spa-component-mapping";
 
 export class ComponentMappingWithConfig {
-  private editConfigMap:WeakMap<any, any>  = new WeakMap();
+  private editConfigMap = {}
 
   constructor(private spaMapping:SPAComponentMapping) {}
 
@@ -26,7 +26,7 @@ export class ComponentMappingWithConfig {
       let innerClass = clazz;
 
       if (editConfig) {
-          this.editConfigMap.set(clazz, editConfig);
+          this.editConfigMap[resourceTypes] = editConfig;
       }
       this.spaMapping.map(resourceTypes, innerClass);
   };
@@ -35,8 +35,8 @@ export class ComponentMappingWithConfig {
     return this.spaMapping.get(resourceType);
   }
 
-  getEditConfig(component) {
-    return this.editConfigMap.get(component);
+  getEditConfig(type) {
+    return this.editConfigMap[type];
   }
 }
 

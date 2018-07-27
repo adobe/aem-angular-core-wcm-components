@@ -30,8 +30,8 @@ describe("Component Mapping", () => {
 
     expect(ComponentMapping.get("component1")).toBe(Component1);
     expect(ComponentMapping.get("component2")).toBe(Component2);
-    expect(ComponentMapping.getEditConfig(ComponentMapping.get("component1"))).toBe(editConfig1);
-    expect(ComponentMapping.getEditConfig(ComponentMapping.get("component2"))).toBe(editConfig2);
+    expect(ComponentMapping.getEditConfig("component1")).toBe(editConfig1);
+    expect(ComponentMapping.getEditConfig("component2")).toBe(editConfig2);
 
   });
 });

@@ -64,7 +64,10 @@ describe('AEMContainerComponent', () => {
 
   it('generates the correct layout', () => {
     let layout = require("../../test/data/layout.json");
-    component.cqModel = layout;
+    component.items = layout[Constants.ITEMS_PROP];
+    component.itemsOrder = layout[Constants.ITEMS_ORDER_PROP];
+    component.pagePath = layout[Constants.PATH_PROP];
+
     fixture.detectChanges();
     let element = fixture.nativeElement;
     element = checkComponent(element.firstElementChild,
@@ -97,7 +100,10 @@ describe('AEMContainerComponent', () => {
 
   it("updates the title", () => {
     let layout = require("../../test/data/layout.json");
-    component.cqModel = layout;
+    component.items = layout[Constants.ITEMS_PROP];
+    component.itemsOrder = layout[Constants.ITEMS_ORDER_PROP];
+    component.pagePath = layout[Constants.PATH_PROP];
+
     fixture.detectChanges();
     let element = fixture.nativeElement.querySelector('test-comp1[data-cq-data-path="root/responsivegrid/component1"]');
     expect(element).toBeDefined();
@@ -113,5 +119,5 @@ describe('AEMContainerComponent', () => {
     component1.title = changedTitle;
     fixture.detectChanges();
     expect(element.getAttribute("data-title")).toBe(changedTitle);
-  })
+  });
 });

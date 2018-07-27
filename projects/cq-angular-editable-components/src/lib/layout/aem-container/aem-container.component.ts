@@ -26,7 +26,8 @@ import { Constants } from '../constants';
   templateUrl: './aem-container.component.html'
 })
 export class AEMContainerComponent {
-  @Input() cqModel:any;
+  @Input() items;
+  @Input() itemsOrder;
   @Input() path:string = '';
   @Input() pagePath:string = '';
   @Input() modelName:string = '';
@@ -43,26 +44,12 @@ export class AEMContainerComponent {
   }
 
   /**
-   * Return the page path from the data, defaulting to the provided pagePath to the container.
-   */
-  getPagePath() {
-    return this.cqModel[Constants.PATH_PROP] || this.pagePath;
-  }
-
-  /**
    * Returns the item data from the cqModel
    *
    * @param itemKey - the itemKey to look for in the items.
    */
   getItem(itemKey) {
-    return this.cqModel[Constants.ITEMS_PROP][itemKey];
-  }
-
-  /**
-   * Returns the itemsOrder array from the cqModel
-   */
-  get itemsOrder() {
-    return this.cqModel && this.cqModel[Constants.ITEMS_ORDER_PROP];
+    return this.items && this.items[itemKey];
   }
 }
 

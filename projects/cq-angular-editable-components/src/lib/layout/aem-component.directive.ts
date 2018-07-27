@@ -80,7 +80,7 @@ export class AEMComponentDirective {
           this.cqModel = model;
           this.updateComponentData();
           this.setupElement();
-          let editConfig = ComponentMapping.getEditConfig(ComponentMapping.get(this.type));
+          let editConfig = ComponentMapping.getEditConfig(this.type);
           if (editConfig) {
             this.setupPlaceholder(editConfig);
           }
@@ -109,7 +109,7 @@ export class AEMComponentDirective {
 
       this.updateComponentData();
       this.setupElement();
-      let editConfig = ComponentMapping.getEditConfig(componentDefinition);
+      let editConfig = ComponentMapping.getEditConfig(this.type);
       if (editConfig && Utils.isInEditor) {
         this.setupPlaceholder(editConfig);
       }
@@ -122,11 +122,22 @@ export class AEMComponentDirective {
    * Updates the data of the component based the data of the directive
    */
   private updateComponentData() {
-    this._component.instance.cqModel = this.cqModel;
+    let keys = Object.getOwnPropertyNames(this.cqModel);
+    keys.forEach((key) => {
+      if (key !== ":type") {
+        let propKey = key.startsWith(":") ? key.substr(1) : key;
+        // we need to wrap so we get the underlying data.
+        // this way data-binding will work.
+        Object.defineProperty(this._component.instance, propKey, {
+          get: () => { return this.cqModel[key]; },
+          set: (value) => { this.cqModel[key] = value}
+        });
+      }
+    });
+
     this._component.instance.path = this.path;
     this._component.instance.pagePath = this.pagePath;
     this._component.instance.modelName = this.modelName;
-
   }
 
   /**

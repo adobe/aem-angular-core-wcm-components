@@ -15,7 +15,7 @@
  * from Adobe Systems Incorporated.
  */
 
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AEMContainerComponent } from '../aem-container/aem-container.component';
 import { Utils } from "../utils";
 import { Constants } from "../constants";
@@ -26,12 +26,17 @@ const PLACEHOLDER_CLASS_NAMES = Constants.NEW_SECTION_CLASS_NAMES + ' aem-Grid-n
 @Component({
   selector: 'aem-responsivegrid',
   host: {
-      '[class]': 'classNames',
+      '[class]': 'hostClasses',
       '[attr.data-cq-data-path]':'path'
   },
   templateUrl: './aem-responsivegrid.component.html',
 })
 export class AEMResponsiveGridComponent extends AEMContainerComponent {
+  @Input() gridClassNames: string;
+  @Input() columnClassNames: string;
+  @Input() classNames: string;
+  @Input() columnCount: number;
+
   /**
    * Returns weather of not we are in the editor
    */
@@ -54,28 +59,17 @@ export class AEMResponsiveGridComponent extends AEMContainerComponent {
   }
 
     /**
-   * Returns the gridClasses for the cqModel of the responsive grid
-   */
-  get gridClasses() {
-    return this.cqModel && (this.cqModel["gridClassNames"] || '');
-  }
-
-    /**
    * Returns the class names of the responsive grid based on the data from the cqModel
    */
-  get classNames() {
-    if (!this.cqModel) {
-        return '';
-    }
-
+  get hostClasses() {
     let classNames = CONTAINER_CLASS_NAMES;
 
-    if (this.cqModel.classNames) {
-        classNames += ' ' + (this.cqModel.classNames || '') ;
+    if (this.classNames) {
+        classNames += ' ' + (this.classNames || '') ;
     }
 
-    if (this.cqModel.columnClassNames) {
-        classNames += ' ' + (this.cqModel.columnClassNames || '');
+    if (this.columnClassNames) {
+        classNames += ' ' + (this.columnClassNames || '');
     }
 
     return classNames;
