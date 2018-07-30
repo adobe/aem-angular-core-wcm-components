@@ -21,6 +21,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
 
   declarations: [AEMContainerComponent, AEMResponsiveGridComponent, AEMComponentDirective],
-  exports: [AEMContainerComponent, AEMResponsiveGridComponent, AEMComponentDirective]
+  exports: [AEMContainerComponent, AEMResponsiveGridComponent, AEMComponentDirective],
+  entryComponents: [AEMContainerComponent, AEMResponsiveGridComponent]
 })
 export class SpaAngularEditableComponentsModule { }

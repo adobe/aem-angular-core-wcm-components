@@ -181,10 +181,10 @@ export class AEMComponentDirective {
 
     if (this.usePlaceholder(editConfig)) {
         this.renderer.addClass(this._component.location.nativeElement, PLACEHOLDER_CLASS_NAME);
-        this._component.location.nativeElement.dataset.emptytext = editConfig.emptyLabel;
+        this.renderer.setAttribute(this._component.location.nativeElement, "data-emptytext", editConfig.emptyLabel);
     } else {
         this.renderer.removeClass(this._component.location.nativeElement, PLACEHOLDER_CLASS_NAME);
-        delete this._component.location.nativeElement.dataset.emptytext;
+        this.renderer.removeAttribute(this._component.location.nativeElement, "data-emptytext");
     }
   }
 
