@@ -30,6 +30,17 @@ const EDIT_MODE:string = 'edit';
  * The editor is in preview mode
  */
 const PREVIEW_MODE:string = 'preview';
+/**
+ * Returns if we are in the browser context or not by checking for the
+ * existance of the window object
+ */
+function isBrowser() {
+    try {
+        return typeof window !== 'undefined';
+    }catch(e){
+        return false;
+    }
+}
 
 /**
  * Returns the current WCM mode
@@ -39,8 +50,10 @@ const PREVIEW_MODE:string = 'preview';
  *
  */
 function getWCMMode() {
-    const wcmModeMeta:any = document.head.querySelector(WCM_MODE_META_SELECTOR);
-    return wcmModeMeta && wcmModeMeta.content;
+    if (isBrowser()) {
+      const wcmModeMeta:any = document.head.querySelector(WCM_MODE_META_SELECTOR);
+      return wcmModeMeta && wcmModeMeta.content;
+    }
 }
 
 /**
