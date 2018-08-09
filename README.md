@@ -235,20 +235,16 @@ ___
 
 #### Properties
 
-* [cqModel](#aemcontainercomponent.md_cqmodel)
+* [items](#aemcontainercomponent.md_items)
+* [itemsOrder](#aemcontainercomponent.md_itemsorder)
 * [modelName](#aemcontainercomponent.md_modelname)
 * [pagePath](#aemcontainercomponent.md_pagepath)
 * [path](#aemcontainercomponent.md_path)
-
-#### Accessors
-
-* [itemsOrder](#aemcontainercomponent.md_itemsorder)
 
 #### Methods
 
 * [getDataPath](#aemcontainercomponent.md_getdatapath)
 * [getItem](#aemcontainercomponent.md_getitem)
-* [getPagePath](#aemcontainercomponent.md_getpagepath)
 
 ---
 
@@ -266,11 +262,18 @@ ___
 
 ### Properties
 
-<a id="aemcontainercomponent.md_cqmodel"></a>
+<a id="aemcontainercomponent.md_items"></a>
 
-####  cqModel
+####  items
 
-**● cqModel**: *`any`*
+**● items**: *`any`*
+
+___
+<a id="aemcontainercomponent.md_itemsorder"></a>
+
+####  itemsOrder
+
+**● itemsOrder**: *`any`*
 
 ___
 <a id="aemcontainercomponent.md_modelname"></a>
@@ -292,20 +295,6 @@ ___
 ####  path
 
 **● path**: *`string`* = ""
-
-___
-
-### Accessors
-
-<a id="aemcontainercomponent.md_itemsorder"></a>
-
-####  itemsOrder
-
-getitemsOrder(): `any`
-
-Returns the itemsOrder array from the cqModel
-
-**Returns:** `any`
 
 ___
 
@@ -345,17 +334,6 @@ Returns the item data from the cqModel
 **Returns:** `any`
 
 ___
-<a id="aemcontainercomponent.md_getpagepath"></a>
-
-####  getPagePath
-
-▸ **getPagePath**(): `any`
-
-Return the page path from the data, defaulting to the provided pagePath to the container.
-
-**Returns:** `any`
-
-___
 
 
 <a id="aemresponsivegridcomponent.md"></a>
@@ -376,17 +354,20 @@ ___
 
 #### Properties
 
-* [cqModel](#aemresponsivegridcomponent.md_cqmodel)
+* [classNames](#aemresponsivegridcomponent.md_classnames)
+* [columnClassNames](#aemresponsivegridcomponent.md_columnclassnames)
+* [columnCount](#aemresponsivegridcomponent.md_columncount)
+* [gridClassNames](#aemresponsivegridcomponent.md_gridclassnames)
+* [items](#aemresponsivegridcomponent.md_items)
+* [itemsOrder](#aemresponsivegridcomponent.md_itemsorder)
 * [modelName](#aemresponsivegridcomponent.md_modelname)
 * [pagePath](#aemresponsivegridcomponent.md_pagepath)
 * [path](#aemresponsivegridcomponent.md_path)
 
 #### Accessors
 
-* [classNames](#aemresponsivegridcomponent.md_classnames)
-* [gridClasses](#aemresponsivegridcomponent.md_gridclasses)
+* [hostClasses](#aemresponsivegridcomponent.md_hostclasses)
 * [isInEditMode](#aemresponsivegridcomponent.md_isineditmode)
-* [itemsOrder](#aemresponsivegridcomponent.md_itemsorder)
 * [placeholdePath](#aemresponsivegridcomponent.md_placeholdepath)
 * [placeholderClass](#aemresponsivegridcomponent.md_placeholderclass)
 
@@ -394,7 +375,6 @@ ___
 
 * [getDataPath](#aemresponsivegridcomponent.md_getdatapath)
 * [getItem](#aemresponsivegridcomponent.md_getitem)
-* [getPagePath](#aemresponsivegridcomponent.md_getpagepath)
 
 ---
 
@@ -412,11 +392,46 @@ ___
 
 ### Properties
 
-<a id="aemresponsivegridcomponent.md_cqmodel"></a>
+<a id="aemresponsivegridcomponent.md_classnames"></a>
 
-####  cqModel
+####  classNames
 
-**● cqModel**: *`any`*
+**● classNames**: *`string`*
+
+___
+<a id="aemresponsivegridcomponent.md_columnclassnames"></a>
+
+####  columnClassNames
+
+**● columnClassNames**: *`string`*
+
+___
+<a id="aemresponsivegridcomponent.md_columncount"></a>
+
+####  columnCount
+
+**● columnCount**: *`number`*
+
+___
+<a id="aemresponsivegridcomponent.md_gridclassnames"></a>
+
+####  gridClassNames
+
+**● gridClassNames**: *`string`*
+
+___
+<a id="aemresponsivegridcomponent.md_items"></a>
+
+####  items
+
+**● items**: *`any`*
+
+___
+<a id="aemresponsivegridcomponent.md_itemsorder"></a>
+
+####  itemsOrder
+
+**● itemsOrder**: *`any`*
 
 ___
 <a id="aemresponsivegridcomponent.md_modelname"></a>
@@ -443,26 +458,15 @@ ___
 
 ### Accessors
 
-<a id="aemresponsivegridcomponent.md_classnames"></a>
+<a id="aemresponsivegridcomponent.md_hostclasses"></a>
 
-####  classNames
+####  hostClasses
 
-getclassNames(): `string`
+gethostClasses(): `string`
 
 Returns the class names of the responsive grid based on the data from the cqModel
 
 **Returns:** `string`
-
-___
-<a id="aemresponsivegridcomponent.md_gridclasses"></a>
-
-####  gridClasses
-
-getgridClasses(): `any`
-
-Returns the gridClasses for the cqModel of the responsive grid
-
-**Returns:** `any`
 
 ___
 <a id="aemresponsivegridcomponent.md_isineditmode"></a>
@@ -474,17 +478,6 @@ getisInEditMode(): `boolean`
 Returns weather of not we are in the editor
 
 **Returns:** `boolean`
-
-___
-<a id="aemresponsivegridcomponent.md_itemsorder"></a>
-
-####  itemsOrder
-
-getitemsOrder(): `any`
-
-Returns the itemsOrder array from the cqModel
-
-**Returns:** `any`
 
 ___
 <a id="aemresponsivegridcomponent.md_placeholdepath"></a>
@@ -542,17 +535,6 @@ Returns the item data from the cqModel
 | Param | Type | Description |
 | ------ | ------ | ------ |
 | itemKey | `any` |  the itemKey to look for in the items. |
-
-**Returns:** `any`
-
-___
-<a id="aemresponsivegridcomponent.md_getpagepath"></a>
-
-####  getPagePath
-
-▸ **getPagePath**(): `any`
-
-Return the page path from the data, defaulting to the provided pagePath to the container.
 
 **Returns:** `any`
 
@@ -620,13 +602,13 @@ ___
 
 ####  getEditConfig
 
-▸ **getEditConfig**(component: *`any`*): `any`
+▸ **getEditConfig**(type: *`any`*): `any`
 
 **Parameters:**
 
 | Param | Type |
 | ------ | ------ |
-| component | `any` |
+| type | `any` |
 
 **Returns:** `any`
 
@@ -768,4 +750,8 @@ The [technical documentation](https://www.adobe.com/go/aem6_4_docs_spa_en) is al
 
 ## Changelog 
 
+### 0.0.7-beta.1 - 27 July 2018
+
+* **BREAKING CHANGE** Properties are no longer bundled in cqModel, we inject all properties directly on the components
+  * Implications, all components should now remove cqModel property and use directly the api properties that they want to consume.
 
