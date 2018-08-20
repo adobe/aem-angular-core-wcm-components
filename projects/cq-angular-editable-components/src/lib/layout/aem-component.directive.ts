@@ -26,8 +26,6 @@ import { Utils } from "./utils";
 
 
 const PLACEHOLDER_CLASS_NAME = 'cq-placeholder';
-const DRAG_DROP_REGEX = /cq-dd-([^ ])+/g;
-const DRAG_DROP_CLASS_NAME = 'cq-dd-';
 
 @Directive({
   selector: '[aemComponent]'
@@ -172,13 +170,6 @@ export class AEMComponentDirective {
    * @param editConfig - the editConfig, which will dictate the classes to be added on.
    */
   private setupPlaceholder(editConfig) {
-    // Remove previous drag and drop class names
-    this.renderer.removeClass(this._component.location.nativeElement, DRAG_DROP_CLASS_NAME + editConfig.dragDropName);
-
-    if (editConfig.dragDropName && editConfig.dragDropName.trim().length > 0) {
-        this.renderer.addClass(this._component.location.nativeElement, DRAG_DROP_CLASS_NAME + editConfig.dragDropName);
-    }
-
     if (this.usePlaceholder(editConfig)) {
         this.renderer.addClass(this._component.location.nativeElement, PLACEHOLDER_CLASS_NAME);
         this.renderer.setAttribute(this._component.location.nativeElement, "data-emptytext", editConfig.emptyLabel);

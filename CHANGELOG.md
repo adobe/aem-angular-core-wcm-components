@@ -1,3 +1,5 @@
+* **BREAKING CHANGE** 'dragDropName' support removed for EditConfig in ComponentMapping
+
 ### 0.0.7-beta.2 - 1 August 2018
 
 * Server-side rendering preparation, fixing usage of native setAttribute.
