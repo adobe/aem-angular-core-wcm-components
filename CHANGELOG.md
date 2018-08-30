@@ -1,3 +1,11 @@
+## LATEST
+
+* Property prefix rename (colon to cqCamelCase)
+   * `:items` to `cqItems`
+   * `:itemsOrder` to `cqItemsOrder`
+   * `:type` to `cqType`
+   * `:hierarchyType` to `cqHierarchyType`
+
 * **BREAKING CHANGE** 'dragDropName' support removed for EditConfig in ComponentMapping
 
 ### 0.0.7-beta.2 - 1 August 2018

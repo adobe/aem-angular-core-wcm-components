@@ -1,57 +1,57 @@
 {
-  ":items":
+  "cqItems":
   {
     "root":
     {
       "gridClassNames": "aem-Grid/root",
       "columnCount": 12,
-      ":items":
+      "cqItems":
       {
         "responsivegrid":
         {
           "columnClassNames": "aem-GridColumn/root/responsivegrid",
           "gridClassNames": "aem-Grid/root/responsivegrid",
           "columnCount": 12,
-          ":items":
+          "cqItems":
           {
             "component1":
             {
               "columnClassNames": "aem-GridColumn/root/responsivegrid/component1",
               "title": "Component1",
-              ":type": "app/components/comp1"
+              "cqType": "app/components/comp1"
             },
             "component2":
             {
               "columnClassNames": "aem-GridColumn/root/responsivegrid/component2",
               "title": "Component2",
-              ":type": "app/components/comp2"
+              "cqType": "app/components/comp2"
             },
             "component3":
             {
               "columnClassNames": "aem-GridColumn/root/responsivegrid/component3",
               "title": "Component3",
-              ":type": "app/components/comp3"
+              "cqType": "app/components/comp3"
             },
             "component4":
             {
               "columnClassNames": "aem-GridColumn/root/responsivegrid/component4",
               "title": "Component4",
-              ":type": "app/components/comp2"
+              "cqType": "app/components/comp2"
             },
             "component5":
             {
               "columnClassNames": "aem-GridColumn/root/responsivegrid/component5",
               "title": "Component5",
-              ":type": "app/components/comp1"
+              "cqType": "app/components/comp1"
             }
           },
-          ":itemsOrder": ["component1", "component3", "component5", "component2", "component4"],
-          ":type": "wcm/foundation/components/responsivegrid"
+          "cqItemsOrder": ["component1", "component3", "component5", "component2", "component4"],
+          "cqType": "wcm/foundation/components/responsivegrid"
         }
       },
-      ":itemsOrder": ["responsivegrid"],
-      ":type": "wcm/foundation/components/responsivegrid"
+      "cqItemsOrder": ["responsivegrid"],
+      "cqType": "wcm/foundation/components/responsivegrid"
     }
   },
-  ":itemsOrder": ["root"]
+  "cqItemsOrder": ["root"]
 }

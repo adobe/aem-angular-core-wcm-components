@@ -56,7 +56,7 @@ export class AEMComponentDirective {
    * Returns the type of the cqModel if exists.
    */
   get type() {
-    return this.cqModel && this.cqModel[":type"];
+    return this.cqModel && this.cqModel.cqType;
   }
 
   /**
@@ -122,15 +122,12 @@ export class AEMComponentDirective {
   private updateComponentData() {
     let keys = Object.getOwnPropertyNames(this.cqModel);
     keys.forEach((key) => {
-      if (key !== ":type") {
-        let propKey = key.startsWith(":") ? key.substr(1) : key;
-        // we need to wrap so we get the underlying data.
-        // this way data-binding will work.
-        Object.defineProperty(this._component.instance, propKey, {
-          get: () => { return this.cqModel[key]; },
-          set: (value) => { this.cqModel[key] = value}
-        });
-      }
+      // we need to wrap so we get the underlying data.
+      // this way data-binding will work.
+      Object.defineProperty(this._component.instance, key, {
+        get: () => { return this.cqModel[key]; },
+        set: (value) => { this.cqModel[key] = value}
+      });
     });
 
     this._component.instance.path = this.path;
