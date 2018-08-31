@@ -69,7 +69,7 @@ describe('AEMComponentDirective', () => {
     let componentData =  {
       "attr1": "Some value",
       "attr2": "Another value",
-      "cqType": "directive/comp"
+      ":type": "directive/comp"
     };
 
     component.data = componentData;
@@ -84,7 +84,7 @@ describe('AEMComponentDirective', () => {
     let componentData =  {
       "attr1": "Some value",
       "attr2": "Another value",
-      "cqType": "directive/comp"
+      ":type": "directive/comp"
     };
 
     component.data = componentData;

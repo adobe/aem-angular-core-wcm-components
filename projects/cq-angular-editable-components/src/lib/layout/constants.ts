@@ -55,10 +55,10 @@ export const Constants = {
      * Path of the resource in the model
      *
      */
-    DATA_PATH_PROP: PMConstants.PATH_PROP,
+    DATA_PATH_PROP: ':dataPath',
 
     /**
      * Hierarchical type of the item
      */
-    HIERARCHY_TYPE_PROP: PMConstants.HIERARCHY_TYPE_PROP
+    HIERARCHY_TYPE_PROP: ':hierarchyType'
 };
