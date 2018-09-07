@@ -1,4 +1,4 @@
 <ng-container *ngFor="let itemKey of cqItemsOrder">
   <ng-container [aemComponent] [cqItem]='getItem(itemKey)' [cqPath]='getDataPath(itemKey)' [itemName]='itemKey'></ng-container>
-  <div *ngIf="isInEditMode" [attr.data-cq-data-path]="placeholderPath" [class]="getPlaceholderClassNames"></div>
+  <div *ngIf="isInEditMode" [attr.data-cq-data-path]="placeholderPath" [class]="getPlaceholderClassNames()"></div>
 </ng-container>
