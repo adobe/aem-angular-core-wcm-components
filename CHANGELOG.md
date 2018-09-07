@@ -2,6 +2,8 @@
 
 ### 0.0.7-beta.2 - 1 August 2018
 
+* **BREAKING CHANGE** Refactoring of the Container, ResponsiveGrid and Placeholders to improve extensibility
+* **BREAKING CHANGE** Relocation of the columnClassNames field from the ResponsiveColumn to the ResponsiveGrid to respect the latest model representation, the field type changed 
 * Server-side rendering preparation, fixing usage of native setAttribute.
 
 ### 0.0.7-beta.1 - 27 July 2018

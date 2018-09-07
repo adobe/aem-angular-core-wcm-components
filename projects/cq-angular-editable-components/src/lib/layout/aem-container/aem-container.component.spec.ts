@@ -60,7 +60,7 @@ describe('AEMContainerComponent', () => {
       expect(element.getAttribute('data-title')).toEqual(content);
     }
     return element;
-  }
+  };
 
   it('generates the correct layout', () => {
     let layout = require("../../test/data/layout.json");
@@ -115,9 +115,25 @@ describe('AEMContainerComponent', () => {
     fixture.detectChanges();
     expect(element.getAttribute("data-title")).toBe(changedTitle);
 
-    changedTitle = "Some other one"
+    changedTitle = "Some other one";
     component1.title = changedTitle;
     fixture.detectChanges();
     expect(element.getAttribute("data-title")).toBe(changedTitle);
+  });
+
+  it('should create placeholder', () => {
+    let layout = require("../../test/data/layout.json");
+    component.items = layout[Constants.ITEMS_PROP];
+    component.itemsOrder = layout[Constants.ITEMS_ORDER_PROP];
+    component.classNames = layout.classNames;
+
+    fixture.detectChanges();
+    let element = fixture.nativeElement;
+
+    element = element.firstElementChild.firstElementChild;
+    expect(element.querySelector('div[data-cq-data-path="root/*"][class="new section"]')).toBeDefined();
+
+    element = element.firstElementChild.firstElementChild;
+    expect(element.querySelector('div[data-cq-data-path="root/responsivegrid/*"][class="new section"]')).toBeDefined();
   });
 });

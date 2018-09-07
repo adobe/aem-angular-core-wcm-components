@@ -17,61 +17,66 @@
 
 import { Component, Input } from '@angular/core';
 import { AEMContainerComponent } from '../aem-container/aem-container.component';
-import { Utils } from "../utils";
-import { Constants } from "../constants";
+import { Constants } from '../constants'
 
-const CONTAINER_CLASS_NAMES = 'aem-container';
-const PLACEHOLDER_CLASS_NAMES = Constants.NEW_SECTION_CLASS_NAMES + ' aem-Grid-newComponent';
+const PLACEHOLDER_CLASS_NAMES = ' aem-Grid-newComponent';
+const RESPONSIVE_GRID_TYPE = "wcm/foundation/components/responsivegrid";
 
 @Component({
   selector: 'aem-responsivegrid',
   host: {
       '[class]': 'hostClasses',
-      '[attr.data-cq-data-path]':'path'
+      '[attr.data-cq-data-path]':'cqPath'
   },
   templateUrl: './aem-responsivegrid.component.html',
 })
 export class AEMResponsiveGridComponent extends AEMContainerComponent {
   @Input() gridClassNames: string;
-  @Input() columnClassNames: string;
+  @Input() columnClassNames: Object;
   @Input() classNames: string;
   @Input() columnCount: number;
 
   /**
-   * Returns weather of not we are in the editor
+   * Returns the column class names for a given column
+   * @param itemKey - The key of the column item
    */
-  get isInEditMode() {
-    return Utils.isInEditor();
+  getColumnClassNames(itemKey:string) {
+    return this.columnClassNames && this.columnClassNames[itemKey];
   }
 
   /**
    * Returns the placeholder classes
    */
-  get placeholderClass() {
-    return PLACEHOLDER_CLASS_NAMES;
+  getPlaceholderClassNames() {
+    return super.getPlaceholderClassNames() + PLACEHOLDER_CLASS_NAMES;
   }
 
   /**
-   * Returns the placeholder path
-   */
-  get placeholdePath() {
-    return this.path && this.path + "/*";
-  }
-
-    /**
    * Returns the class names of the responsive grid based on the data from the cqModel
    */
-  get hostClasses() {
-    let classNames = CONTAINER_CLASS_NAMES;
+  getHostClassNames() {
+    let classNames = super.getHostClassNames();
 
     if (this.classNames) {
         classNames += ' ' + (this.classNames || '') ;
     }
 
-    if (this.columnClassNames) {
-        classNames += ' ' + (this.columnClassNames || '');
+    return classNames + ' ' + this.gridClassNames;;
+  }
+
+  /**
+   * Returns the aggregated path of this container path and the provided path
+   *
+   * @param path - the provided path to aggregate with the container path
+   */
+  getAttrDataPath(path) {
+    let item = this.getItem(path);
+    if (item && item[Constants.TYPE_PROP] === RESPONSIVE_GRID_TYPE) {
+      // We don't want to add the path for the wrapper for a reponsivegrid
+      // The reponsivegrid adds the path on it's own
+      return null;
     }
 
-    return classNames;
+    return this.getDataPath(path);
   }
 }
