@@ -2,6 +2,6 @@
   <div [aemModelProvider] [cqItem]='getItem(itemKey)' [cqPath]='getDataPath(itemKey)' [itemName]='itemKey' [class]="getColumnClassNames(itemKey)" [attr.data-cq-data-path]='getAttrDataPath(itemKey)'>
   </div>
 </ng-container>
-<div *ngIf="isInEditMode" [attr.data-cq-data-path]="placeholderPath" [class]="getPlaceholderClassNames"></div>
+<div *ngIf="isInEditMode" [attr.data-cq-data-path]="placeholderPath" [class]="getPlaceholderClassNames()"></div>
 
 

@@ -50,7 +50,7 @@ export class AEMComponentDirective implements AfterViewInit {
   }
 
   /**
-   * Returns the type of the cqModel if exists.
+   * Returns the type of the cqItem if exists.
    */
   get type() {
     return this.cqItem && this.cqItem[Constants.TYPE_PROP];
@@ -95,6 +95,10 @@ export class AEMComponentDirective implements AfterViewInit {
 
     this._component.instance.cqPath = this.cqPath;
     this._component.instance.itemName = this.itemName;
+    let editConfig = ComponentMapping.getEditConfig(this.type);
+    if (editConfig && Utils.isInEditor) {
+      this.setupPlaceholder(editConfig);
+    }
   }
 
   /**
@@ -114,6 +118,30 @@ export class AEMComponentDirective implements AfterViewInit {
           this.renderer.setAttribute(this._component.location.nativeElement, key , this.itemAttrs[key])
         }
       });
+    }
+  }
+
+  /**
+   * Determines if the placeholder should e displayed.
+   *
+   * @param editConfig - the edit config of the directive
+   */
+  private usePlaceholder(editConfig) {
+    return editConfig.isEmpty && typeof editConfig.isEmpty === "function" && editConfig.isEmpty(this.cqItem);
+  }
+
+  /**
+   * Setups the placeholder of needed for the AEM editor
+   *
+   * @param editConfig - the editConfig, which will dictate the classes to be added on.
+   */
+  private setupPlaceholder(editConfig) {
+    if (this.usePlaceholder(editConfig)) {
+        this.renderer.addClass(this._component.location.nativeElement, PLACEHOLDER_CLASS_NAME);
+        this.renderer.setAttribute(this._component.location.nativeElement, "data-emptytext", editConfig.emptyLabel);
+    } else {
+        this.renderer.removeClass(this._component.location.nativeElement, PLACEHOLDER_CLASS_NAME);
+        this.renderer.removeAttribute(this._component.location.nativeElement, "data-emptytext");
     }
   }
 
