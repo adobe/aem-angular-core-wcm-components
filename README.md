@@ -182,7 +182,7 @@ ___
 
 gettype(): `any`
 
-Returns the type of the cqModel if exists.
+Returns the type of the cqItem if exists.
 
 **Returns:** `any`
 
