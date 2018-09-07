@@ -21,6 +21,8 @@ import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/t
 
 import { AEMContainerComponent } from '../aem-container/aem-container.component';
 import { AEMComponentDirective } from '../aem-component.directive';
+import { AEMModelProviderComponent } from '../aem-model-provider/aem-model-provider.component';
+import { ModelManager, ModelStore } from "@adobe/cq-spa-page-model-manager";
 import { AEMResponsiveGridComponent } from "./aem-responsivegrid.component";
 import { Component1 } from "../../test/test-comp1.component";
 import { Component2 } from "../../test/test-comp2.component";
@@ -32,8 +34,11 @@ describe('AEMResponsivegrid', () => {
   let fixture: ComponentFixture<AEMResponsiveGridComponent>;
 
   beforeEach(async(() => {
+    let modelStore = new ModelStore('rootPath', require("../../test/data/layout.json") );
+    ModelManager.initialize({ path: 'rootPath', modelStore });
     TestBed.configureTestingModule({
       declarations: [ AEMContainerComponent, AEMComponentDirective,
+      AEMModelProviderComponent,
       Component1,
       Component2,
       Component3,

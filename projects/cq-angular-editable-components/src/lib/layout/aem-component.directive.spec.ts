@@ -25,11 +25,10 @@ import { MapTo } from "./component-mapping";
 
 @Component({
   selector: 'test-component',
-  template: `<ng-container [columnClassNames]='columnClassNames' [aemComponent] [cqModel]='data'></ng-container>`
+  template: `<ng-container [aemComponent] [cqItem]='data'></ng-container>`
 })
 class AEMDirectiveTestComponent {
   @Input() data;
-  @Input() columnClassNames;
 }
 
 @Component({
@@ -107,19 +106,5 @@ describe('AEMComponentDirective', () => {
     fixture.detectChanges();
     expect(dynamicElement.getAttribute("attr1")).toEqual(componentData["attr1"]);
     expect(dynamicElement.getAttribute("attr2")).toEqual(componentData["attr2"]);
-  });
-
-  it("correctly adds the classes", () => {
-    let componentData =  {
-      ":type": "directive/comp"
-    };
-
-    component.data = componentData;
-    component.columnClassNames = "directive-class";
-    fixture.detectChanges();
-    let element = fixture.nativeElement;
-    let dynamicElement = element.firstElementChild;
-    expect(dynamicElement.getAttribute("class")).toContain("directive-class");
-    expect(dynamicElement.getAttribute("class")).toContain("component-class");
   });
 });

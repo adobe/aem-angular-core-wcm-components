@@ -1,3 +1,10 @@
+### Unreleased
+* Adapting to the new PageModelManager API
+* Refactoring the Container to be independent of the ModelManager. This is achieved by refactoring the aem-directive to only be in charge of creating the dynamic components. This way consumers can add their own logic to update the model, such as from a store.
+* **BREAKING CHANGE** Refactor aem-directive to be independent of ModelManager
+* **BREAKING CHANGE** Introduced aem-model-provider component which is in charge now of communication with the ModelManager. This has been added only on AResponsiveGrid
+* **BREAKING CHANGE** The container component is now opaque of ModelManager, therefore it will **not** respond to updates from the editor. Extend the container and use aem-model-provider component to have this functionality added to it.
+
 * **BREAKING CHANGE** 'dragDropName' support removed for EditConfig in ComponentMapping
 
 ### 0.0.7-beta.2 - 1 August 2018
