@@ -1102,7 +1102,8 @@ The [technical documentation](https://www.adobe.com/go/aem6_4_docs_spa_en) is al
 
 ## Changelog 
 
-### Unreleased
+### 1.0.0-rc.1 - 7 August 2018
+
 * Adapting to the new PageModelManager API
 * Refactoring the Container to be independent of the ModelManager. This is achieved by refactoring the aem-directive to only be in charge of creating the dynamic components. This way consumers can add their own logic to update the model, such as from a store.
 * **BREAKING CHANGE** Refactor aem-directive to be independent of ModelManager
