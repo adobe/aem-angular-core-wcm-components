@@ -64,9 +64,9 @@ describe('AEMContainerComponent', () => {
 
   it('generates the correct layout', () => {
     let layout = require("../../test/data/layout.json");
-    component.items = layout[Constants.ITEMS_PROP];
-    component.itemsOrder = layout[Constants.ITEMS_ORDER_PROP];
-    component.pagePath = layout[Constants.PATH_PROP];
+    component.cqItems = layout[Constants.ITEMS_PROP];
+    component.cqItemsOrder = layout[Constants.ITEMS_ORDER_PROP];
+    component.cqPath = layout[Constants.PATH_PROP];
 
     fixture.detectChanges();
     let element = fixture.nativeElement;
@@ -100,9 +100,9 @@ describe('AEMContainerComponent', () => {
 
   it("updates the title", () => {
     let layout = require("../../test/data/layout.json");
-    component.items = layout[Constants.ITEMS_PROP];
-    component.itemsOrder = layout[Constants.ITEMS_ORDER_PROP];
-    component.pagePath = layout[Constants.PATH_PROP];
+    component.cqItems = layout[Constants.ITEMS_PROP];
+    component.cqItemsOrder = layout[Constants.ITEMS_ORDER_PROP];
+    component.cqPath = layout[Constants.PATH_PROP];
 
     fixture.detectChanges();
     let element = fixture.nativeElement.querySelector('test-comp1[data-cq-data-path="root/responsivegrid/component1"]');
@@ -123,8 +123,8 @@ describe('AEMContainerComponent', () => {
 
   it('should create placeholder', () => {
     let layout = require("../../test/data/layout.json");
-    component.items = layout[Constants.ITEMS_PROP];
-    component.itemsOrder = layout[Constants.ITEMS_ORDER_PROP];
+    component.cqItems = layout[Constants.ITEMS_PROP];
+    component.cqItemsOrder = layout[Constants.ITEMS_ORDER_PROP];
     component.classNames = layout.classNames;
 
     fixture.detectChanges();

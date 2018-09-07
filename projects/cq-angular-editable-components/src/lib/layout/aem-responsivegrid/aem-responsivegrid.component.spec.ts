@@ -54,8 +54,8 @@ describe('AEMResponsivegrid', () => {
 
   it('should create placeholder', () => {
     let layout = require("../../test/data/layout.json");
-    component.items = layout[Constants.ITEMS_PROP];
-    component.itemsOrder = layout[Constants.ITEMS_ORDER_PROP];
+    component.cqItems = layout[Constants.ITEMS_PROP];
+    component.cqItemsOrder = layout[Constants.ITEMS_ORDER_PROP];
     component.gridClassNames = layout.gridClassNames;
     component.columnClassNames = layout.columnClassNames;
     component.classNames = layout.classNames;
