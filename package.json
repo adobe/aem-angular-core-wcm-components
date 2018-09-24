@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@adobe/cq-spa-component-mapping": "~0.0.17-beta.2",
-    "@adobe/cq-spa-page-model-manager": "~0.0.25-beta.10",
+    "@adobe/cq-spa-page-model-manager": "~0.0.25-beta.11",
     "@angular-devkit/build-angular": "~0.6.1",
     "@angular-devkit/build-ng-packagr": "~0.6.6",
     "@angular/cli": "~6.0.1",
