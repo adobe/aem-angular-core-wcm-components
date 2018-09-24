@@ -15,7 +15,7 @@
  * from Adobe Systems Incorporated.
  */
 
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 
@@ -23,7 +23,7 @@ import { AEMContainerComponent } from './aem-container.component';
 import { AEMComponentDirective } from '../aem-component.directive';
 import { AEMModelProviderComponent } from '../aem-model-provider/aem-model-provider.component';
 import { AEMResponsiveGridComponent } from "../aem-responsivegrid/aem-responsivegrid.component";
-import { ModelManager, ModelStore } from "@adobe/cq-spa-page-model-manager";
+import { ModelManager } from "@adobe/cq-spa-page-model-manager";
 import { Component1 } from "../../test/test-comp1.component";
 import { Component2 } from "../../test/test-comp2.component";
 import { Component3 } from "../../test/test-comp3.component";
@@ -35,24 +35,24 @@ describe('AEMContainerComponent', () => {
   let component: AEMContainerComponent;
   let fixture: ComponentFixture<AEMContainerComponent>;
 
-  beforeEach(async(() => {
-    let modelStore = new ModelStore('rootPath', require("../../test/data/layout.json") );
-    ModelManager.initialize({ path: 'rootPath', modelStore });
-    TestBed.configureTestingModule({
-      declarations: [ AEMContainerComponent, AEMComponentDirective, AEMModelProviderComponent,
-      Component1,
-      Component2,
-      Component3,
-      AEMResponsiveGridComponent ]
-    }).overrideModule(BrowserDynamicTestingModule, {
-      set: {
-        entryComponents: [Component1, Component2, Component3, AEMResponsiveGridComponent, ]
-      }
-    })
-    .compileComponents();
-  }));
+  const layout = require("../../test/data/layout.json");
 
   beforeEach(() => {
+    spyOn(ModelManager, 'addListener').and.returnValue(undefined);
+
+    TestBed.configureTestingModule({
+      declarations: [ AEMContainerComponent, AEMComponentDirective,
+        AEMModelProviderComponent,
+        Component1,
+        Component2,
+        Component3,
+        AEMResponsiveGridComponent ]
+    }).overrideModule(BrowserDynamicTestingModule, {
+      set: {
+        entryComponents: [Component1, Component2, Component3, AEMResponsiveGridComponent]
+      }
+    }).compileComponents();
+
     fixture = TestBed.createComponent(AEMContainerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -67,7 +67,6 @@ describe('AEMContainerComponent', () => {
   };
 
   it('generates the correct layout', () => {
-    let layout = require("../../test/data/layout.json");
     component.cqItems = layout[Constants.ITEMS_PROP];
     component.cqItemsOrder = layout[Constants.ITEMS_ORDER_PROP];
     component.cqPath = layout[Constants.PATH_PROP];
@@ -109,7 +108,6 @@ describe('AEMContainerComponent', () => {
   });
 
   it('should create placeholder', () => {
-    let layout = require("../../test/data/layout.json");
     component.cqItems = layout[Constants.ITEMS_PROP];
     component.cqItemsOrder = layout[Constants.ITEMS_ORDER_PROP];
     component.classNames = layout.classNames;
