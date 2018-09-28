@@ -1,6 +1,6 @@
 {
   "name": "@adobe/cq-angular-editable-components",
-  "version": "1.0.0-rc.1",
+  "version": "0.0.7-beta.6",
   "author": "Adobe Systems Inc.",
   "license": "Apache-2.0",
   "bugs": {
@@ -22,8 +22,8 @@
     "pwa"
   ],
   "peerDependencies": {
-    "@adobe/cq-spa-component-mapping": "0.0.16",
-    "@adobe/cq-spa-page-model-manager": "~0.0.25-beta.0",
+    "@adobe/cq-spa-component-mapping": "~0.0.17-beta.3",
+    "@adobe/cq-spa-page-model-manager": "~0.0.25-beta.12",
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
   }
