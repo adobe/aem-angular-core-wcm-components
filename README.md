@@ -85,6 +85,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 **AEMComponentDirective**
 
+### Implements
+
+* `AfterViewInit`
+
 ### Index
 
 #### Constructors
@@ -94,18 +98,18 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 #### Properties
 
 * [aemComponent](#aemcomponentdirective.md_aemcomponent)
-* [cqModel](#aemcomponentdirective.md_cqmodel)
-* [modelName](#aemcomponentdirective.md_modelname)
-* [pagePath](#aemcomponentdirective.md_pagepath)
-* [path](#aemcomponentdirective.md_path)
+* [cqItem](#aemcomponentdirective.md_cqitem)
+* [cqPath](#aemcomponentdirective.md_cqpath)
+* [itemAttrs](#aemcomponentdirective.md_itemattrs)
+* [itemName](#aemcomponentdirective.md_itemname)
 
 #### Accessors
 
-* [columnClasses](#aemcomponentdirective.md_columnclasses)
 * [type](#aemcomponentdirective.md_type)
 
 #### Methods
 
+* [ngAfterViewInit](#aemcomponentdirective.md_ngafterviewinit)
 * [ngOnDestroy](#aemcomponentdirective.md_ngondestroy)
 * [ngOnInit](#aemcomponentdirective.md_ngoninit)
 
@@ -141,55 +145,44 @@ ___
 **● aemComponent**: *`any`*
 
 ___
-<a id="aemcomponentdirective.md_cqmodel"></a>
+<a id="aemcomponentdirective.md_cqitem"></a>
 
-####  cqModel
+####  cqItem
 
-**● cqModel**: *`any`*
-
-___
-<a id="aemcomponentdirective.md_modelname"></a>
-
-####  modelName
-
-**● modelName**: *`string`*
+**● cqItem**: *`any`*
 
 ___
-<a id="aemcomponentdirective.md_pagepath"></a>
+<a id="aemcomponentdirective.md_cqpath"></a>
 
-####  pagePath
+####  cqPath
 
-**● pagePath**: *`string`*
+**● cqPath**: *`string`*
 
 ___
-<a id="aemcomponentdirective.md_path"></a>
+<a id="aemcomponentdirective.md_itemattrs"></a>
 
-####  path
+####  itemAttrs
 
-**● path**: *`string`*
+**● itemAttrs**: *`object`*
+
+___
+<a id="aemcomponentdirective.md_itemname"></a>
+
+####  itemName
+
+**● itemName**: *`string`*
 
 ___
 
 ### Accessors
 
-<a id="aemcomponentdirective.md_columnclasses"></a>
-
-####  columnClasses
-
-getcolumnClasses(): `any`
-
-Returns the column classes of the cqModel
-
-**Returns:** `any`
-
-___
 <a id="aemcomponentdirective.md_type"></a>
 
 ####  type
 
 gettype(): `any`
 
-Returns the type of the cqModel if exists.
+Returns the type of the cqItem if exists.
 
 **Returns:** `any`
 
@@ -197,6 +190,15 @@ ___
 
 ### Methods
 
+<a id="aemcomponentdirective.md_ngafterviewinit"></a>
+
+####  ngAfterViewInit
+
+▸ **ngAfterViewInit**(): `void`
+
+**Returns:** `void`
+
+___
 <a id="aemcomponentdirective.md_ngondestroy"></a>
 
 ####  ngOnDestroy
@@ -227,50 +229,61 @@ ___
 
 ↳  [AEMResponsiveGridComponent](#aemresponsivegridcomponent.md)
 
+↳  [AEMPageComponent](#aempagecomponent.md)
+
 ### Index
-
-#### Constructors
-
-* [constructor](#aemcontainercomponent.md_constructor)
 
 #### Properties
 
-* [cqModel](#aemcontainercomponent.md_cqmodel)
+* [classNames](#aemcontainercomponent.md_classnames)
+* [cqItems](#aemcontainercomponent.md_cqitems)
+* [cqItemsOrder](#aemcontainercomponent.md_cqitemsorder)
+* [cqPath](#aemcontainercomponent.md_cqpath)
 * [modelName](#aemcontainercomponent.md_modelname)
-* [pagePath](#aemcontainercomponent.md_pagepath)
-* [path](#aemcontainercomponent.md_path)
 
 #### Accessors
 
-* [itemsOrder](#aemcontainercomponent.md_itemsorder)
+* [hostClasses](#aemcontainercomponent.md_hostclasses)
+* [isInEditMode](#aemcontainercomponent.md_isineditmode)
+* [placeholderPath](#aemcontainercomponent.md_placeholderpath)
 
 #### Methods
 
 * [getDataPath](#aemcontainercomponent.md_getdatapath)
+* [getHostClassNames](#aemcontainercomponent.md_gethostclassnames)
 * [getItem](#aemcontainercomponent.md_getitem)
-* [getPagePath](#aemcontainercomponent.md_getpagepath)
+* [getPlaceholderClassNames](#aemcontainercomponent.md_getplaceholderclassnames)
 
 ---
 
-### Constructors
-
-<a id="aemcontainercomponent.md_constructor"></a>
-
-####  constructor
-
-⊕ **new AEMContainerComponent**(): [AEMContainerComponent](#aemcontainercomponent.md)
-
-**Returns:** [AEMContainerComponent](#aemcontainercomponent.md)
-
-___
-
 ### Properties
 
-<a id="aemcontainercomponent.md_cqmodel"></a>
+<a id="aemcontainercomponent.md_classnames"></a>
 
-####  cqModel
+####  classNames
 
-**● cqModel**: *`any`*
+**● classNames**: *`string`*
+
+___
+<a id="aemcontainercomponent.md_cqitems"></a>
+
+####  cqItems
+
+**● cqItems**: *`any`*
+
+___
+<a id="aemcontainercomponent.md_cqitemsorder"></a>
+
+####  cqItemsOrder
+
+**● cqItemsOrder**: *`any`*
+
+___
+<a id="aemcontainercomponent.md_cqpath"></a>
+
+####  cqPath
+
+**● cqPath**: *`string`* = ""
 
 ___
 <a id="aemcontainercomponent.md_modelname"></a>
@@ -280,32 +293,38 @@ ___
 **● modelName**: *`string`* = ""
 
 ___
-<a id="aemcontainercomponent.md_pagepath"></a>
-
-####  pagePath
-
-**● pagePath**: *`string`* = ""
-
-___
-<a id="aemcontainercomponent.md_path"></a>
-
-####  path
-
-**● path**: *`string`* = ""
-
-___
 
 ### Accessors
 
-<a id="aemcontainercomponent.md_itemsorder"></a>
+<a id="aemcontainercomponent.md_hostclasses"></a>
 
-####  itemsOrder
+####  hostClasses
 
-getitemsOrder(): `any`
+gethostClasses(): `string`
 
-Returns the itemsOrder array from the cqModel
+**Returns:** `string`
 
-**Returns:** `any`
+___
+<a id="aemcontainercomponent.md_isineditmode"></a>
+
+####  isInEditMode
+
+getisInEditMode(): `boolean`
+
+Returns weather of not we are in the editor
+
+**Returns:** `boolean`
+
+___
+<a id="aemcontainercomponent.md_placeholderpath"></a>
+
+####  placeholderPath
+
+getplaceholderPath(): `string`
+
+Returns the placeholder path
+
+**Returns:** `string`
 
 ___
 
@@ -328,6 +347,17 @@ Returns the aggregated path of this container path and the provided path
 **Returns:** `any`
 
 ___
+<a id="aemcontainercomponent.md_gethostclassnames"></a>
+
+####  getHostClassNames
+
+▸ **getHostClassNames**(): `string`
+
+Returns the class names of the container based on the data from the cqModel
+
+**Returns:** `string`
+
+___
 <a id="aemcontainercomponent.md_getitem"></a>
 
 ####  getItem
@@ -345,15 +375,293 @@ Returns the item data from the cqModel
 **Returns:** `any`
 
 ___
-<a id="aemcontainercomponent.md_getpagepath"></a>
+<a id="aemcontainercomponent.md_getplaceholderclassnames"></a>
 
-####  getPagePath
+####  getPlaceholderClassNames
 
-▸ **getPagePath**(): `any`
+▸ **getPlaceholderClassNames**(): `string`
 
-Return the page path from the data, defaulting to the provided pagePath to the container.
+Returns the placeholder classes
+
+**Returns:** `string`
+
+___
+
+
+<a id="aemmodelprovidercomponent.md"></a>
+
+## Class: AEMModelProviderComponent
+
+### Hierarchy
+
+**AEMModelProviderComponent**
+
+### Index
+
+#### Constructors
+
+* [constructor](#aemmodelprovidercomponent.md_constructor)
+
+#### Properties
+
+* [aemModelProvider](#aemmodelprovidercomponent.md_aemmodelprovider)
+* [cqItem](#aemmodelprovidercomponent.md_cqitem)
+* [cqPath](#aemmodelprovidercomponent.md_cqpath)
+* [itemName](#aemmodelprovidercomponent.md_itemname)
+
+#### Methods
+
+* [ngDestroy](#aemmodelprovidercomponent.md_ngdestroy)
+* [ngOnInit](#aemmodelprovidercomponent.md_ngoninit)
+* [updateItem](#aemmodelprovidercomponent.md_updateitem)
+
+---
+
+### Constructors
+
+<a id="aemmodelprovidercomponent.md_constructor"></a>
+
+####  constructor
+
+⊕ **new AEMModelProviderComponent**(ngZone: *`NgZone`*): [AEMModelProviderComponent](#aemmodelprovidercomponent.md)
+
+**Parameters:**
+
+| Param | Type |
+| ------ | ------ |
+| ngZone | `NgZone` |
+
+**Returns:** [AEMModelProviderComponent](#aemmodelprovidercomponent.md)
+
+___
+
+### Properties
+
+<a id="aemmodelprovidercomponent.md_aemmodelprovider"></a>
+
+####  aemModelProvider
+
+**● aemModelProvider**: *`any`*
+
+___
+<a id="aemmodelprovidercomponent.md_cqitem"></a>
+
+####  cqItem
+
+**● cqItem**: *`any`*
+
+___
+<a id="aemmodelprovidercomponent.md_cqpath"></a>
+
+####  cqPath
+
+**● cqPath**: *`any`*
+
+___
+<a id="aemmodelprovidercomponent.md_itemname"></a>
+
+####  itemName
+
+**● itemName**: *`any`*
+
+___
+
+### Methods
+
+<a id="aemmodelprovidercomponent.md_ngdestroy"></a>
+
+####  ngDestroy
+
+▸ **ngDestroy**(): `void`
+
+**Returns:** `void`
+
+___
+<a id="aemmodelprovidercomponent.md_ngoninit"></a>
+
+####  ngOnInit
+
+▸ **ngOnInit**(): `void`
+
+**Returns:** `void`
+
+___
+<a id="aemmodelprovidercomponent.md_updateitem"></a>
+
+####  updateItem
+
+▸ **updateItem**(): `void`
+
+Updates the item data
+
+**Returns:** `void`
+
+___
+
+
+<a id="aempagecomponent.md"></a>
+
+## Class: AEMPageComponent
+
+### Hierarchy
+
+ [AEMContainerComponent](#aemcontainercomponent.md)
+
+**↳ AEMPageComponent**
+
+### Index
+
+#### Properties
+
+* [classNames](#aempagecomponent.md_classnames)
+* [cqItems](#aempagecomponent.md_cqitems)
+* [cqItemsOrder](#aempagecomponent.md_cqitemsorder)
+* [cqPath](#aempagecomponent.md_cqpath)
+* [modelName](#aempagecomponent.md_modelname)
+
+#### Accessors
+
+* [hostClasses](#aempagecomponent.md_hostclasses)
+* [isInEditMode](#aempagecomponent.md_isineditmode)
+* [placeholderPath](#aempagecomponent.md_placeholderpath)
+
+#### Methods
+
+* [getDataPath](#aempagecomponent.md_getdatapath)
+* [getHostClassNames](#aempagecomponent.md_gethostclassnames)
+* [getItem](#aempagecomponent.md_getitem)
+* [getPlaceholderClassNames](#aempagecomponent.md_getplaceholderclassnames)
+
+---
+
+### Properties
+
+<a id="aempagecomponent.md_classnames"></a>
+
+####  classNames
+
+**● classNames**: *`string`*
+
+___
+<a id="aempagecomponent.md_cqitems"></a>
+
+####  cqItems
+
+**● cqItems**: *`any`*
+
+___
+<a id="aempagecomponent.md_cqitemsorder"></a>
+
+####  cqItemsOrder
+
+**● cqItemsOrder**: *`any`*
+
+___
+<a id="aempagecomponent.md_cqpath"></a>
+
+####  cqPath
+
+**● cqPath**: *`string`* = ""
+
+___
+<a id="aempagecomponent.md_modelname"></a>
+
+####  modelName
+
+**● modelName**: *`string`* = ""
+
+___
+
+### Accessors
+
+<a id="aempagecomponent.md_hostclasses"></a>
+
+####  hostClasses
+
+gethostClasses(): `string`
+
+**Returns:** `string`
+
+___
+<a id="aempagecomponent.md_isineditmode"></a>
+
+####  isInEditMode
+
+getisInEditMode(): `boolean`
+
+Returns weather of not we are in the editor
+
+**Returns:** `boolean`
+
+___
+<a id="aempagecomponent.md_placeholderpath"></a>
+
+####  placeholderPath
+
+getplaceholderPath(): `string`
+
+Returns the placeholder path
+
+**Returns:** `string`
+
+___
+
+### Methods
+
+<a id="aempagecomponent.md_getdatapath"></a>
+
+####  getDataPath
+
+▸ **getDataPath**(path: *`any`*): `any`
+
+Returns the aggregated path of this container path and the provided path
+
+**Parameters:**
+
+| Param | Type | Description |
+| ------ | ------ | ------ |
+| path | `any` |  the provided path to aggregate with the container path |
 
 **Returns:** `any`
+
+___
+<a id="aempagecomponent.md_gethostclassnames"></a>
+
+####  getHostClassNames
+
+▸ **getHostClassNames**(): `string`
+
+Returns the class names of the container based on the data from the cqModel
+
+**Returns:** `string`
+
+___
+<a id="aempagecomponent.md_getitem"></a>
+
+####  getItem
+
+▸ **getItem**(itemKey: *`any`*): `any`
+
+Returns the item data from the cqModel
+
+**Parameters:**
+
+| Param | Type | Description |
+| ------ | ------ | ------ |
+| itemKey | `any` |  the itemKey to look for in the items. |
+
+**Returns:** `any`
+
+___
+<a id="aempagecomponent.md_getplaceholderclassnames"></a>
+
+####  getPlaceholderClassNames
+
+▸ **getPlaceholderClassNames**(): `string`
+
+Returns the placeholder classes
+
+**Returns:** `string`
 
 ___
 
@@ -370,53 +678,83 @@ ___
 
 ### Index
 
-#### Constructors
-
-* [constructor](#aemresponsivegridcomponent.md_constructor)
-
 #### Properties
 
-* [cqModel](#aemresponsivegridcomponent.md_cqmodel)
+* [classNames](#aemresponsivegridcomponent.md_classnames)
+* [columnClassNames](#aemresponsivegridcomponent.md_columnclassnames)
+* [columnCount](#aemresponsivegridcomponent.md_columncount)
+* [cqItems](#aemresponsivegridcomponent.md_cqitems)
+* [cqItemsOrder](#aemresponsivegridcomponent.md_cqitemsorder)
+* [cqPath](#aemresponsivegridcomponent.md_cqpath)
+* [gridClassNames](#aemresponsivegridcomponent.md_gridclassnames)
 * [modelName](#aemresponsivegridcomponent.md_modelname)
-* [pagePath](#aemresponsivegridcomponent.md_pagepath)
-* [path](#aemresponsivegridcomponent.md_path)
 
 #### Accessors
 
-* [classNames](#aemresponsivegridcomponent.md_classnames)
-* [gridClasses](#aemresponsivegridcomponent.md_gridclasses)
+* [hostClasses](#aemresponsivegridcomponent.md_hostclasses)
 * [isInEditMode](#aemresponsivegridcomponent.md_isineditmode)
-* [itemsOrder](#aemresponsivegridcomponent.md_itemsorder)
-* [placeholdePath](#aemresponsivegridcomponent.md_placeholdepath)
-* [placeholderClass](#aemresponsivegridcomponent.md_placeholderclass)
+* [placeholderPath](#aemresponsivegridcomponent.md_placeholderpath)
 
 #### Methods
 
+* [getAttrDataPath](#aemresponsivegridcomponent.md_getattrdatapath)
+* [getColumnClassNames](#aemresponsivegridcomponent.md_getcolumnclassnames)
 * [getDataPath](#aemresponsivegridcomponent.md_getdatapath)
+* [getHostClassNames](#aemresponsivegridcomponent.md_gethostclassnames)
 * [getItem](#aemresponsivegridcomponent.md_getitem)
-* [getPagePath](#aemresponsivegridcomponent.md_getpagepath)
+* [getPlaceholderClassNames](#aemresponsivegridcomponent.md_getplaceholderclassnames)
 
 ---
 
-### Constructors
-
-<a id="aemresponsivegridcomponent.md_constructor"></a>
-
-####  constructor
-
-⊕ **new AEMResponsiveGridComponent**(): [AEMResponsiveGridComponent](#aemresponsivegridcomponent.md)
-
-**Returns:** [AEMResponsiveGridComponent](#aemresponsivegridcomponent.md)
-
-___
-
 ### Properties
 
-<a id="aemresponsivegridcomponent.md_cqmodel"></a>
+<a id="aemresponsivegridcomponent.md_classnames"></a>
 
-####  cqModel
+####  classNames
 
-**● cqModel**: *`any`*
+**● classNames**: *`string`*
+
+___
+<a id="aemresponsivegridcomponent.md_columnclassnames"></a>
+
+####  columnClassNames
+
+**● columnClassNames**: *`Object`*
+
+___
+<a id="aemresponsivegridcomponent.md_columncount"></a>
+
+####  columnCount
+
+**● columnCount**: *`number`*
+
+___
+<a id="aemresponsivegridcomponent.md_cqitems"></a>
+
+####  cqItems
+
+**● cqItems**: *`any`*
+
+___
+<a id="aemresponsivegridcomponent.md_cqitemsorder"></a>
+
+####  cqItemsOrder
+
+**● cqItemsOrder**: *`any`*
+
+___
+<a id="aemresponsivegridcomponent.md_cqpath"></a>
+
+####  cqPath
+
+**● cqPath**: *`string`* = ""
+
+___
+<a id="aemresponsivegridcomponent.md_gridclassnames"></a>
+
+####  gridClassNames
+
+**● gridClassNames**: *`string`*
 
 ___
 <a id="aemresponsivegridcomponent.md_modelname"></a>
@@ -426,43 +764,16 @@ ___
 **● modelName**: *`string`* = ""
 
 ___
-<a id="aemresponsivegridcomponent.md_pagepath"></a>
-
-####  pagePath
-
-**● pagePath**: *`string`* = ""
-
-___
-<a id="aemresponsivegridcomponent.md_path"></a>
-
-####  path
-
-**● path**: *`string`* = ""
-
-___
 
 ### Accessors
 
-<a id="aemresponsivegridcomponent.md_classnames"></a>
+<a id="aemresponsivegridcomponent.md_hostclasses"></a>
 
-####  classNames
+####  hostClasses
 
-getclassNames(): `string`
-
-Returns the class names of the responsive grid based on the data from the cqModel
+gethostClasses(): `string`
 
 **Returns:** `string`
-
-___
-<a id="aemresponsivegridcomponent.md_gridclasses"></a>
-
-####  gridClasses
-
-getgridClasses(): `any`
-
-Returns the gridClasses for the cqModel of the responsive grid
-
-**Returns:** `any`
 
 ___
 <a id="aemresponsivegridcomponent.md_isineditmode"></a>
@@ -476,35 +787,13 @@ Returns weather of not we are in the editor
 **Returns:** `boolean`
 
 ___
-<a id="aemresponsivegridcomponent.md_itemsorder"></a>
+<a id="aemresponsivegridcomponent.md_placeholderpath"></a>
 
-####  itemsOrder
+####  placeholderPath
 
-getitemsOrder(): `any`
-
-Returns the itemsOrder array from the cqModel
-
-**Returns:** `any`
-
-___
-<a id="aemresponsivegridcomponent.md_placeholdepath"></a>
-
-####  placeholdePath
-
-getplaceholdePath(): `string`
+getplaceholderPath(): `string`
 
 Returns the placeholder path
-
-**Returns:** `string`
-
-___
-<a id="aemresponsivegridcomponent.md_placeholderclass"></a>
-
-####  placeholderClass
-
-getplaceholderClass(): `string`
-
-Returns the placeholder classes
 
 **Returns:** `string`
 
@@ -512,6 +801,40 @@ ___
 
 ### Methods
 
+<a id="aemresponsivegridcomponent.md_getattrdatapath"></a>
+
+####  getAttrDataPath
+
+▸ **getAttrDataPath**(path: *`any`*): `any`
+
+Returns the aggregated path of this container path and the provided path
+
+**Parameters:**
+
+| Param | Type | Description |
+| ------ | ------ | ------ |
+| path | `any` |  the provided path to aggregate with the container path |
+
+**Returns:** `any`
+
+___
+<a id="aemresponsivegridcomponent.md_getcolumnclassnames"></a>
+
+####  getColumnClassNames
+
+▸ **getColumnClassNames**(itemKey: *`string`*): `any`
+
+Returns the column class names for a given column
+
+**Parameters:**
+
+| Param | Type | Description |
+| ------ | ------ | ------ |
+| itemKey | `string` |  The key of the column item |
+
+**Returns:** `any`
+
+___
 <a id="aemresponsivegridcomponent.md_getdatapath"></a>
 
 ####  getDataPath
@@ -527,6 +850,17 @@ Returns the aggregated path of this container path and the provided path
 | path | `any` |  the provided path to aggregate with the container path |
 
 **Returns:** `any`
+
+___
+<a id="aemresponsivegridcomponent.md_gethostclassnames"></a>
+
+####  getHostClassNames
+
+▸ **getHostClassNames**(): `string`
+
+Returns the class names of the responsive grid based on the data from the cqModel
+
+**Returns:** `string`
 
 ___
 <a id="aemresponsivegridcomponent.md_getitem"></a>
@@ -546,15 +880,15 @@ Returns the item data from the cqModel
 **Returns:** `any`
 
 ___
-<a id="aemresponsivegridcomponent.md_getpagepath"></a>
+<a id="aemresponsivegridcomponent.md_getplaceholderclassnames"></a>
 
-####  getPagePath
+####  getPlaceholderClassNames
 
-▸ **getPagePath**(): `any`
+▸ **getPlaceholderClassNames**(): `string`
 
-Return the page path from the data, defaulting to the provided pagePath to the container.
+Returns the placeholder classes
 
-**Returns:** `any`
+**Returns:** `string`
 
 ___
 
@@ -620,13 +954,13 @@ ___
 
 ####  getEditConfig
 
-▸ **getEditConfig**(component: *`any`*): `any`
+▸ **getEditConfig**(type: *`any`*): `any`
 
 **Parameters:**
 
 | Param | Type |
 | ------ | ------ |
-| component | `any` |
+| type | `any` |
 
 **Returns:** `any`
 
@@ -688,7 +1022,7 @@ ___
 
 ####  HIERARCHY_TYPE_PROP
 
-**● HIERARCHY_TYPE_PROP**: *`string`* = ":hierarchyType"
+**● HIERARCHY_TYPE_PROP**: *`any`* =  PMConstants.HIERARCHY_TYPE_PROP
 
 Hierarchical type of the item
 
@@ -768,4 +1102,24 @@ The [technical documentation](https://www.adobe.com/go/aem6_4_docs_spa_en) is al
 
 ## Changelog 
 
+### 1.0.0-rc.1 - 7 August 2018
+
+* Adapting to the new PageModelManager API
+* Refactoring the Container to be independent of the ModelManager. This is achieved by refactoring the aem-directive to only be in charge of creating the dynamic components. This way consumers can add their own logic to update the model, such as from a store.
+* **BREAKING CHANGE** Refactor aem-directive to be independent of ModelManager
+* **BREAKING CHANGE** Introduced aem-model-provider component which is in charge now of communication with the ModelManager. This has been added only on AResponsiveGrid
+* **BREAKING CHANGE** The container component is now opaque of ModelManager, therefore it will **not** respond to updates from the editor. Extend the container and use aem-model-provider component to have this functionality added to it.
+
+* **BREAKING CHANGE** 'dragDropName' support removed for EditConfig in ComponentMapping
+
+### 0.0.7-beta.2 - 1 August 2018
+
+* **BREAKING CHANGE** Refactoring of the Container, ResponsiveGrid and Placeholders to improve extensibility
+* **BREAKING CHANGE** Relocation of the columnClassNames field from the ResponsiveColumn to the ResponsiveGrid to respect the latest model representation, the field type changed 
+* Server-side rendering preparation, fixing usage of native setAttribute.
+
+### 0.0.7-beta.1 - 27 July 2018
+
+* **BREAKING CHANGE** Properties are no longer bundled in cqModel, we inject all properties directly on the components
+  * Implications, all components should now remove cqModel property and use directly the api properties that they want to consume.
 

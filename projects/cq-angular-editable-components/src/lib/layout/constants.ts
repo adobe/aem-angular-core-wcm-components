@@ -60,5 +60,5 @@ export const Constants = {
     /**
      * Hierarchical type of the item
      */
-    HIERARCHY_TYPE_PROP: ':hierarchyType'
+    HIERARCHY_TYPE_PROP: PMConstants.HIERARCHY_TYPE_PROP
 };

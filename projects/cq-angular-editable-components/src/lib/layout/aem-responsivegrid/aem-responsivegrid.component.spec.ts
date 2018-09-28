@@ -15,12 +15,14 @@
  * from Adobe Systems Incorporated.
  */
 
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 
 import { AEMContainerComponent } from '../aem-container/aem-container.component';
 import { AEMComponentDirective } from '../aem-component.directive';
+import { AEMModelProviderComponent } from '../aem-model-provider/aem-model-provider.component';
+import { ModelManager } from "@adobe/cq-spa-page-model-manager";
 import { AEMResponsiveGridComponent } from "./aem-responsivegrid.component";
 import { Component1 } from "../../test/test-comp1.component";
 import { Component2 } from "../../test/test-comp2.component";
@@ -31,30 +33,36 @@ describe('AEMResponsivegrid', () => {
   let component: AEMResponsiveGridComponent;
   let fixture: ComponentFixture<AEMResponsiveGridComponent>;
 
-  beforeEach(async(() => {
+  const layout = require("../../test/data/layout.json");
+
+  beforeEach(() => {
+    spyOn(ModelManager, 'addListener').and.returnValue(undefined);
+
     TestBed.configureTestingModule({
       declarations: [ AEMContainerComponent, AEMComponentDirective,
-      Component1,
-      Component2,
-      Component3,
-      AEMResponsiveGridComponent ]
+        AEMModelProviderComponent,
+        Component1,
+        Component2,
+        Component3,
+        AEMResponsiveGridComponent ]
     }).overrideModule(BrowserDynamicTestingModule, {
       set: {
         entryComponents: [Component1, Component2, Component3, AEMResponsiveGridComponent]
       }
-    })
-    .compileComponents();
-  }));
+    }).compileComponents();
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(AEMResponsiveGridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create placeholder', () => {
-    let layout = require("../../test/data/layout.json");
-    component.cqModel = layout;
+    component.cqItems = layout[Constants.ITEMS_PROP];
+    component.cqItemsOrder = layout[Constants.ITEMS_ORDER_PROP];
+    component.gridClassNames = layout.gridClassNames;
+    component.columnClassNames = layout.columnClassNames;
+    component.classNames = layout.classNames;
+
     fixture.detectChanges();
     let element = fixture.nativeElement;
 

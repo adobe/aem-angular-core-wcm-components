@@ -15,18 +15,28 @@
  * from Adobe Systems Incorporated.
  */
 
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { AEMContainerComponent } from '../aem-container/aem-container.component';
+
+const PAGE_MODEL_SEPARATOR = '/jcr:content/';
 
 @Component({
-  selector: 'test-comp1',
+  selector: 'aem-page',
   host: {
-    '[attr.data-title]': 'title'
+      '[class]': 'hostClasses',
+      '[attr.data-cq-data-path]':'cqPath'
   },
-  template: `<div>{{ title }}</div>`
+  templateUrl: '../aem-container/aem-container.component.html'
 })
+export class AEMPageComponent extends AEMContainerComponent {
+  /**
+   * Returns the aggregated path of this container path and the provided path
+   *
+   * @param path - the provided path to aggregate with the container path
+   */
+  getDataPath(path) {
+    return this.cqPath ? this.cqPath + PAGE_MODEL_SEPARATOR + path : path;
+  }
 
-export class Component1 {
-  @Input() title:any;
-
-  constructor() {}
 }
+

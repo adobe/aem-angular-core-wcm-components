@@ -20,13 +20,13 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'test-comp2',
   host: {
-    '[attr.data-title]': 'cqModel.title'
+    '[attr.data-title]': 'title'
   },
-  template: `<div>{{ cqModel.title }}</div>`
+  template: `<div>{{ title }}</div>`
 })
 
 export class Component2 {
-  @Input() cqModel:any;
+  @Input() title:any;
 
   constructor() {}
 }

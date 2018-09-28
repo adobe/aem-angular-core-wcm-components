@@ -1,6 +1,7 @@
-<div [class]="gridClasses">
-  <ng-container *ngFor="let itemKey of itemsOrder">
-    <ng-container [aemComponent] [cqModel]='getItem(itemKey)' [pagePath]='getPagePath()' [path]='getDataPath(itemKey)' [modelName]='itemKey'></ng-container>
-  </ng-container>
-  <div *ngIf="isInEditMode" [attr.data-cq-data-path]="placeholdePath" [class]="placeholderClass"></div>
-</div>
+<ng-container *ngFor="let itemKey of cqItemsOrder">
+  <div [aemModelProvider] [cqItem]='getItem(itemKey)' [cqPath]='getDataPath(itemKey)' [itemName]='itemKey' [class]="getColumnClassNames(itemKey)" [attr.data-cq-data-path]='getAttrDataPath(itemKey)'>
+  </div>
+</ng-container>
+<div *ngIf="isInEditMode" [attr.data-cq-data-path]="placeholderPath" [class]="getPlaceholderClassNames()"></div>
+
+

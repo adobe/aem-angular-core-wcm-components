@@ -16,22 +16,34 @@
  */
 
 import { Component, Input } from '@angular/core';
-import { Constants } from '../constants';
+import { Constants } from '../constants'
+import { Utils } from "../utils";
+
+const PLACEHOLDER_CLASS_NAMES = Constants.NEW_SECTION_CLASS_NAMES;
+const PLACEHOLDER_ITEM_NAME = '*';
+const CONTAINER_CLASS_NAMES = 'aem-container';
 
 @Component({
   selector: 'aem-container',
   host: {
-      '[attr.data-cq-data-path]':'path'
+      '[class]': 'hostClasses',
+      '[attr.data-cq-data-path]':'cqPath'
   },
   templateUrl: './aem-container.component.html'
 })
 export class AEMContainerComponent {
-  @Input() cqModel:any;
-  @Input() path:string = '';
-  @Input() pagePath:string = '';
+  @Input() cqItems;
+  @Input() cqItemsOrder;
+  @Input() cqPath:string = '';
   @Input() modelName:string = '';
+  @Input() classNames: string;
 
-  constructor() {}
+  /**
+   * Returns weather of not we are in the editor
+   */
+  get isInEditMode() {
+    return Utils.isInEditor();
+  }
 
   /**
    * Returns the aggregated path of this container path and the provided path
@@ -39,14 +51,7 @@ export class AEMContainerComponent {
    * @param path - the provided path to aggregate with the container path
    */
   getDataPath(path) {
-    return this.path ? this.path + "/" + path : path;
-  }
-
-  /**
-   * Return the page path from the data, defaulting to the provided pagePath to the container.
-   */
-  getPagePath() {
-    return this.cqModel[Constants.PATH_PROP] || this.pagePath;
+    return this.cqPath ? this.cqPath + "/" + path : path;
   }
 
   /**
@@ -55,14 +60,32 @@ export class AEMContainerComponent {
    * @param itemKey - the itemKey to look for in the items.
    */
   getItem(itemKey) {
-    return this.cqModel[Constants.ITEMS_PROP][itemKey];
+    return this.cqItems && this.cqItems[itemKey];
   }
 
   /**
-   * Returns the itemsOrder array from the cqModel
+   * Returns the class names of the container based on the data from the cqModel
    */
-  get itemsOrder() {
-    return this.cqModel && this.cqModel[Constants.ITEMS_ORDER_PROP];
+  getHostClassNames() {
+    return CONTAINER_CLASS_NAMES;
+  }
+
+  get hostClasses () {
+    return this.getHostClassNames();
+  }
+
+  /**
+   * Returns the placeholder classes
+   */
+  getPlaceholderClassNames() {
+    return PLACEHOLDER_CLASS_NAMES;
+  }
+
+  /**
+   * Returns the placeholder path
+   */
+  get placeholderPath() {
+    return this.cqPath && this.cqPath + '/' + PLACEHOLDER_ITEM_NAME;
   }
 }
 

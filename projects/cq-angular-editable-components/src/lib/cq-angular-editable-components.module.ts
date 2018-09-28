@@ -13,14 +13,17 @@
 
 import { NgModule } from '@angular/core';
 import { AEMComponentDirective } from "./layout/aem-component.directive";
+import { AEMModelProviderComponent } from "./layout/aem-model-provider/aem-model-provider.component";
 import { AEMContainerComponent } from "./layout/aem-container/aem-container.component";
+import { AEMPageComponent } from "./layout/aem-page/aem-page.component";
 import { AEMResponsiveGridComponent } from "./layout/aem-responsivegrid/aem-responsivegrid.component";
 import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports: [CommonModule],
 
-  declarations: [AEMContainerComponent, AEMResponsiveGridComponent, AEMComponentDirective],
-  exports: [AEMContainerComponent, AEMResponsiveGridComponent, AEMComponentDirective]
+  declarations: [AEMContainerComponent, AEMResponsiveGridComponent, AEMComponentDirective, AEMModelProviderComponent, AEMPageComponent],
+  exports: [AEMContainerComponent, AEMResponsiveGridComponent, AEMComponentDirective, AEMModelProviderComponent, AEMPageComponent],
+  entryComponents: [AEMContainerComponent, AEMResponsiveGridComponent, AEMPageComponent]
 })
 export class SpaAngularEditableComponentsModule { }
