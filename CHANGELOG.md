@@ -1,3 +1,7 @@
+### 1.0.3 - 18 October 2018
+
+* Fix: Component cqItem attribute binding
+
 ### 1.0.2 - 28 September 2018
 
 * Adapting to the new PageModelManager API
