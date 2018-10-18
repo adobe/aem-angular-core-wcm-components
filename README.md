@@ -98,13 +98,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 #### Properties
 
 * [aemComponent](#aemcomponentdirective.md_aemcomponent)
-* [cqItem](#aemcomponentdirective.md_cqitem)
 * [cqPath](#aemcomponentdirective.md_cqpath)
 * [itemAttrs](#aemcomponentdirective.md_itemattrs)
 * [itemName](#aemcomponentdirective.md_itemname)
 
 #### Accessors
 
+* [cqItem](#aemcomponentdirective.md_cqitem)
 * [type](#aemcomponentdirective.md_type)
 
 #### Methods
@@ -145,13 +145,6 @@ ___
 **● aemComponent**: *`any`*
 
 ___
-<a id="aemcomponentdirective.md_cqitem"></a>
-
-####  cqItem
-
-**● cqItem**: *`any`*
-
-___
 <a id="aemcomponentdirective.md_cqpath"></a>
 
 ####  cqPath
@@ -176,6 +169,23 @@ ___
 
 ### Accessors
 
+<a id="aemcomponentdirective.md_cqitem"></a>
+
+####  cqItem
+
+getcqItem(): `object`setcqItem(value: *`object`*): `void`
+
+**Returns:** `object`
+
+**Parameters:**
+
+| Param | Type |
+| ------ | ------ |
+| value | `object` |
+
+**Returns:** `void`
+
+___
 <a id="aemcomponentdirective.md_type"></a>
 
 ####  type
@@ -1101,6 +1111,10 @@ ___
 The [technical documentation](https://www.adobe.com/go/aem6_4_docs_spa_en) is already available, but if you are unable to solve your problem or you found a bug you can always [contact us](https://www.adobe.com/go/aem6_4_support_en) and ask for help!
 
 ## Changelog 
+
+### 1.0.3 - 18 October 2018
+
+* Fix: Component cqItem attribute binding
 
 ### 1.0.2 - 28 September 2018
 
