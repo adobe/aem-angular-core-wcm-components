@@ -30,8 +30,17 @@ const PLACEHOLDER_CLASS_NAME = 'cq-placeholder';
 
 export class AEMComponentDirective implements AfterViewInit {
   private _component:ComponentRef<any>;
+  private _cqItem:object;
 
-  @Input() cqItem:any;
+  get cqItem(): object {
+    return this._cqItem;
+  }
+
+  @Input()
+  set cqItem(value: object) {
+    this._cqItem = value;
+    this.updateComponentData();
+  }
   @Input() cqPath:string;
   @Input() itemName:string;
   @Input() itemAttrs: object;
@@ -73,6 +82,10 @@ export class AEMComponentDirective implements AfterViewInit {
    * Updates the data of the component based the data of the directive
    */
   private updateComponentData() {
+    if (!this._component || !this._component.instance) {
+      return;
+    }
+
     let keys = Object.getOwnPropertyNames(this.cqItem);
 
     keys.forEach((key) => {
@@ -85,12 +98,7 @@ export class AEMComponentDirective implements AfterViewInit {
             propKey = "cq" + tempKey.substr(0, 1).toUpperCase() + tempKey.substr(1);
         }
 
-        const descriptor = Object.getOwnPropertyDescriptor(this._component.instance, propKey);
-
-        Object.defineProperty(this._component.instance, propKey, {
-          get: () => { return this.cqItem[key]; },
-          set: (value) => { this.cqItem[key] = value}
-        });
+        this._component.instance[propKey] = this.cqItem[key];
     });
 
     this._component.instance.cqPath = this.cqPath;

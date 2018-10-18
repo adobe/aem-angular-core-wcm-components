@@ -61,7 +61,7 @@ export class AEMResponsiveGridComponent extends AEMContainerComponent {
         classNames += ' ' + (this.classNames || '') ;
     }
 
-    return classNames + ' ' + this.gridClassNames;;
+    return classNames + ' ' + this.gridClassNames;
   }
 
   /**

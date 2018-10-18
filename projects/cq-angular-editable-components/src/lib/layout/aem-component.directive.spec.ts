@@ -86,25 +86,29 @@ describe('AEMComponentDirective', () => {
   });
 
   it("correctly updates the inputs", () => {
-    let componentData =  {
-      "attr1": "Some value",
-      "attr2": "Another value",
+    let componentData1 =  {
+      "attr2": "Initial value",
       ":type": "directive/comp"
     };
 
-    component.data = componentData;
+    let componentData2 =  {
+      "attr1": "New value",
+      "attr2": "Updated value",
+      ":type": "directive/comp"
+    };
+
+    component.data = componentData1;
     fixture.detectChanges();
     let element = fixture.nativeElement;
     let dynamicElement = element.firstElementChild;
 
-    componentData.attr1 = "Changed value";
     fixture.detectChanges();
-    expect(dynamicElement.getAttribute("attr1")).toEqual(componentData["attr1"]);
-    expect(dynamicElement.getAttribute("attr2")).toEqual(componentData["attr2"]);
-    componentData.attr1 = "Changed value 2";
-    componentData.attr2 = "Changed value";
+    expect(dynamicElement.getAttribute("attr1")).toEqual(null);
+    expect(dynamicElement.getAttribute("attr2")).toEqual(componentData1["attr2"]);
+
+    component.data = componentData2;
     fixture.detectChanges();
-    expect(dynamicElement.getAttribute("attr1")).toEqual(componentData["attr1"]);
-    expect(dynamicElement.getAttribute("attr2")).toEqual(componentData["attr2"]);
+    expect(dynamicElement.getAttribute("attr1")).toEqual(componentData2["attr1"]);
+    expect(dynamicElement.getAttribute("attr2")).toEqual(componentData2["attr2"]);
   });
 });
