@@ -1,6 +1,6 @@
 {
   "name": "@adobe/cq-root-angular-editable-components",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -19,9 +19,6 @@
   },
   "author": "Adobe Systems Inc.",
   "license": "Apache-2.0",
-  "publishConfig": {
-    "registry": "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-cq-spa-release-local"
-  },
   "dependencies": {
     "@angular/common": "^6.0.0",
     "@angular/core": "^6.0.0",
@@ -38,7 +35,7 @@
   },
   "devDependencies": {
     "@adobe/cq-spa-component-mapping": "~1.0.3",
-    "@adobe/cq-spa-page-model-manager": "~1.0.3",
+    "@adobe/cq-spa-page-model-manager": "~1.0.5",
     "@angular-devkit/build-angular": "~0.6.1",
     "@angular-devkit/build-ng-packagr": "~0.6.6",
     "@angular/cli": "~6.0.1",

@@ -1,3 +1,7 @@
+### 1.1.0 - 12 December 2018
+
+* Improvement: Add dynamic routing
+
 ### 1.0.3 - 18 October 2018
 
 * Fix: Component cqItem attribute binding
