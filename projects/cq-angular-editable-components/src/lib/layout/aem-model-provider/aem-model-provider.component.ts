@@ -17,16 +17,28 @@
 
 import { Component, Input, NgZone } from '@angular/core';
 import { ModelManager } from "@adobe/cq-spa-page-model-manager";
-import { Constants } from "../constants";
 
 @Component({
   selector: '[aemModelProvider]',
   template: `<ng-container [aemComponent] [cqItem]='cqItem' [cqPath]='cqPath' [itemName]='itemName'></ng-container>`
 })
+/**
+ * The current component is responsible for providing access to the ModelManager and the model of a component
+ */
 export class AEMModelProviderComponent {
+  /**
+   * Path to the model associated with the current instance of the component
+   */
   @Input() cqPath;
+  /**
+   * Model item associated with the current model provider component
+   */
   @Input() cqItem;
+  /**
+   * Name of the item associated with the current model provider component
+   */
   @Input() itemName;
+
   @Input() aemModelProvider;
 
   constructor(private ngZone: NgZone) {

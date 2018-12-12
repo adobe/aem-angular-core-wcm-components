@@ -151,6 +151,8 @@ ___
 
 **● cqPath**: *`string`*
 
+Path to the model structure associated with the current component
+
 ___
 <a id="aemcomponentdirective.md_itemattrs"></a>
 
@@ -158,12 +160,16 @@ ___
 
 **● itemAttrs**: *`object`*
 
+HtmlElement attributes for the current instance of the component
+
 ___
 <a id="aemcomponentdirective.md_itemname"></a>
 
 ####  itemName
 
 **● itemName**: *`string`*
+
+Name of the current instance of the component
 
 ___
 
@@ -274,12 +280,16 @@ ___
 
 **● classNames**: *`string`*
 
+Class names of the current component
+
 ___
 <a id="aemcontainercomponent.md_cqitems"></a>
 
 ####  cqItems
 
 **● cqItems**: *`any`*
+
+Map of model items included in the current container
 
 ___
 <a id="aemcontainercomponent.md_cqitemsorder"></a>
@@ -288,6 +298,8 @@ ___
 
 **● cqItemsOrder**: *`any`*
 
+Array of model item keys
+
 ___
 <a id="aemcontainercomponent.md_cqpath"></a>
 
@@ -295,12 +307,16 @@ ___
 
 **● cqPath**: *`string`* = ""
 
+Path to the model associated with the current instance of the component
+
 ___
 <a id="aemcontainercomponent.md_modelname"></a>
 
 ####  modelName
 
 **● modelName**: *`string`* = ""
+
+Key of the model structure
 
 ___
 
@@ -460,6 +476,8 @@ ___
 
 **● cqItem**: *`any`*
 
+Model item associated with the current model provider component
+
 ___
 <a id="aemmodelprovidercomponent.md_cqpath"></a>
 
@@ -467,12 +485,16 @@ ___
 
 **● cqPath**: *`any`*
 
+Path to the model associated with the current instance of the component
+
 ___
 <a id="aemmodelprovidercomponent.md_itemname"></a>
 
 ####  itemName
 
 **● itemName**: *`any`*
+
+Name of the item associated with the current model provider component
 
 ___
 
@@ -552,12 +574,16 @@ ___
 
 **● classNames**: *`string`*
 
+Class names of the current component
+
 ___
 <a id="aempagecomponent.md_cqitems"></a>
 
 ####  cqItems
 
 **● cqItems**: *`any`*
+
+Map of model items included in the current container
 
 ___
 <a id="aempagecomponent.md_cqitemsorder"></a>
@@ -566,6 +592,8 @@ ___
 
 **● cqItemsOrder**: *`any`*
 
+Array of model item keys
+
 ___
 <a id="aempagecomponent.md_cqpath"></a>
 
@@ -573,12 +601,16 @@ ___
 
 **● cqPath**: *`string`* = ""
 
+Path to the model associated with the current instance of the component
+
 ___
 <a id="aempagecomponent.md_modelname"></a>
 
 ####  modelName
 
 **● modelName**: *`string`* = ""
+
+Key of the model structure
 
 ___
 
@@ -724,12 +756,16 @@ ___
 
 **● classNames**: *`string`*
 
+Class names of the current component
+
 ___
 <a id="aemresponsivegridcomponent.md_columnclassnames"></a>
 
 ####  columnClassNames
 
 **● columnClassNames**: *`Object`*
+
+Map of class names corresponding to each child of the current responsive grid
 
 ___
 <a id="aemresponsivegridcomponent.md_columncount"></a>
@@ -738,12 +774,16 @@ ___
 
 **● columnCount**: *`number`*
 
+Current number of columns of the grid
+
 ___
 <a id="aemresponsivegridcomponent.md_cqitems"></a>
 
 ####  cqItems
 
 **● cqItems**: *`any`*
+
+Map of model items included in the current container
 
 ___
 <a id="aemresponsivegridcomponent.md_cqitemsorder"></a>
@@ -752,12 +792,16 @@ ___
 
 **● cqItemsOrder**: *`any`*
 
+Array of model item keys
+
 ___
 <a id="aemresponsivegridcomponent.md_cqpath"></a>
 
 ####  cqPath
 
 **● cqPath**: *`string`* = ""
+
+Path to the model associated with the current instance of the component
 
 ___
 <a id="aemresponsivegridcomponent.md_gridclassnames"></a>
@@ -766,12 +810,16 @@ ___
 
 **● gridClassNames**: *`string`*
 
+Class names associated with the current responsive grid
+
 ___
 <a id="aemresponsivegridcomponent.md_modelname"></a>
 
 ####  modelName
 
 **● modelName**: *`string`* = ""
+
+Key of the model structure
 
 ___
 
@@ -1083,6 +1131,10 @@ ___
 
 ## Class: ComponentMappingWithConfig
 
+The current class extends the @adobe/cq-spa-component-mapping#Mapto library and features with Angular specifics such as
+
+*   Storing the editing configurations for each resource type
+
 ### Hierarchy
 
 **ComponentMappingWithConfig**
@@ -1127,11 +1179,13 @@ ___
 
 ▸ **get**(resourceType: *`any`*): `any`
 
+Returns the component class for the given resourceType
+
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| resourceType | `any` |
+| Param | Type | Description |
+| ------ | ------ | ------ |
+| resourceType | `any` |  Resource type for which the component class has been stored |
 
 **Returns:** `any`
 
@@ -1140,13 +1194,15 @@ ___
 
 ####  getEditConfig
 
-▸ **getEditConfig**(type: *`any`*): `any`
+▸ **getEditConfig**(resourceType: *`any`*): `any`
+
+Returns the EditConfig structure for the given type
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| type | `any` |
+| Param | Type | Description |
+| ------ | ------ | ------ |
+| resourceType | `any` |  Resource type for which the configuration has been stored |
 
 **Returns:** `any`
 
@@ -1157,12 +1213,14 @@ ___
 
 ▸ **map**(resourceTypes: *`any`*, clazz: *`any`*, editConfig?: *`any`*): `void`
 
+Stores a component class for the given resource types and also allows to provide an EditConfig object
+
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| resourceTypes | `any` | - |
-| clazz | `any` | - |
+| Param | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| resourceTypes | `any` | - |  List of resource types |
+| clazz | `any` | - |  Component class to be stored |
 | `Default value` editConfig | `any` |  null |
 
 **Returns:** `void`

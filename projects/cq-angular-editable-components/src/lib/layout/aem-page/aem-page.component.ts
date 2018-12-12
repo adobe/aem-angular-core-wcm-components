@@ -28,11 +28,14 @@ const PAGE_MODEL_SEPARATOR = '/jcr:content/';
   },
   templateUrl: '../aem-container/aem-container.component.html'
 })
+/**
+ * The current component carries the base presentational logic of page component
+ */
 export class AEMPageComponent extends AEMContainerComponent {
   /**
    * Returns the aggregated path of this container path and the provided path
    *
-   * @param path - the provided path to aggregate with the container path
+   * @param {string} path - the provided path to aggregate with the container path
    */
   getDataPath(path) {
     return this.cqPath ? this.cqPath + PAGE_MODEL_SEPARATOR + path : path;

@@ -17,7 +17,6 @@
 
 /**
  * Selector that identifies the node that contains the WCM mode state
- *
  */
 const WCM_MODE_META_SELECTOR:string = 'meta[property="cq:wcmmode"]';
 
@@ -32,12 +31,12 @@ const EDIT_MODE:string = 'edit';
 const PREVIEW_MODE:string = 'preview';
 /**
  * Returns if we are in the browser context or not by checking for the
- * existance of the window object
+ * existence of the window object
  */
 function isBrowser() {
     try {
         return typeof window !== 'undefined';
-    }catch(e){
+    } catch (e) {
         return false;
     }
 }
@@ -46,8 +45,6 @@ function isBrowser() {
  * Returns the current WCM mode
  *
  * <p>Note that the value isn't, as of the date of this writing, updated by the editor</p>
- *
- *
  */
 function getWCMMode() {
     if (isBrowser()) {
@@ -58,13 +55,11 @@ function getWCMMode() {
 
 /**
  * Helper functions for interacting with the AEM environment
- *
  */
 export const Utils = {
 
     /**
      * Is the app used in the context of the AEM Page editor
-     *
      */
     isInEditor() {
         const wcmMode = getWCMMode();
