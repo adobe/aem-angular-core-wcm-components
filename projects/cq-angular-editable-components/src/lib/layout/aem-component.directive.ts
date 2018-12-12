@@ -17,9 +17,9 @@
 
 import { Directive, Input, Renderer2, NgZone, ViewContainerRef, ComponentFactoryResolver, ComponentRef, AfterViewInit } from '@angular/core';
 
-import { ComponentMapping } from "./component-mapping";
-import { Constants } from "./constants";
-import { Utils } from "./utils";
+import { ComponentMapping } from './component-mapping';
+import { Constants } from './constants';
+import { Utils } from './utils';
 
 
 const PLACEHOLDER_CLASS_NAME = 'cq-placeholder';
@@ -28,8 +28,22 @@ const PLACEHOLDER_CLASS_NAME = 'cq-placeholder';
   selector: '[aemComponent]'
 })
 
+/**
+ * The current directive provides advanced capabilities among which are
+ *
+ * - The management of the component placeholder in the Page Editor
+ * - The dynamic instantiation of components based on a component definition
+ * - The conversion from model fields to properties and injection in the component instance
+ * - The management of HTMLElement attributes and class names on the native element
+ */
 export class AEMComponentDirective implements AfterViewInit {
+  /**
+   * Dynamically created component
+   */
   private _component:ComponentRef<any>;
+  /**
+   * Model item that corresponds to the current component
+   */
   private _cqItem:object;
 
   get cqItem(): object {
@@ -41,8 +55,18 @@ export class AEMComponentDirective implements AfterViewInit {
     this._cqItem = value;
     this.updateComponentData();
   }
+
+  /**
+   * Path to the model structure associated with the current component
+   */
   @Input() cqPath:string;
+  /**
+   * Name of the current instance of the component
+   */
   @Input() itemName:string;
+  /**
+   * HtmlElement attributes for the current instance of the component
+   */
   @Input() itemAttrs: object;
 
   @Input() aemComponent;
@@ -123,7 +147,7 @@ export class AEMComponentDirective implements AfterViewInit {
             this.renderer.addClass(this._component.location.nativeElement, itemClass);
           });
         } else {
-          this.renderer.setAttribute(this._component.location.nativeElement, key , this.itemAttrs[key])
+          this.renderer.setAttribute(this._component.location.nativeElement, key , this.itemAttrs[key]);
         }
       });
     }

@@ -31,11 +31,30 @@ const CONTAINER_CLASS_NAMES = 'aem-container';
   },
   templateUrl: './aem-container.component.html'
 })
+/**
+ * The current component provides the base presentational logic common to containers such as a grid or a page.
+ * Container have in common the notion of item holders. Items are represented in the model by the fields _:items_ and _:itemsOrder_
+ */
 export class AEMContainerComponent {
+  /**
+   * Map of model items included in the current container
+   */
   @Input() cqItems;
+  /**
+   * Array of model item keys
+   */
   @Input() cqItemsOrder;
+  /**
+   * Path to the model associated with the current instance of the component
+   */
   @Input() cqPath:string = '';
+  /**
+   * Key of the model structure
+   */
   @Input() modelName:string = '';
+  /**
+   * Class names of the current component
+   */
   @Input() classNames: string;
 
   /**
@@ -51,7 +70,7 @@ export class AEMContainerComponent {
    * @param path - the provided path to aggregate with the container path
    */
   getDataPath(path) {
-    return this.cqPath ? this.cqPath + "/" + path : path;
+    return this.cqPath ? this.cqPath + '/' + path : path;
   }
 
   /**

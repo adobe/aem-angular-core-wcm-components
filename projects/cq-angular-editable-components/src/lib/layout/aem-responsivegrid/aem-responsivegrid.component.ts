@@ -17,10 +17,10 @@
 
 import { Component, Input } from '@angular/core';
 import { AEMContainerComponent } from '../aem-container/aem-container.component';
-import { Constants } from '../constants'
+import { Constants } from '../constants';
 
 const PLACEHOLDER_CLASS_NAMES = ' aem-Grid-newComponent';
-const RESPONSIVE_GRID_TYPE = "wcm/foundation/components/responsivegrid";
+const RESPONSIVE_GRID_TYPE = 'wcm/foundation/components/responsivegrid';
 
 @Component({
   selector: 'aem-responsivegrid',
@@ -30,10 +30,25 @@ const RESPONSIVE_GRID_TYPE = "wcm/foundation/components/responsivegrid";
   },
   templateUrl: './aem-responsivegrid.component.html',
 })
+/**
+ * The current class carries the base presentational logic of the AEM Layout Container (aka. Responsive grid)
+ */
 export class AEMResponsiveGridComponent extends AEMContainerComponent {
+  /**
+   * Class names associated with the current responsive grid
+   */
   @Input() gridClassNames: string;
+  /**
+   * Map of class names corresponding to each child of the current responsive grid
+   */
   @Input() columnClassNames: Object;
+  /**
+   * Class names of the current component
+   */
   @Input() classNames: string;
+  /**
+   * Current number of columns of the grid
+   */
   @Input() columnCount: number;
 
   /**

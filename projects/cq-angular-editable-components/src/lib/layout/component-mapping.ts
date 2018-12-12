@@ -15,13 +15,27 @@
  * from Adobe Systems Incorporated.
  */
 
-import { ComponentMapping as SPAComponentMapping } from "@adobe/cq-spa-component-mapping";
+import { ComponentMapping as SPAComponentMapping } from '@adobe/cq-spa-component-mapping';
 
+/**
+ * The current class extends the @adobe/cq-spa-component-mapping#Mapto library and features with Angular specifics such as
+ *
+ * - Storing the editing configurations for each resource type
+ */
 export class ComponentMappingWithConfig {
-  private editConfigMap = {}
+  /**
+   * Store of EditConfig structures
+   */
+  private editConfigMap = {};
 
   constructor(private spaMapping:SPAComponentMapping) {}
 
+  /**
+   * Stores a component class for the given resource types and also allows to provide an EditConfig object
+   * @param resourceTypes - List of resource types
+   * @param clazz - Component class to be stored
+   * @param [editConfig] - Edit configuration to be stored for the given resource types
+   */
   map(resourceTypes, clazz, editConfig = null) {
       let innerClass = clazz;
 
@@ -31,12 +45,20 @@ export class ComponentMappingWithConfig {
       this.spaMapping.map(resourceTypes, innerClass);
   };
 
+  /**
+   * Returns the component class for the given resourceType
+   * @param resourceType - Resource type for which the component class has been stored
+   */
   get(resourceType) {
     return this.spaMapping.get(resourceType);
   }
 
-  getEditConfig(type) {
-    return this.editConfigMap[type];
+  /**
+   * Returns the EditConfig structure for the given type
+   * @param resourceType - Resource type for which the configuration has been stored
+   */
+  getEditConfig(resourceType) {
+    return this.editConfigMap[resourceType];
   }
 }
 
