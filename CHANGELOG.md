@@ -1,3 +1,7 @@
+### 1.1.1 - 12 December 2018
+
+* Doc: Improving code documentation
+
 ### 1.1.0 - 12 December 2018
 
 * Improvement: Add dynamic routing

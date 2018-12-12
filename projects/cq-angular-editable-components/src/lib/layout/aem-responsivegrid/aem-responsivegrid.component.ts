@@ -53,7 +53,7 @@ export class AEMResponsiveGridComponent extends AEMContainerComponent {
 
   /**
    * Returns the column class names for a given column
-   * @param {string} itemKey - The key of the column item
+   * @param itemKey - The key of the column item
    */
   getColumnClassNames(itemKey:string) {
     return this.columnClassNames && this.columnClassNames[itemKey];
@@ -82,7 +82,7 @@ export class AEMResponsiveGridComponent extends AEMContainerComponent {
   /**
    * Returns the aggregated path of this container path and the provided path
    *
-   * @param {string} path - the provided path to aggregate with the container path
+   * @param path - the provided path to aggregate with the container path
    */
   getAttrDataPath(path) {
     let item = this.getItem(path);

@@ -1,6 +1,6 @@
 {
   "name": "@adobe/cq-root-angular-editable-components",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -19,9 +19,6 @@
   },
   "author": "Adobe Systems Inc.",
   "license": "Apache-2.0",
-  "publishConfig": {
-    "registry": "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-cq-spa-release-local"
-  },
   "dependencies": {
     "@angular/common": "^6.0.0",
     "@angular/core": "^6.0.0",

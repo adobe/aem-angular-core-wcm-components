@@ -1346,6 +1346,10 @@ The [technical documentation](https://www.adobe.com/go/aem6_4_docs_spa_en) is al
 
 ## Changelog 
 
+### 1.1.1 - 12 December 2018
+
+* Doc: Improving code documentation
+
 ### 1.1.0 - 12 December 2018
 
 * Improvement: Add dynamic routing

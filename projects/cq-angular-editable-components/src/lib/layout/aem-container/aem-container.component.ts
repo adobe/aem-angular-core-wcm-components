@@ -67,7 +67,7 @@ export class AEMContainerComponent {
   /**
    * Returns the aggregated path of this container path and the provided path
    *
-   * @param {string} path - the provided path to aggregate with the container path
+   * @param path - the provided path to aggregate with the container path
    */
   getDataPath(path) {
     return this.cqPath ? this.cqPath + '/' + path : path;
@@ -76,7 +76,7 @@ export class AEMContainerComponent {
   /**
    * Returns the item data from the cqModel
    *
-   * @param {string} itemKey - the itemKey to look for in the items.
+   * @param itemKey - the itemKey to look for in the items.
    */
   getItem(itemKey) {
     return this.cqItems && this.cqItems[itemKey];

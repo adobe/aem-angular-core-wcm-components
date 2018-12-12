@@ -32,9 +32,9 @@ export class ComponentMappingWithConfig {
 
   /**
    * Stores a component class for the given resource types and also allows to provide an EditConfig object
-   * @param {string[]} resourceTypes - List of resource types
-   * @param {{}} clazz - Component class to be stored
-   * @param {} [editConfig] - Edit configuration to be stored for the given resource types
+   * @param resourceTypes - List of resource types
+   * @param clazz - Component class to be stored
+   * @param [editConfig] - Edit configuration to be stored for the given resource types
    */
   map(resourceTypes, clazz, editConfig = null) {
       let innerClass = clazz;
@@ -47,7 +47,7 @@ export class ComponentMappingWithConfig {
 
   /**
    * Returns the component class for the given resourceType
-   * @param {string} resourceType - Resource type for which the component class has been stored
+   * @param resourceType - Resource type for which the component class has been stored
    */
   get(resourceType) {
     return this.spaMapping.get(resourceType);
@@ -55,7 +55,7 @@ export class ComponentMappingWithConfig {
 
   /**
    * Returns the EditConfig structure for the given type
-   * @param {string} resourceType - Resource type for which the configuration has been stored
+   * @param resourceType - Resource type for which the configuration has been stored
    */
   getEditConfig(resourceType) {
     return this.editConfigMap[resourceType];

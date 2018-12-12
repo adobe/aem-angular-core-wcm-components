@@ -35,7 +35,7 @@ export class AEMPageComponent extends AEMContainerComponent {
   /**
    * Returns the aggregated path of this container path and the provided path
    *
-   * @param {string} path - the provided path to aggregate with the container path
+   * @param path - the provided path to aggregate with the container path
    */
   getDataPath(path) {
     return this.cqPath ? this.cqPath + PAGE_MODEL_SEPARATOR + path : path;
