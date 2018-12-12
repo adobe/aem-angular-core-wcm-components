@@ -903,6 +903,182 @@ Returns the placeholder classes
 ___
 
 
+<a id="aempagedataresolver.md"></a>
+
+## Class: AemPageDataResolver
+
+### Hierarchy
+
+**AemPageDataResolver**
+
+### Implements
+
+* `Resolve`<`string`>
+
+### Index
+
+#### Constructors
+
+* [constructor](#aempagedataresolver.md_constructor)
+
+#### Methods
+
+* [resolve](#aempagedataresolver.md_resolve)
+
+---
+
+### Constructors
+
+<a id="aempagedataresolver.md_constructor"></a>
+
+####  constructor
+
+⊕ **new AemPageDataResolver**(): [AemPageDataResolver](#aempagedataresolver.md)
+
+**Returns:** [AemPageDataResolver](#aempagedataresolver.md)
+
+___
+
+### Methods
+
+<a id="aempagedataresolver.md_resolve"></a>
+
+####  resolve
+
+▸ **resolve**(route: *`ActivatedRouteSnapshot`*): `string`
+
+Returns the absolute resource path without extension.
+*__example__*: // returns: '/content/aa/bb' for route.url \[ 'content', 'aa', 'bb.html' \] resolve(route)
+
+**Parameters:**
+
+| Param | Type | Description |
+| ------ | ------ | ------ |
+| route | `ActivatedRouteSnapshot` |  route |
+
+**Returns:** `string`
+absolute resource path without extension
+
+___
+
+
+<a id="aempageroutereusestrategy.md"></a>
+
+## Class: AemPageRouteReuseStrategy
+
+Implements RouteReuseStrategy to customize route reuse.
+
+### Hierarchy
+
+**AemPageRouteReuseStrategy**
+
+### Implements
+
+* `RouteReuseStrategy`
+
+### Index
+
+#### Methods
+
+* [retrieve](#aempageroutereusestrategy.md_retrieve)
+* [shouldAttach](#aempageroutereusestrategy.md_shouldattach)
+* [shouldDetach](#aempageroutereusestrategy.md_shoulddetach)
+* [shouldReuseRoute](#aempageroutereusestrategy.md_shouldreuseroute)
+* [store](#aempageroutereusestrategy.md_store)
+
+---
+
+### Methods
+
+<a id="aempageroutereusestrategy.md_retrieve"></a>
+
+####  retrieve
+
+▸ **retrieve**(route: *`ActivatedRouteSnapshot`*):  `DetachedRouteHandle` &#124; `null`
+
+Retrieves the previously stored route.
+
+**Parameters:**
+
+| Param | Type |
+| ------ | ------ |
+| route | `ActivatedRouteSnapshot` |
+
+**Returns:**  `DetachedRouteHandle` &#124; `null`
+
+___
+<a id="aempageroutereusestrategy.md_shouldattach"></a>
+
+####  shouldAttach
+
+▸ **shouldAttach**(route: *`ActivatedRouteSnapshot`*): `boolean`
+
+Determines if this route (and its subtree) should be reattached.
+
+**Parameters:**
+
+| Param | Type |
+| ------ | ------ |
+| route | `ActivatedRouteSnapshot` |
+
+**Returns:** `boolean`
+
+___
+<a id="aempageroutereusestrategy.md_shoulddetach"></a>
+
+####  shouldDetach
+
+▸ **shouldDetach**(route: *`ActivatedRouteSnapshot`*): `boolean`
+
+Determines if this route (and its subtree) should be detached to be reused later.
+
+**Parameters:**
+
+| Param | Type |
+| ------ | ------ |
+| route | `ActivatedRouteSnapshot` |
+
+**Returns:** `boolean`
+
+___
+<a id="aempageroutereusestrategy.md_shouldreuseroute"></a>
+
+####  shouldReuseRoute
+
+▸ **shouldReuseRoute**(future: *`ActivatedRouteSnapshot`*, curr: *`ActivatedRouteSnapshot`*): `boolean`
+
+Determines if a route should be reused
+
+**Parameters:**
+
+| Param | Type |
+| ------ | ------ |
+| future | `ActivatedRouteSnapshot` |
+| curr | `ActivatedRouteSnapshot` |
+
+**Returns:** `boolean`
+
+___
+<a id="aempageroutereusestrategy.md_store"></a>
+
+####  store
+
+▸ **store**(route: *`ActivatedRouteSnapshot`*, detachedTree: *`DetachedRouteHandle`*): `void`
+
+Not storing deteached route.
+
+**Parameters:**
+
+| Param | Type |
+| ------ | ------ |
+| route | `ActivatedRouteSnapshot` |
+| detachedTree | `DetachedRouteHandle` |
+
+**Returns:** `void`
+
+___
+
+
 <a id="componentmappingwithconfig.md"></a>
 
 ## Class: ComponentMappingWithConfig
@@ -1111,6 +1287,10 @@ ___
 The [technical documentation](https://www.adobe.com/go/aem6_4_docs_spa_en) is already available, but if you are unable to solve your problem or you found a bug you can always [contact us](https://www.adobe.com/go/aem6_4_support_en) and ask for help!
 
 ## Changelog 
+
+### 1.1.0 - 12 December 2018
+
+* Improvement: Add dynamic routing
 
 ### 1.0.3 - 18 October 2018
 

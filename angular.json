@@ -140,6 +140,7 @@
           "options": {
             "main": "projects/cq-angular-editable-components/src/test.ts",
             "tsConfig": "projects/cq-angular-editable-components/tsconfig.spec.json",
+            "codeCoverageExclude": ["projects/cq-angular-editable-components/src/test.ts", "projects/cq-angular-editable-components/src/lib/test/**/*"],
             "karmaConfig": "projects/cq-angular-editable-components/karma.conf.js"
           }
         },
