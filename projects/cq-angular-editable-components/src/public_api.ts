@@ -22,3 +22,5 @@ export * from './lib/layout/component-mapping';
 export * from './lib/layout/constants';
 export * from './lib/layout/utils';
 export * from './lib/cq-angular-editable-components.module';
+export * from './lib/routing/AemPageDataResolver';
+export * from './lib/routing/AemPageRouteReuseStrategy';
