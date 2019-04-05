@@ -16,8 +16,8 @@
  */
 
 import { Component, Input } from '@angular/core';
-import { Constants } from '../constants'
-import { Utils } from "../utils";
+import { Constants } from '../constants';
+import { Utils } from '../utils';
 
 const PLACEHOLDER_CLASS_NAMES = Constants.NEW_SECTION_CLASS_NAMES;
 const PLACEHOLDER_ITEM_NAME = '*';
@@ -47,11 +47,11 @@ export class AEMContainerComponent {
   /**
    * Path to the model associated with the current instance of the component
    */
-  @Input() cqPath:string = '';
+  @Input() cqPath: string = '';
   /**
    * Key of the model structure
    */
-  @Input() modelName:string = '';
+  @Input() modelName: string = '';
   /**
    * Class names of the current component
    */

@@ -22,12 +22,12 @@ import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/t
 import { AEMContainerComponent } from './aem-container.component';
 import { AEMComponentDirective } from '../aem-component.directive';
 import { AEMModelProviderComponent } from '../aem-model-provider/aem-model-provider.component';
-import { AEMResponsiveGridComponent } from "../aem-responsivegrid/aem-responsivegrid.component";
-import { ModelManager } from "@adobe/cq-spa-page-model-manager";
-import { Component1 } from "../../test/test-comp1.component";
-import { Component2 } from "../../test/test-comp2.component";
-import { Component3 } from "../../test/test-comp3.component";
-import { Constants } from "../constants";
+import { AEMResponsiveGridComponent } from '../aem-responsivegrid/aem-responsivegrid.component';
+import { ModelManager } from '@adobe/cq-spa-page-model-manager';
+import { Component1 } from '../../test/test-comp1.component';
+import { Component2 } from '../../test/test-comp2.component';
+import { Component3 } from '../../test/test-comp3.component';
+import { Constants } from '../constants';
 
 import '../../test/mapping';
 
@@ -35,13 +35,14 @@ describe('AEMContainerComponent', () => {
   let component: AEMContainerComponent;
   let fixture: ComponentFixture<AEMContainerComponent>;
 
-  const layout = require("../../test/data/layout.json");
+  const layout = require('../../test/data/layout.json');
 
   beforeEach(() => {
     spyOn(ModelManager, 'addListener').and.returnValue(undefined);
 
     TestBed.configureTestingModule({
-      declarations: [ AEMContainerComponent, AEMComponentDirective,
+      declarations: [ AEMContainerComponent,
+        AEMComponentDirective,
         AEMModelProviderComponent,
         Component1,
         Component2,
@@ -58,7 +59,7 @@ describe('AEMContainerComponent', () => {
     fixture.detectChanges();
   });
 
-  let checkComponent = function(element, elementName, dataPath, cssClass, content?) {
+  const checkComponent = function(element, elementName, dataPath, cssClass, content?) {
     expect(element.matches(`${elementName}[data-cq-data-path="${dataPath}"][class="${cssClass}"]`)).toBeTruthy();
     if (content) {
       expect(element.getAttribute('data-title')).toEqual(content);
@@ -66,42 +67,42 @@ describe('AEMContainerComponent', () => {
     return element;
   };
 
-  it('generates the correct layout', () => {
+  it('should generate the correct layout', () => {
     component.cqItems = layout[Constants.ITEMS_PROP];
     component.cqItemsOrder = layout[Constants.ITEMS_ORDER_PROP];
     component.cqPath = layout[Constants.PATH_PROP];
 
     fixture.detectChanges();
     let element = fixture.nativeElement;
-    element = checkComponent(element.firstElementChild,
-      "aem-responsivegrid", "root", "aem-container aem-Grid/root");
+    element = checkComponent(element.firstElementChild.firstElementChild,
+      'aem-responsivegrid', 'root', 'aem-container test-class-names aem-Grid/root');
 
-    element = checkComponent(element.firstElementChild.firstElementChild, "aem-responsivegrid",
-      "root/responsivegrid", "aem-container aem-Grid/root/responsivegrid");
+    element = checkComponent(element.firstElementChild.firstElementChild, 'aem-responsivegrid',
+      'root/responsivegrid', 'aem-container aem-Grid/root/responsivegrid');
 
-    element = checkComponent(element.firstElementChild, "div",
-      "root/responsivegrid/component1",
-      "aem-GridColumn/root/responsivegrid/component1");
+    element = checkComponent(element.firstElementChild, 'div',
+      'root/responsivegrid/component1',
+      'aem-GridColumn/root/responsivegrid/component1');
     expect(element.firstElementChild.matches(`test-comp1[data-title="Component1"]`)).toBeTruthy();
 
-    element = checkComponent(element.nextElementSibling, "div",
-      "root/responsivegrid/component3",
-      "aem-GridColumn/root/responsivegrid/component3");
+    element = checkComponent(element.nextElementSibling, 'div',
+      'root/responsivegrid/component3',
+      'aem-GridColumn/root/responsivegrid/component3');
     expect(element.firstElementChild.matches(`test-comp3[data-title="Component3"]`)).toBeTruthy();
 
-    element = checkComponent(element.nextElementSibling, "div",
-      "root/responsivegrid/component5",
-      "aem-GridColumn/root/responsivegrid/component5");
+    element = checkComponent(element.nextElementSibling, 'div',
+      'root/responsivegrid/component5',
+      'aem-GridColumn/root/responsivegrid/component5');
     expect(element.firstElementChild.matches(`test-comp1[data-title="Component5"]`)).toBeTruthy();
 
-    element = checkComponent(element.nextElementSibling, "div",
-      "root/responsivegrid/component2",
-      "aem-GridColumn/root/responsivegrid/component2");
+    element = checkComponent(element.nextElementSibling, 'div',
+      'root/responsivegrid/component2',
+      'aem-GridColumn/root/responsivegrid/component2');
     expect(element.firstElementChild.matches(`test-comp2[data-title="Component2"]`)).toBeTruthy();
 
-    element = checkComponent(element.nextElementSibling, "div",
-      "root/responsivegrid/component4",
-      "aem-GridColumn/root/responsivegrid/component4");
+    element = checkComponent(element.nextElementSibling, 'div',
+      'root/responsivegrid/component4',
+      'aem-GridColumn/root/responsivegrid/component4');
     expect(element.firstElementChild.matches(`test-comp2[data-title="Component4"]`)).toBeTruthy();
 
     expect(component).toBeTruthy();
