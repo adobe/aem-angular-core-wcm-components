@@ -79,35 +79,35 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 <a id="aemcomponentdirective.md"></a>
 
-## Class: AEMComponentDirective
+### Class: AEMComponentDirective
 
-### Hierarchy
+#### Hierarchy
 
 **AEMComponentDirective**
 
-### Implements
+#### Implements
 
 * `AfterViewInit`
 
-### Index
+#### Index
 
-#### Constructors
+##### Constructors
 
 * [constructor](#aemcomponentdirective.md_constructor)
 
-#### Properties
+##### Properties
 
 * [aemComponent](#aemcomponentdirective.md_aemcomponent)
 * [cqPath](#aemcomponentdirective.md_cqpath)
 * [itemAttrs](#aemcomponentdirective.md_itemattrs)
 * [itemName](#aemcomponentdirective.md_itemname)
 
-#### Accessors
+##### Accessors
 
 * [cqItem](#aemcomponentdirective.md_cqitem)
 * [type](#aemcomponentdirective.md_type)
 
-#### Methods
+##### Methods
 
 * [ngAfterViewInit](#aemcomponentdirective.md_ngafterviewinit)
 * [ngOnDestroy](#aemcomponentdirective.md_ngondestroy)
@@ -115,11 +115,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ---
 
-### Constructors
+#### Constructors
 
-<a id="aemcomponentdirective.md_constructor"></a>
+<a id="aemcomponentdirective.md_aemcomponentdirective.md_constructor"></a>
 
-####  constructor
+#####  constructor
 
 ⊕ **new AEMComponentDirective**(renderer: *`Renderer2`*, viewContainer: *`ViewContainerRef`*, factoryResolver: *`ComponentFactoryResolver`*, ngZone: *`NgZone`*): [AEMComponentDirective](#aemcomponentdirective.md)
 
@@ -136,36 +136,36 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ___
 
-### Properties
+#### Properties
 
-<a id="aemcomponentdirective.md_aemcomponent"></a>
+<a id="aemcomponentdirective.md_aemcomponentdirective.md_aemcomponent"></a>
 
-####  aemComponent
+#####  aemComponent
 
 **● aemComponent**: *`any`*
 
 ___
-<a id="aemcomponentdirective.md_cqpath"></a>
+<a id="aemcomponentdirective.md_aemcomponentdirective.md_cqpath"></a>
 
-####  cqPath
+#####  cqPath
 
 **● cqPath**: *`string`*
 
 Path to the model structure associated with the current component
 
 ___
-<a id="aemcomponentdirective.md_itemattrs"></a>
+<a id="aemcomponentdirective.md_aemcomponentdirective.md_itemattrs"></a>
 
-####  itemAttrs
+#####  itemAttrs
 
 **● itemAttrs**: *`object`*
 
 HtmlElement attributes for the current instance of the component
 
 ___
-<a id="aemcomponentdirective.md_itemname"></a>
+<a id="aemcomponentdirective.md_aemcomponentdirective.md_itemname"></a>
 
-####  itemName
+#####  itemName
 
 **● itemName**: *`string`*
 
@@ -173,11 +173,11 @@ Name of the current instance of the component
 
 ___
 
-### Accessors
+#### Accessors
 
-<a id="aemcomponentdirective.md_cqitem"></a>
+<a id="aemcomponentdirective.md_aemcomponentdirective.md_cqitem"></a>
 
-####  cqItem
+#####  cqItem
 
 getcqItem(): `object`setcqItem(value: *`object`*): `void`
 
@@ -192,9 +192,9 @@ getcqItem(): `object`setcqItem(value: *`object`*): `void`
 **Returns:** `void`
 
 ___
-<a id="aemcomponentdirective.md_type"></a>
+<a id="aemcomponentdirective.md_aemcomponentdirective.md_type"></a>
 
-####  type
+#####  type
 
 gettype(): `any`
 
@@ -204,29 +204,29 @@ Returns the type of the cqItem if exists.
 
 ___
 
-### Methods
+#### Methods
 
-<a id="aemcomponentdirective.md_ngafterviewinit"></a>
+<a id="aemcomponentdirective.md_aemcomponentdirective.md_ngafterviewinit"></a>
 
-####  ngAfterViewInit
+#####  ngAfterViewInit
 
 ▸ **ngAfterViewInit**(): `void`
 
 **Returns:** `void`
 
 ___
-<a id="aemcomponentdirective.md_ngondestroy"></a>
+<a id="aemcomponentdirective.md_aemcomponentdirective.md_ngondestroy"></a>
 
-####  ngOnDestroy
+#####  ngOnDestroy
 
 ▸ **ngOnDestroy**(): `void`
 
 **Returns:** `void`
 
 ___
-<a id="aemcomponentdirective.md_ngoninit"></a>
+<a id="aemcomponentdirective.md_aemcomponentdirective.md_ngoninit"></a>
 
-####  ngOnInit
+#####  ngOnInit
 
 ▸ **ngOnInit**(): `void`
 
@@ -237,9 +237,9 @@ ___
 
 <a id="aemcontainercomponent.md"></a>
 
-## Class: AEMContainerComponent
+### Class: AEMContainerComponent
 
-### Hierarchy
+#### Hierarchy
 
 **AEMContainerComponent**
 
@@ -247,9 +247,9 @@ ___
 
 ↳  [AEMPageComponent](#aempagecomponent.md)
 
-### Index
+#### Index
 
-#### Properties
+##### Properties
 
 * [classNames](#aemcontainercomponent.md_classnames)
 * [cqItems](#aemcontainercomponent.md_cqitems)
@@ -257,13 +257,13 @@ ___
 * [cqPath](#aemcontainercomponent.md_cqpath)
 * [modelName](#aemcontainercomponent.md_modelname)
 
-#### Accessors
+##### Accessors
 
 * [hostClasses](#aemcontainercomponent.md_hostclasses)
 * [isInEditMode](#aemcontainercomponent.md_isineditmode)
 * [placeholderPath](#aemcontainercomponent.md_placeholderpath)
 
-#### Methods
+##### Methods
 
 * [getDataPath](#aemcontainercomponent.md_getdatapath)
 * [getHostClassNames](#aemcontainercomponent.md_gethostclassnames)
@@ -272,47 +272,47 @@ ___
 
 ---
 
-### Properties
+#### Properties
 
-<a id="aemcontainercomponent.md_classnames"></a>
+<a id="aemcontainercomponent.md_aemcontainercomponent.md_classnames"></a>
 
-####  classNames
+#####  classNames
 
 **● classNames**: *`string`*
 
 Class names of the current component
 
 ___
-<a id="aemcontainercomponent.md_cqitems"></a>
+<a id="aemcontainercomponent.md_aemcontainercomponent.md_cqitems"></a>
 
-####  cqItems
+#####  cqItems
 
 **● cqItems**: *`any`*
 
 Map of model items included in the current container
 
 ___
-<a id="aemcontainercomponent.md_cqitemsorder"></a>
+<a id="aemcontainercomponent.md_aemcontainercomponent.md_cqitemsorder"></a>
 
-####  cqItemsOrder
+#####  cqItemsOrder
 
 **● cqItemsOrder**: *`any`*
 
 Array of model item keys
 
 ___
-<a id="aemcontainercomponent.md_cqpath"></a>
+<a id="aemcontainercomponent.md_aemcontainercomponent.md_cqpath"></a>
 
-####  cqPath
+#####  cqPath
 
 **● cqPath**: *`string`* = ""
 
 Path to the model associated with the current instance of the component
 
 ___
-<a id="aemcontainercomponent.md_modelname"></a>
+<a id="aemcontainercomponent.md_aemcontainercomponent.md_modelname"></a>
 
-####  modelName
+#####  modelName
 
 **● modelName**: *`string`* = ""
 
@@ -320,20 +320,20 @@ Key of the model structure
 
 ___
 
-### Accessors
+#### Accessors
 
-<a id="aemcontainercomponent.md_hostclasses"></a>
+<a id="aemcontainercomponent.md_aemcontainercomponent.md_hostclasses"></a>
 
-####  hostClasses
+#####  hostClasses
 
 gethostClasses(): `string`
 
 **Returns:** `string`
 
 ___
-<a id="aemcontainercomponent.md_isineditmode"></a>
+<a id="aemcontainercomponent.md_aemcontainercomponent.md_isineditmode"></a>
 
-####  isInEditMode
+#####  isInEditMode
 
 getisInEditMode(): `boolean`
 
@@ -342,9 +342,9 @@ Returns weather of not we are in the editor
 **Returns:** `boolean`
 
 ___
-<a id="aemcontainercomponent.md_placeholderpath"></a>
+<a id="aemcontainercomponent.md_aemcontainercomponent.md_placeholderpath"></a>
 
-####  placeholderPath
+#####  placeholderPath
 
 getplaceholderPath(): `string`
 
@@ -354,11 +354,11 @@ Returns the placeholder path
 
 ___
 
-### Methods
+#### Methods
 
-<a id="aemcontainercomponent.md_getdatapath"></a>
+<a id="aemcontainercomponent.md_aemcontainercomponent.md_getdatapath"></a>
 
-####  getDataPath
+#####  getDataPath
 
 ▸ **getDataPath**(path: *`any`*): `any`
 
@@ -373,9 +373,9 @@ Returns the aggregated path of this container path and the provided path
 **Returns:** `any`
 
 ___
-<a id="aemcontainercomponent.md_gethostclassnames"></a>
+<a id="aemcontainercomponent.md_aemcontainercomponent.md_gethostclassnames"></a>
 
-####  getHostClassNames
+#####  getHostClassNames
 
 ▸ **getHostClassNames**(): `string`
 
@@ -384,9 +384,9 @@ Returns the class names of the container based on the data from the cqModel
 **Returns:** `string`
 
 ___
-<a id="aemcontainercomponent.md_getitem"></a>
+<a id="aemcontainercomponent.md_aemcontainercomponent.md_getitem"></a>
 
-####  getItem
+#####  getItem
 
 ▸ **getItem**(itemKey: *`any`*): `any`
 
@@ -401,9 +401,9 @@ Returns the item data from the cqModel
 **Returns:** `any`
 
 ___
-<a id="aemcontainercomponent.md_getplaceholderclassnames"></a>
+<a id="aemcontainercomponent.md_aemcontainercomponent.md_getplaceholderclassnames"></a>
 
-####  getPlaceholderClassNames
+#####  getPlaceholderClassNames
 
 ▸ **getPlaceholderClassNames**(): `string`
 
@@ -416,26 +416,26 @@ ___
 
 <a id="aemmodelprovidercomponent.md"></a>
 
-## Class: AEMModelProviderComponent
+### Class: AEMModelProviderComponent
 
-### Hierarchy
+#### Hierarchy
 
 **AEMModelProviderComponent**
 
-### Index
+#### Index
 
-#### Constructors
+##### Constructors
 
 * [constructor](#aemmodelprovidercomponent.md_constructor)
 
-#### Properties
+##### Properties
 
 * [aemModelProvider](#aemmodelprovidercomponent.md_aemmodelprovider)
 * [cqItem](#aemmodelprovidercomponent.md_cqitem)
 * [cqPath](#aemmodelprovidercomponent.md_cqpath)
 * [itemName](#aemmodelprovidercomponent.md_itemname)
 
-#### Methods
+##### Methods
 
 * [ngDestroy](#aemmodelprovidercomponent.md_ngdestroy)
 * [ngOnInit](#aemmodelprovidercomponent.md_ngoninit)
@@ -443,11 +443,11 @@ ___
 
 ---
 
-### Constructors
+#### Constructors
 
-<a id="aemmodelprovidercomponent.md_constructor"></a>
+<a id="aemmodelprovidercomponent.md_aemmodelprovidercomponent.md_constructor"></a>
 
-####  constructor
+#####  constructor
 
 ⊕ **new AEMModelProviderComponent**(ngZone: *`NgZone`*): [AEMModelProviderComponent](#aemmodelprovidercomponent.md)
 
@@ -461,36 +461,36 @@ ___
 
 ___
 
-### Properties
+#### Properties
 
-<a id="aemmodelprovidercomponent.md_aemmodelprovider"></a>
+<a id="aemmodelprovidercomponent.md_aemmodelprovidercomponent.md_aemmodelprovider"></a>
 
-####  aemModelProvider
+#####  aemModelProvider
 
 **● aemModelProvider**: *`any`*
 
 ___
-<a id="aemmodelprovidercomponent.md_cqitem"></a>
+<a id="aemmodelprovidercomponent.md_aemmodelprovidercomponent.md_cqitem"></a>
 
-####  cqItem
+#####  cqItem
 
 **● cqItem**: *`any`*
 
 Model item associated with the current model provider component
 
 ___
-<a id="aemmodelprovidercomponent.md_cqpath"></a>
+<a id="aemmodelprovidercomponent.md_aemmodelprovidercomponent.md_cqpath"></a>
 
-####  cqPath
+#####  cqPath
 
 **● cqPath**: *`any`*
 
 Path to the model associated with the current instance of the component
 
 ___
-<a id="aemmodelprovidercomponent.md_itemname"></a>
+<a id="aemmodelprovidercomponent.md_aemmodelprovidercomponent.md_itemname"></a>
 
-####  itemName
+#####  itemName
 
 **● itemName**: *`any`*
 
@@ -498,29 +498,29 @@ Name of the item associated with the current model provider component
 
 ___
 
-### Methods
+#### Methods
 
-<a id="aemmodelprovidercomponent.md_ngdestroy"></a>
+<a id="aemmodelprovidercomponent.md_aemmodelprovidercomponent.md_ngdestroy"></a>
 
-####  ngDestroy
+#####  ngDestroy
 
 ▸ **ngDestroy**(): `void`
 
 **Returns:** `void`
 
 ___
-<a id="aemmodelprovidercomponent.md_ngoninit"></a>
+<a id="aemmodelprovidercomponent.md_aemmodelprovidercomponent.md_ngoninit"></a>
 
-####  ngOnInit
+#####  ngOnInit
 
 ▸ **ngOnInit**(): `void`
 
 **Returns:** `void`
 
 ___
-<a id="aemmodelprovidercomponent.md_updateitem"></a>
+<a id="aemmodelprovidercomponent.md_aemmodelprovidercomponent.md_updateitem"></a>
 
-####  updateItem
+#####  updateItem
 
 ▸ **updateItem**(): `void`
 
@@ -533,17 +533,17 @@ ___
 
 <a id="aempagecomponent.md"></a>
 
-## Class: AEMPageComponent
+### Class: AEMPageComponent
 
-### Hierarchy
+#### Hierarchy
 
  [AEMContainerComponent](#aemcontainercomponent.md)
 
 **↳ AEMPageComponent**
 
-### Index
+#### Index
 
-#### Properties
+##### Properties
 
 * [classNames](#aempagecomponent.md_classnames)
 * [cqItems](#aempagecomponent.md_cqitems)
@@ -551,13 +551,13 @@ ___
 * [cqPath](#aempagecomponent.md_cqpath)
 * [modelName](#aempagecomponent.md_modelname)
 
-#### Accessors
+##### Accessors
 
 * [hostClasses](#aempagecomponent.md_hostclasses)
 * [isInEditMode](#aempagecomponent.md_isineditmode)
 * [placeholderPath](#aempagecomponent.md_placeholderpath)
 
-#### Methods
+##### Methods
 
 * [getDataPath](#aempagecomponent.md_getdatapath)
 * [getHostClassNames](#aempagecomponent.md_gethostclassnames)
@@ -566,47 +566,47 @@ ___
 
 ---
 
-### Properties
+#### Properties
 
-<a id="aempagecomponent.md_classnames"></a>
+<a id="aempagecomponent.md_aempagecomponent.md_classnames"></a>
 
-####  classNames
+#####  classNames
 
 **● classNames**: *`string`*
 
 Class names of the current component
 
 ___
-<a id="aempagecomponent.md_cqitems"></a>
+<a id="aempagecomponent.md_aempagecomponent.md_cqitems"></a>
 
-####  cqItems
+#####  cqItems
 
 **● cqItems**: *`any`*
 
 Map of model items included in the current container
 
 ___
-<a id="aempagecomponent.md_cqitemsorder"></a>
+<a id="aempagecomponent.md_aempagecomponent.md_cqitemsorder"></a>
 
-####  cqItemsOrder
+#####  cqItemsOrder
 
 **● cqItemsOrder**: *`any`*
 
 Array of model item keys
 
 ___
-<a id="aempagecomponent.md_cqpath"></a>
+<a id="aempagecomponent.md_aempagecomponent.md_cqpath"></a>
 
-####  cqPath
+#####  cqPath
 
 **● cqPath**: *`string`* = ""
 
 Path to the model associated with the current instance of the component
 
 ___
-<a id="aempagecomponent.md_modelname"></a>
+<a id="aempagecomponent.md_aempagecomponent.md_modelname"></a>
 
-####  modelName
+#####  modelName
 
 **● modelName**: *`string`* = ""
 
@@ -614,20 +614,20 @@ Key of the model structure
 
 ___
 
-### Accessors
+#### Accessors
 
-<a id="aempagecomponent.md_hostclasses"></a>
+<a id="aempagecomponent.md_aempagecomponent.md_hostclasses"></a>
 
-####  hostClasses
+#####  hostClasses
 
 gethostClasses(): `string`
 
 **Returns:** `string`
 
 ___
-<a id="aempagecomponent.md_isineditmode"></a>
+<a id="aempagecomponent.md_aempagecomponent.md_isineditmode"></a>
 
-####  isInEditMode
+#####  isInEditMode
 
 getisInEditMode(): `boolean`
 
@@ -636,9 +636,9 @@ Returns weather of not we are in the editor
 **Returns:** `boolean`
 
 ___
-<a id="aempagecomponent.md_placeholderpath"></a>
+<a id="aempagecomponent.md_aempagecomponent.md_placeholderpath"></a>
 
-####  placeholderPath
+#####  placeholderPath
 
 getplaceholderPath(): `string`
 
@@ -648,11 +648,11 @@ Returns the placeholder path
 
 ___
 
-### Methods
+#### Methods
 
-<a id="aempagecomponent.md_getdatapath"></a>
+<a id="aempagecomponent.md_aempagecomponent.md_getdatapath"></a>
 
-####  getDataPath
+#####  getDataPath
 
 ▸ **getDataPath**(path: *`any`*): `any`
 
@@ -667,9 +667,9 @@ Returns the aggregated path of this container path and the provided path
 **Returns:** `any`
 
 ___
-<a id="aempagecomponent.md_gethostclassnames"></a>
+<a id="aempagecomponent.md_aempagecomponent.md_gethostclassnames"></a>
 
-####  getHostClassNames
+#####  getHostClassNames
 
 ▸ **getHostClassNames**(): `string`
 
@@ -678,9 +678,9 @@ Returns the class names of the container based on the data from the cqModel
 **Returns:** `string`
 
 ___
-<a id="aempagecomponent.md_getitem"></a>
+<a id="aempagecomponent.md_aempagecomponent.md_getitem"></a>
 
-####  getItem
+#####  getItem
 
 ▸ **getItem**(itemKey: *`any`*): `any`
 
@@ -695,9 +695,9 @@ Returns the item data from the cqModel
 **Returns:** `any`
 
 ___
-<a id="aempagecomponent.md_getplaceholderclassnames"></a>
+<a id="aempagecomponent.md_aempagecomponent.md_getplaceholderclassnames"></a>
 
-####  getPlaceholderClassNames
+#####  getPlaceholderClassNames
 
 ▸ **getPlaceholderClassNames**(): `string`
 
@@ -710,17 +710,17 @@ ___
 
 <a id="aemresponsivegridcomponent.md"></a>
 
-## Class: AEMResponsiveGridComponent
+### Class: AEMResponsiveGridComponent
 
-### Hierarchy
+#### Hierarchy
 
  [AEMContainerComponent](#aemcontainercomponent.md)
 
 **↳ AEMResponsiveGridComponent**
 
-### Index
+#### Index
 
-#### Properties
+##### Properties
 
 * [classNames](#aemresponsivegridcomponent.md_classnames)
 * [columnClassNames](#aemresponsivegridcomponent.md_columnclassnames)
@@ -731,13 +731,13 @@ ___
 * [gridClassNames](#aemresponsivegridcomponent.md_gridclassnames)
 * [modelName](#aemresponsivegridcomponent.md_modelname)
 
-#### Accessors
+##### Accessors
 
 * [hostClasses](#aemresponsivegridcomponent.md_hostclasses)
 * [isInEditMode](#aemresponsivegridcomponent.md_isineditmode)
 * [placeholderPath](#aemresponsivegridcomponent.md_placeholderpath)
 
-#### Methods
+##### Methods
 
 * [getAttrDataPath](#aemresponsivegridcomponent.md_getattrdatapath)
 * [getColumnClassNames](#aemresponsivegridcomponent.md_getcolumnclassnames)
@@ -748,74 +748,74 @@ ___
 
 ---
 
-### Properties
+#### Properties
 
-<a id="aemresponsivegridcomponent.md_classnames"></a>
+<a id="aemresponsivegridcomponent.md_aemresponsivegridcomponent.md_classnames"></a>
 
-####  classNames
+#####  classNames
 
 **● classNames**: *`string`*
 
 Class names of the current component
 
 ___
-<a id="aemresponsivegridcomponent.md_columnclassnames"></a>
+<a id="aemresponsivegridcomponent.md_aemresponsivegridcomponent.md_columnclassnames"></a>
 
-####  columnClassNames
+#####  columnClassNames
 
 **● columnClassNames**: *`Object`*
 
 Map of class names corresponding to each child of the current responsive grid
 
 ___
-<a id="aemresponsivegridcomponent.md_columncount"></a>
+<a id="aemresponsivegridcomponent.md_aemresponsivegridcomponent.md_columncount"></a>
 
-####  columnCount
+#####  columnCount
 
 **● columnCount**: *`number`*
 
 Current number of columns of the grid
 
 ___
-<a id="aemresponsivegridcomponent.md_cqitems"></a>
+<a id="aemresponsivegridcomponent.md_aemresponsivegridcomponent.md_cqitems"></a>
 
-####  cqItems
+#####  cqItems
 
 **● cqItems**: *`any`*
 
 Map of model items included in the current container
 
 ___
-<a id="aemresponsivegridcomponent.md_cqitemsorder"></a>
+<a id="aemresponsivegridcomponent.md_aemresponsivegridcomponent.md_cqitemsorder"></a>
 
-####  cqItemsOrder
+#####  cqItemsOrder
 
 **● cqItemsOrder**: *`any`*
 
 Array of model item keys
 
 ___
-<a id="aemresponsivegridcomponent.md_cqpath"></a>
+<a id="aemresponsivegridcomponent.md_aemresponsivegridcomponent.md_cqpath"></a>
 
-####  cqPath
+#####  cqPath
 
 **● cqPath**: *`string`* = ""
 
 Path to the model associated with the current instance of the component
 
 ___
-<a id="aemresponsivegridcomponent.md_gridclassnames"></a>
+<a id="aemresponsivegridcomponent.md_aemresponsivegridcomponent.md_gridclassnames"></a>
 
-####  gridClassNames
+#####  gridClassNames
 
 **● gridClassNames**: *`string`*
 
 Class names associated with the current responsive grid
 
 ___
-<a id="aemresponsivegridcomponent.md_modelname"></a>
+<a id="aemresponsivegridcomponent.md_aemresponsivegridcomponent.md_modelname"></a>
 
-####  modelName
+#####  modelName
 
 **● modelName**: *`string`* = ""
 
@@ -823,20 +823,20 @@ Key of the model structure
 
 ___
 
-### Accessors
+#### Accessors
 
-<a id="aemresponsivegridcomponent.md_hostclasses"></a>
+<a id="aemresponsivegridcomponent.md_aemresponsivegridcomponent.md_hostclasses"></a>
 
-####  hostClasses
+#####  hostClasses
 
 gethostClasses(): `string`
 
 **Returns:** `string`
 
 ___
-<a id="aemresponsivegridcomponent.md_isineditmode"></a>
+<a id="aemresponsivegridcomponent.md_aemresponsivegridcomponent.md_isineditmode"></a>
 
-####  isInEditMode
+#####  isInEditMode
 
 getisInEditMode(): `boolean`
 
@@ -845,9 +845,9 @@ Returns weather of not we are in the editor
 **Returns:** `boolean`
 
 ___
-<a id="aemresponsivegridcomponent.md_placeholderpath"></a>
+<a id="aemresponsivegridcomponent.md_aemresponsivegridcomponent.md_placeholderpath"></a>
 
-####  placeholderPath
+#####  placeholderPath
 
 getplaceholderPath(): `string`
 
@@ -857,11 +857,11 @@ Returns the placeholder path
 
 ___
 
-### Methods
+#### Methods
 
-<a id="aemresponsivegridcomponent.md_getattrdatapath"></a>
+<a id="aemresponsivegridcomponent.md_aemresponsivegridcomponent.md_getattrdatapath"></a>
 
-####  getAttrDataPath
+#####  getAttrDataPath
 
 ▸ **getAttrDataPath**(path: *`any`*): `any`
 
@@ -876,9 +876,9 @@ Returns the aggregated path of this container path and the provided path
 **Returns:** `any`
 
 ___
-<a id="aemresponsivegridcomponent.md_getcolumnclassnames"></a>
+<a id="aemresponsivegridcomponent.md_aemresponsivegridcomponent.md_getcolumnclassnames"></a>
 
-####  getColumnClassNames
+#####  getColumnClassNames
 
 ▸ **getColumnClassNames**(itemKey: *`string`*): `any`
 
@@ -893,9 +893,9 @@ Returns the column class names for a given column
 **Returns:** `any`
 
 ___
-<a id="aemresponsivegridcomponent.md_getdatapath"></a>
+<a id="aemresponsivegridcomponent.md_aemresponsivegridcomponent.md_getdatapath"></a>
 
-####  getDataPath
+#####  getDataPath
 
 ▸ **getDataPath**(path: *`any`*): `any`
 
@@ -910,9 +910,9 @@ Returns the aggregated path of this container path and the provided path
 **Returns:** `any`
 
 ___
-<a id="aemresponsivegridcomponent.md_gethostclassnames"></a>
+<a id="aemresponsivegridcomponent.md_aemresponsivegridcomponent.md_gethostclassnames"></a>
 
-####  getHostClassNames
+#####  getHostClassNames
 
 ▸ **getHostClassNames**(): `string`
 
@@ -921,9 +921,9 @@ Returns the class names of the responsive grid based on the data from the cqMode
 **Returns:** `string`
 
 ___
-<a id="aemresponsivegridcomponent.md_getitem"></a>
+<a id="aemresponsivegridcomponent.md_aemresponsivegridcomponent.md_getitem"></a>
 
-####  getItem
+#####  getItem
 
 ▸ **getItem**(itemKey: *`any`*): `any`
 
@@ -938,9 +938,9 @@ Returns the item data from the cqModel
 **Returns:** `any`
 
 ___
-<a id="aemresponsivegridcomponent.md_getplaceholderclassnames"></a>
+<a id="aemresponsivegridcomponent.md_aemresponsivegridcomponent.md_getplaceholderclassnames"></a>
 
-####  getPlaceholderClassNames
+#####  getPlaceholderClassNames
 
 ▸ **getPlaceholderClassNames**(): `string`
 
@@ -951,201 +951,25 @@ Returns the placeholder classes
 ___
 
 
-<a id="aempagedataresolver.md"></a>
-
-## Class: AemPageDataResolver
-
-### Hierarchy
-
-**AemPageDataResolver**
-
-### Implements
-
-* `Resolve`<`string`>
-
-### Index
-
-#### Constructors
-
-* [constructor](#aempagedataresolver.md_constructor)
-
-#### Methods
-
-* [resolve](#aempagedataresolver.md_resolve)
-
----
-
-### Constructors
-
-<a id="aempagedataresolver.md_constructor"></a>
-
-####  constructor
-
-⊕ **new AemPageDataResolver**(): [AemPageDataResolver](#aempagedataresolver.md)
-
-**Returns:** [AemPageDataResolver](#aempagedataresolver.md)
-
-___
-
-### Methods
-
-<a id="aempagedataresolver.md_resolve"></a>
-
-####  resolve
-
-▸ **resolve**(route: *`ActivatedRouteSnapshot`*): `string`
-
-Returns the absolute resource path without extension.
-*__example__*: // returns: '/content/aa/bb' for route.url \[ 'content', 'aa', 'bb.html' \] resolve(route)
-
-**Parameters:**
-
-| Param | Type | Description |
-| ------ | ------ | ------ |
-| route | `ActivatedRouteSnapshot` |  route |
-
-**Returns:** `string`
-absolute resource path without extension
-
-___
-
-
-<a id="aempageroutereusestrategy.md"></a>
-
-## Class: AemPageRouteReuseStrategy
-
-Implements RouteReuseStrategy to customize route reuse.
-
-### Hierarchy
-
-**AemPageRouteReuseStrategy**
-
-### Implements
-
-* `RouteReuseStrategy`
-
-### Index
-
-#### Methods
-
-* [retrieve](#aempageroutereusestrategy.md_retrieve)
-* [shouldAttach](#aempageroutereusestrategy.md_shouldattach)
-* [shouldDetach](#aempageroutereusestrategy.md_shoulddetach)
-* [shouldReuseRoute](#aempageroutereusestrategy.md_shouldreuseroute)
-* [store](#aempageroutereusestrategy.md_store)
-
----
-
-### Methods
-
-<a id="aempageroutereusestrategy.md_retrieve"></a>
-
-####  retrieve
-
-▸ **retrieve**(route: *`ActivatedRouteSnapshot`*):  `DetachedRouteHandle` &#124; `null`
-
-Retrieves the previously stored route.
-
-**Parameters:**
-
-| Param | Type |
-| ------ | ------ |
-| route | `ActivatedRouteSnapshot` |
-
-**Returns:**  `DetachedRouteHandle` &#124; `null`
-
-___
-<a id="aempageroutereusestrategy.md_shouldattach"></a>
-
-####  shouldAttach
-
-▸ **shouldAttach**(route: *`ActivatedRouteSnapshot`*): `boolean`
-
-Determines if this route (and its subtree) should be reattached.
-
-**Parameters:**
-
-| Param | Type |
-| ------ | ------ |
-| route | `ActivatedRouteSnapshot` |
-
-**Returns:** `boolean`
-
-___
-<a id="aempageroutereusestrategy.md_shoulddetach"></a>
-
-####  shouldDetach
-
-▸ **shouldDetach**(route: *`ActivatedRouteSnapshot`*): `boolean`
-
-Determines if this route (and its subtree) should be detached to be reused later.
-
-**Parameters:**
-
-| Param | Type |
-| ------ | ------ |
-| route | `ActivatedRouteSnapshot` |
-
-**Returns:** `boolean`
-
-___
-<a id="aempageroutereusestrategy.md_shouldreuseroute"></a>
-
-####  shouldReuseRoute
-
-▸ **shouldReuseRoute**(future: *`ActivatedRouteSnapshot`*, curr: *`ActivatedRouteSnapshot`*): `boolean`
-
-Determines if a route should be reused
-
-**Parameters:**
-
-| Param | Type |
-| ------ | ------ |
-| future | `ActivatedRouteSnapshot` |
-| curr | `ActivatedRouteSnapshot` |
-
-**Returns:** `boolean`
-
-___
-<a id="aempageroutereusestrategy.md_store"></a>
-
-####  store
-
-▸ **store**(route: *`ActivatedRouteSnapshot`*, detachedTree: *`DetachedRouteHandle`*): `void`
-
-Not storing deteached route.
-
-**Parameters:**
-
-| Param | Type |
-| ------ | ------ |
-| route | `ActivatedRouteSnapshot` |
-| detachedTree | `DetachedRouteHandle` |
-
-**Returns:** `void`
-
-___
-
-
 <a id="componentmappingwithconfig.md"></a>
 
-## Class: ComponentMappingWithConfig
+### Class: ComponentMappingWithConfig
 
 The current class extends the @adobe/cq-spa-component-mapping#Mapto library and features with Angular specifics such as
 
 *   Storing the editing configurations for each resource type
 
-### Hierarchy
+#### Hierarchy
 
 **ComponentMappingWithConfig**
 
-### Index
+#### Index
 
-#### Constructors
+##### Constructors
 
 * [constructor](#componentmappingwithconfig.md_constructor)
 
-#### Methods
+##### Methods
 
 * [get](#componentmappingwithconfig.md_get)
 * [getEditConfig](#componentmappingwithconfig.md_geteditconfig)
@@ -1153,11 +977,11 @@ The current class extends the @adobe/cq-spa-component-mapping#Mapto library and 
 
 ---
 
-### Constructors
+#### Constructors
 
-<a id="componentmappingwithconfig.md_constructor"></a>
+<a id="componentmappingwithconfig.md_componentmappingwithconfig.md_constructor"></a>
 
-####  constructor
+#####  constructor
 
 ⊕ **new ComponentMappingWithConfig**(spaMapping: *`SPAComponentMapping`*): [ComponentMappingWithConfig](#componentmappingwithconfig.md)
 
@@ -1171,11 +995,11 @@ The current class extends the @adobe/cq-spa-component-mapping#Mapto library and 
 
 ___
 
-### Methods
+#### Methods
 
-<a id="componentmappingwithconfig.md_get"></a>
+<a id="componentmappingwithconfig.md_componentmappingwithconfig.md_get"></a>
 
-####  get
+#####  get
 
 ▸ **get**(resourceType: *`any`*): `any`
 
@@ -1190,9 +1014,9 @@ Returns the component class for the given resourceType
 **Returns:** `any`
 
 ___
-<a id="componentmappingwithconfig.md_geteditconfig"></a>
+<a id="componentmappingwithconfig.md_componentmappingwithconfig.md_geteditconfig"></a>
 
-####  getEditConfig
+#####  getEditConfig
 
 ▸ **getEditConfig**(resourceType: *`any`*): `any`
 
@@ -1207,9 +1031,9 @@ Returns the EditConfig structure for the given type
 **Returns:** `any`
 
 ___
-<a id="componentmappingwithconfig.md_map"></a>
+<a id="componentmappingwithconfig.md_componentmappingwithconfig.md_map"></a>
 
-####  map
+#####  map
 
 ▸ **map**(resourceTypes: *`any`*, clazz: *`any`*, editConfig?: *`any`*): `void`
 
@@ -1345,6 +1169,11 @@ ___
 The [technical documentation](https://www.adobe.com/go/aem6_4_docs_spa_en) is already available, but if you are unable to solve your problem or you found a bug you can always [contact us](https://www.adobe.com/go/aem6_4_support_en) and ask for help!
 
 ## Changelog 
+
+### 1.2.0 - 5 April 2019
+
+* **NEW FEATURE** Template Editor
+  * Give access to the list of Allowed Components from the ResponsiveGrid component
 
 ### 1.1.1 - 12 December 2018
 
