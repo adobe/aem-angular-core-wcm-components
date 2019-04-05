@@ -4,6 +4,7 @@
     "root":
     {
       "gridClassNames": "aem-Grid/root",
+      "classNames": "test-class-names",
       "columnClassNames": {
         "responsivegrid": "aem-GridColumn/root/responsivegrid"
       },

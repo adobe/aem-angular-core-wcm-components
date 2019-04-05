@@ -15,7 +15,18 @@
  * from Adobe Systems Incorporated.
  */
 
-import { Directive, Input, Renderer2, NgZone, ViewContainerRef, ComponentFactoryResolver, ComponentRef, AfterViewInit } from '@angular/core';
+import {
+  Directive,
+  Input,
+  Renderer2,
+  NgZone,
+  ViewContainerRef,
+  ComponentFactoryResolver,
+  ComponentRef,
+  AfterViewInit,
+  OnInit,
+  OnDestroy
+} from '@angular/core';
 
 import { ComponentMapping } from './component-mapping';
 import { Constants } from './constants';
@@ -36,15 +47,15 @@ const PLACEHOLDER_CLASS_NAME = 'cq-placeholder';
  * - The conversion from model fields to properties and injection in the component instance
  * - The management of HTMLElement attributes and class names on the native element
  */
-export class AEMComponentDirective implements AfterViewInit {
+export class AEMComponentDirective implements AfterViewInit, OnInit, OnDestroy {
   /**
    * Dynamically created component
    */
-  private _component:ComponentRef<any>;
+  private _component: ComponentRef<any>;
   /**
    * Model item that corresponds to the current component
    */
-  private _cqItem:object;
+  private _cqItem: object;
 
   get cqItem(): object {
     return this._cqItem;
@@ -59,11 +70,11 @@ export class AEMComponentDirective implements AfterViewInit {
   /**
    * Path to the model structure associated with the current component
    */
-  @Input() cqPath:string;
+  @Input() cqPath: string;
   /**
    * Name of the current instance of the component
    */
-  @Input() itemName:string;
+  @Input() itemName: string;
   /**
    * HtmlElement attributes for the current instance of the component
    */
@@ -93,7 +104,7 @@ export class AEMComponentDirective implements AfterViewInit {
    *
    * @param componentDefinition The component definition to render
    */
-  private renderComponent(componentDefinition:any) {
+  private renderComponent(componentDefinition: any) {
     if (componentDefinition) {
       const factory = this.factoryResolver.resolveComponentFactory(componentDefinition);
       this.viewContainer.clear();
@@ -110,16 +121,16 @@ export class AEMComponentDirective implements AfterViewInit {
       return;
     }
 
-    let keys = Object.getOwnPropertyNames(this.cqItem);
+    const keys = Object.getOwnPropertyNames(this.cqItem);
 
     keys.forEach((key) => {
         let propKey = key;
 
-        if (propKey.startsWith(":")) {
+        if (propKey.startsWith(':')) {
             // Transformation of internal properties namespaced with [:] to [cq]
             // :myProperty => cqMyProperty
-            let tempKey = propKey.substr(1);
-            propKey = "cq" + tempKey.substr(0, 1).toUpperCase() + tempKey.substr(1);
+            const tempKey = propKey.substr(1);
+            propKey = 'cq' + tempKey.substr(0, 1).toUpperCase() + tempKey.substr(1);
         }
 
         this._component.instance[propKey] = this.cqItem[key];
@@ -127,7 +138,7 @@ export class AEMComponentDirective implements AfterViewInit {
 
     this._component.instance.cqPath = this.cqPath;
     this._component.instance.itemName = this.itemName;
-    let editConfig = ComponentMapping.getEditConfig(this.type);
+    const editConfig = ComponentMapping.getEditConfig(this.type);
     if (editConfig && Utils.isInEditor) {
       this.setupPlaceholder(editConfig);
     }
@@ -138,11 +149,11 @@ export class AEMComponentDirective implements AfterViewInit {
    */
   private setupItemAttrs() {
     if (this.itemAttrs) {
-      let keys = Object.getOwnPropertyNames(this.itemAttrs);
+      const keys = Object.getOwnPropertyNames(this.itemAttrs);
 
       keys.forEach((key) => {
-        if (key === "class") {
-          let classes = this.itemAttrs[key].split(' ');
+        if (key === 'class') {
+          const classes = this.itemAttrs[key].split(' ');
           classes.forEach((itemClass) => {
             this.renderer.addClass(this._component.location.nativeElement, itemClass);
           });
@@ -159,7 +170,7 @@ export class AEMComponentDirective implements AfterViewInit {
    * @param editConfig - the edit config of the directive
    */
   private usePlaceholder(editConfig) {
-    return editConfig.isEmpty && typeof editConfig.isEmpty === "function" && editConfig.isEmpty(this.cqItem);
+    return editConfig.isEmpty && typeof editConfig.isEmpty === 'function' && editConfig.isEmpty(this.cqItem);
   }
 
   /**
@@ -170,10 +181,10 @@ export class AEMComponentDirective implements AfterViewInit {
   private setupPlaceholder(editConfig) {
     if (this.usePlaceholder(editConfig)) {
         this.renderer.addClass(this._component.location.nativeElement, PLACEHOLDER_CLASS_NAME);
-        this.renderer.setAttribute(this._component.location.nativeElement, "data-emptytext", editConfig.emptyLabel);
+        this.renderer.setAttribute(this._component.location.nativeElement, 'data-emptytext', editConfig.emptyLabel);
     } else {
         this.renderer.removeClass(this._component.location.nativeElement, PLACEHOLDER_CLASS_NAME);
-        this.renderer.removeAttribute(this._component.location.nativeElement, "data-emptytext");
+        this.renderer.removeAttribute(this._component.location.nativeElement, 'data-emptytext');
     }
   }
 

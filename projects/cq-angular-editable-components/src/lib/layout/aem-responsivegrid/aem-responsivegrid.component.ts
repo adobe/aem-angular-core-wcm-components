@@ -16,10 +16,10 @@
  */
 
 import { Component, Input } from '@angular/core';
-import { AEMContainerComponent } from '../aem-container/aem-container.component';
 import { Constants } from '../constants';
+import {AEMAllowedComponentsContainerComponent} from '../aem-allowed-components-container/aem-allowed-components-container.component';
 
-const PLACEHOLDER_CLASS_NAMES = ' aem-Grid-newComponent';
+const PLACEHOLDER_CLASS_NAMES = 'aem-Grid-newComponent';
 const RESPONSIVE_GRID_TYPE = 'wcm/foundation/components/responsivegrid';
 
 @Component({
@@ -33,7 +33,7 @@ const RESPONSIVE_GRID_TYPE = 'wcm/foundation/components/responsivegrid';
 /**
  * The current class carries the base presentational logic of the AEM Layout Container (aka. Responsive grid)
  */
-export class AEMResponsiveGridComponent extends AEMContainerComponent {
+export class AEMResponsiveGridComponent extends AEMAllowedComponentsContainerComponent {
   /**
    * Class names associated with the current responsive grid
    */
@@ -63,7 +63,7 @@ export class AEMResponsiveGridComponent extends AEMContainerComponent {
    * Returns the placeholder classes
    */
   getPlaceholderClassNames() {
-    return super.getPlaceholderClassNames() + PLACEHOLDER_CLASS_NAMES;
+    return super.getPlaceholderClassNames() + ' ' + PLACEHOLDER_CLASS_NAMES;
   }
 
   /**

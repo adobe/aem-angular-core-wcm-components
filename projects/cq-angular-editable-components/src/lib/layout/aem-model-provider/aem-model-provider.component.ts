@@ -19,7 +19,7 @@ import { Component, Input, NgZone } from '@angular/core';
 import { ModelManager } from "@adobe/cq-spa-page-model-manager";
 
 @Component({
-  selector: '[aemModelProvider]',
+  selector: 'aem-model-provider,[aemModelProvider]',
   template: `<ng-container [aemComponent] [cqItem]='cqItem' [cqPath]='cqPath' [itemName]='itemName'></ng-container>`
 })
 /**

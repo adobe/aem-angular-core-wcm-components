@@ -12,18 +12,19 @@
  */
 
 import { NgModule } from '@angular/core';
-import { AEMComponentDirective } from "./layout/aem-component.directive";
-import { AEMModelProviderComponent } from "./layout/aem-model-provider/aem-model-provider.component";
-import { AEMContainerComponent } from "./layout/aem-container/aem-container.component";
-import { AEMPageComponent } from "./layout/aem-page/aem-page.component";
-import { AEMResponsiveGridComponent } from "./layout/aem-responsivegrid/aem-responsivegrid.component";
+import { AEMComponentDirective } from './layout/aem-component.directive';
+import { AEMModelProviderComponent } from './layout/aem-model-provider/aem-model-provider.component';
+import { AEMContainerComponent } from './layout/aem-container/aem-container.component';
+import { AEMPageComponent } from './layout/aem-page/aem-page.component';
+import { AEMResponsiveGridComponent } from './layout/aem-responsivegrid/aem-responsivegrid.component';
 import { CommonModule } from '@angular/common';
+import { AEMAllowedComponentsContainerComponent } from './layout/aem-allowed-components-container/aem-allowed-components-container.component';
 
 @NgModule({
   imports: [CommonModule],
 
-  declarations: [AEMContainerComponent, AEMResponsiveGridComponent, AEMComponentDirective, AEMModelProviderComponent, AEMPageComponent],
-  exports: [AEMContainerComponent, AEMResponsiveGridComponent, AEMComponentDirective, AEMModelProviderComponent, AEMPageComponent],
-  entryComponents: [AEMContainerComponent, AEMResponsiveGridComponent, AEMPageComponent]
+  declarations: [AEMContainerComponent, AEMAllowedComponentsContainerComponent, AEMResponsiveGridComponent, AEMComponentDirective, AEMModelProviderComponent, AEMPageComponent],
+  exports: [AEMContainerComponent, AEMAllowedComponentsContainerComponent, AEMResponsiveGridComponent, AEMComponentDirective, AEMModelProviderComponent, AEMPageComponent],
+  entryComponents: [AEMContainerComponent, AEMAllowedComponentsContainerComponent, AEMResponsiveGridComponent, AEMPageComponent]
 })
 export class SpaAngularEditableComponentsModule { }
