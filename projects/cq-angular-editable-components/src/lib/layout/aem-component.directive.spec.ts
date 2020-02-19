@@ -25,7 +25,7 @@ import {Utils} from './utils';
 
 @Component({
   selector: 'test-component',
-  template: `<ng-container [aemComponent] [cqItem]='data'></ng-container>`
+  template: `<ng-container aemComponent [cqItem]='data'></ng-container>`
 })
 class AEMDirectiveTestComponent {
   @Input() data;
