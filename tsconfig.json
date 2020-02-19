@@ -2,13 +2,16 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "downlevelIteration": true,
+    "importHelpers": true,
+    "module": "esnext",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es5",
+    "target": "es2015",
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -17,6 +20,9 @@
       "dom"
     ],
     "paths": {
+      "core-js/es7/reflect": [
+        "./node_modules/core-js/proposals/reflect-metadata"
+      ],
       "spa-angular-editable-components": [
         "dist/spa-angular-editable-components"
       ],
@@ -24,5 +30,8 @@
         "dist/spa-angular-editable-components/*"
       ]
     }
+  },
+  "angularCompilerOptions": {
+    "enableIvy": false
   }
 }
