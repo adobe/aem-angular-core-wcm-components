@@ -15,12 +15,13 @@
  * from Adobe Systems Incorporated.
  */
 
-import { Component, Input, NgZone } from '@angular/core';
+import {Component, Input, ViewChild} from '@angular/core';
 import { ModelManager } from "@adobe/cq-spa-page-model-manager";
+import {AEMComponentDirective} from "../aem-component.directive";
 
 @Component({
   selector: 'aem-model-provider,[aemModelProvider]',
-  template: `<ng-container [aemComponent] [cqItem]='cqItem' [cqPath]='cqPath' [itemName]='itemName'></ng-container>`
+  template: `<ng-container aemComponent [cqItem]='cqItem' [cqPath]='cqPath' [itemName]='itemName'></ng-container>`
 })
 /**
  * The current component is responsible for providing access to the ModelManager and the model of a component
@@ -41,7 +42,9 @@ export class AEMModelProviderComponent {
 
   @Input() aemModelProvider;
 
-  constructor(private ngZone: NgZone) {
+  @ViewChild(AEMComponentDirective) aemComponent: AEMComponentDirective;
+
+  constructor() {
   }
 
   /**
@@ -49,9 +52,8 @@ export class AEMModelProviderComponent {
    */
   updateItem() {
     ModelManager.getData({path: this.cqPath}).then(model => {
-        this.ngZone.run(() => {
-          this.cqItem = model;
-        });
+      this.cqItem = model;
+      this.aemComponent.changeDetectorRef.markForCheck();
     });
   }
 
