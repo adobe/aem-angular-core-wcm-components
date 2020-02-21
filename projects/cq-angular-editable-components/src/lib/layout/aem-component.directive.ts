@@ -19,13 +19,12 @@ import {
   Directive,
   Input,
   Renderer2,
-  NgZone,
   ViewContainerRef,
   ComponentFactoryResolver,
   ComponentRef,
   AfterViewInit,
   OnInit,
-  OnDestroy
+  OnDestroy, ChangeDetectorRef, OnChanges
 } from '@angular/core';
 
 import { ComponentMapping } from './component-mapping';
@@ -47,7 +46,8 @@ const PLACEHOLDER_CLASS_NAME = 'cq-placeholder';
  * - The conversion from model fields to properties and injection in the component instance
  * - The management of HTMLElement attributes and class names on the native element
  */
-export class AEMComponentDirective implements AfterViewInit, OnInit, OnDestroy {
+export class AEMComponentDirective implements AfterViewInit, OnInit, OnDestroy, OnChanges {
+
   /**
    * Dynamically created component
    */
@@ -64,7 +64,10 @@ export class AEMComponentDirective implements AfterViewInit, OnInit, OnDestroy {
   @Input()
   set cqItem(value: object) {
     this._cqItem = value;
-    this.updateComponentData();
+  }
+
+  get changeDetectorRef(): ChangeDetectorRef {
+    return this._changeDetectorRef;
   }
 
   /**
@@ -86,11 +89,15 @@ export class AEMComponentDirective implements AfterViewInit, OnInit, OnDestroy {
     private renderer: Renderer2,
     private viewContainer: ViewContainerRef,
     private factoryResolver: ComponentFactoryResolver,
-    private ngZone: NgZone) {
+    private _changeDetectorRef: ChangeDetectorRef) {
   }
 
   ngOnInit() {
     this.renderComponent(ComponentMapping.get(this.type));
+  }
+
+  ngOnChanges(changes: import("@angular/core").SimpleChanges): void {
+    this.updateComponentData();
   }
 
   /**
@@ -99,6 +106,7 @@ export class AEMComponentDirective implements AfterViewInit, OnInit, OnDestroy {
   get type() {
     return this.cqItem && this.cqItem[Constants.TYPE_PROP];
   }
+
   /**
    * Renders a component dynamically based on the component definition
    *
@@ -124,16 +132,16 @@ export class AEMComponentDirective implements AfterViewInit, OnInit, OnDestroy {
     const keys = Object.getOwnPropertyNames(this.cqItem);
 
     keys.forEach((key) => {
-        let propKey = key;
+      let propKey = key;
 
-        if (propKey.startsWith(':')) {
-            // Transformation of internal properties namespaced with [:] to [cq]
-            // :myProperty => cqMyProperty
-            const tempKey = propKey.substr(1);
-            propKey = 'cq' + tempKey.substr(0, 1).toUpperCase() + tempKey.substr(1);
-        }
+      if (propKey.startsWith(':')) {
+        // Transformation of internal properties namespaced with [:] to [cq]
+        // :myProperty => cqMyProperty
+        const tempKey = propKey.substr(1);
+        propKey = 'cq' + tempKey.substr(0, 1).toUpperCase() + tempKey.substr(1);
+      }
 
-        this._component.instance[propKey] = this.cqItem[key];
+      this._component.instance[propKey] = this.cqItem[key];
     });
 
     this._component.instance.cqPath = this.cqPath;
@@ -142,6 +150,8 @@ export class AEMComponentDirective implements AfterViewInit, OnInit, OnDestroy {
     if (editConfig && Utils.isInEditor) {
       this.setupPlaceholder(editConfig);
     }
+
+    this._changeDetectorRef.detectChanges();
   }
 
   /**
@@ -158,7 +168,7 @@ export class AEMComponentDirective implements AfterViewInit, OnInit, OnDestroy {
             this.renderer.addClass(this._component.location.nativeElement, itemClass);
           });
         } else {
-          this.renderer.setAttribute(this._component.location.nativeElement, key , this.itemAttrs[key]);
+          this.renderer.setAttribute(this._component.location.nativeElement, key, this.itemAttrs[key]);
         }
       });
     }
@@ -180,11 +190,11 @@ export class AEMComponentDirective implements AfterViewInit, OnInit, OnDestroy {
    */
   private setupPlaceholder(editConfig) {
     if (this.usePlaceholder(editConfig)) {
-        this.renderer.addClass(this._component.location.nativeElement, PLACEHOLDER_CLASS_NAME);
-        this.renderer.setAttribute(this._component.location.nativeElement, 'data-emptytext', editConfig.emptyLabel);
+      this.renderer.addClass(this._component.location.nativeElement, PLACEHOLDER_CLASS_NAME);
+      this.renderer.setAttribute(this._component.location.nativeElement, 'data-emptytext', editConfig.emptyLabel);
     } else {
-        this.renderer.removeClass(this._component.location.nativeElement, PLACEHOLDER_CLASS_NAME);
-        this.renderer.removeAttribute(this._component.location.nativeElement, 'data-emptytext');
+      this.renderer.removeClass(this._component.location.nativeElement, PLACEHOLDER_CLASS_NAME);
+      this.renderer.removeAttribute(this._component.location.nativeElement, 'data-emptytext');
     }
   }
 
