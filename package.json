@@ -1,6 +1,6 @@
 {
   "name": "@adobe/cq-root-angular-editable-components",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -14,7 +14,7 @@
     "version": "npm run docs && node update-doc.js && npm run readme && rm DOCUMENTATION.md && cp README.md dist/cq-angular-editable-components/ && git add -A",
     "preversion": "npm run build:production && npm run test",
     "postversion": "git push && git push --tags",
-    "docs": "node_modules/.bin/typedoc --theme markdown --options typedoc.js projects/cq-angular-editable-components/src/lib --mode file --target ES6 --mdHideSources",
+    "docs": "node_modules/.bin/typedoc --theme markdown --options typedoc.js projects/cq-angular-editable-components/src/lib --mode file --target ES6 --hideSources",
     "readme": "node_modules/markdown-include/bin/cli.js markdown-include.config.json"
   },
   "author": "Adobe Systems Inc.",

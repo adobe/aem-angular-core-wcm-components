@@ -1,3 +1,12 @@
+### 2.0.1 - 25 February 2020
+
+* Doc: Improving the documentation
+
+### 2.0.0 - 21 February 2020
+
+* **BREAKING CHANGE** Migration to Angular 9
+* Improvement: improving the change detection for components, using ChangeDetectorRef in favor of ngZone
+
 ### 1.2.0 - 5 April 2019
 
 * **NEW FEATURE** Template Editor
