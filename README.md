@@ -853,7 +853,7 @@ ___
 
 *Inherited from [AEMContainerComponent](#aemcontainercomponent.md).[modelName](#aemcontainercomponent.md#modelname)*
 
-Key of the model structure
+*Inherited from [AEMContainerComponent](#aemcontainercomponent.md).[modelName](#aemcontainercomponent.md#modelname)*
 
 ### Accessors
 
@@ -1328,6 +1328,10 @@ Returns the absolute resource path without extension.
 // returns: '/content/aa/bb' for route.url [ 'content', 'aa', 'bb.html' ]
 resolve(route)
 
+**`example`** 
+// returns: '/content/aa/bb' for route.url [ 'content', 'aa', 'bb.html' ]
+resolve(route)
+
 **Parameters:**
 
 Name | Type | Description |
@@ -1774,6 +1778,7 @@ Path of the item
 
 ___
 
+
 ### `Const` Utils
 
 ### ▪ **Utils**: *object*
@@ -1794,6 +1799,10 @@ Is the app used in the context of the AEM Page editor
 The [technical documentation](https://www.adobe.com/go/aem6_4_docs_spa_en) is already available, but if you are unable to solve your problem or you found a bug you can always [contact us](https://www.adobe.com/go/aem6_4_support_en) and ask for help!
 
 ## Changelog 
+
+### 2.0.2 - 5 June 2020
+
+* Update to latest `cq-spa-page-model-manager`
 
 ### 2.0.1 - 25 February 2020
 
