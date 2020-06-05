@@ -1,6 +1,6 @@
 {
   "name": "@adobe/cq-root-angular-editable-components",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -64,6 +64,6 @@
     "tslint": "^6.1.2",
     "typedoc": "^0.17.7",
     "typedoc-plugin-markdown": "^2.3.1",
-    "typescript": "^3.9.5"
+    "typescript": "3.8.3"
   }
 }

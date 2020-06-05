@@ -1795,6 +1795,10 @@ The [technical documentation](https://www.adobe.com/go/aem6_4_docs_spa_en) is al
 
 ## Changelog 
 
+### 2.0.2 - 5 June 2020
+
+* Update to latest `cq-spa-page-model-manager`
+
 ### 2.0.1 - 25 February 2020
 
 * Doc: Improving the documentation
