@@ -853,7 +853,7 @@ ___
 
 *Inherited from [AEMContainerComponent](#aemcontainercomponent.md).[modelName](#aemcontainercomponent.md#modelname)*
 
-Key of the model structure
+*Inherited from [AEMContainerComponent](#aemcontainercomponent.md).[modelName](#aemcontainercomponent.md#modelname)*
 
 ### Accessors
 
@@ -1328,6 +1328,10 @@ Returns the absolute resource path without extension.
 // returns: '/content/aa/bb' for route.url [ 'content', 'aa', 'bb.html' ]
 resolve(route)
 
+**`example`** 
+// returns: '/content/aa/bb' for route.url [ 'content', 'aa', 'bb.html' ]
+resolve(route)
+
 **Parameters:**
 
 Name | Type | Description |
@@ -1773,6 +1777,7 @@ Path of the item
 • **TYPE_PROP**: *any* = PMConstants.TYPE_PROP
 
 ___
+
 
 ### `Const` Utils
 
