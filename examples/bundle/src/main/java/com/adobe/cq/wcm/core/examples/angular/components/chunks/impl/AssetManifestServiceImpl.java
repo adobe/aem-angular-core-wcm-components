@@ -20,12 +20,14 @@ import java.util.Map;
 @Component(service = AssetManifestService.class)
 public class AssetManifestServiceImpl implements AssetManifestService {
     
-    private static final String PATH_ANGULAR_MANIFEST = "/apps/core-components-examples/wcm/angular/clientlibs/angular-spacomponents/resources/stats.json";
+    private static final String PATH_ANGULAR_SPA_MANIFEST = "/apps/core-components-examples/wcm/angular/clientlibs/angular-spacomponents/resources/stats.json";
+    private static final String PATH_ANGULAR_WEB_MANIFEST = "/apps/core-components-examples/wcm/angular/clientlibs/angular-webcomponents/resources/stats.json";
 
     @Override
     public Map<String,String> getManifest(SlingHttpServletRequest request) throws IOException {
     
-        final Resource assetManifestResource = request.getResourceResolver().getResource(PATH_ANGULAR_MANIFEST);
+        String targetPath = (request.getResource().getPath().startsWith("/content/aem-angular-core-webcomponents-example")) ? PATH_ANGULAR_WEB_MANIFEST : PATH_ANGULAR_SPA_MANIFEST;
+        final Resource assetManifestResource = request.getResourceResolver().getResource(targetPath);
     
         if(assetManifestResource != null){
             InputStream file = assetManifestResource.adaptTo(InputStream.class);
