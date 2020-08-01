@@ -1,13 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { SpaAngularEditableComponentsModule } from '@adobe/cq-angular-editable-components';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PageComponent } from './components/page/page.component';
-import { TextComponent } from './components/text/text.component';
-import { ImageComponent } from './components/image/image.component';
-import { HeaderComponent } from './components/header/header.component';
-import { ListComponent } from './components/list/list.component';
+import {SpaAngularEditableComponentsModule} from "@adobe/cq-angular-editable-components";
+import {PageComponent} from "./components/page/page.component";
+import {TextComponent} from "./components/text/text.component";
+import {ImageComponent} from "./components/image/image.component";
+import {HeaderComponent} from "./components/header/header.component";
+import {ListComponent} from "./components/list/list.component";
+import {DemoComponent} from "./components/demo/demo.component";
+
+import {AemAngularCoreSpaWcmComponentsModule} from "@adobe/aem-core-components-angular-spa";
+import {AemAngularCoreWcmComponentsModule} from "@adobe/aem-core-components-angular-base";
+import {AemAngularCoreWcmComponentsAccordionV1} from "@adobe/aem-core-components-angular-spa/containers/accordion/v1";
+import {AemAngularCoreWcmComponentsCarouselV1} from "@adobe/aem-core-components-angular-spa/containers/carousel/v1";
+import {AemAngularCoreWcmComponentsTabsV1} from "@adobe/aem-core-components-angular-spa/containers/tabs/v1";
+import {AemAngularCoreWcmComponentsContainerV1} from "@adobe/aem-core-components-angular-spa/containers/container/v1";
 
 @NgModule({
   declarations: [
@@ -16,15 +25,29 @@ import { ListComponent } from './components/list/list.component';
     TextComponent,
     ImageComponent,
     HeaderComponent,
-    ListComponent
+    ListComponent,
+    DemoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SpaAngularEditableComponentsModule
+    SpaAngularEditableComponentsModule,
+    AemAngularCoreWcmComponentsModule,
+    AemAngularCoreSpaWcmComponentsModule,
+    AemAngularCoreWcmComponentsAccordionV1,
+    AemAngularCoreWcmComponentsCarouselV1,
+    AemAngularCoreWcmComponentsTabsV1,
+    AemAngularCoreWcmComponentsContainerV1
   ],
   providers: [],
-  bootstrap: [AppComponent],
-  entryComponents: [ImageComponent, ListComponent, TextComponent]
+  entryComponents: [
+    ListComponent,
+    TextComponent,
+    PageComponent,
+    ImageComponent,
+    HeaderComponent,
+    DemoComponent
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,8 +1,6 @@
 {
   "compileOnSave": false,
-  
   "compilerOptions": {
-    
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
@@ -17,12 +15,39 @@
       "es2018",
       "dom"
     ],
-    "paths": {
-      "aem-angular-core-wcm-components": [
-        "dist/maem-angular-core-wcm-components"
+    "paths":{
+      "@angular/*": [
+        "./node_modules/@angular/*"
       ],
-      "aem-angular-core-wcm-components/*": [
-        "dist/aem-angular-core-wcm-components/*"
+      "@adobe/aem-core-components-angular-spa": [
+        "./node_modules/@adobe/aem-core-components-angular-spa"
+      ],
+      "@adobe/cq-angular-editable-components": [
+        "./node_modules/@adobe/cq-angular-editable-components"
+      ],
+      "@adobe/cq-angular-editable-components/*": [
+        "./node_modules/@adobe/cq-angular-editable-components/*"
+      ],
+      "@adobe/cq-spa-component-mapping": [
+        "./node_modules/@adobe/cq-spa-component-mapping"
+      ],
+      "@adobe/cq-spa-component-mapping/*": [
+        "./node_modules/@adobe/cq-spa-component-mapping/*"
+      ],
+      "@adobe/cq-spa-model-manager": [
+        "./node_modules/@adobe/cq-spa-model-manager"
+      ],
+      "@adobe/cq-spa-model-manager/*": [
+        "./node_modules/@adobe/cq-spa-model-manager/*"
+      ],
+      "@adobe/aem-core-components-angular-spa/*": [
+        "./node_modules/@adobe/aem-core-components-angular-spa/*"
+      ],
+      "@adobe/aem-core-components-angular-base": [
+        "./node_modules/@adobe/aem-core-components-angular-base"
+      ],
+      "@adobe/aem-core-components-angular-base/*": [
+        "./node_modules/@adobe/aem-core-components-angular-base/*"
       ]
     }
   },

@@ -2,7 +2,7 @@
 process.env.BABEL_ENV = 'development';
 process.env.NODE_ENV = 'development';
 
-const webpackConfig = require('../config/webpack.config.dev');
+const webpackConfig = require('../config/webpack.config.common');
 const paths = require('../config/paths');
 const aemPack = require('aempack');
 
@@ -38,8 +38,9 @@ aemPack({
     },
     isInClientLibRoot: false,
 
-    webpackConfig: webpackConfig,
-
+    cliBuildCommand: "ng",
+    cliBuildCommandArgs: ["build", "--watch"],
+    cliBuildCommandSuccessMsg: "Hash:",
     disableServerSideRendering: true,
 
     aemProtocol: 'http',
