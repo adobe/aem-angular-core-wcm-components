@@ -20,7 +20,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/testing';
 
 
-import AccordionV1Component from './accordion.v1.component';
+import {AccordionV1Component} from './accordion.v1.component';
 import {Utils,AEMComponentDirective, Constants,AEMAllowedComponentsContainerComponent,AEMModelProviderComponent} from "@adobe/cq-angular-editable-components";
 
 import {Component1} from "../../../test/test-comp1.component";
