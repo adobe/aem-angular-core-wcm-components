@@ -14,7 +14,24 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths":{
+      "@angular/*": [
+        "./node_modules/@angular/*"
+      ],
+      "@adobe/aem-core-components-angular-spa": [
+        "./node_modules/@adobe/aem-core-components-angular-spa"
+      ],
+      "@adobe/aem-core-components-angular-spa/*": [
+        "./node_modules/@adobe/aem-core-components-angular-spa/*"
+      ],
+      "@adobe/aem-core-components-angular-base": [
+        "./node_modules/@adobe/aem-core-components-angular-base"
+      ],
+      "@adobe/aem-core-components-angular-base/*": [
+        "./node_modules/@adobe/aem-core-components-angular-base/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

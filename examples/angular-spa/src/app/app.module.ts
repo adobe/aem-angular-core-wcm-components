@@ -10,6 +10,14 @@ import {ImageComponent} from "./components/image/image.component";
 import {HeaderComponent} from "./components/header/header.component";
 import {ListComponent} from "./components/list/list.component";
 
+import {AemAngularCoreSpaWcmComponentsModule} from "@adobe/aem-core-components-angular-spa";
+import {AemAngularCoreWcmComponentsModule} from "@adobe/aem-core-components-angular-base";
+import {AemAngularCoreWcmComponentsAccordionV1} from "@adobe/aem-core-components-angular-spa/containers/accordion/v1";
+import {AemAngularCoreWcmComponentsCarouselV1} from "@adobe/aem-core-components-angular-spa/containers/carousel/v1";
+import {AemAngularCoreWcmComponentsTabsV1} from "@adobe/aem-core-components-angular-spa/containers/tabs/v1";
+import {AemAngularCoreWcmComponentsContainerV1} from "@adobe/aem-core-components-angular-spa/containers/container/v1";
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +30,13 @@ import {ListComponent} from "./components/list/list.component";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SpaAngularEditableComponentsModule
+    SpaAngularEditableComponentsModule,
+    AemAngularCoreWcmComponentsModule,
+    AemAngularCoreSpaWcmComponentsModule,
+    AemAngularCoreWcmComponentsAccordionV1,
+    AemAngularCoreWcmComponentsCarouselV1,
+    AemAngularCoreWcmComponentsTabsV1,
+    AemAngularCoreWcmComponentsContainerV1
   ],
   providers: [],
   entryComponents: [

@@ -17,13 +17,18 @@
             "dom"
         ],
         "paths": {
-            "aem-angular-core-wcm-components": [
-                "dist/aem-angular-core-wcm-components/aem-angular-core-wcm-components",
-                "dist/aem-angular-core-wcm-components"
+            "@angular/*": ["./node_modules/@angular/*"],
+            "@adobe/aem-core-components-angular-spa": [
+                "./dist/aem-angular-core-spa-wcm-components"
             ],
-            "aem-angular-core-spa-wcm-components": [
-                "dist/aem-angular-core-spa-wcm-components/aem-angular-core-spa-wcm-components",
-                "dist/aem-angular-core-spa-wcm-components"
+            "@adobe/aem-core-components-angular-spa/*": [
+                "./dist/aem-angular-core-spa-wcm-components/*"
+            ],
+            "@adobe/aem-core-components-angular-base": [
+                "./dist/aem-angular-core-wcm-components"
+            ],
+            "@adobe/aem-core-components-angular-base/*": [
+                "./dist/aem-angular-core-wcm-components/*"
             ]
         }
     },

@@ -17,13 +17,13 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {BrowserModule} from "@angular/platform-browser";
 import {RouterModule} from "@angular/router";
-
+import {AbstractContainerComponent} from "./AbstractContainerComponent";
 
 @NgModule({
     imports: [CommonModule, BrowserModule, RouterModule],
-    declarations: [],
-    exports: [ ],
-    entryComponents: [],
+    declarations: [AbstractContainerComponent],
+    exports: [AbstractContainerComponent],
+    entryComponents: [AbstractContainerComponent],
 })
 export class AemAngularCoreSpaWcmComponentsCore {
 }
