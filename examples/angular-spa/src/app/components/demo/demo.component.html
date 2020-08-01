@@ -1,0 +1,13 @@
+<div class="cmp-examples-demo" data-cmp-examples-is="demo">
+    <div class="cmp-examples-demo__top t-cmp-clean t-cmp-clean--light">
+        <ng-container *ngFor="let itemKey of cqItemsOrder">
+            <aem-model-provider [cqItem]="getItem(itemKey)"
+                                [cqPath]="getDataPath(itemKey)"
+                                [itemName]="itemKey"></aem-model-provider>
+        </ng-container>
+    </div>
+</div>
+
+<div *ngIf="isInEditMode"
+     [attr.data-cq-data-path]="placeholderPath"
+     [class]="getPlaceholderClassNames()"></div>

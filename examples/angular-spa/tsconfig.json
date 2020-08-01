@@ -22,6 +22,24 @@
       "@adobe/aem-core-components-angular-spa": [
         "./node_modules/@adobe/aem-core-components-angular-spa"
       ],
+      "@adobe/cq-angular-editable-components": [
+        "./node_modules/@adobe/cq-angular-editable-components"
+      ],
+      "@adobe/cq-angular-editable-components/*": [
+        "./node_modules/@adobe/cq-angular-editable-components/*"
+      ],
+      "@adobe/cq-spa-component-mapping": [
+        "./node_modules/@adobe/cq-spa-component-mapping"
+      ],
+      "@adobe/cq-spa-component-mapping/*": [
+        "./node_modules/@adobe/cq-spa-component-mapping/*"
+      ],
+      "@adobe/cq-spa-model-manager": [
+        "./node_modules/@adobe/cq-spa-model-manager"
+      ],
+      "@adobe/cq-spa-model-manager/*": [
+        "./node_modules/@adobe/cq-spa-model-manager/*"
+      ],
       "@adobe/aem-core-components-angular-spa/*": [
         "./node_modules/@adobe/aem-core-components-angular-spa/*"
       ],

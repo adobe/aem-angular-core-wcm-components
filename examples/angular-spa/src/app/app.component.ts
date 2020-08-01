@@ -18,6 +18,7 @@ import {TeaserV1Component,TeaserV1IsEmptyFn} from '@adobe/aem-core-components-an
 import {DownloadV1Component,DownloadV1IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/download/v1';
 import {SeparatorV1Component,SeparatorV1IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/separator/v1';
 import {ListV2Component,ListV2IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/list/v2';
+import {DemoComponent} from "./components/demo/demo.component";
 
 
 @Component({
@@ -31,6 +32,8 @@ export class AppComponent {
   }
 }
 
+MapTo('core-components-examples/components/demo')(DemoComponent);
+MapTo('core-components-examples/components/demo/component')(AEMContainerComponent);
 
 MapTo('core-components-examples/wcm/angular/components/navigation')(NavigationV1Component);
 MapTo('core-components-examples/wcm/angular/components/download')(DownloadV1Component, {isEmpty: DownloadV1IsEmptyFn});
@@ -52,5 +55,4 @@ MapTo('core-components-examples/wcm/angular/components/carousel')(CarouselV1Comp
 MapTo('core-components-examples/wcm/angular/components/container')(ContainerV1Component);
 
 MapTo('core-components-examples/wcm/angular/components/page/angular-spacomponents-page')(AEMContainerComponent);
-//MapTo('core-components-examples/wcm/angular/components/page/angular-spacomponents-page/app')(AEMContainerComponent);
 MapTo('wcm/foundation/components/responsivegrid')(AEMResponsiveGridComponent);
