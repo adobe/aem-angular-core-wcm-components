@@ -32,7 +32,7 @@ import {ModelManager} from '@adobe/cq-spa-page-model-manager';
 describe('AccordionV1', () => {
 
     const TEST_COMPONENT_TITLE = 'test container title';
-    const LAYOUT = require('../../../../../test/data/accordion.json');
+    const LAYOUT = require('../../../test/data/accordion.json');
 
     let component: AccordionV1Component;
     let fixture: ComponentFixture<AccordionV1Component>;
