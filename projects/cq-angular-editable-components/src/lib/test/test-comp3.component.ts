@@ -16,6 +16,8 @@
  */
 
 import { Component, Input } from '@angular/core';
+import { AbstractMappedComponent } from '../layout/component-mapping';
+import { TestCompProperties } from './test-comp.type';
 
 @Component({
   selector: 'test-comp3',
@@ -25,7 +27,9 @@ import { Component, Input } from '@angular/core';
   template: `<div>{{ title }}</div>`
 })
 
-export class Component3 {
+export class Component3  extends AbstractMappedComponent implements TestCompProperties{
   @Input() title:any;
-  constructor() {}
+  constructor() {
+    super();
+  }
 }

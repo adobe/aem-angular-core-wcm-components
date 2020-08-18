@@ -20,7 +20,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/testing';
 import {AEMComponentDirective} from './aem-component.directive';
 import {Component, Input} from '@angular/core';
-import {ComponentMapping, MapTo} from './component-mapping';
+import {ComponentMapping, MapTo, MappedComponentProperties, AbstractMappedComponent} from './component-mapping';
 import {Utils} from './utils';
 
 @Component({
@@ -29,6 +29,12 @@ import {Utils} from './utils';
 })
 class AEMDirectiveTestComponent {
   @Input() data;
+}
+
+
+interface DirectiveProperties extends MappedComponentProperties{
+    attr1: string;
+    attr2: string;
 }
 
 @Component({
@@ -40,7 +46,7 @@ class AEMDirectiveTestComponent {
   },
   template: `<div></div>`
 })
-class DirectiveComponent {
+class DirectiveComponent extends AbstractMappedComponent implements DirectiveProperties{
   @Input() attr1;
   @Input() attr2;
 
@@ -48,7 +54,7 @@ class DirectiveComponent {
     return 'component-class';
   }
 }
-MapTo('directive/comp')(DirectiveComponent);
+MapTo<DirectiveProperties>('directive/comp')(DirectiveComponent);
 
 describe('AEMComponentDirective', () => {
 

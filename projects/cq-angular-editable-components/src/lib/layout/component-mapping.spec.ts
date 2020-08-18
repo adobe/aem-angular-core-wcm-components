@@ -15,21 +15,34 @@
  * from Adobe Systems Incorporated.
  */
 
-import { ComponentMapping, MapTo } from "./component-mapping";
+import { ComponentMapping, MapTo, MappedComponentProperties, EditConfig, AbstractMappedComponent } from "./component-mapping";
+import { Component, Input } from '@angular/core';
+
+
+interface TestProperties extends MappedComponentProperties{
+   some: string;
+}
+
+class ComponentTest1 extends AbstractMappedComponent{
+  @Input() some:string = "defaultValue";
+}
+class ComponentTest2 extends AbstractMappedComponent{
+  @Input() some:string = "otherDefaultValue";
+}
+
 
 describe("Component Mapping", () => {
 
   it("stores configuration", () => {
-    let Component1 = function(){};
-    let Component2 = function() {};
-    let editConfig1 = { some: "1" };
-    let editConfig2 = { some: "2" };
 
-    MapTo("component1")(Component1, editConfig1);
-    MapTo("component2")(Component2, editConfig2);
+    let editConfig1:EditConfig<TestProperties> = { isEmpty: (props) => !!props.some };
+    let editConfig2:EditConfig<TestProperties> = { isEmpty: (props) => !!props.some  };
 
-    expect(ComponentMapping.get("component1")).toBe(Component1);
-    expect(ComponentMapping.get("component2")).toBe(Component2);
+    MapTo<TestProperties>("component1")(ComponentTest1, editConfig1);
+    MapTo<TestProperties>("component2")(ComponentTest2, editConfig2);
+
+    expect(ComponentMapping.get("component1")).toBe(ComponentTest1);
+    expect(ComponentMapping.get("component2")).toBe(ComponentTest2);
     expect(ComponentMapping.getEditConfig("component1")).toBe(editConfig1);
     expect(ComponentMapping.getEditConfig("component2")).toBe(editConfig2);
 

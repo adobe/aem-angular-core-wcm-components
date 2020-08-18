@@ -16,17 +16,48 @@
  */
 
 import { ComponentMapping as SPAComponentMapping } from '@adobe/cq-spa-component-mapping';
+import { Type } from '@angular/core';
+
+/**
+ * Indicated whether force reload is turned on, forcing the model to be refetched on every MapTo instantiation.
+ */
+export interface ReloadForceAble {
+  cqForceReload?: boolean;
+}
+
+/**
+* MappedComponentProperties
+* Properties given to every component runtime by the SPA editor.
+*/
+export interface MappedComponentProperties extends ReloadForceAble {
+  isInEditor: boolean;
+  cqPath: string;
+}
+
+export interface EditConfig<P extends MappedComponentProperties> {
+  emptyLabel?: string;
+  isEmpty(props: P): boolean;
+}
+
+export abstract class AbstractMappedComponent implements MappedComponentProperties{
+  isInEditor: boolean = false;
+
+  /**
+   * Path to the model associated with the current instance of the component
+   */
+  cqPath: string = '';
+}
 
 /**
  * The current class extends the @adobe/cq-spa-component-mapping#Mapto library and features with Angular specifics such as
  *
  * - Storing the editing configurations for each resource type
  */
-export class ComponentMappingWithConfig {
+export class ComponentMappingWithConfig{
   /**
    * Store of EditConfig structures
    */
-  private editConfigMap = {};
+  private editConfigMap : { [key: string]: EditConfig<MappedComponentProperties>; } = {}
 
   constructor(private spaMapping:SPAComponentMapping) {}
 
@@ -36,7 +67,7 @@ export class ComponentMappingWithConfig {
    * @param clazz - Component class to be stored
    * @param [editConfig] - Edit configuration to be stored for the given resource types
    */
-  map(resourceTypes, clazz, editConfig = null) {
+  map<P extends MappedComponentProperties>(resourceTypes, clazz, editConfig:EditConfig<P> = null) {
       let innerClass = clazz;
 
       if (editConfig) {
@@ -49,7 +80,7 @@ export class ComponentMappingWithConfig {
    * Returns the component class for the given resourceType
    * @param resourceType - Resource type for which the component class has been stored
    */
-  get(resourceType) {
+  get(resourceType:string):Type<MappedComponentProperties>{
     return this.spaMapping.get(resourceType);
   }
 
@@ -57,15 +88,15 @@ export class ComponentMappingWithConfig {
    * Returns the EditConfig structure for the given type
    * @param resourceType - Resource type for which the configuration has been stored
    */
-  getEditConfig(resourceType) {
-    return this.editConfigMap[resourceType];
-  }
+  getEditConfig(resourceType:string):EditConfig<MappedComponentProperties> {
+      return this.editConfigMap[resourceType];
+  } 
 }
 
 let componentMapping = new ComponentMappingWithConfig(SPAComponentMapping);
 
-function MapTo(resourceTypes) {
-    return (clazz, editConfig = null) => {
+function MapTo <M extends MappedComponentProperties> (resourceTypes) {
+    return (clazz:Type<M>, editConfig:EditConfig<M> = null) => {
         return componentMapping.map(resourceTypes, clazz, editConfig);
     };
 }
