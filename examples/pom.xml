@@ -31,7 +31,7 @@
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
     
-    <name>Adobe Experience Manager Core WCM Components - Angular Examples - Reactor</name>
+    <name>Adobe Experience Manager Core WCM Components - Angular Examples - reactor</name>
 
     <!-- ====================================================================== -->
     <!-- M O D U L E S                                                          -->
@@ -42,6 +42,7 @@
         <module>bundle</module>
         <module>ui.apps</module>
         <module>ui.content</module>
+        <module>all</module>
     </modules>
     
 
