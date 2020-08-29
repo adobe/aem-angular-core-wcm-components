@@ -19,6 +19,9 @@ import {DownloadV1Component,DownloadV1IsEmptyFn} from '@adobe/aem-core-component
 import {SeparatorV1Component,SeparatorV1IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/separator/v1';
 import {ListV2Component,ListV2IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/list/v2';
 import {DemoComponent} from "./components/demo/demo.component";
+import {DemoJsonComponent} from "./components/demo/json/demo.json.component";
+import {DemoPropertiesComponent} from "./components/demo/properties/demo.properties.component";
+import {DemoMarkupComponent} from "./components/demo/markup/demo.markup.component";
 
 
 @Component({
@@ -32,8 +35,11 @@ export class AppComponent {
   }
 }
 
-MapTo('core-components-examples/components/demo')(DemoComponent);
-MapTo('core-components-examples/components/demo/component')(AEMContainerComponent);
+MapTo('core-components-examples/wcm/angular/components/demo/json')(DemoJsonComponent);
+MapTo('core-components-examples/wcm/angular/components/demo/properties')(DemoPropertiesComponent);
+MapTo('core-components-examples/wcm/angular/components/demo/markup')(DemoMarkupComponent);
+MapTo('core-components-examples/wcm/angular/components/demo')(DemoComponent);
+MapTo('core-components-examples/wcm/angular/components/demo/component')(AEMContainerComponent);
 
 MapTo('core-components-examples/wcm/angular/components/navigation')(NavigationV1Component);
 MapTo('core-components-examples/wcm/angular/components/download')(DownloadV1Component, {isEmpty: DownloadV1IsEmptyFn});

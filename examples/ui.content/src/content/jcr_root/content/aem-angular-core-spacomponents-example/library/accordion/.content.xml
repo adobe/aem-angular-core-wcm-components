@@ -103,11 +103,11 @@
                     jcr:lastModified="{Date}2018-12-07T13:10:47.548+01:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="core-components-examples/components/demo"
+                    sling:resourceType="core-components-examples/wcm/angular/components/demo"
                     fullWidth="{Boolean}true">
                     <component
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="core-components-examples/components/demo/component">
+                        sling:resourceType="core-components-examples/wcm/angular/components/demo/component">
                         <accordion
                             jcr:created="{Date}2018-12-07T13:11:23.802+01:00"
                             jcr:createdBy="admin"
@@ -157,11 +157,11 @@
                     jcr:lastModified="{Date}2018-12-07T13:10:51.430+01:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="core-components-examples/components/demo"
+                    sling:resourceType="core-components-examples/wcm/angular/components/demo"
                     fullWidth="{Boolean}true">
                     <component
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="core-components-examples/components/demo/component">
+                        sling:resourceType="core-components-examples/wcm/angular/components/demo/component">
                         <accordion
                             jcr:created="{Date}2018-12-07T13:11:20.617+01:00"
                             jcr:createdBy="admin"
@@ -302,11 +302,11 @@
                     jcr:lastModified="{Date}2018-12-07T13:10:51.430+01:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="core-components-examples/components/demo"
+                    sling:resourceType="core-components-examples/wcm/angular/components/demo"
                     fullWidth="{Boolean}true">
                     <component
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="core-components-examples/components/demo/component">
+                        sling:resourceType="core-components-examples/wcm/angular/components/demo/component">
                         <accordion
                             jcr:created="{Date}2018-12-07T13:11:20.617+01:00"
                             jcr:createdBy="admin"
@@ -376,11 +376,11 @@
                     jcr:lastModified="{Date}2018-12-07T13:10:51.430+01:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="core-components-examples/components/demo"
+                    sling:resourceType="core-components-examples/wcm/angular/components/demo"
                     fullWidth="{Boolean}true">
                     <component
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="core-components-examples/components/demo/component">
+                        sling:resourceType="core-components-examples/wcm/angular/components/demo/component">
                         <accordion
                             jcr:created="{Date}2018-12-07T13:11:20.617+01:00"
                             jcr:createdBy="admin"
@@ -450,11 +450,11 @@
                     jcr:lastModified="{Date}2018-12-07T13:10:51.430+01:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="core-components-examples/components/demo"
+                    sling:resourceType="core-components-examples/wcm/angular/components/demo"
                     fullWidth="{Boolean}true">
                     <component
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="core-components-examples/components/demo/component">
+                        sling:resourceType="core-components-examples/wcm/angular/components/demo/component">
                         <accordion
                             jcr:created="{Date}2018-12-07T13:11:20.617+01:00"
                             jcr:createdBy="admin"
@@ -525,11 +525,11 @@
                     jcr:lastModified="{Date}2018-12-07T13:09:53.937+01:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="core-components-examples/components/demo"
+                    sling:resourceType="core-components-examples/wcm/angular/components/demo"
                     fullWidth="{Boolean}true">
                     <component
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="core-components-examples/components/demo/component">
+                        sling:resourceType="core-components-examples/wcm/angular/components/demo/component">
                         <accordion
                             jcr:created="{Date}2018-12-07T13:11:29.790+01:00"
                             jcr:createdBy="admin"

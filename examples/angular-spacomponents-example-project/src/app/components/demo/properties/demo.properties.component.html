@@ -1,0 +1,11 @@
+<div>
+    <ol class="cmp-react-examples-demo__properties">
+        
+        <li *ngFor="let item of properties | keyvalue"
+                class="cmp-react-examples-demo__property">
+                    <span class="cmp-react-examples-demo__property-title">{{item.key}}<span
+                            class="cmp-react-examples-demo__property-separator">:</span></span>
+            <span class="cmp-react-examples-demo__property-value">{{item.value}}</span>
+    
+    </ol>
+</div>

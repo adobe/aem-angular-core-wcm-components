@@ -17,16 +17,24 @@ import {AemAngularCoreWcmComponentsAccordionV1} from "@adobe/aem-core-components
 import {AemAngularCoreWcmComponentsCarouselV1} from "@adobe/aem-core-components-angular-spa/containers/carousel/v1";
 import {AemAngularCoreWcmComponentsTabsV1} from "@adobe/aem-core-components-angular-spa/containers/tabs/v1";
 import {AemAngularCoreWcmComponentsContainerV1} from "@adobe/aem-core-components-angular-spa/containers/container/v1";
+import {DemoJsonComponent} from "./components/demo/json/demo.json.component";
+import {DemoPropertiesComponent} from "./components/demo/properties/demo.properties.component";
+import {DemoMarkupComponent} from "./components/demo/markup/demo.markup.component";
 
 @NgModule({
   declarations: [
+    DemoJsonComponent,
+    DemoPropertiesComponent,
     AppComponent,
     PageComponent,
     TextComponent,
     ImageComponent,
     HeaderComponent,
     ListComponent,
-    DemoComponent
+    DemoComponent,
+    DemoJsonComponent,
+    DemoPropertiesComponent,
+    DemoMarkupComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +54,10 @@ import {AemAngularCoreWcmComponentsContainerV1} from "@adobe/aem-core-components
     PageComponent,
     ImageComponent,
     HeaderComponent,
-    DemoComponent
+    DemoComponent,
+    DemoJsonComponent,
+    DemoPropertiesComponent,
+    DemoMarkupComponent
   ],
   bootstrap: [AppComponent]
 })
