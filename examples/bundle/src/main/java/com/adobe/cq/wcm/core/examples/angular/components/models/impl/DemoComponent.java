@@ -30,7 +30,7 @@ import org.apache.sling.models.annotations.Model;
 @Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME, extensions = ExporterConstants.SLING_MODEL_EXTENSION)
 public class DemoComponent extends ResponsiveGrid {
     
-    static final String RESOURCE_TYPE = "core-components-examples/components/demo/component";
+    static final String RESOURCE_TYPE = "core-components-examples/wcm/angular/components/demo/component";
     
     @Override
     public String getExportedType() {
