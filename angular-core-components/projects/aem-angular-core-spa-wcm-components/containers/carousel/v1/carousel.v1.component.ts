@@ -34,7 +34,7 @@ export interface CarouselV1Properties extends ContainerProperties{
     },
     templateUrl: './carousel.v1.component.html'
 })
-export class CarouselV1Component extends AbstractContainerComponent implements CarouselV1Properties,OnInit{
+export class CarouselV1Component extends AbstractContainerComponent implements CarouselV1Properties{
 
     @Input() id = "carousel";
     @Input() autoplay: false;
@@ -58,9 +58,21 @@ export class CarouselV1Component extends AbstractContainerComponent implements C
     interval;
 
     ngOnInit(): void {
+        super.ngOnInit();
         if (this.autoplay && !this.isInEditor) {
             this.__autoPlay();
         }
+    }
+
+    ngOnDestroy(): void {
+        super.ngOnDestroy();
+        if (this.autoplay && !this.isInEditor) {
+            this.clearAutoPlay();
+        }
+    }
+
+    protected onAuthorIndexChange(index:number){
+        this.activeIndex = index;
     }
 
     handleOnMouseEnter(){

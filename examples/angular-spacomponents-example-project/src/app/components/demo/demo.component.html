@@ -1,9 +1,11 @@
 <div class="cmp-examples-demo" data-cmp-examples-is="demo">
     <div class="cmp-examples-demo__top t-cmp-clean t-cmp-clean--light">
-        <h1>kaas</h1>
         <ng-container *ngFor="let itemKey of cqItemsOrder">
-            <div>{{itemKey}}</div>
-           
+            <div [ngClass]="getContainerClassNames">
+                <aem-model-provider [cqItem]="getItem(itemKey)"
+                                    [cqPath]="getDataPath(itemKey)"
+                                    [itemName]="itemKey"></aem-model-provider>
+            </div>
         </ng-container>
     
         <div *ngIf="isInEditMode"

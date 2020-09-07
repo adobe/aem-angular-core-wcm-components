@@ -45,6 +45,12 @@ export class AccordionV1Component extends AbstractContainerComponent implements 
         }
     }
 
+    protected onAuthorIndexChange(index:number){
+        this.expandedItems = [
+            this.cqItemsOrder[index]
+        ];
+    }
+
     isItemExpanded(itemKey){
         return this.expandedItems.indexOf(itemKey) > -1;
     }

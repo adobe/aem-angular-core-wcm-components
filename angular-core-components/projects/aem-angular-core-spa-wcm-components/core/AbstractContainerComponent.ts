@@ -16,25 +16,71 @@
  */
 
 import {ComponentMapping, AEMAllowedComponentsContainerComponent, Utils} from "@adobe/aem-angular-editable-components";
-import {Component, HostBinding, Injectable, Input} from "@angular/core";
+import {Component, HostBinding, Injectable, Input, OnDestroy, OnInit} from "@angular/core";
 import {ContainerModel, ContainerProperties, Model} from "./common";
 
 export function ContainerIsEmptyFn(props:ContainerModel){
     return props[":itemsOrder"] == null || props[":itemsOrder"].length === 0;
 }
 
+const isBrowser = (() => {
+    try{
+        return typeof window !== 'undefined';
+    }catch(err){
+        return false;
+    }
+})();
+
 @Component({
     selector: 'aem-core-abstract-container',
     template: ''
 })
-export class AbstractContainerComponent extends AEMAllowedComponentsContainerComponent implements ContainerProperties{
+export class AbstractContainerComponent extends AEMAllowedComponentsContainerComponent implements ContainerProperties, OnInit, OnDestroy{
     @Input() componentMapping: typeof ComponentMapping = ComponentMapping;
     @Input() cqForceReload: boolean = false;
     @Input() cqItems: {[key: string]: Model} = {};
     @Input() cqItemsOrder: string[] = [];
-    @Input() cqPath;
 
     @HostBinding('class') class;
+
+    //@ts-ignore
+    messageChannel;
+
+    constructor() {
+        super();
+        //@ts-ignore
+        if (isBrowser && window.Granite && window.Granite.author && window.Granite.author.MessageChannel) {
+            //@ts-ignore
+            this.messageChannel = new window.Granite.author.MessageChannel("cqauthor", window);
+            this.callback = this.callback.bind(this);
+        }
+    }
+
+    callback(message:any){
+        if (message.data && message.data.id === this.cqPath) {
+            if (message.data.operation === "navigate") {
+                const index = message.data.index as number;
+                this.onAuthorIndexChange(index);
+            }
+        }
+    }
+
+    protected onAuthorIndexChange(index:number){
+        //implement me
+    }
+
+
+    ngOnInit(): void {
+        if(this.messageChannel){
+            this.messageChannel.subscribeRequestMessage("cmp.panelcontainer", this.callback);
+        }
+    }
+
+    ngOnDestroy(): void {
+        if(this.messageChannel){
+            this.messageChannel.unsubscribeRequestMessage("cmp.panelcontainer", this.callback);
+        }
+    }
 
     public get isInEditor(){
         return Utils.isInEditor();

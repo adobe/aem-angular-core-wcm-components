@@ -17,6 +17,7 @@
 
 import {AfterViewInit, ChangeDetectorRef, Component, HostBinding, Input, OnInit} from '@angular/core';
 import {AEMAllowedComponentsContainerComponent} from "@adobe/aem-angular-editable-components";
+import {AbstractContainerComponent} from "@adobe/aem-core-components-angular-spa/core";
 
 const CONTAINER_CLASS_NAMES = 'aem-tabs';
 
@@ -32,7 +33,7 @@ const CONTAINER_CLASS_NAMES = 'aem-tabs';
  * The current component provides the base presentational logic common to containers such as a grid or a page.
  * Container have in common the notion of item holders. Items are represented in the model by the fields _:items_ and _:itemsOrder_
  */
-export class TabsV1Component extends AEMAllowedComponentsContainerComponent implements OnInit,AfterViewInit{
+export class TabsV1Component extends AbstractContainerComponent implements OnInit,AfterViewInit{
 
     @HostBinding('class') class = 'cmp-tabs';
 
@@ -43,6 +44,10 @@ export class TabsV1Component extends AEMAllowedComponentsContainerComponent impl
 
     constructor(private changeDetectorRef:ChangeDetectorRef) {
         super();
+    }
+
+    protected onAuthorIndexChange(index:number){
+        this.activeItemName = this.cqItemsOrder[index];
     }
 
     isActive(itemKey:string){
@@ -66,6 +71,8 @@ export class TabsV1Component extends AEMAllowedComponentsContainerComponent impl
     }
 
     ngOnInit(): void {
+
+        super.ngOnInit();
 
         if(this.activeItem && this.activeItem.trim().length > 0 ){
             this.activeItemName = this.activeItem;
