@@ -13,7 +13,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Core Components Examples - Root"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/libs/wcm/foundation/components/responsivegrid,group:Core Components Examples,group:Contribution Examples,group:.core-wcm,group:.core-wcm-form]">
+                        components="[/libs/wcm/foundation/components/responsivegrid,group:Contribution Examples,Core Components - Angular Examples]">
                         <cq:authoring jcr:primaryType="nt:unstructured">
                             <assetToComponentMapping jcr:primaryType="nt:unstructured">
                                 <mapping_1544531934044
@@ -35,7 +35,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Core Components Examples - Structure"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/libs/wcm/foundation/components/responsivegrid,group:Core Components Examples,group:Contribution Examples,group:.core-wcm,group:.core-wcm-form]">
+                        components="[/libs/wcm/foundation/components/responsivegrid,group:Contribution Examples,Core Components - Angular Examples]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                         <cq:authoring jcr:primaryType="nt:unstructured">
                             <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -459,7 +459,7 @@
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="test"
                                 sling:resourceType="wcm/core/components/policy/policy"
-                                components="group:Contribution Examples">
+                                components="group:Contribution Examples,Core Components - Angular Examples">
                                 <jcr:content jcr:primaryType="nt:unstructured"/>
                             </policy_1586866451142>
                         </tabs>

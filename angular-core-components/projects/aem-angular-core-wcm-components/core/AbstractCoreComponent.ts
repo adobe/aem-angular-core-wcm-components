@@ -17,7 +17,7 @@
 
 import {Input} from "@angular/core";
 import {CoreComponentModel} from "./model/CoreComponentModel";
-import {Utils} from "@adobe/cq-angular-editable-components";
+import {Utils} from "@adobe/aem-angular-editable-components";
 
 /**
  * AbstractCoreComponent

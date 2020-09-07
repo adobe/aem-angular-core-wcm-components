@@ -1,5 +1,5 @@
 import {Component, HostBinding, Input} from "@angular/core";
-import {AEMResponsiveGridComponent} from "@adobe/cq-angular-editable-components";
+import {AEMResponsiveGridComponent} from "@adobe/aem-angular-editable-components";
 
 enum ContainerLayout {
     SIMPLE = "simple",

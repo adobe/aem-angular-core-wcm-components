@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ModelManager, Constants } from '@adobe/cq-spa-page-model-manager';
+import { ModelManager, Constants } from '@adobe/aem-spa-page-model-manager';
 
 @Component({
   selector: 'app-page',

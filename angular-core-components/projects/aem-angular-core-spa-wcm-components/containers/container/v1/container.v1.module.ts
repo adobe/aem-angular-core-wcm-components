@@ -18,7 +18,7 @@ import {CommonModule} from "@angular/common";
 import {BrowserModule} from "@angular/platform-browser";
 import {RouterModule} from "@angular/router";
 import {ContainerV1Component} from "./container.v1.component";
-import {SpaAngularEditableComponentsModule} from "@adobe/cq-angular-editable-components";
+import {SpaAngularEditableComponentsModule} from "@adobe/aem-angular-editable-components";
 import {AemAngularCoreSpaWcmComponentsCore} from "@adobe/aem-core-components-angular-spa/core";
 
 @NgModule({

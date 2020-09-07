@@ -15,7 +15,7 @@
  * from Adobe Systems Incorporated.
  */
 
-import {ComponentMapping, AEMAllowedComponentsContainerComponent, Utils} from "@adobe/cq-angular-editable-components";
+import {ComponentMapping, AEMAllowedComponentsContainerComponent, Utils} from "@adobe/aem-angular-editable-components";
 import {Component, HostBinding, Injectable, Input} from "@angular/core";
 import {ContainerModel, ContainerProperties, Model} from "./common";
 

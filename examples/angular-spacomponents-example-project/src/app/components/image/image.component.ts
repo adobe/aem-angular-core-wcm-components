@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {MapTo} from '@adobe/cq-angular-editable-components';
+import {MapTo} from '@adobe/aem-angular-editable-components';
 
 @Component({
   selector: 'app-image',

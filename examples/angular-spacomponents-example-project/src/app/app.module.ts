@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {SpaAngularEditableComponentsModule} from "@adobe/cq-angular-editable-components";
+import {SpaAngularEditableComponentsModule} from "@adobe/aem-angular-editable-components";
 import {PageComponent} from "./components/page/page.component";
 import {TextComponent} from "./components/text/text.component";
 import {ImageComponent} from "./components/image/image.component";

@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from "@angular/common";
 
 
-import {SpaAngularEditableComponentsModule} from "@adobe/cq-angular-editable-components";
+import {SpaAngularEditableComponentsModule} from "@adobe/aem-angular-editable-components";
 import {AemAngularCoreWcmComponentsAccordionV1} from "@adobe/aem-core-components-angular-spa/containers/accordion/v1";
 import {AemAngularCoreWcmComponentsCarouselV1} from "@adobe/aem-core-components-angular-spa/containers/carousel/v1";
 import {AemAngularCoreWcmComponentsTabsV1} from "@adobe/aem-core-components-angular-spa/containers/tabs/v1";

@@ -1,4 +1,4 @@
-import {ComponentMapping} from "@adobe/cq-angular-editable-components";
+import {ComponentMapping} from "@adobe/aem-angular-editable-components";
 
 
 export interface ContainerProperties extends MappedComponentProperties {

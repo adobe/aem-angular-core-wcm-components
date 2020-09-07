@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {ModelManager} from '@adobe/cq-spa-page-model-manager';
-import {AEMContainerComponent, AEMResponsiveGridComponent, MapTo} from '@adobe/cq-angular-editable-components';
+import {ModelManager} from '@adobe/aem-spa-page-model-manager';
+import {AEMContainerComponent, AEMResponsiveGridComponent, MapTo} from '@adobe/aem-angular-editable-components';
 
 import {AccordionV1Component} from "@adobe/aem-core-components-angular-spa/containers/accordion/v1";
 import {CarouselV1Component} from "@adobe/aem-core-components-angular-spa/containers/carousel/v1";
