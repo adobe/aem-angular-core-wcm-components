@@ -1,4 +1,4 @@
-import {Component, HostBinding, Input, OnInit} from "@angular/core";
+import {ChangeDetectorRef, Component, HostBinding, Input, OnInit} from "@angular/core";
 import {ContainerProperties,AbstractContainerComponent} from "@adobe/aem-core-components-angular-spa/core";
 
 export interface CarouselV1PropertiesAccessibility {
@@ -56,13 +56,16 @@ export class CarouselV1Component extends AbstractContainerComponent implements C
 
     interval = 0;
 
-    get autoPlayIntervalOn(){
-        return this.interval > 0;
+    autoPlayIntervalOn = false;
+    autoPlayHalted = false;
+
+    constructor(private changeDetectorRef:ChangeDetectorRef) {
+        super();
     }
 
 
-    ngOnInit(): void {
-        super.ngOnInit();
+    ngAfterViewInit(): void {
+        super.ngAfterViewInit();
         if (this.autoplay) {
             this.__autoPlay();
         }
@@ -82,13 +85,13 @@ export class CarouselV1Component extends AbstractContainerComponent implements C
 
     handleOnMouseEnter(){
         if(!this.autopauseDisabled && this.autoplay){
-            this.clearAutoPlay();
+            this.autoPlayHalted = true;
         }
     }
 
     handleOnMouseLeave(){
         if(!this.autopauseDisabled && this.autoplay){
-            this.__autoPlay();
+            this.autoPlayHalted = false;
         }
     }
 
@@ -125,14 +128,16 @@ export class CarouselV1Component extends AbstractContainerComponent implements C
     }
 
     __autoPlay(){
+        this.autoPlayIntervalOn = true;
         this.interval = window.setInterval(() => {
             this.autoPlayTick();
         }, this.delay);
+        this.changeDetectorRef.detectChanges();
     }
 
     autoPlayTick() {
 
-        if (!this.autoplay || this.cqItemsOrder.length <= 1) {
+        if (!this.autoplay || this.autoPlayHalted || this.cqItemsOrder.length <= 1) {
             return;
         }
 
@@ -140,6 +145,8 @@ export class CarouselV1Component extends AbstractContainerComponent implements C
     };
 
     clearAutoPlay = () => {
+        this.autoPlayIntervalOn = false;
+        this.changeDetectorRef.detectChanges();
         window.clearInterval(this.interval);
     };
 

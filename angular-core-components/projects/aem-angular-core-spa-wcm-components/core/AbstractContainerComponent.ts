@@ -16,7 +16,7 @@
  */
 
 import {ComponentMapping, AEMAllowedComponentsContainerComponent, Utils} from "@adobe/aem-angular-editable-components";
-import {Component, HostBinding, Injectable, Input, OnDestroy, OnInit} from "@angular/core";
+import {Component, HostBinding, Injectable, Input, OnDestroy, AfterViewInit} from "@angular/core";
 import {ContainerModel, ContainerProperties, Model} from "./common";
 
 export function ContainerIsEmptyFn(props:ContainerModel){
@@ -35,7 +35,7 @@ const isBrowser = (() => {
     selector: 'aem-core-abstract-container',
     template: ''
 })
-export class AbstractContainerComponent extends AEMAllowedComponentsContainerComponent implements ContainerProperties, OnInit, OnDestroy{
+export class AbstractContainerComponent extends AEMAllowedComponentsContainerComponent implements ContainerProperties, AfterViewInit, OnDestroy{
     @Input() componentMapping: typeof ComponentMapping = ComponentMapping;
     @Input() cqForceReload: boolean = false;
     @Input() cqItems: {[key: string]: Model} = {};
@@ -70,7 +70,7 @@ export class AbstractContainerComponent extends AEMAllowedComponentsContainerCom
     }
 
 
-    ngOnInit(): void {
+    ngAfterViewInit(): void {
         if(this.messageChannel){
             this.messageChannel.subscribeRequestMessage("cmp.panelcontainer", this.callback);
         }
