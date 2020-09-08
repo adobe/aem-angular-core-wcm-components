@@ -33,7 +33,7 @@ const CONTAINER_CLASS_NAMES = 'aem-tabs';
  * The current component provides the base presentational logic common to containers such as a grid or a page.
  * Container have in common the notion of item holders. Items are represented in the model by the fields _:items_ and _:itemsOrder_
  */
-export class TabsV1Component extends AbstractContainerComponent implements OnInit,AfterViewInit{
+export class TabsV1Component extends AbstractContainerComponent{
 
     @HostBinding('class') class = 'cmp-tabs';
 
@@ -83,9 +83,6 @@ export class TabsV1Component extends AbstractContainerComponent implements OnIni
 
     }
 
-    ngAfterViewInit(): void {
-
-    }
 
     /**
      * Returns the class names of the container based on the data from the cqModel

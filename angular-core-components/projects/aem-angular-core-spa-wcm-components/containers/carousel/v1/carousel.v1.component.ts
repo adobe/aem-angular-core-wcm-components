@@ -37,13 +37,12 @@ export interface CarouselV1Properties extends ContainerProperties{
 export class CarouselV1Component extends AbstractContainerComponent implements CarouselV1Properties{
 
     @Input() id = "carousel";
-    @Input() autoplay: false;
+    @Input() autoplay:boolean = false;
     @Input() accessibilityLabel = 'Carousel';
     @Input() autopauseDisabled: false;
     @Input() activeIndex: number = 0;
     @Input() delay: number = 0;
     @HostBinding('class') class = 'cmp-carousel';
-
 
     @Input() accessibility = {
         play: 'Play',
@@ -55,11 +54,16 @@ export class CarouselV1Component extends AbstractContainerComponent implements C
         indicators: 'Choose a slide to display'
     };
 
-    interval;
+    interval = 0;
+
+    get autoPlayIntervalOn(){
+        return this.interval > 0;
+    }
+
 
     ngOnInit(): void {
         super.ngOnInit();
-        if (this.autoplay && !this.isInEditor) {
+        if (this.autoplay) {
             this.__autoPlay();
         }
     }
@@ -73,6 +77,7 @@ export class CarouselV1Component extends AbstractContainerComponent implements C
 
     protected onAuthorIndexChange(index:number){
         this.activeIndex = index;
+        this.clearAutoPlay();
     }
 
     handleOnMouseEnter(){
@@ -120,7 +125,7 @@ export class CarouselV1Component extends AbstractContainerComponent implements C
     }
 
     __autoPlay(){
-        this.interval = setInterval(() => {
+        this.interval = window.setInterval(() => {
             this.autoPlayTick();
         }, this.delay);
     }
@@ -135,11 +140,15 @@ export class CarouselV1Component extends AbstractContainerComponent implements C
     };
 
     clearAutoPlay = () => {
-        clearInterval(this.interval);
+        window.clearInterval(this.interval);
     };
 
-    toggleAutoPlay(toggle){
-        this.autoplay = toggle;
+    toggleAutoPlay(toggle:boolean){
+        if(toggle){
+            this.__autoPlay();
+        }else{
+            this.clearAutoPlay();
+        }
     }
 
     nextSlide(){

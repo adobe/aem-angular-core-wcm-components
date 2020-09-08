@@ -35,6 +35,26 @@
                         <span class="{{class}}__action-icon"></span>
                         <span class="{{class}}__action-text" [innerText]="accessibility.previous"></span>
                     </button>
+                    
+                    
+                    <button class="{{class}}__action {{class}}__action--pause {{autoPlayIntervalOn ? class + '__action--disabled' : ''}}"
+                            type="button"
+                            [attr.aria-label]="accessibility.pause"
+                            *ngIf="autoplay"
+                            (click)="toggleAutoPlay(false)">
+                        <span class="{{class}}__action-icon"></span>
+                        <span class="{{class}}__action-text" [innerText]="accessibility.pause"></span>
+                    </button>
+                    <button class="{{class}}__action {{class}}__action--play {{!autoPlayIntervalOn ? class + '__action--disabled' : ''}}"
+                            type="button"
+                            *ngIf="autoplay"
+                            [attr.aria-label]="accessibility.play"
+                            (click)="toggleAutoPlay(true)">
+                        <span class="{{class}}__action-icon"></span>
+                        <span class="{{class}}__action-text" [innerText]="accessibility.play"></span>
+                    </button>
+                    
+                    
                     <button class="{{class}}__action {{class}}__action--next"
                             type="button"
                             [attr.aria-label]="accessibility.next"
