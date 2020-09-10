@@ -11,35 +11,39 @@
 
 <ng-template #container>
     
-    <div class="{{class}}__item"
-         data-cmp-hook-accordion="item"
-         *ngFor="let itemKey of cqItemsOrder">
-        <h3 class="{{class}}__header">
-            <button id="accordion-dca50b5feb-button-0" class="{{getButtonClass(itemKey)}}"
-                    aria-controls="accordion-dca50b5feb-panel-0" data-cmp-hook-accordion="button"
-                    (click)="onClick(itemKey)">
-                <span class="{{class}}__title" [innerText]="getButtonTitle(itemKey)"></span>
-                <span class="{{class}}__icon"></span>
-            </button>
-        </h3>
-        <div  data-cmp-hook-accordion="panel"
-              *ngIf="isActiveItemNameSet"
-              [class]="getItemClass(itemKey)"
-              role="region"
-              [ngStyle]="getItemStyle(itemKey)"
-              aria-labelledby="accordion-dca50b5feb-button-0">
-            <div
-                 [aemModelProvider]
-                 [cqItem]="getItem(itemKey)"
-                 [cqPath]="getDataPath(itemKey)"
-                 [itemName]="itemKey"
-                 [attr.data-cq-data-path]="getDataPath(itemKey)"></div>
-        </div>
-    </div>
+        <div id="{{id}}" class="{{baseCssClass}}" role="group">
     
-    <div *ngIf="isInEditMode;"
-         [attr.data-cq-data-path]="placeholderPath"
-         [class]="getPlaceholderClassNames()">
-    </div>
+            <div class="{{baseCssClass}}__item"
+                 data-cmp-hook-accordion="item"
+                 *ngFor="let itemKey of cqItemsOrder">
+                <h3 class="{{baseCssClass}}__header">
+                    <button id="accordion-dca50b5feb-button-0" class="{{getButtonClass(itemKey)}}"
+                            aria-controls="accordion-dca50b5feb-panel-0" data-cmp-hook-accordion="button"
+                            (click)="onClick(itemKey)">
+                        <span class="{{baseCssClass}}__title" [innerText]="getButtonTitle(itemKey)"></span>
+                        <span class="{{baseCssClass}}__icon"></span>
+                    </button>
+                </h3>
+                <div  data-cmp-hook-accordion="panel"
+                      *ngIf="isActiveItemNameSet"
+                      [class]="getItemClass(itemKey)"
+                      role="region"
+                      [ngStyle]="getItemStyle(itemKey)"
+                      aria-labelledby="accordion-dca50b5feb-button-0">
+                    <div
+                            [aemModelProvider]
+                            [cqItem]="getItem(itemKey)"
+                            [cqPath]="getDataPath(itemKey)"
+                            [itemName]="itemKey"
+                            [attr.data-cq-data-path]="getDataPath(itemKey)"></div>
+                </div>
+            </div>
+    
+            <div *ngIf="isInEditMode;"
+                 [attr.data-cq-data-path]="placeholderPath"
+                 [class]="getPlaceholderClassNames()">
+            </div>
+            
+        </div>
 
 </ng-template>

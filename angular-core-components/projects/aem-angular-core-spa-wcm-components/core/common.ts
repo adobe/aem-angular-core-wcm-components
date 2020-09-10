@@ -5,6 +5,7 @@ export interface ContainerProperties extends MappedComponentProperties {
     componentMapping?: typeof ComponentMapping;
     cqItems: {[key: string]: Model};
     cqItemsOrder: string[];
+    baseCssClass: string;
 }
 
 export interface ContainerModel extends Model{
@@ -58,5 +59,5 @@ export interface ReloadForceAble {
 export interface MappedComponentProperties extends ReloadForceAble {
     isInEditor: boolean;
     cqPath: string;
-    class:string;
+    baseCssClass:string;
 }

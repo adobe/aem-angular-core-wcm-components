@@ -35,12 +35,12 @@ const CONTAINER_CLASS_NAMES = 'aem-tabs';
  */
 export class TabsV1Component extends AbstractContainerComponent implements OnInit{
 
-    @HostBinding('class') class = 'cmp-tabs';
-
     activeItemName?:string;
+
+    @Input() baseCssClass = 'cmp-tabs';
     @Input() activeItem?: string;
     @Input() accessibilityLabel?: string;
-
+    @Input() id;
 
     constructor(private changeDetectorRef:ChangeDetectorRef) {
         super();
@@ -55,7 +55,7 @@ export class TabsV1Component extends AbstractContainerComponent implements OnIni
     }
 
     getTabClass(itemKey:string){
-        return `${this.class}__tab` + ((this.isActive(itemKey) ? ` ${this.class}__tab--active` : ''));
+        return `${this.baseCssClass}__tab` + ((this.isActive(itemKey) ? ` ${this.baseCssClass}__tab--active` : ''));
     }
 
     getTabTitle(itemKey:string){

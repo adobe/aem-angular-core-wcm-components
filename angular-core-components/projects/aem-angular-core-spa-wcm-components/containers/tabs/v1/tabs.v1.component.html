@@ -10,23 +10,27 @@
 </ng-container>
 
 <ng-template #container>
-    <ol  role="tablist"
-         class="{{class}}__tablist"
-         aria-multiselectable="false">
-        <li role="tab" *ngFor="let itemKey of cqItemsOrder" (click)="onClick(itemKey)" [ngClass]="getTabClass(itemKey)" [innerText]="getTabTitle(itemKey)"></li>
-    </ol>
-
-    <ng-container *ngFor="let itemKey of cqItemsOrder">
-        <div [aemModelProvider]
-             [cqItem]="getItem(itemKey)"
-             [cqPath]="getDataPath(itemKey)"
-             [itemName]="itemKey"
-             [ngStyle]="getItemStyle(itemKey)"
-             [attr.data-cq-data-path]="getDataPath(itemKey)"></div>
-    </ng-container>
-    <div *ngIf="isInEditMode;"
-         [attr.data-cq-data-path]="placeholderPath"
-         [class]="getPlaceholderClassNames()">
+    
+    <div id="{{id}}" class="{{baseCssClass}}">
+        <ol  role="tablist"
+             class="{{baseCssClass}}__tablist"
+             aria-multiselectable="false">
+            <li role="tab" *ngFor="let itemKey of cqItemsOrder" (click)="onClick(itemKey)" [ngClass]="getTabClass(itemKey)" [innerText]="getTabTitle(itemKey)"></li>
+        </ol>
+    
+        <ng-container *ngFor="let itemKey of cqItemsOrder">
+            <div [aemModelProvider]
+                 [cqItem]="getItem(itemKey)"
+                 [cqPath]="getDataPath(itemKey)"
+                 [itemName]="itemKey"
+                 [ngStyle]="getItemStyle(itemKey)"
+                 [attr.data-cq-data-path]="getDataPath(itemKey)"></div>
+        </ng-container>
+        <div *ngIf="isInEditMode;"
+             [attr.data-cq-data-path]="placeholderPath"
+             [class]="getPlaceholderClassNames()">
+        </div>
     </div>
+    
   
 </ng-template>

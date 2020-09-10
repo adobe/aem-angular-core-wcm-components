@@ -4,25 +4,23 @@ import {ContainerProperties,AbstractContainerComponent} from "@adobe/aem-core-co
 interface AccordionV1Properties extends ContainerProperties{
     expandedItems: string[]
     singleExpansion: boolean
+    id:string
 }
 
 @Component({
     selector: 'core-accordion-v1',
     host: {
         '[class]': 'hostClasses',
-        '[attr.data-cq-data-path]':'cqPath',
+        '[attr.data-cq-data-path]':'cqPath'
     },
     templateUrl: './accordion.v1.component.html'
 })
 export class AccordionV1Component extends AbstractContainerComponent implements AccordionV1Properties {
     @Input() singleExpansion: boolean;
     @Input() expandedItems: string[] = [];
+    @Input() id: string;
 
-    @HostBinding('class') class = 'cmp-accordion';
-
-    getHostClassNames(): string {
-        return 'cmp-accordion';
-    }
+    @Input() baseCssClass = 'cmp-accordion';
 
     get isActiveItemNameSet(){
         return !!this.expandedItems && this.expandedItems.length > 0;
@@ -56,7 +54,7 @@ export class AccordionV1Component extends AbstractContainerComponent implements 
     }
 
     getButtonClass(itemKey){
-        return this.isItemExpanded(itemKey) ? `${this.class}__button ${this.class}__button--expanded` : `${this.class}__button`;
+        return this.isItemExpanded(itemKey) ? `${this.baseCssClass}__button ${this.baseCssClass}__button--expanded` : `${this.baseCssClass}__button`;
     }
 
     getItemStyle(itemKey:string){
@@ -65,7 +63,7 @@ export class AccordionV1Component extends AbstractContainerComponent implements 
     }
 
     getItemClass(itemKey){
-        return this.isItemExpanded(itemKey) ? `${this.class}__panel ${this.class}__panel--expanded`: `${this.class}__panel ${this.class}__panel--hidden`;
+        return this.isItemExpanded(itemKey) ? `${this.baseCssClass}__panel ${this.baseCssClass}__panel--expanded`: `${this.baseCssClass}__panel ${this.baseCssClass}__panel--hidden`;
     }
 
     getButtonTitle(itemKey:string){

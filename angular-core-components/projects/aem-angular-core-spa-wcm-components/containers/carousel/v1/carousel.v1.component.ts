@@ -36,13 +36,15 @@ export interface CarouselV1Properties extends ContainerProperties{
 })
 export class CarouselV1Component extends AbstractContainerComponent implements CarouselV1Properties{
 
-    @Input() id = "carousel";
+    @Input() id;
+    @Input() baseCssClass = 'cmp-carousel';
+
+
     @Input() autoplay:boolean = false;
     @Input() accessibilityLabel = 'Carousel';
     @Input() autopauseDisabled: false;
     @Input() activeIndex: number = 0;
     @Input() delay: number = 0;
-    @HostBinding('class') class = 'cmp-carousel';
 
     @Input() accessibility = {
         play: 'Play',
@@ -108,11 +110,11 @@ export class CarouselV1Component extends AbstractContainerComponent implements C
     }
 
     getSlideCssClass(index:number){
-        return (this.activeIndex === index) ? `${this.class}__item ${this.class}__item--active` :  `${this.class}__item`;
+        return (this.activeIndex === index) ? `${this.baseCssClass}__item ${this.baseCssClass}__item--active` :  `${this.baseCssClass}__item`;
     }
 
     getIndicatorCssClass(index:number){
-        return (this.activeIndex === index) ? `${this.class}__indicator ${this.class}__indicator--active` : `${this.class}__indicator`;
+        return (this.activeIndex === index) ? `${this.baseCssClass}__indicator ${this.baseCssClass}__indicator--active` : `${this.baseCssClass}__indicator`;
     }
 
     handleOnButtonPrev(){
