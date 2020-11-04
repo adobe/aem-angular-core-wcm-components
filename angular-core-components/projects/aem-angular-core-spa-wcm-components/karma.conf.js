@@ -15,9 +15,12 @@ module.exports = function (config) {
     client: {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
+    files: [
+      {pattern: '**/*.components.ts', watched: false, included: false},
+    ],
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, '../../coverage/aem-angular-core-spa-wcm-components'),
-      reports: ['html', 'lcovonly', 'text-summary'],
+      reports: ['json'],
       fixWebpackSourcePaths: true
     },
     reporters: ['progress', 'kjhtml'],

@@ -1,4 +1,4 @@
-export interface CoreComponentModel {
+export interface CoreComponentModel{
     hidePlaceHolder: boolean
     isInEditor:boolean
 }

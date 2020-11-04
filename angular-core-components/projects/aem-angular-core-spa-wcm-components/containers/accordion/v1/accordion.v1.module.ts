@@ -22,16 +22,10 @@ import {SpaAngularEditableComponentsModule} from "@adobe/aem-angular-editable-co
 import {AemAngularCoreSpaWcmComponentsCore} from "@adobe/aem-core-components-angular-spa/core";
 
 @NgModule({
-    imports: [CommonModule, BrowserModule, RouterModule,SpaAngularEditableComponentsModule,AemAngularCoreSpaWcmComponentsCore],
+    imports: [CommonModule, BrowserModule, RouterModule,AemAngularCoreSpaWcmComponentsCore,SpaAngularEditableComponentsModule],
     declarations: [
         AccordionV1Component
-    ],
-    exports: [
-        AccordionV1Component
-    ],
-    entryComponents: [
-        AccordionV1Component,
-    ],
+    ]
 })
 export class AemAngularCoreWcmComponentsAccordionV1 {
 }

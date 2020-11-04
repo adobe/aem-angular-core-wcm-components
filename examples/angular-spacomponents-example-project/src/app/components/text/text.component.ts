@@ -1,17 +1,20 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MapTo} from '@adobe/aem-angular-editable-components';
+import {AbstractMappedComponent} from "@adobe/aem-angular-editable-components";
 
 @Component({
   selector: 'app-text',
   templateUrl: './text.component.html',
   styleUrls: ['./text.component.scss']
 })
-export class TextComponent implements OnInit {
+export class TextComponent extends AbstractMappedComponent implements OnInit {
   @Input() richText: boolean;
   @Input() text: string;
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer) {
+    super();
+  }
 
   get content() {
     const textValue = this.text || '';

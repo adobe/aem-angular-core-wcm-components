@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {NgModule, NgModuleFactoryLoader, SystemJsNgModuleLoader} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +12,12 @@ import {ListComponent} from "./components/list/list.component";
 import {DemoComponent} from "./components/demo/demo.component";
 
 import {AemAngularCoreSpaWcmComponentsModule} from "@adobe/aem-core-components-angular-spa";
-import {AemAngularCoreWcmComponentsModule} from "@adobe/aem-core-components-angular-base";
+// import {AemAngularCoreWcmComponentsModule} from "@adobe/aem-core-components-angular-base";
+import {AemAngularCoreWcmComponentsTeaserV1} from "@adobe/aem-core-components-angular-base/authoring/teaser/v1";
+import {AemAngularCoreWcmComponentsTitleV2} from "@adobe/aem-core-components-angular-base/authoring/title/v2";
+import {AemAngularCoreWcmComponentsTextV2} from "@adobe/aem-core-components-angular-base/authoring/text/v2";
+import {AemAngularCoreWcmComponentsNavigationV1} from  '@adobe/aem-core-components-angular-base/layout/navigation/v1';
+
 import {AemAngularCoreWcmComponentsAccordionV1} from "@adobe/aem-core-components-angular-spa/containers/accordion/v1";
 import {AemAngularCoreWcmComponentsCarouselV1} from "@adobe/aem-core-components-angular-spa/containers/carousel/v1";
 import {AemAngularCoreWcmComponentsTabsV1} from "@adobe/aem-core-components-angular-spa/containers/tabs/v1";
@@ -40,7 +45,11 @@ import {DemoMarkupComponent} from "./components/demo/markup/demo.markup.componen
     BrowserModule,
     AppRoutingModule,
     SpaAngularEditableComponentsModule,
-    AemAngularCoreWcmComponentsModule,
+    AemAngularCoreWcmComponentsTeaserV1,
+    AemAngularCoreWcmComponentsTitleV2,
+    AemAngularCoreWcmComponentsTextV2,
+    AemAngularCoreWcmComponentsNavigationV1,
+    // AemAngularCoreWcmComponentsModule,
     AemAngularCoreSpaWcmComponentsModule,
     AemAngularCoreWcmComponentsAccordionV1,
     AemAngularCoreWcmComponentsCarouselV1,

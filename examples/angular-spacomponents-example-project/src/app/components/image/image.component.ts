@@ -1,20 +1,19 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MapTo} from '@adobe/aem-angular-editable-components';
+import {AbstractMappedComponent} from "@adobe/aem-angular-editable-components";
 
 @Component({
   selector: 'app-image',
   templateUrl: './image.component.html',
   styleUrls: ['./image.component.scss']
 })
-export class ImageComponent implements OnInit {
+export class ImageComponent extends AbstractMappedComponent implements OnInit {
 
   @Input() src: string;
   @Input() link: string;
   @Input() alt: string;
   @Input() title: string;
   @Input() displayPopupTitle: string;
-
-  constructor() { }
 
   get hasImage() {
     return this.src && this.src.trim().length > 0;

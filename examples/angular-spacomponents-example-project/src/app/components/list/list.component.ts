@@ -1,16 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MapTo } from '@adobe/aem-angular-editable-components';
+import {AbstractMappedComponent} from "@adobe/aem-angular-editable-components";
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
+export class ListComponent extends AbstractMappedComponent implements OnInit {
 
   @Input() items: object[];
-
-  constructor() { }
 
   get events(): Event[] {
     return this.items.map(item => {

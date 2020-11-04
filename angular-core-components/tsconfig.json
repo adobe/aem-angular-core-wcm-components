@@ -8,7 +8,7 @@
         "downlevelIteration": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "module": "esnext",
+        "module": "es2020",
         "moduleResolution": "node",
         "importHelpers": true,
         "target": "es2015",
@@ -29,10 +29,14 @@
             ],
             "@adobe/aem-core-components-angular-base/*": [
                 "./dist/aem-angular-core-wcm-components/*"
+            ],
+            "@adobe/aem-angular-editable-components":[
+                "./node_modules/@adobe/aem-angular-editable-components"
             ]
         }
     },
     "angularCompilerOptions": {
+        "enableIvy": false,
         "fullTemplateTypeCheck": true,
         "strictInjectionParameters": true
     }

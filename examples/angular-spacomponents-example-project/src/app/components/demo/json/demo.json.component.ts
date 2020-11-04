@@ -1,4 +1,5 @@
 import {Component, Input} from "@angular/core";
+import {AbstractMappedComponent, MappedComponentProperties} from "@adobe/aem-angular-editable-components";
 
 export interface DemoJsonModel{
     json:string
