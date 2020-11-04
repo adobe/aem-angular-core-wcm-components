@@ -15,7 +15,7 @@
  */
 
 
-import {Input} from "@angular/core";
+import {Component, Input} from "@angular/core";
 import {CoreComponentModel} from "./model/CoreComponentModel";
 import {Utils} from "@adobe/aem-angular-editable-components";
 
@@ -23,7 +23,10 @@ import {Utils} from "@adobe/aem-angular-editable-components";
  * AbstractCoreComponent
  * provides shared functionality / properties across all core component controllers
  */
-export abstract class AbstractCoreComponent implements CoreComponentModel{
+@Component({
+    template: ''
+})
+export class AbstractCoreComponent implements CoreComponentModel{
 
     /** Force disable the placeholder at all times. This is useful for nested components. **/
     @Input() hidePlaceHolder: boolean = false;
@@ -36,7 +39,9 @@ export abstract class AbstractCoreComponent implements CoreComponentModel{
     /**
      * Method that needs to be overloaded, to determine whether the component should be treated as 'empty'
      */
-    public abstract get isEmpty():boolean;
+    public get isEmpty():boolean{
+        throw new Error("implement me");
+    }
 
     /**
      * Returns whether to show the placeholder for the editors, if we cannot display the component.

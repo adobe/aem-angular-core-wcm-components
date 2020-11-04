@@ -33,9 +33,4 @@ import {AemAngularCoreWcmComponentsCore} from "@adobe/aem-core-components-angula
     ],
 })
 export class AemAngularCoreWcmComponentsDownloadV1{
-    constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
-
-    public resolveComponent(): ComponentFactory<DownloadV1Component> {
-        return this.componentFactoryResolver.resolveComponentFactory(DownloadV1Component);
-    }
 }

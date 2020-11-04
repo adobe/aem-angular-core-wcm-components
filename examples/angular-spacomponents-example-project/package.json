@@ -28,8 +28,9 @@
     "@adobe/aem-spa-page-model-manager": "file:../../../aem-spa-page-model-manager",
     "@adobe/aem-core-components-angular-spa": "file:../../angular-core-components/dist/aem-angular-core-spa-wcm-components",
     "@adobe/aem-core-components-angular-base": "file:../../angular-core-components/dist/aem-angular-core-wcm-components",
-    "rxjs": "~6.5.4",
-    "tslib": "^1.10.0",
+    "rxjs": "~6.6.3",
+    "tslib": "^2.0.3",
+    "pdfmake": "^0.1.68",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

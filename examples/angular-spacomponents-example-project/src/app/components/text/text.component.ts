@@ -8,12 +8,12 @@ import {AbstractMappedComponent} from "@adobe/aem-angular-editable-components";
   templateUrl: './text.component.html',
   styleUrls: ['./text.component.scss']
 })
-export class TextComponent extends AbstractMappedComponent implements OnInit {
+export class TextComponent implements OnInit {
   @Input() richText: boolean;
   @Input() text: string;
 
   constructor(private sanitizer: DomSanitizer) {
-    super();
+
   }
 
   get content() {
@@ -36,5 +36,3 @@ const TextEditConfig = {
     return !componentData || !componentData.text || componentData.text.trim().length < 1;
   }
 };
-
-MapTo('wknd-events/components/content/text')(TextComponent, TextEditConfig);

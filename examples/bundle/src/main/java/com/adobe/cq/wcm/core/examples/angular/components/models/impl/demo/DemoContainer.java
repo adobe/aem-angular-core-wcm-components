@@ -21,6 +21,7 @@ import com.adobe.cq.export.json.ExporterConstants;
 import com.adobe.cq.wcm.core.examples.angular.components.models.DemoContainerExporter;
 import com.day.cq.wcm.foundation.model.responsivegrid.ResponsiveGrid;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
@@ -51,6 +52,10 @@ public class DemoContainer extends ResponsiveGrid implements DemoContainerExport
         return RESOURCE_TYPE;
     }
     
+    @JsonInclude
+    public String getAngularDynamicComponent(){
+        return "DemoComponent";
+    }
 
     
     public boolean isFullWidth() {

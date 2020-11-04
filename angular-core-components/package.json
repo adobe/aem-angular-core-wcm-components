@@ -31,7 +31,7 @@
     "@adobe/aem-spa-component-mapping": "file:../../aem-spa-component-mapping",
     "@adobe/aem-spa-page-model-manager": "file:../../aem-spa-page-model-manager",
     "aem-angular-core-wcm-components": "0.0.2",
-    "rxjs": "~6.5.4",
+    "rxjs": "~6.6.3",
     "tslib": "^2.0.3",
     "zone.js": "~0.10.2"
   },
@@ -51,7 +51,7 @@
     "karma-coverage-istanbul-reporter": "~2.1.0",
     "karma-jasmine": "~3.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
-    "ng-packagr": "^9.0.0",
+    "ng-packagr": "^10.1.2",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",

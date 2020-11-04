@@ -56,4 +56,9 @@ public class DemoContainer extends ResponsiveGrid implements DemoContainerExport
     public boolean isFullWidth() {
         return fullWidth;
     }
+    
+    @Override
+    public String getAngularDynamicComponent() {
+        return "DemoContrainer";
+    }
 }

@@ -8,6 +8,8 @@
             </div>
         </ng-container>
     
+        <button (click)='generatePdf()'>Get PDF</button>
+        
         <div *ngIf="isInEditMode"
              [attr.data-cq-data-path]="placeholderPath"
              [class]="getPlaceholderClassNames()"></div>

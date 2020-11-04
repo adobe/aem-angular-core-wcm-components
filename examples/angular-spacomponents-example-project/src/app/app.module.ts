@@ -5,14 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {SpaAngularEditableComponentsModule} from "@adobe/aem-angular-editable-components";
 import {PageComponent} from "./components/page/page.component";
-import {TextComponent} from "./components/text/text.component";
 import {ImageComponent} from "./components/image/image.component";
 import {HeaderComponent} from "./components/header/header.component";
 import {ListComponent} from "./components/list/list.component";
 import {DemoComponent} from "./components/demo/demo.component";
 
 import {AemAngularCoreSpaWcmComponentsModule} from "@adobe/aem-core-components-angular-spa";
-// import {AemAngularCoreWcmComponentsModule} from "@adobe/aem-core-components-angular-base";
 import {AemAngularCoreWcmComponentsTeaserV1} from "@adobe/aem-core-components-angular-base/authoring/teaser/v1";
 import {AemAngularCoreWcmComponentsTitleV2} from "@adobe/aem-core-components-angular-base/authoring/title/v2";
 import {AemAngularCoreWcmComponentsTextV2} from "@adobe/aem-core-components-angular-base/authoring/text/v2";
@@ -32,7 +30,6 @@ import {DemoMarkupComponent} from "./components/demo/markup/demo.markup.componen
     DemoPropertiesComponent,
     AppComponent,
     PageComponent,
-    TextComponent,
     ImageComponent,
     HeaderComponent,
     ListComponent,
@@ -59,7 +56,6 @@ import {DemoMarkupComponent} from "./components/demo/markup/demo.markup.componen
   providers: [],
   entryComponents: [
     ListComponent,
-    TextComponent,
     PageComponent,
     ImageComponent,
     HeaderComponent,
