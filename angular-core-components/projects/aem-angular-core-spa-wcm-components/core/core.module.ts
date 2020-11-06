@@ -20,7 +20,7 @@ import {RouterModule} from "@angular/router";
 import {AbstractContainerComponent} from "./AbstractContainerComponent";
 
 @NgModule({
-    imports: [CommonModule, BrowserModule, RouterModule],
+    imports: [CommonModule, RouterModule],
     declarations: [AbstractContainerComponent],
     exports: [AbstractContainerComponent],
     entryComponents: [AbstractContainerComponent],

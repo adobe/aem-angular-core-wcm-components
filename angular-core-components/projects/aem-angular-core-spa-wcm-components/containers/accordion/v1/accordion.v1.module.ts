@@ -15,15 +15,17 @@
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 import {NgModule} from '@angular/core';
 import {CommonModule} from "@angular/common";
-import {BrowserModule} from "@angular/platform-browser";
 import {RouterModule} from "@angular/router";
 import {AccordionV1Component} from "./accordion.v1.component";
 import {SpaAngularEditableComponentsModule} from "@adobe/aem-angular-editable-components";
 import {AemAngularCoreSpaWcmComponentsCore} from "@adobe/aem-core-components-angular-spa/core";
 
 @NgModule({
-    imports: [CommonModule, BrowserModule, RouterModule,AemAngularCoreSpaWcmComponentsCore,SpaAngularEditableComponentsModule],
+    imports: [CommonModule, RouterModule,SpaAngularEditableComponentsModule,AemAngularCoreSpaWcmComponentsCore],
     declarations: [
+        AccordionV1Component
+    ],
+    exports: [
         AccordionV1Component
     ]
 })

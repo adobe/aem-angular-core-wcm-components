@@ -1,12 +1,13 @@
 import {Component, HostBinding, Input} from "@angular/core";
-import {AEMResponsiveGridComponent} from "@adobe/aem-angular-editable-components";
+import {AEMResponsiveGridComponent, MappedComponentProperties} from "@adobe/aem-angular-editable-components";
+import {ContainerProperties} from "@adobe/aem-core-components-angular-spa/core";
 
 enum ContainerLayout {
     SIMPLE = "simple",
     RESPONSIVEGRID = "responsiveGrid"
 }
 
-interface ContainerV1Properties{
+export interface ContainerV1Properties extends ContainerProperties{
     layout: ContainerLayout;
     id: string;
     backgroundStyle: string;
@@ -25,7 +26,7 @@ export class ContainerV1Component extends AEMResponsiveGridComponent implements 
     @Input() id: string;
     @Input() backgroundStyle: string;
 
-    @HostBinding('class') class = 'cmp-container';
+    @HostBinding('class') baseCssClass = 'cmp-container';
 
     showResponsiveGrid():boolean{
         return this.layout === ContainerLayout.RESPONSIVEGRID;

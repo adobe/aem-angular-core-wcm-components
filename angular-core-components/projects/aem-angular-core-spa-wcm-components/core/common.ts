@@ -1,5 +1,4 @@
-import {ComponentMapping} from "@adobe/aem-angular-editable-components";
-
+import {ComponentMapping,MappedComponentProperties} from "@adobe/aem-angular-editable-components";
 
 export interface ContainerProperties extends MappedComponentProperties {
     componentMapping?: typeof ComponentMapping;
@@ -43,21 +42,4 @@ export interface Model extends Object {
 
 export interface LabelledModel extends Model{
     "cq:panelTitle": string
-}
-
-/**
- * Indicated whether force reload is turned on, forcing the model to be refetched on every MapTo instantiation.
- */
-export interface ReloadForceAble {
-    cqForceReload?: boolean;
-}
-
-/**
- * MappedComponentProperties
- * Properties given to every component runtime by the SPA editor.
- */
-export interface MappedComponentProperties extends ReloadForceAble {
-    isInEditor: boolean;
-    cqPath: string;
-    baseCssClass:string;
 }
