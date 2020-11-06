@@ -1,7 +1,5 @@
-import {Component, ComponentFactoryResolver, Input, ViewContainerRef} from "@angular/core";
+import {Component, Input} from "@angular/core";
 import {AEMContainerComponent, MappedComponentProperties} from "@adobe/aem-angular-editable-components";
-import {DomSanitizer} from "@angular/platform-browser";
-import {PdfService} from "./pdf.service";
 
 export interface DemoContainerProperties extends MappedComponentProperties{
     fullWidth: boolean
@@ -14,15 +12,6 @@ export interface DemoContainerProperties extends MappedComponentProperties{
 export class DemoComponent extends AEMContainerComponent implements DemoContainerProperties{
 
     @Input() fullWidth;
-
-    constructor(private pdfService: PdfService) {
-        super();
-    }
-
-    generatePdf() {
-        this.pdfService.generatePdf();
-    }
-
 
     get getContainerClassNames() {
         return 'cmp-examples-demo__component cmp-examples-demo__component--width' +  (this.fullWidth ? 'Full': 'Auto');

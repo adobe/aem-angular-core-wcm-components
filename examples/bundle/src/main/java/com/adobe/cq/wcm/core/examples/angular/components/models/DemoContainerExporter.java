@@ -4,7 +4,7 @@ import com.adobe.cq.export.json.ContainerExporter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 
-public interface DemoContainerExporter extends ContainerExporter,AngularDynamicallyLoadable {
+public interface DemoContainerExporter extends ContainerExporter {
     
     @JsonInclude
     boolean isFullWidth();
