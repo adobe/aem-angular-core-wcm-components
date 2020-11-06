@@ -13,6 +13,7 @@
  ~ See the License for the specific language governing permissions and
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 import {NgModule, Type} from '@angular/core';
 import {EditPlaceholderComponent} from "./editplaceholder/editplaceholder.component";
 import {SafeHtmlPipe} from "./pipes/safeHtml.pipe";
