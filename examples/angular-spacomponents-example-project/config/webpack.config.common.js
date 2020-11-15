@@ -24,10 +24,11 @@ const paths                = require('./paths');
 const ManifestPlugin       = require('webpack-manifest-plugin');
 const StatsWriterPlugin    = require("webpack-stats-plugin").StatsWriterPlugin;
 
-const isDev                = process.env.NODE_ENV !== 'production';
+const isBrowser            = process.env.NODE_ENV   === 'browser';
+
 const publicPath           = paths.publicPath;
 
-module.exports = {
+const toExport = (isBrowser) ? {} : {
     entry: {
         polyfills: './src/polyfills.ts',
         main: './src/main.ts',
@@ -50,3 +51,5 @@ module.exports = {
         })
     ]
 };
+
+module.exports = toExport

@@ -17,8 +17,9 @@
 
 
 import {ComponentMapping, AEMAllowedComponentsContainerComponent, Utils} from "@adobe/aem-angular-editable-components";
-import {Component, HostBinding, Injectable, Input, OnDestroy, AfterViewInit} from "@angular/core";
+import {Component, HostBinding, Injectable, Input, OnDestroy, AfterViewInit, Inject, PLATFORM_ID, ChangeDetectorRef} from "@angular/core";
 import {ContainerModel, ContainerProperties, Model} from "./common";
+import {isPlatformBrowser} from "@angular/common";
 
 export function ContainerIsEmptyFn(props:ContainerModel){
     return props[":itemsOrder"] == null || props[":itemsOrder"].length === 0;
@@ -46,10 +47,10 @@ export class AbstractContainerComponent extends AEMAllowedComponentsContainerCom
     //@ts-ignore
     messageChannel;
 
-    constructor() {
+    constructor(@Inject(PLATFORM_ID) protected _platformId: Object,protected changeDetectorRef:ChangeDetectorRef) {
         super();
         //@ts-ignore
-        if (isBrowser && window.Granite && window.Granite.author && window.Granite.author.MessageChannel) {
+        if(isPlatformBrowser(_platformId) && window.Granite && window.Granite.author && window.Granite.author.MessageChannel) {
             //@ts-ignore
             this.messageChannel = new window.Granite.author.MessageChannel("cqauthor", window);
             this.callback = this.callback.bind(this);

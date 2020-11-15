@@ -1,6 +1,8 @@
-import {Component, OnInit, Type} from '@angular/core';
+import {Component, Inject, OnInit, PLATFORM_ID, Type} from '@angular/core';
 import {ModelManager} from '@adobe/aem-spa-page-model-manager';
 import {AEMContainerComponent, AEMResponsiveGridComponent, MapTo, LazyMapTo, MappedComponentProperties} from '@adobe/aem-angular-editable-components';
+
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 
 
 import {TabsV1Component} from "@adobe/aem-core-components-angular-spa/containers/tabs/v1";
@@ -31,8 +33,11 @@ type T = MappedComponentProperties;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  constructor() {
-    ModelManager.initialize();
+  constructor(@Inject(PLATFORM_ID) private _platformId: Object) {
+
+    if(isPlatformBrowser(_platformId)){
+      ModelManager.initialize();
+    }
   }
 
   ngOnInit(): void {

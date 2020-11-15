@@ -33,7 +33,9 @@ import {DemoMarkupComponent} from "./components/demo/markup/demo.markup.componen
     DemoMarkupComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({
+      appId: 'angular-spacomponents-demo'
+    }),
     AppRoutingModule,
     SpaAngularEditableComponentsModule,
     AemAngularCoreWcmComponentsTeaserV1,

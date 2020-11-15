@@ -18,12 +18,20 @@ package com.adobe.cq.wcm.core.examples.angular.components.models.impl.core;
 import com.adobe.cq.wcm.core.components.models.NavigationItem;
 import com.adobe.cq.wcm.core.examples.angular.components.models.RoutedModel;
 import com.adobe.cq.wcm.core.examples.angular.components.utils.RouterUtil;
+import com.day.cq.wcm.api.Page;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.experimental.Delegate;
 
 
 public class RoutedNavigationItem implements NavigationItem, RoutedModel {
     
-    @Delegate
+    
+    private interface Overrides{
+        Page getPage();
+        String getExportedType();
+    }
+    
+    @Delegate(excludes = Overrides.class) @JsonIgnore
     private NavigationItem delegate;
     
     public RoutedNavigationItem(NavigationItem delegate){
@@ -40,5 +48,15 @@ public class RoutedNavigationItem implements NavigationItem, RoutedModel {
         }
         
         return isRouted;
+    }
+    
+    @JsonIgnore
+    public Page getPage(){
+        return delegate.getPage();
+    }
+    
+    @Override @JsonIgnore
+    public String getExportedType() {
+        return delegate.getExportedType();
     }
 }

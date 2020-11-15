@@ -15,8 +15,9 @@
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 
-import {ChangeDetectorRef, Component, HostBinding, Input, OnInit} from "@angular/core";
+import {ChangeDetectorRef, Component, HostBinding, Inject, Input, OnInit, PLATFORM_ID} from "@angular/core";
 import {ContainerProperties,AbstractContainerComponent} from "@adobe/aem-core-components-angular-spa/core";
+import {isPlatformBrowser} from "@angular/common";
 
 export interface CarouselV1PropertiesAccessibility {
     play: string;
@@ -78,21 +79,16 @@ export class CarouselV1Component extends AbstractContainerComponent implements C
     autoPlayIntervalOn = false;
     autoPlayHalted = false;
 
-    constructor(private changeDetectorRef:ChangeDetectorRef) {
-        super();
-    }
-
-
     ngAfterViewInit(): void {
         super.ngAfterViewInit();
-        if (this.autoplay) {
+        if (isPlatformBrowser(this._platformId) && this.autoplay) {
             this.__autoPlay();
         }
     }
 
     ngOnDestroy(): void {
         super.ngOnDestroy();
-        if (this.autoplay && !this.isInEditor) {
+        if (isPlatformBrowser(this._platformId) && this.autoplay && !this.isInEditor) {
             this.clearAutoPlay();
         }
     }

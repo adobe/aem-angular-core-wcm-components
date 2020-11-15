@@ -14,10 +14,11 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ModelManager, Constants } from '@adobe/aem-spa-page-model-manager';
 import {AbstractMappedComponent} from "@adobe/aem-angular-editable-components";
+import {isPlatformBrowser} from "@angular/common";
 
 @Component({
   selector: 'app-page',
@@ -28,8 +29,7 @@ export class PageComponent extends AbstractMappedComponent implements OnInit {
   path;
   items;
   itemsOrder;
-
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute,@Inject(PLATFORM_ID) private _platformId: Object) {
     super();
     // Get the data set by the AemPageDataResolver in the Router
     const path = route.snapshot.data.path;
@@ -45,7 +45,9 @@ export class PageComponent extends AbstractMappedComponent implements OnInit {
       this.items = data[Constants.ITEMS_PROP];
       this.itemsOrder = data[Constants.ITEMS_ORDER_PROP];
 
-      window.scrollTo(0, 0);
+      if(isPlatformBrowser(_platformId)) {
+          window.scrollTo(0, 0);
+      }
     });
   }
 
