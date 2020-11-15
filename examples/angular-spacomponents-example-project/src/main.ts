@@ -26,6 +26,22 @@ if (environment.production) {
   enableProdMode();
 }
 
+const modelElement = document.getElementById('__AEM_STATE__');
+
+const model =
+    modelElement
+        ? JSON.parse(modelElement.innerHTML)
+        : {};
+
+//@ts-ignore
+window.initialModel = modelElement ? model.rootModel : undefined;
+//@ts-ignore
+const isServerSideRendered = (window.initialModel !== undefined);
+
+if(isServerSideRendered){
+  modelElement.remove();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   platformBrowserDynamic()
       .bootstrapModule(AppModule)

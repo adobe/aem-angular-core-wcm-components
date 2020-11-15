@@ -36,7 +36,15 @@ export class AppComponent implements OnInit{
   constructor(@Inject(PLATFORM_ID) private _platformId: Object) {
 
     if(isPlatformBrowser(_platformId)){
-      ModelManager.initialize();
+
+      //@ts-ignore
+      if(window.initialModel){
+        //@ts-ignore
+        ModelManager.initialize({model:window.initialModel});
+      }else{
+        ModelManager.initialize();
+      }
+
     }
   }
 

@@ -47,9 +47,19 @@ export function app() {
         ModelManager.destroy();
         ModelManager.initialize({ path: pageModelRootPath, model: model }).then(() => {
             res.render(indexHtml, { req } , (err, html) => {
+
                 const parsedHtml = parse(html);
                 const appElement = parsedHtml.querySelector('app-root');
-                res.send(appElement.innerHTML);
+                let state = {
+                    rootModel: model,
+                    rootModelUrl: ModelManager.rootPath,
+                };
+                let stateStr = JSON.stringify(state);
+
+                const rendered = `${appElement.innerHTML}
+                <script id="__AEM_STATE__" type="application/json">${stateStr}</script>`;
+
+                res.send(rendered);
             });
         }).catch((error) => {
             next(error);
