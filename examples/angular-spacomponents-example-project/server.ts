@@ -9,6 +9,7 @@ import { AppServerModule } from './src/main.server';
 import { existsSync } from 'fs';
 import { environment } from './src/environments/environment';
 import * as path from "path";
+import { parse } from 'node-html-parser';
 
 (<any>global).fetch = require('node-fetch/lib/index');
 
@@ -45,7 +46,11 @@ export function app() {
         let model = req.body;
         ModelManager.destroy();
         ModelManager.initialize({ path: pageModelRootPath, model: model }).then(() => {
-            res.render(indexHtml, { req } );
+            res.render(indexHtml, { req } , (err, html) => {
+                const parsedHtml = parse(html);
+                const appElement = parsedHtml.querySelector('app-root');
+                res.send(appElement.innerHTML);
+            });
         }).catch((error) => {
             next(error);
         });

@@ -11,7 +11,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "serve:ssr": "node dist/server.js",
+    "serve:ssr": "node dist/server/main.js",
     "aempack": "node scripts/aempack.js",
     "test:coverage": "ng test --watch=false --code-coverage",
     "postinstall": "ngcc"
@@ -36,7 +36,8 @@
     "node-fetch": "^2.6.1",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.3",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "node-html-parser": "^2.0.0"
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "9.1.0",
