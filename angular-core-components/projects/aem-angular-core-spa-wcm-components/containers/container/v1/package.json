@@ -1,0 +1,16 @@
+{
+  "name": "@adobe/aem-core-components-angular-spa-container-v1",
+  "version": "0.0.6",
+  "author": "Adobe Systems Inc.",
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "@adobe/aem-angular-editable-components": "^1.0.3",
+    "@adobe/aem-spa-component-mapping": "^1.0.5",
+    "@adobe/aem-spa-page-model-manager": "^1.0.3",
+    "@angular/common": "^9.1.12",
+    "@angular/core": "^9.1.12"
+  },
+  "dependencies": {
+    "tslib": "^1.10.0"
+  }
+}
