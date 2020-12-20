@@ -22,16 +22,16 @@ import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/tes
 import {AccordionV1Component} from './accordion.v1.component';
 import {Utils,AEMComponentDirective, Constants,AEMAllowedComponentsContainerComponent,AEMModelProviderComponent} from "@adobe/aem-angular-editable-components";
 
-import {Component1} from "../../../test/test-comp1.component";
-import {Component2} from "../../../test/test-comp2.component";
-import {Component3} from "../../../test/test-comp3.component";
+import {Component1} from "../test/test-comp1.component";
+import {Component2} from "../test/test-comp2.component";
+import {Component3} from "../test/test-comp3.component";
 
 import {ModelManager} from '@adobe/aem-spa-page-model-manager';
 
 describe('AccordionV1', () => {
 
     const TEST_COMPONENT_TITLE = 'test container title';
-    const LAYOUT = require('../../../test/data/accordion.json');
+    const LAYOUT = require('../test/data/accordion.json');
 
     let component: AccordionV1Component;
     let fixture: ComponentFixture<AccordionV1Component>;

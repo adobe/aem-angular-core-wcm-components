@@ -42,7 +42,7 @@ export class AbstractContainerComponent extends AEMAllowedComponentsContainerCom
     @Input() cqItems: {[key: string]: Model} = {};
     @Input() cqItemsOrder: string[] = [];
 
-    @HostBinding('class') class;
+    @HostBinding('class') baseCssClass;
 
     //@ts-ignore
     messageChannel;
@@ -64,6 +64,13 @@ export class AbstractContainerComponent extends AEMAllowedComponentsContainerCom
                 this.onAuthorIndexChange(index);
             }
         }
+    }
+
+    /**
+     * Returns the class names of the container based on the data from the cqModel
+     */
+    getHostClassNames() {
+        return this.baseCssClass;
     }
 
     protected onAuthorIndexChange(index:number){

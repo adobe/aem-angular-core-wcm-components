@@ -6,9 +6,21 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
+    "test-cover": "ng test --code-coverage=true",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-libs": "ng build aem-angular-core-wcm-components --prod && ng build aem-angular-core-spa-wcm-components --prod"
+    
+    "test-container-core": "ng test aem-angular-core-spa-wcm-components-core  --code-coverage=true",
+    "test-accordion-v1": "ng test aem-angular-core-spa-wcm-components-accordion-v1  --code-coverage=true",
+    "test-carousel-v1": "ng test aem-angular-core-spa-wcm-components-carousel-v1  --code-coverage=true",
+    "test-container-v1": "ng test aem-angular-core-spa-wcm-components-container-v1 --code-coverage=true",
+    "test-tabs-v1": "ng build aem-angular-core-spa-wcm-components-tabs-v1 --code-coverage=true",
+    
+    "build-spa": "ng build aem-angular-core-spa-wcm-components",
+    "test-spa": "ng test aem-angular-core-spa-wcm-components",
+    "test-cover-spa-libs": "npm-run-all test-container-core test-accordion-v1 test-carousel-v1 test-container-v1 test-tabs-v1 build-spa",
+    
+    "build-libs": "ng build aem-angular-core-wcm-components --prod && ng build aem-angular-core-spa-wcm-components"
   },
   "private": true,
   "dependencies": {
@@ -48,6 +60,7 @@
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "~3.8.3"
+    "typescript": "~3.8.3",
+    "npm-run-all": "^4.1.5"
   }
 }

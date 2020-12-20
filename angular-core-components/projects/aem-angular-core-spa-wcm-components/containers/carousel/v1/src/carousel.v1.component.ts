@@ -59,7 +59,7 @@ export class CarouselV1Component extends AbstractContainerComponent implements C
     @Input() autopauseDisabled: false;
     @Input() activeIndex: number = 0;
     @Input() delay: number = 0;
-    @HostBinding('class') class = 'cmp-carousel';
+    @HostBinding('class') baseCssClass = 'cmp-carousel';
 
     @Input() accessibility = {
         play: 'Play',
@@ -125,11 +125,11 @@ export class CarouselV1Component extends AbstractContainerComponent implements C
     }
 
     getSlideCssClass(index:number){
-        return (this.activeIndex === index) ? `${this.class}__item ${this.class}__item--active` :  `${this.class}__item`;
+        return (this.activeIndex === index) ? `${this.baseCssClass}__item ${this.baseCssClass}__item--active` :  `${this.baseCssClass}__item`;
     }
 
     getIndicatorCssClass(index:number){
-        return (this.activeIndex === index) ? `${this.class}__indicator ${this.class}__indicator--active` : `${this.class}__indicator`;
+        return (this.activeIndex === index) ? `${this.baseCssClass}__indicator ${this.baseCssClass}__indicator--active` : `${this.baseCssClass}__indicator`;
     }
 
     handleOnButtonPrev(){

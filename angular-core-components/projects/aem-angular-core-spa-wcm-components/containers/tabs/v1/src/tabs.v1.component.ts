@@ -20,7 +20,7 @@ import {AfterViewInit, ChangeDetectorRef, Component, HostBinding, Input, OnInit}
 import {AEMAllowedComponentsContainerComponent} from "@adobe/aem-angular-editable-components";
 import {AbstractContainerComponent} from "@adobe/aem-core-components-angular-spa/core";
 
-const CONTAINER_CLASS_NAMES = 'aem-tabs';
+const CONTAINER_CLASS_NAMES = 'aem-container';
 
 @Component({
     selector: 'core-tabs-v1',
@@ -36,7 +36,7 @@ const CONTAINER_CLASS_NAMES = 'aem-tabs';
  */
 export class TabsV1Component extends AbstractContainerComponent implements OnInit{
 
-    @HostBinding('class') class = 'cmp-tabs';
+    @HostBinding('class') baseCssClass = 'cmp-tabs';
 
     activeItemName?:string;
     @Input() activeItem?: string;
@@ -56,7 +56,7 @@ export class TabsV1Component extends AbstractContainerComponent implements OnIni
     }
 
     getTabClass(itemKey:string){
-        return `${this.class}__tab` + ((this.isActive(itemKey) ? ` ${this.class}__tab--active` : ''));
+        return `${this.baseCssClass}__tab` + ((this.isActive(itemKey) ? ` ${this.baseCssClass}__tab--active` : ''));
     }
 
     getTabTitle(itemKey:string){
@@ -80,14 +80,6 @@ export class TabsV1Component extends AbstractContainerComponent implements OnIni
         }
         this.changeDetectorRef.detectChanges();
 
-    }
-
-
-    /**
-     * Returns the class names of the container based on the data from the cqModel
-     */
-    getHostClassNames() {
-        return CONTAINER_CLASS_NAMES;
     }
 
     get activeTabItem(){

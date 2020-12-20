@@ -15,27 +15,27 @@
  * from Adobe Systems Incorporated.
  */
 
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, discardPeriodicTasks, fakeAsync, TestBed, tick} from '@angular/core/testing';
 
 import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/testing';
 
 
-import {TabsV1Component} from './tabs.v1.component';
+import {CarouselV1Component} from './carousel.v1.component';
 import {Utils,AEMComponentDirective, Constants,AEMAllowedComponentsContainerComponent,AEMModelProviderComponent} from "@adobe/aem-angular-editable-components";
 
-import {Component1} from "../../../test/test-comp1.component";
-import {Component2} from "../../../test/test-comp2.component";
-import {Component3} from "../../../test/test-comp3.component";
+import {Component1} from "../test/test-comp1.component";
+import {Component2} from "../test/test-comp2.component";
+import {Component3} from "../test/test-comp3.component";
 
 import {ModelManager} from '@adobe/aem-spa-page-model-manager';
 
-describe('TabsV1', () => {
+describe('CarouselV1', () => {
 
     const TEST_COMPONENT_TITLE = 'test container title';
-    const LAYOUT = require('../../../test/data/tabs.json');
+    const LAYOUT = require('../test/data/carousel.json');
 
-    let component: TabsV1Component;
-    let fixture: ComponentFixture<TabsV1Component>;
+    let component: CarouselV1Component;
+    let fixture: ComponentFixture<CarouselV1Component>;
 
     let isInEditorSpy;
 
@@ -46,7 +46,7 @@ describe('TabsV1', () => {
 
         TestBed.configureTestingModule({
             declarations: [
-                TabsV1Component,
+                CarouselV1Component,
                 AEMComponentDirective,
                 AEMAllowedComponentsContainerComponent,
                 AEMModelProviderComponent,
@@ -55,13 +55,12 @@ describe('TabsV1', () => {
                 Component3,]
         }).overrideModule(BrowserDynamicTestingModule, {
             set: {
-                entryComponents: [TabsV1Component, Component1, Component2, Component3]
+                entryComponents: [CarouselV1Component, Component1, Component2, Component3]
             }
         }).compileComponents();
 
-        fixture = TestBed.createComponent(TabsV1Component);
+        fixture = TestBed.createComponent(CarouselV1Component);
         component = fixture.componentInstance;
-        fixture.detectChanges();
     });
 
     it('should create placeholder', () => {
@@ -126,47 +125,107 @@ describe('TabsV1', () => {
                     title: 'Test component title 2'
                 }]
         };
-        component.baseCssClass = "cmp-custom-tabs";
+        component.baseCssClass = "cmp-custom-accordion";
 
         fixture.detectChanges();
 
         const element = fixture.nativeElement;
 
-        const cssClasses = component.getHostClassNames();
-        console.log(cssClasses);
-        expect(element.getAttributeNode("class").value).toBe("aem-tabs");
-        expect(element.querySelectorAll(".cmp-custom-tabs").length).toEqual(1);
+        expect(element.getAttributeNode("class").value).toBe("cmp-custom-accordion");
+        expect(element.querySelectorAll(".cmp-custom-accordion").length).toEqual(1);
     });
 
-    it('should NOT create the allowed components if not in the editor', () => {
+    const clickNextOrPev = (direction:string) => {
+        const element = fixture.nativeElement;
+        element.querySelector('.cmp-carousel__action--' + direction).click();
+        fixture.detectChanges();
+    };
+
+    it('should only render the first entry on load - handle on navigations clicks', () => {
         component.title = TEST_COMPONENT_TITLE;
-        component.allowedComponents = {
-            applicable: true,
-            components: [{
-                path: 'test/components/component1',
-                title: 'Test component title 1'
-            },
-                {
-                    path: 'test/components/component2',
-                    title: 'Test component title 2'
-                }]
-        };
+        component.cqItems = LAYOUT[Constants.ITEMS_PROP];
+        component.cqItemsOrder = LAYOUT[Constants.ITEMS_ORDER_PROP];
+        component.classNames = LAYOUT.classNames;
+        component.id = "myID";
+        fixture.detectChanges();
+
+        const element = fixture.nativeElement;
+
+        expect(element.querySelectorAll('.cmp-carousel__item--active').length)
+            .toEqual(1);
+        expect(element.querySelector('.cmp-carousel__item--active').getAttribute("id")).toEqual("myID-item-0");
+
+        clickNextOrPev('next');
+
+        expect(element.querySelector('.cmp-carousel__item--active').getAttribute("id")).toEqual("myID-item-1");
+
+        clickNextOrPev('next');
+
+        expect(element.querySelector('.cmp-carousel__item--active').getAttribute("id")).toEqual("myID-item-2");
+
+        clickNextOrPev('next');
+
+        expect(element.querySelector('.cmp-carousel__item--active').getAttribute("id")).toEqual("myID-item-3");
+
+        clickNextOrPev('previous');
+
+        expect(element.querySelector('.cmp-carousel__item--active').getAttribute("id")).toEqual("myID-item-2");
+
+        clickNextOrPev('next');
+
+        expect(element.querySelector('.cmp-carousel__item--active').getAttribute("id")).toEqual("myID-item-3");
+
+        clickNextOrPev('next');
+
+        expect(element.querySelector('.cmp-carousel__item--active').getAttribute("id")).toEqual("myID-item-4");
+
+        clickNextOrPev('next');
+
+        expect(element.querySelector('.cmp-carousel__item--active').getAttribute("id")).toEqual("myID-item-0");
+
+        clickNextOrPev('previous');
+
+        expect(element.querySelector('.cmp-carousel__item--active').getAttribute("id")).toEqual("myID-item-4");
+
+    });
+
+    it('should autoplay - also when hovering over', fakeAsync(() =>  {
+        component.title = TEST_COMPONENT_TITLE;
+        component.cqItems = LAYOUT[Constants.ITEMS_PROP];
+        component.cqItemsOrder = LAYOUT[Constants.ITEMS_ORDER_PROP];
+        component.classNames = LAYOUT.classNames;
+        component.id = "myID";
+        component.autoplay = true;
+        component.delay = 1000;
 
         fixture.detectChanges();
 
         const element = fixture.nativeElement;
-        //expect(element.querySelector('.' + ALLOWED_COMPONENT_TITLE_CLASS_NAMES)).toBeNull();
 
-        //expect(element.classList.contains(ALLOWED_PLACEHOLDER_CLASS_NAMES)).toBeFalsy();
+        expect(element.querySelectorAll('.cmp-carousel__item--active').length)
+            .toEqual(1);
+        expect(element.querySelector('.cmp-carousel__item--active').getAttribute("id")).toEqual("myID-item-0");
 
-        expect(element.querySelectorAll('.aem-AllowedComponent--component.cq-placeholder.placeholder').length)
-            .toEqual(0);
-        expect(element.querySelector('div[data-cq-data-path="root/*"][class="new section aem-Parsys-newComponent"]'))
-            .toBeDefined();
-        expect(element.querySelector('div[data-cq-data-path="root/parsys/*"][class="new section aem-Parsys-newComponent"]'))
-            .toBeDefined();
-    });
+        tick(1500);
 
+        fixture.detectChanges();
+
+        expect(element.querySelector('.cmp-carousel__item--active').getAttribute("id")).toEqual("myID-item-1");
+
+        element.querySelector('.cmp-carousel__content').dispatchEvent(new MouseEvent('mouseover', {
+            view: window,
+            bubbles: true,
+            cancelable: true
+        }));
+
+        tick(500);
+
+        fixture.detectChanges();
+
+        expect(element.querySelector('.cmp-carousel__item--active').getAttribute("id")).toEqual("myID-item-2");
+
+        discardPeriodicTasks();
+    }));
 
 
 
