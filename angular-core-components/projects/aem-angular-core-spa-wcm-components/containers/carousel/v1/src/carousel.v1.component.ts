@@ -95,7 +95,7 @@ export class CarouselV1Component extends AbstractContainerComponent implements C
         }
     }
 
-    protected onAuthorIndexChange(index:number){
+    onAuthorIndexChange(index:number){
         this.activeIndex = index;
         this.clearAutoPlay();
     }

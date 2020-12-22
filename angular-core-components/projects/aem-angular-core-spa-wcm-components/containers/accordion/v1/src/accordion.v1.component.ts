@@ -61,7 +61,7 @@ export class AccordionV1Component extends AbstractContainerComponent implements 
         }
     }
 
-    protected onAuthorIndexChange(index:number){
+    onAuthorIndexChange(index:number){
         this.expandedItems = [
             this.cqItemsOrder[index]
         ];

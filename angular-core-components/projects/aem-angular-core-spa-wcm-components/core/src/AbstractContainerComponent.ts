@@ -54,6 +54,7 @@ export class AbstractContainerComponent extends AEMAllowedComponentsContainerCom
             //@ts-ignore
             this.messageChannel = new window.Granite.author.MessageChannel("cqauthor", window);
             this.callback = this.callback.bind(this);
+            this.onAuthorIndexChange = this.onAuthorIndexChange.bind(this);
         }
     }
 
@@ -73,7 +74,7 @@ export class AbstractContainerComponent extends AEMAllowedComponentsContainerCom
         return this.baseCssClass;
     }
 
-    protected onAuthorIndexChange(index:number){
+    onAuthorIndexChange(index:number){
         //implement me
     }
 

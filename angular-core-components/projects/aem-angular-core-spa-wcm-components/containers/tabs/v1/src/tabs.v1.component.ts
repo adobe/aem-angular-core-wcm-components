@@ -47,7 +47,7 @@ export class TabsV1Component extends AbstractContainerComponent implements OnIni
         super();
     }
 
-    protected onAuthorIndexChange(index:number){
+    onAuthorIndexChange(index:number){
         this.activeItemName = this.cqItemsOrder[index];
     }
 
