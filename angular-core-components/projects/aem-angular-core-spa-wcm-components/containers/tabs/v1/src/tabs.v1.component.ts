@@ -69,6 +69,7 @@ export class TabsV1Component extends AbstractContainerComponent implements OnIni
 
     onClick(itemKey:string){
         this.activeItemName = itemKey;
+        this.changeDetectorRef.detectChanges();
     }
 
     ngOnInit(): void {
@@ -91,7 +92,6 @@ export class TabsV1Component extends AbstractContainerComponent implements OnIni
     }
 
     get activeTabItemName(){
-        console.log('activeItem', this.activeItemName);
         return this.activeItemName;
     }
 

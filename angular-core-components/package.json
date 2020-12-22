@@ -14,7 +14,7 @@
     "test-accordion-v1": "ng test aem-angular-core-spa-wcm-components-accordion-v1  --code-coverage=true",
     "test-carousel-v1": "ng test aem-angular-core-spa-wcm-components-carousel-v1  --code-coverage=true",
     "test-container-v1": "ng test aem-angular-core-spa-wcm-components-container-v1 --code-coverage=true",
-    "test-tabs-v1": "ng build aem-angular-core-spa-wcm-components-tabs-v1 --code-coverage=true",
+    "test-tabs-v1": "ng test aem-angular-core-spa-wcm-components-tabs-v1 --code-coverage=true",
     
     "build-spa": "ng build aem-angular-core-spa-wcm-components",
     "test-spa": "ng test aem-angular-core-spa-wcm-components",

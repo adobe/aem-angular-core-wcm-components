@@ -21,7 +21,14 @@ import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/tes
 
 
 import {TabsV1Component} from './tabs.v1.component';
-import {Utils,AEMComponentDirective, Constants,AEMAllowedComponentsContainerComponent,AEMModelProviderComponent} from "@adobe/aem-angular-editable-components";
+import {
+    Utils,
+    AEMComponentDirective,
+    Constants,
+    AEMAllowedComponentsContainerComponent,
+    AEMModelProviderComponent,
+    MapTo, AEMResponsiveGridComponent
+} from "@adobe/aem-angular-editable-components";
 
 import {Component1} from "../../../../test/test-comp1.component";
 import {Component2} from "../../../../test/test-comp2.component";
@@ -52,7 +59,8 @@ describe('TabsV1', () => {
                 AEMModelProviderComponent,
                 Component1,
                 Component2,
-                Component3,]
+                Component3
+            ]
         }).overrideModule(BrowserDynamicTestingModule, {
             set: {
                 entryComponents: [TabsV1Component, Component1, Component2, Component3]
@@ -61,6 +69,12 @@ describe('TabsV1', () => {
 
         fixture = TestBed.createComponent(TabsV1Component);
         component = fixture.componentInstance;
+
+        MapTo("app/components/comp1")(Component1);
+        MapTo("app/components/comp2")(Component2);
+        MapTo("app/components/comp3")(Component3);
+        MapTo('wcm/foundation/components/responsivegrid')(AEMResponsiveGridComponent);
+        
         fixture.detectChanges();
     });
 
@@ -154,9 +168,6 @@ describe('TabsV1', () => {
         fixture.detectChanges();
 
         const element = fixture.nativeElement;
-        //expect(element.querySelector('.' + ALLOWED_COMPONENT_TITLE_CLASS_NAMES)).toBeNull();
-
-        //expect(element.classList.contains(ALLOWED_PLACEHOLDER_CLASS_NAMES)).toBeFalsy();
 
         expect(element.querySelectorAll('.aem-AllowedComponent--component.cq-placeholder.placeholder').length)
             .toEqual(0);
@@ -166,6 +177,72 @@ describe('TabsV1', () => {
             .toBeDefined();
     });
 
+    const getTabDisplay = (dataPath:string) => {
+        return fixture.debugElement.nativeElement.querySelector("div[data-cq-data-path='" + dataPath + "']").attributeStyleMap.get("display").value;
+    };
+
+    const clickTab = (index:number) => {
+        fixture.debugElement.nativeElement.querySelector('.cmp-tabs__tablist li:nth-child(' + index + ')').click();
+        fixture.detectChanges();
+    };
+
+    it('should navigate tabs if we click', async() => {
+        component.title = TEST_COMPONENT_TITLE;
+
+        component.cqItems = LAYOUT[Constants.ITEMS_PROP];
+        component.cqItemsOrder = LAYOUT[Constants.ITEMS_ORDER_PROP];
+        component.classNames = LAYOUT.classNames;
+
+        component.ngOnInit();
+
+        fixture.detectChanges();
+
+        const element = fixture.debugElement.nativeElement;
+
+
+        const tabList = element.querySelector('.cmp-tabs__tablist');
+        expect(tabList)
+            .toBeDefined();
+
+        const tabElements = tabList.querySelectorAll("li");
+        expect(tabElements.length).toBe(LAYOUT[Constants.ITEMS_ORDER_PROP].length);
+
+        expect(getTabDisplay('component1')).toEqual('block');
+
+        clickTab(4);
+
+        expect(getTabDisplay('component1')).toEqual('none');
+
+        clickTab(2);
+
+        expect(getTabDisplay('component3')).toEqual('block');
+
+        expect(component.activeTabItemDataPath).toEqual('component3');
+        expect(component.activeTabItem.title).toEqual('Component3');
+        expect(component.activeTabItemName).toEqual('component3');
+        expect(component.isActiveItemNameSet).toBeTrue();
+    });
+
+
+    it('should initiate with the tab from the properties', async() => {
+        component.title = TEST_COMPONENT_TITLE;
+
+        component.cqItems = LAYOUT[Constants.ITEMS_PROP];
+        component.cqItemsOrder = LAYOUT[Constants.ITEMS_ORDER_PROP];
+        component.classNames = LAYOUT.classNames;
+        component.activeItem = 'component3';
+
+        component.ngOnInit();
+
+        fixture.detectChanges();
+
+        expect(getTabDisplay('component3')).toEqual('block');
+
+        expect(component.activeTabItemDataPath).toEqual('component3');
+        expect(component.activeTabItem.title).toEqual('Component3');
+        expect(component.activeTabItemName).toEqual('component3');
+        expect(component.isActiveItemNameSet).toBeTrue();
+    });
 
 
 
