@@ -17,6 +17,7 @@
 
 import {Component, HostBinding, Input} from "@angular/core";
 import {AEMResponsiveGridComponent} from "@adobe/aem-angular-editable-components";
+import {DomSanitizer, SafeStyle} from "@angular/platform-browser";
 
 export enum ContainerLayout {
     SIMPLE = "simple",
@@ -44,13 +45,37 @@ export class ContainerV1Component extends AEMResponsiveGridComponent implements 
 
     @HostBinding('class') baseCssClass = 'cmp-container';
 
+    constructor(private sanitizer: DomSanitizer) {
+        super();
+    }
+
+
     showResponsiveGrid():boolean{
         return this.layout === ContainerLayout.RESPONSIVEGRID;
     }
 
-    get cssStyles(){
-        return {
-            background: this.backgroundStyle
+    @HostBinding('style')
+    get cssStyles(): SafeStyle{
+
+        if(!!this.backgroundStyle && this.backgroundStyle.length > 0){
+            return this.sanitizer.bypassSecurityTrustStyle('background: ' + this.backgroundStyle);
         }
+        return null;
     }
+
+
+    /**
+     * Returns the class names of the responsive grid based on the data from the cqModel
+     */
+    getHostClassNames() {
+        let classNames = super.getHostClassNames();
+
+        if(this.showResponsiveGrid()){
+            return classNames;
+        }
+
+        //if we are in simple layout, we need to remove the gridClassNames computed in the parent
+        return classNames.replace(this.gridClassNames, '');
+    }
+
 }
