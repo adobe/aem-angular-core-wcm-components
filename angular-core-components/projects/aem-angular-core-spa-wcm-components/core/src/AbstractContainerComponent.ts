@@ -42,7 +42,7 @@ export class AbstractContainerComponent extends AEMAllowedComponentsContainerCom
     @Input() cqItems: {[key: string]: Model} = {};
     @Input() cqItemsOrder: string[] = [];
 
-    @HostBinding('class') class;
+    @HostBinding('class') baseCssClass;
 
     //@ts-ignore
     messageChannel;
@@ -54,6 +54,7 @@ export class AbstractContainerComponent extends AEMAllowedComponentsContainerCom
             //@ts-ignore
             this.messageChannel = new window.Granite.author.MessageChannel("cqauthor", window);
             this.callback = this.callback.bind(this);
+            this.onAuthorIndexChange = this.onAuthorIndexChange.bind(this);
         }
     }
 
@@ -66,7 +67,14 @@ export class AbstractContainerComponent extends AEMAllowedComponentsContainerCom
         }
     }
 
-    protected onAuthorIndexChange(index:number){
+    /**
+     * Returns the class names of the container based on the data from the cqModel
+     */
+    getHostClassNames() {
+        return this.baseCssClass;
+    }
+
+    onAuthorIndexChange(index:number){
         //implement me
     }
 

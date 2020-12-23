@@ -27,7 +27,7 @@
 
 <ng-template #container>
     <ol  role="tablist"
-         class="{{class}}__tablist"
+         class="{{baseCssClass}}__tablist"
          aria-multiselectable="false">
         <li role="tab" *ngFor="let itemKey of cqItemsOrder" (click)="onClick(itemKey)" [ngClass]="getTabClass(itemKey)" [innerText]="getTabTitle(itemKey)"></li>
     </ol>

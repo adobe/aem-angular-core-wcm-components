@@ -31,21 +31,21 @@
                  [cqItem]="getItem(itemKey)"
                  [cqPath]="getDataPath(itemKey)"
                  [itemName]="itemKey"
+                 [class]="getColumnClassNames(itemKey)"
                  [attr.data-cq-data-path]="getAttrDataPath(itemKey)"></div>
         </ng-container>
     </ng-container>
-    <div *ngIf="isInEditMode"
-         [attr.data-cq-data-path]="placeholderPath"
-         [class]="getPlaceholderClassNames()"></div>
 </ng-template>
 
 <ng-template #simpleLayout>
-    <ng-container *ngFor="let itemKey of cqItemsOrder">
-        <div  [aemModelProvider]
-              [cqItem]="getItem(itemKey)"
-              [cqPath]="getDataPath(itemKey)"
-              [itemName]="itemKey"
-              [class]="getColumnClassNames(itemKey)"
-              [attr.data-cq-data-path]="getAttrDataPath(itemKey)"></div>
-    </ng-container>
+        <ng-container *ngFor="let itemKey of cqItemsOrder">
+            <div  [aemModelProvider]
+                  [cqItem]="getItem(itemKey)"
+                  [cqPath]="getDataPath(itemKey)"
+                  [itemName]="itemKey"
+                  [attr.data-cq-data-path]="getAttrDataPath(itemKey)"></div>
+        </ng-container>
+        <div *ngIf="isInEditMode"
+             [attr.data-cq-data-path]="placeholderPath"
+             [class]="getPlaceholderClassNames()"></div>
 </ng-template>
