@@ -23,5 +23,5 @@ node_modules
 dist
 coverage
 
-**/clientlibs/angular-spacomponents/**/*
-**/clientlibs/angular-webcomponents/**/*
+**/clientlibs/angular-spacomponents/resources/**/*
+**/clientlibs/angular-webcomponents/resources/**/*
