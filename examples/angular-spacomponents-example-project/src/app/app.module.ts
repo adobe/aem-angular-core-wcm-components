@@ -14,11 +14,11 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 import {SpaAngularEditableComponentsModule} from "@adobe/aem-angular-editable-components";
 import {PageComponent} from "./components/page/page.component";
 import {TextComponent} from "./components/text/text.component";
@@ -29,10 +29,6 @@ import {DemoComponent} from "./components/demo/demo.component";
 
 import {AemAngularCoreSpaWcmComponentsModule} from "@adobe/aem-core-components-angular-spa";
 import {AemAngularCoreWcmComponentsModule} from "@adobe/aem-core-components-angular-base";
-import {AemAngularCoreWcmComponentsAccordionV1} from "@adobe/aem-core-components-angular-spa/containers/accordion/v1";
-import {AemAngularCoreWcmComponentsCarouselV1} from "@adobe/aem-core-components-angular-spa/containers/carousel/v1";
-import {AemAngularCoreWcmComponentsTabsV1} from "@adobe/aem-core-components-angular-spa/containers/tabs/v1";
-import {AemAngularCoreWcmComponentsContainerV1} from "@adobe/aem-core-components-angular-spa/containers/container/v1";
 import {DemoJsonComponent} from "./components/demo/json/demo.json.component";
 import {DemoPropertiesComponent} from "./components/demo/properties/demo.properties.component";
 import {DemoMarkupComponent} from "./components/demo/markup/demo.markup.component";
@@ -57,11 +53,7 @@ import {DemoMarkupComponent} from "./components/demo/markup/demo.markup.componen
     AppRoutingModule,
     SpaAngularEditableComponentsModule,
     AemAngularCoreWcmComponentsModule,
-    AemAngularCoreSpaWcmComponentsModule,
-    AemAngularCoreWcmComponentsAccordionV1,
-    AemAngularCoreWcmComponentsCarouselV1,
-    AemAngularCoreWcmComponentsTabsV1,
-    AemAngularCoreWcmComponentsContainerV1
+    AemAngularCoreSpaWcmComponentsModule
   ],
   providers: [],
   entryComponents: [

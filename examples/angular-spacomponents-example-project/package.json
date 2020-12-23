@@ -32,8 +32,8 @@
   },
   "devDependencies": {
     "aempack": "^1.1.9",
-    "@angular-devkit/build-angular": "~0.901.8",
-    "@angular/cli": "~9.1.8",
+    "@angular-devkit/build-angular": "~0.901.12",
+    "@angular/cli": "~9.1.12",
     "@angular/compiler-cli": "~9.1.12",
     "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
