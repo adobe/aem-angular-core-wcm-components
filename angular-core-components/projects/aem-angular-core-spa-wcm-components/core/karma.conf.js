@@ -43,7 +43,7 @@ module.exports = function (config) {
     failOnEmptyTestSuite: false,
     autoWatch: true,
     browsers: ['Chrome'],
-    singleRun: false,
+    singleRun: true,
     restartOnFileChange: true
   });
 };

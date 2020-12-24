@@ -24,7 +24,7 @@ import {Utils} from "@adobe/aem-angular-editable-components";
 
 import {ModelManager} from '@adobe/aem-spa-page-model-manager';
 
-let callbacks: { (message: any): void; } [];
+let callbacks: { (message: any): void; } [] = [];
 
 //@ts-ignore
 window.Granite = {
