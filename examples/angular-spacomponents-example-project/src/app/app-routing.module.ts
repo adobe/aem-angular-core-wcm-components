@@ -20,10 +20,11 @@ import { Routes, RouterModule, UrlSegment, UrlMatchResult,
   DetachedRouteHandle, RouteReuseStrategy } from '@angular/router';
 import { PageComponent} from './components/page/page.component';
 
+
 export function AemPageMatcher ( url: UrlSegment[] ): UrlMatchResult {
   const path = url.join('/');
 
-  if (path.startsWith('content/aem-angular-core-spacomponents-example')) {
+  if (path.startsWith('content/aem-angular-core-spacomponents-example') || path.startsWith('content/experience-fragments/angular-spa-examples')) {
     return ({
       consumed: url,
       posParams: { path: url[url.length - 1]}

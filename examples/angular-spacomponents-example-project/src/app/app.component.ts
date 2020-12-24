@@ -70,6 +70,7 @@ MapTo('core-components-examples/wcm/angular/components/teaser')(TeaserV1Componen
 MapTo('core-components-examples/wcm/angular/components/image')(ImageV2Component, {isEmpty: ImageV2IsEmptyFn});
 MapTo('core-components-examples/wcm/angular/components/title')(TitleV2Component, {isEmpty: TitleV2IsEmptyFn});
 
+MapTo('core-components-examples/wcm/angular/components/experience-fragment')(AEMContainerComponent, {isEmpty: (props) => !props.configured });
 
 MapTo('core-components-examples/wcm/angular/components/tabs')(TabsV1Component);
 MapTo('core-components-examples/wcm/angular/components/accordion')(AccordionV1Component);
