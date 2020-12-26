@@ -231,6 +231,7 @@ describe('AccordionV1', () => {
         component.cqItemsOrder = LAYOUT[Constants.ITEMS_ORDER_PROP];
         component.classNames = LAYOUT.classNames;
         component.singleExpansion = true;
+        component.id = LAYOUT.id;
 
         fixture.detectChanges();
 
@@ -254,6 +255,60 @@ describe('AccordionV1', () => {
         const tab2 = element.querySelector('.cmp-accordion__item:last-child');
         const button2Clicked = tab2.querySelector('.cmp-accordion__button');
         expect(button2Clicked.getAttributeNode("class").value).toBe("cmp-accordion__button cmp-accordion__button--expanded");
+
+    });
+
+
+    it('generate the proper DOM structure', () => {
+        component.title = TEST_COMPONENT_TITLE;
+        component.allowedComponents = {
+            applicable: true,
+            components: [{
+                path: 'test/components/component1',
+                title: 'Test component title 1'
+            },
+                {
+                    path: 'test/components/component2',
+                    title: 'Test component title 2'
+                }]
+        };
+
+        const cssClass = 'myCustomBemClass';
+        component.class = cssClass;
+        component.cqItems = LAYOUT[Constants.ITEMS_PROP];
+        component.cqItemsOrder = LAYOUT[Constants.ITEMS_ORDER_PROP];
+        component.classNames = LAYOUT.classNames;
+        component.singleExpansion = true;
+        component.id = LAYOUT.id;
+
+        fixture.detectChanges();
+
+        const element = fixture.debugElement.nativeElement;
+
+        const validateEntry = (index:number) => {
+            const expectedElement = element.querySelector(`.${cssClass}__item:nth-child(${index})[data-cmp-hook-accordion="item"]`);
+            expect(expectedElement).toBeDefined();
+
+            expect(expectedElement.querySelector(`h3.${cssClass}__header`)).toBeDefined();
+            expect(expectedElement.querySelector(`h3.${cssClass}__header`)).toBeDefined();
+            const indexAdjusted = index - 1;
+
+            expect(expectedElement.querySelector(`h3.${cssClass}__header button#${LAYOUT.id}-button-${indexAdjusted}.${cssClass}__button[aria-controls="${LAYOUT.id}-panel-${indexAdjusted}"]`)).toBeDefined();
+            const titleSpan = expectedElement.querySelector(`h3.${cssClass}__header button span.${cssClass}__title`);
+            expect(titleSpan).toBeDefined();
+
+            const expectedTitle = LAYOUT[":items"][LAYOUT[":itemsOrder"][indexAdjusted]]["cq:panelTitle"];
+
+            expect(titleSpan.innerHTML).toEqual(expectedTitle);
+            expect(expectedElement.querySelector(`h3.${cssClass}__header button span.${cssClass}__icon`)).toBeDefined();
+
+        };
+
+        validateEntry(1);
+        validateEntry(2);
+        validateEntry(3);
+        validateEntry(4);
+        validateEntry(5);
 
     });
 });

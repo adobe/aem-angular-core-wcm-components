@@ -29,10 +29,10 @@
     
     <div class="{{class}}__item"
          data-cmp-hook-accordion="item"
-         *ngFor="let itemKey of cqItemsOrder">
+         *ngFor="let itemKey of cqItemsOrder; let i = index">
         <h3 class="{{class}}__header">
-            <button id="accordion-dca50b5feb-button-0" class="{{getButtonClass(itemKey)}}"
-                    aria-controls="accordion-dca50b5feb-panel-0" data-cmp-hook-accordion="button"
+            <button id="{{id}}-button-{{i}}" class="{{getButtonClass(itemKey)}}"
+                    [attr.aria-controls]="id + '-panel-' + i" data-cmp-hook-accordion="button"
                     (click)="onClick(itemKey)">
                 <span class="{{class}}__title" [innerText]="getButtonTitle(itemKey)"></span>
                 <span class="{{class}}__icon"></span>
@@ -43,7 +43,7 @@
               [class]="getItemClass(itemKey)"
               role="region"
               [ngStyle]="getItemStyle(itemKey)"
-              aria-labelledby="accordion-dca50b5feb-button-0">
+              [attr.aria-labelledby]="id +'-button- '+i">
             <div
                  [aemModelProvider]
                  [cqItem]="getItem(itemKey)"

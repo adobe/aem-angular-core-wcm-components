@@ -41,6 +41,7 @@ export class AbstractContainerComponent extends AEMAllowedComponentsContainerCom
     @Input() cqForceReload: boolean = false;
     @Input() cqItems: {[key: string]: Model} = {};
     @Input() cqItemsOrder: string[] = [];
+    @Input() id: string;
 
     @HostBinding('class') baseCssClass;
 
