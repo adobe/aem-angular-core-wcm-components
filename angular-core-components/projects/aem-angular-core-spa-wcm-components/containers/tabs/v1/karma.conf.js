@@ -33,7 +33,7 @@ module.exports = function (config) {
     },
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, '../../../../../coverage/aem-angular-core-spa-wcm-components-tabs-v1'),
-      reports: ['html', 'lcovonly', 'text-summary'],
+      reports: ['json'],
       fixWebpackSourcePaths: true
     },
     reporters: ['progress', 'kjhtml'],
