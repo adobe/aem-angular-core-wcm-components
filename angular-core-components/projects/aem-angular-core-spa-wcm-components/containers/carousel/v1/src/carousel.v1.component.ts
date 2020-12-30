@@ -53,7 +53,6 @@ export interface CarouselV1Properties extends ContainerProperties{
 })
 export class CarouselV1Component extends AbstractContainerComponent implements CarouselV1Properties{
 
-    @Input() id = "carousel";
     @Input() autoplay:boolean = false;
     @Input() accessibilityLabel = 'Carousel';
     @Input() autopauseDisabled: false;

@@ -227,6 +227,44 @@ describe('CarouselV1', () => {
         discardPeriodicTasks();
     }));
 
+    it('render proper DOM',() => {
 
+        const baseCssClass = 'myCustomCssClass';
+
+        component.title = TEST_COMPONENT_TITLE;
+        component.cqItems = LAYOUT[Constants.ITEMS_PROP];
+        component.cqItemsOrder = LAYOUT[Constants.ITEMS_ORDER_PROP];
+        component.classNames = LAYOUT.classNames;
+        component.id = "myID";
+        component.autoplay = true;
+        component.delay = 1000;
+        component.baseCssClass = baseCssClass;
+
+        fixture.detectChanges();
+
+        const element = fixture.nativeElement;
+
+        expect(element).toBeDefined();
+
+        expect(element.querySelector(`.${baseCssClass}[role="group"][aria-roledescription="Carousel"]`)).toBeDefined();
+
+        const contentElement = element.querySelector(`.${baseCssClass}[role="group"][aria-roledescription="Carousel"] .${baseCssClass}__content`);
+
+        expect(contentElement).toBeDefined();
+
+        const totalElements = LAYOUT[Constants.ITEMS_ORDER_PROP].length;
+
+        const validateTabPanel = (index:number) => {
+            expect(contentElement.querySelector(`div#${component.id}-item-${index}.${baseCssClass}__item[aria-label="Slide ${index + 1} of ${totalElements}"]`)).toBeDefined();
+        };
+
+        validateTabPanel(0);
+        validateTabPanel(1);
+        validateTabPanel(2);
+        validateTabPanel(3);
+        validateTabPanel(4);
+
+
+    });
 
 });
