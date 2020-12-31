@@ -22,17 +22,17 @@
 
 <ng-template #componentBlock>
     
-    <div class="{{class}}__image">
-        <div class="{{class}}">
+    <div class="{{baseCssClass}}__image">
+        <div class="{{baseCssClass}}">
             <core-image-v2 [hidePlaceHolder]="true" [src]="imagePath" [title]="title"></core-image-v2>
         </div>
     </div>
-    <div class="{{class}}__content">
-        <div *ngIf="pretitle" class="{{class}}__pretitle">{{pretitle}}</div>
+    <div class="{{baseCssClass}}__content">
+        <div *ngIf="pretitle" class="{{baseCssClass}}__pretitle">{{pretitle}}</div>
         <core-title-v2 [hidePlaceHolder]="true" [routed]="routed" [linkURL]="linkURL" [text]="title" [type]="titleType"></core-title-v2>
-        <div *ngIf="description" class="{{class}}__description" [innerHTML]="description | safeHtml"></div>
-        <div *ngIf="actionsEnabled" class="{{class}}__action-container">
-            <a *ngFor="let action of actions"  class="{{class}}__action-link" href="{{action.URL}}">{{action.title}}</a>
+        <div *ngIf="description" class="{{baseCssClass}}__description" [innerHTML]="description | safeHtml"></div>
+        <div *ngIf="actionsEnabled" class="{{baseCssClass}}__action-container">
+            <a *ngFor="let action of actions"  class="{{baseCssClass}}__action-link" href="{{action.URL}}">{{action.title}}</a>
         </div>
         
     </div>

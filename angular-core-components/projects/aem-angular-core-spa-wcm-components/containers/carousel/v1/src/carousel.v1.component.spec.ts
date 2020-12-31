@@ -131,8 +131,7 @@ describe('CarouselV1', () => {
 
         const element = fixture.nativeElement;
 
-        expect(element.getAttributeNode("class").value).toBe("cmp-custom-accordion");
-        expect(element.querySelectorAll(".cmp-custom-accordion").length).toEqual(1);
+        expect(element.getAttributeNode("class").value).toBe("aem-container cmp-custom-accordion");
     });
 
     const clickNextOrPev = (direction:string) => {

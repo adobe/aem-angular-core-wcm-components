@@ -23,11 +23,11 @@
 
 <ng-template #componentBlock>
     
-    <nav class="{{class}}"
+    <nav class="{{baseCssClass}}"
          role="navigation"
          itemScope itemType="http://schema.org/SiteNavigationElement"
          [attr.aria-label]="accessibilityLabel">
-        <ul class="{{class}}__group">
+        <ul class="{{baseCssClass}}__group">
             <ng-container *ngFor="let childItem of items; let i = index">
                 <ng-container [ngTemplateOutlet]="navigationItem" [ngTemplateOutletContext]="{item:childItem}"></ng-container>
             </ng-container>
@@ -37,7 +37,7 @@
 </ng-template>
 
 <ng-template #navigationGroup let-item='item'>
-    <ul class="{{class}}__group">
+    <ul class="{{baseCssClass}}__group">
         <ng-container *ngFor="let childItem of item.children; let i = index">
             <ng-container [ngTemplateOutlet]="navigationItem" [ngTemplateOutletContext]="{item:childItem}"></ng-container>
         </ng-container>
@@ -59,11 +59,11 @@
 </ng-template>
 
 <ng-template #navigationSpan let-item='item'>
-    <span class="{{class}}__item-title" lang="{{item.language}}">{{item.title}}</span>
+    <span class="{{baseCssClass}}__item-title" lang="{{item.language}}">{{item.title}}</span>
 </ng-template>
 
 <ng-template #navigationLink let-item='item'>
-    <a class="{{class}}__item-link"
+    <a class="{{baseCssClass}}__item-link"
        title="{{item.title}}"
        href="{{item.url}}"
        [attr.hrefLang]="item.language"

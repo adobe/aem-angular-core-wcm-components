@@ -9,6 +9,7 @@
     "test-cover": "ng test --code-coverage=true",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "cover:library:button-v1": "ng test aem-angular-core-wcm-components-button-v1  --code-coverage=true",
     "cover:library:container-core": "ng test aem-angular-core-spa-wcm-components-core  --code-coverage=true",
     "cover:library:accordion-v1": "ng test aem-angular-core-spa-wcm-components-accordion-v1  --code-coverage=true",
     "cover:library:carousel-v1": "ng test aem-angular-core-spa-wcm-components-carousel-v1  --code-coverage=true",

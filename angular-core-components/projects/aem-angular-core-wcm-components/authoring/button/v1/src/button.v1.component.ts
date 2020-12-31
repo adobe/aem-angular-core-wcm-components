@@ -14,7 +14,7 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import {Component, EventEmitter, HostBinding, Input} from '@angular/core';
+import {Component, EventEmitter, HostBinding, Input, Output} from '@angular/core';
 import {AbstractRoutedCoreComponent} from "@adobe/aem-core-components-angular-base/core";
 import {RoutedCoreComponentModel} from "@adobe/aem-core-components-angular-base/core";
 
@@ -31,16 +31,16 @@ export interface ButtonV1Model extends RoutedCoreComponentModel{
 })
 export class ButtonV1Component extends AbstractRoutedCoreComponent implements ButtonV1Model{
 
-    @HostBinding('class') class = 'cmp-button';
+    @Input() baseCssClass = 'cmp-button';
     @Input() text?;
     @Input() link?;
     @Input() icon?;
     @Input() ariaLabel?;
 
-    clickRequest = new EventEmitter();
+    @Output() public clickRequest = new EventEmitter<MouseEvent>();
 
     get iconClass():string{
-        return `${this.class}__icon __icon--${this.icon}`;
+        return `${this.baseCssClass}__icon ${this.baseCssClass}__icon--${this.icon}`;
     }
 
     onClick() {

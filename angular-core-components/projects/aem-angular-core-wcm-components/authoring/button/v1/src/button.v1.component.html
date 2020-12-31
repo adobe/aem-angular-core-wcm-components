@@ -32,9 +32,9 @@
     </ng-container>
 </ng-template>
 <ng-template #staticBlock>
-    <button (click)="onClick()">
+    <button (click)="onClick()" type="button" id="button-{{id}}" class="{{baseCssClass}}" >
         <span *ngIf="icon" class="{{iconClass}}"></span>
-        <span class="{{class}}__text" [innerText]="text"></span>
+        <span class="{{baseCssClass}}__text" [innerText]="text"></span>
     </button>
 </ng-template>
 
@@ -43,13 +43,13 @@
        routerLinkActive="active"
        (click)="onClick()">
         <span *ngIf="icon" class="{{iconClass}}"></span>
-        <span class="{{class}}__text" [innerText]="text"></span>
+        <span class="{{baseCssClass}}__text" [innerText]="text"></span>
     </a>
 </ng-template>
 
 <ng-template #staticLink>
     <a [href]="link" (click)="onClick()">
         <span *ngIf="icon" class="{{iconClass}}"></span>
-        <span class="{{class}}__text" [innerText]="text"></span>
+        <span class="{{baseCssClass}}__text" [innerText]="text"></span>
     </a>
 </ng-template>

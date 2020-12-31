@@ -22,11 +22,11 @@
 
 <ng-template #componentBlock>
     
-    <nav class="{{class}}"
+    <nav class="{{baseCssClass}}"
          role="navigation"
          itemScope itemType="http://schema.org/SiteNavigationElement"
          [attr.aria-label]="accessibilityLabel">
-        <ul class="{{class}}__group">
+        <ul class="{{baseCssClass}}__group">
             <ng-container *ngFor="let childItem of items; let i = index">
                 <ng-container [ngTemplateOutlet]="navigationItem" [ngTemplateOutletContext]="{item:childItem}"></ng-container>
             </ng-container>
@@ -36,7 +36,7 @@
 </ng-template>
 
 <ng-template #navigationGroup let-item='item'>
-    <ul class="{{class}}__group">
+    <ul class="{{baseCssClass}}__group">
         <ng-container *ngFor="let childItem of item.children; let i = index">
             <ng-container [ngTemplateOutlet]="navigationItem" [ngTemplateOutletContext]="{item:childItem}"></ng-container>
         </ng-container>
@@ -59,7 +59,7 @@
 
 
 <ng-template #routedLink let-item='item'>
-    <a class="{{class}}__item-link"
+    <a class="{{baseCssClass}}__item-link"
        title="{{item.title}}"
        routerLink="{{item.url}}"
        routerLinkActive="active"
@@ -69,7 +69,7 @@
 </ng-template>
 
 <ng-template #staticLink let-item='item'>
-    <a class="{{class}}__item-link"
+    <a class="{{baseCssClass}}__item-link"
        title="{{item.title}}"
        href="{{item.url}}"
        [attr.aria-current]="item.active">

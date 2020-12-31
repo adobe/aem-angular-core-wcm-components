@@ -132,8 +132,8 @@ describe('AccordionV1', () => {
 
         const cssClasses = component.getHostClassNames();
         console.log(cssClasses);
-        expect(element.getAttributeNode("class").value).toBe("cmp-accordion");
-        expect(cssClasses).toBe("cmp-accordion");
+        expect(element.getAttributeNode("class").value).toBe("aem-container cmp-accordion");
+        expect(cssClasses).toBe("aem-container cmp-accordion");
     });
 
     it('should NOT create the allowed components if not in the editor', () => {
@@ -274,16 +274,23 @@ describe('AccordionV1', () => {
         };
 
         const cssClass = 'myCustomBemClass';
-        component.class = cssClass;
+        component.baseCssClass = cssClass;
         component.cqItems = LAYOUT[Constants.ITEMS_PROP];
         component.cqItemsOrder = LAYOUT[Constants.ITEMS_ORDER_PROP];
         component.classNames = LAYOUT.classNames;
         component.singleExpansion = true;
+        component.dataLayer = {
+            "testaccordion": {
+                "test1": "test",
+                "test2": "test"
+            }
+        };
         component.id = LAYOUT.id;
 
         fixture.detectChanges();
 
-        const element = fixture.debugElement.nativeElement;
+        const element = fixture.nativeElement;
+        expect(element.getAttribute("data-cmp-data-layer")).toEqual('{"testaccordion":{"test1":"test","test2":"test"}}');
 
         const validateEntry = (index:number) => {
             const expectedElement = element.querySelector(`.${cssClass}__item:nth-child(${index})[data-cmp-hook-accordion="item"]`);

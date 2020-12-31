@@ -22,9 +22,9 @@
 </ng-template>
 
 <ng-template #componentBlock>
-    <nav class="{{class}}"
+    <nav class="{{baseCssClass}}"
          [attr.aria-label]="ariaLabelI18n">
-        <ol class="{{class}}__list">
+        <ol class="{{baseCssClass}}__list">
             <ng-container *ngFor="let item of items; let i = index">
                 <li [ngClass]="getItemCssClass(item)">
     
@@ -41,7 +41,7 @@
 </ng-template>
 
 <ng-template #routedLink let-item='item'>
-    <a class="{{class}}__item-link"
+    <a class="{{baseCssClass}}__item-link"
        routerLink="{{ item.url }}"
        routerLinkActive="active">
         <ng-container [ngTemplateOutlet]="title" [ngTemplateOutletContext]="{item:item}"></ng-container>
@@ -50,7 +50,7 @@
 
 
 <ng-template #staticLink let-item='item'>
-    <a class="{{class}}__item-link"
+    <a class="{{baseCssClass}}__item-link"
        href="{{item.url}}">
         <ng-container [ngTemplateOutlet]="title" [ngTemplateOutletContext]="{item:item}"></ng-container>
     </a>

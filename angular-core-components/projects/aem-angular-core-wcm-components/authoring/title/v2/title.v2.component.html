@@ -22,7 +22,7 @@
 
 <ng-template #componentBlock>
     <div *ngIf="hasLink; else heading">
-        <a *ngIf="routed" class="{{class}}__item-link"
+        <a *ngIf="routed" class="{{baseCssClass}}__item-link"
            routerLink="{{ linkURL}}"
            routerLinkActive="active">
             <ng-container *ngTemplateOutlet="heading"></ng-container>
@@ -35,11 +35,11 @@
 
 <ng-template #heading>
     <div [ngSwitch]="type">
-        <h1 class="{{class}}__text" *ngSwitchCase="'h1'">{{text}}</h1>
-        <h2 class="{{class}}__text" *ngSwitchCase="'h2'">{{text}}</h2>
-        <h4 class="{{class}}__text" *ngSwitchCase="'h4'">{{text}}</h4>
-        <h5 class="{{class}}__text" *ngSwitchCase="'h5'">{{text}}</h5>
-        <h6 class="{{class}}__text" *ngSwitchCase="'h6'">{{text}}</h6>
-        <h3 class="{{class}}__text" *ngSwitchDefault>{{text}}</h3>
+        <h1 class="{{baseCssClass}}__text" *ngSwitchCase="'h1'">{{text}}</h1>
+        <h2 class="{{baseCssClass}}__text" *ngSwitchCase="'h2'">{{text}}</h2>
+        <h4 class="{{baseCssClass}}__text" *ngSwitchCase="'h4'">{{text}}</h4>
+        <h5 class="{{baseCssClass}}__text" *ngSwitchCase="'h5'">{{text}}</h5>
+        <h6 class="{{baseCssClass}}__text" *ngSwitchCase="'h6'">{{text}}</h6>
+        <h3 class="{{baseCssClass}}__text" *ngSwitchDefault>{{text}}</h3>
     </div>
 </ng-template>

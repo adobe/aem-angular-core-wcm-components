@@ -14,7 +14,7 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import {Input} from "@angular/core";
+import {HostBinding, Input} from "@angular/core";
 import {CoreComponentModel} from "./model/CoreComponentModel";
 import {Utils} from "@adobe/aem-angular-editable-components";
 
@@ -30,7 +30,9 @@ export abstract class AbstractCoreComponent implements CoreComponentModel{
     @Input() cqForceReload = false;
     @Input() cqPath;
 
-    class: string;
+    @Input() id:string;
+
+    @Input() baseCssClass;
 
     /**
      * Method that needs to be overloaded, to determine whether the component should be treated as 'empty'
