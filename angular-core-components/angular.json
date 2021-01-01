@@ -83,6 +83,46 @@
         }
       }
     },
+    "aem-angular-core-wcm-components-core": {
+      "projectType": "library",
+      "root": "projects/aem-angular-core-wcm-components/core",
+      "sourceRoot": "projects/aem-angular-core-wcm-components/core/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/aem-angular-core-wcm-components/core/tsconfig.lib.json",
+            "project": "projects/aem-angular-core-wcm-components/core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/aem-angular-core-wcm-components/core/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/aem-angular-core-wcm-components/core/src/test.ts",
+            "tsConfig": "projects/aem-angular-core-wcm-components/core/tsconfig.spec.json",
+            "karmaConfig": "projects/aem-angular-core-wcm-components/core/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/aem-angular-core-wcm-components/core/tsconfig.lib.json",
+              "projects/aem-angular-core-wcm-components/core/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
     "aem-angular-core-spa-wcm-components": {
       "projectType": "library",
       "root": "projects/aem-angular-core-spa-wcm-components",

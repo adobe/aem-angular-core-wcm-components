@@ -32,23 +32,35 @@
     </ng-container>
 </ng-template>
 <ng-template #staticBlock>
-    <button (click)="onClick()" type="button" id="button-{{id}}" class="{{baseCssClass}}" >
+    <button [attr.data-cmp-data-layer]="dataLayerString"
+            (click)="onClick()"
+            type="button"
+            id="button-{{id}}"
+            class="{{baseCssClass}}">
         <span *ngIf="icon" class="{{iconClass}}"></span>
         <span class="{{baseCssClass}}__text" [innerText]="text"></span>
     </button>
 </ng-template>
 
 <ng-template #routedLink>
-    <a routerLink="{{link}}"
+    <a [attr.data-cmp-data-layer]="dataLayerString"
+       id="button-{{id}}"
+       routerLink="{{link}}"
        routerLinkActive="active"
-       (click)="onClick()">
+       (click)="onClick()"
+       class="{{baseCssClass}}">
         <span *ngIf="icon" class="{{iconClass}}"></span>
         <span class="{{baseCssClass}}__text" [innerText]="text"></span>
     </a>
 </ng-template>
 
 <ng-template #staticLink>
-    <a [href]="link" (click)="onClick()">
+    <a [href]="link"
+       (click)="onClick()"
+       [attr.data-cmp-data-layer]="dataLayerString"
+       id="button-{{id}}"
+       class="{{baseCssClass}}"
+    >
         <span *ngIf="icon" class="{{iconClass}}"></span>
         <span class="{{baseCssClass}}__text" [innerText]="text"></span>
     </a>

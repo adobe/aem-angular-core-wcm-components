@@ -28,6 +28,9 @@ export interface ButtonV1Model extends RoutedCoreComponentModel{
 @Component({
     selector: 'core-button-v1',
     templateUrl: './button.v1.component.html',
+    host: {
+        '[attr.data-cq-data-path]':'cqPath'
+    },
 })
 export class ButtonV1Component extends AbstractRoutedCoreComponent implements ButtonV1Model{
 

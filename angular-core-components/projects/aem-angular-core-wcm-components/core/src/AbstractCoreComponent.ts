@@ -33,6 +33,7 @@ export abstract class AbstractCoreComponent implements CoreComponentModel{
     @Input() id:string;
 
     @Input() baseCssClass;
+    @Input() dataLayer: {[key: string]: {[key: string]: string}} = {};
 
     /**
      * Method that needs to be overloaded, to determine whether the component should be treated as 'empty'
@@ -48,6 +49,10 @@ export abstract class AbstractCoreComponent implements CoreComponentModel{
 
     public get isInEditor(){
         return Utils.isInEditor();
+    }
+
+    public get dataLayerString(){
+        return this.dataLayer ? JSON.stringify(this.dataLayer) : "";
     }
 
 }

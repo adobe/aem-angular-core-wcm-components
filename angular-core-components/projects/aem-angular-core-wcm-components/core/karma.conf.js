@@ -32,7 +32,7 @@ module.exports = function (config) {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     coverageIstanbulReporter: {
-      dir: require('path').join(__dirname, '../../../../../coverage/aem-angular-core-wcm-components-button-v1'),
+      dir: require('path').join(__dirname, '../../../coverage/aem-angular-core-wcm-components-core'),
       reports: ['json'],
       fixWebpackSourcePaths: true
     },
@@ -43,7 +43,7 @@ module.exports = function (config) {
     failOnEmptyTestSuite: true,
     autoWatch: true,
     browsers: ['Chrome'],
-    singleRun: true,
+    singleRun: false,
     restartOnFileChange: true
   });
 };
