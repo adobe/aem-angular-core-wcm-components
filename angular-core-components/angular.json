@@ -83,6 +83,46 @@
         }
       }
     },
+    "aem-angular-core-wcm-components-default-v1": {
+      "projectType": "library",
+      "root": "projects/aem-angular-core-wcm-components/authoring/default/v1",
+      "sourceRoot": "projects/aem-angular-core-wcm-components/authoring/default/v1/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/aem-angular-core-wcm-components/authoring/default/v1/tsconfig.lib.json",
+            "project": "projects/aem-angular-core-wcm-components/authoring/default/v1/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/aem-angular-core-wcm-components/authoring/default/v1/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/aem-angular-core-wcm-components/authoring/default/v1/src/test.ts",
+            "tsConfig": "projects/aem-angular-core-wcm-components/authoring/default/v1/tsconfig.spec.json",
+            "karmaConfig": "projects/aem-angular-core-wcm-components/authoring/default/v1/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/aem-angular-core-wcm-components/authoring/default/v1/tsconfig.lib.json",
+              "projects/aem-angular-core-wcm-components/authoring/default/v1/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
     "aem-angular-core-wcm-components-core": {
       "projectType": "library",
       "root": "projects/aem-angular-core-wcm-components/core",

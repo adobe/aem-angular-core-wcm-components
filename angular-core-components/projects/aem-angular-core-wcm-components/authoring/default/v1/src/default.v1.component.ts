@@ -18,7 +18,7 @@ import {Component, HostBinding, Input} from '@angular/core';
 import {AbstractCoreComponent} from "@adobe/aem-core-components-angular-base/core";
 
 export interface DefaultV1Model{
-    html: string;
+    aHtml: string;
 }
 
 @Component({
@@ -27,8 +27,8 @@ export interface DefaultV1Model{
 })
 export class DefaultV1Component extends AbstractCoreComponent implements DefaultV1Model{
 
-    @HostBinding('class') class = 'cmp-default';
-    @Input() html;
+    @Input()  baseCssClass = 'cmp-default';
+    @Input("html") aHtml;
 
     get isEmpty(): boolean {
         return DefaultV1IsEmptyFn(this);
@@ -36,5 +36,5 @@ export class DefaultV1Component extends AbstractCoreComponent implements Default
 }
 
 export function DefaultV1IsEmptyFn(props:DefaultV1Model): boolean{
-    return props.html == null || props.html.trim().length === 0;
+    return props.aHtml == null || props.aHtml.trim().length === 0;
 }

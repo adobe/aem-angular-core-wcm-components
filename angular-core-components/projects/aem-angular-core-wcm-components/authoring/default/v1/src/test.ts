@@ -13,24 +13,25 @@
  ~ See the License for the specific language governing permissions and
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-import {NgModule} from '@angular/core';
-import {CommonModule} from "@angular/common";
-import {BrowserModule} from "@angular/platform-browser";
-import {RouterModule} from "@angular/router";
-import {DefaultV1Component} from "./default.v1.component";
-import {AemAngularCoreWcmComponentsCore, SafePipeModule} from "@adobe/aem-core-components-angular-base/core";
 
-@NgModule({
-    imports: [CommonModule, BrowserModule, RouterModule, AemAngularCoreWcmComponentsCore,SafePipeModule],
-    declarations: [
-        DefaultV1Component
-    ],
-    exports: [
-        DefaultV1Component
-    ],
-    entryComponents: [
-        DefaultV1Component,
-    ],
-})
-export class AemAngularCoreWcmComponentsDefaultV1 {
-}
+
+import 'core-js/es7/reflect';
+import 'zone.js/dist/zone';
+import 'zone.js/dist/zone-testing';
+import { getTestBed } from '@angular/core/testing';
+import {
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting
+} from '@angular/platform-browser-dynamic/testing';
+
+declare const require: any;
+
+// First, initialize the Angular testing environment.
+getTestBed().initTestEnvironment(
+    BrowserDynamicTestingModule,
+    platformBrowserDynamicTesting()
+);
+// Then we find all the tests.
+const context = require.context('./../', true, /\.spec\.ts$/);
+// And load the modules.
+context.keys().map(context);
