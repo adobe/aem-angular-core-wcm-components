@@ -32,7 +32,7 @@
     <ng-template #staticBlock>
         <div [ngClass]="containerCssClass" [attr.data-cmp-data-layer]="dataLayerString">
             <img [attr.src]="src" class="{{baseCssClass}}__image" alt="{{alt}}" />
-            <meta *ngIf="hasTitle" itemprop="caption" content="Component">
+            <meta *ngIf="hasTitle" itemprop="caption" content="{{title}}">
         </div>
     </ng-template>
 </ng-template>
@@ -42,13 +42,13 @@
     <a routerLink="{{link}}"
        routerLinkActive="active">
         <img [attr.src]="src" class="{{baseCssClass}}__image" alt="{{alt}}"/>
-        <meta *ngIf="hasTitle" itemprop="caption" content="Component">
+        <meta *ngIf="hasTitle" itemprop="caption" content="{{title}}">
     </a>
 </ng-template>
 
 <ng-template #staticLink>
     <a href="{{link}}">
         <img [attr.src]="src" class="{{baseCssClass}}__image" alt="{{alt}}"/>
-        <meta *ngIf="hasTitle" itemprop="caption" content="Component">
+        <meta *ngIf="hasTitle" itemprop="caption" content="{{title}}">
     </a>
 </ng-template>
