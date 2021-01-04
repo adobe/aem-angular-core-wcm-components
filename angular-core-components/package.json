@@ -15,6 +15,7 @@
     "cover:library:core:download:v1": "ng test aem-angular-core-wcm-components-download-v1  --code-coverage=true",
     "cover:library:core:image:v2": "ng test aem-angular-core-wcm-components-image-v2  --code-coverage=true",
     "cover:library:core:list:v2": "ng test aem-angular-core-wcm-components-list-v2  --code-coverage=true",
+    "cover:library:core:separator:v1": "ng test aem-angular-core-wcm-components-separator-v1  --code-coverage=true",
     "cover:library:spa:container:core": "ng test aem-angular-core-spa-wcm-components-core  --code-coverage=true",
     "cover:library:spa:accordion:v1": "ng test aem-angular-core-spa-wcm-components-accordion-v1  --code-coverage=true",
     "cover:library:spa:carousel:v1": "ng test aem-angular-core-spa-wcm-components-carousel-v1  --code-coverage=true",

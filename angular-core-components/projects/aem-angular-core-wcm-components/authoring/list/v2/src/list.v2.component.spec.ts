@@ -157,6 +157,47 @@ describe('ListV2Component', () => {
 
     });
 
+    it('render a list with links with a custom css class', () => {
+        isInEditorSpy.and.returnValue(false);
+
+        component.items = mockItems;
+        component.linkItems = true;
+        component.dataLayer = {
+            "testaccordion": {
+                "test1": "test",
+                "test2": "test"
+            }
+        };
+        component.baseCssClass = 'mycustomclass';
+
+        fixture.detectChanges();
+        const element = fixture.nativeElement;
+
+        const wrapper = element.querySelector('ul.mycustomclass');
+
+        expect(wrapper.getAttribute("data-cmp-data-layer")).toEqual('{"testaccordion":{"test1":"test","test2":"test"}}');
+
+        expect(element.querySelectorAll('ul.mycustomclass li.mycustomclass__item').length).toEqual(mockItems.length);
+
+
+        mockItems.forEach((value, index) => {
+            const article = element.querySelector('ul.mycustomclass li.mycustomclass__item:nth-child('+ (index + 1) +') article');
+            expect(article).toBeDefined();
+
+            const mockItem = mockItems[index];
+
+            if(mockItem.url && mockItem.url.length > 0){
+                expect(article.querySelector('a.mycustomclass__item-link[href="' + mockItem.url + '"] span.mycustomclass__item-title').innerText).toEqual(mockItem.title);
+                expect(article.querySelector('span.mycustomclass__item-description').innerText).toEqual(mockItem.description);
+            }else{
+                expect(article.querySelector('span.mycustomclass__item-title').innerText).toEqual(mockItem.title);
+                expect(article.querySelector('span.mycustomclass__item-description').innerText).toEqual(mockItem.description);
+            }
+
+        });
+
+    });
+
 
 
     it('render a list with all routed links by master property', () => {
