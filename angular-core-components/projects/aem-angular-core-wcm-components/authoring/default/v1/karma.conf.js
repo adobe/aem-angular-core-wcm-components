@@ -17,8 +17,8 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 
-const karmaConfigGenerator = require('../../karma-conf-generator');
+const karmaConfigGenerator = require('../../../../../karma-conf-generator');
 
 module.exports = function (config) {
-  return karmaConfigGenerator(config, 'aem-angular-core-wcm-components');
+  return karmaConfigGenerator(config, 'aem-angular-core-wcm-components-default-v1');
 };
