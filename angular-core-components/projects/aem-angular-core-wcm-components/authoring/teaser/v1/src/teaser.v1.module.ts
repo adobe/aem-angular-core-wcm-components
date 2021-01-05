@@ -19,20 +19,22 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {BrowserModule} from "@angular/platform-browser";
 import {RouterModule} from "@angular/router";
-import {SeparatorV1Component} from "./separator.v1.component";
+import {TeaserV1Component} from "./teaser.v1.component";
 import {AemAngularCoreWcmComponentsCore} from "@adobe/aem-core-components-angular-base/core";
+import {AemAngularCoreWcmComponentsImageV2} from "@adobe/aem-core-components-angular-base/authoring/image/v2";
+import {AemAngularCoreWcmComponentsTitleV2} from "@adobe/aem-core-components-angular-base/authoring/title/v2";
 
 @NgModule({
-    imports: [CommonModule, BrowserModule, RouterModule,AemAngularCoreWcmComponentsCore],
+    imports: [CommonModule, BrowserModule, RouterModule,AemAngularCoreWcmComponentsCore,AemAngularCoreWcmComponentsImageV2,AemAngularCoreWcmComponentsTitleV2],
     declarations: [
-        SeparatorV1Component
+        TeaserV1Component
     ],
     exports: [
-        SeparatorV1Component
+        TeaserV1Component
     ],
     entryComponents: [
-        SeparatorV1Component,
+        TeaserV1Component
     ],
 })
-export class AemAngularCoreWcmComponentsSeparatorV1 {
+export class AemAngularCoreWcmComponentsTeaserV1 {
 }

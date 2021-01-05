@@ -21,9 +21,11 @@
 </ng-template>
 
 <ng-template #componentBlock>
-    <div *ngIf="richText; else richTextBlock" [innerHTML]="text | safeHtml"></div>
+    <div id="{{id}}" *ngIf="richText; else richTextBlock" [innerHTML]="text | safeHtml"></div>
 </ng-template>
 
 <ng-template #richTextBlock>
-    <p class="{{baseCssClass}}__paragraph">{{text}}</p>
+    <div id="{{id}}" class="{{baseCssClass}}" [attr.data-cmp-data-layer]="dataLayerString">
+        <p class="{{baseCssClass}}__paragraph">{{text}}</p>
+    </div>
 </ng-template>

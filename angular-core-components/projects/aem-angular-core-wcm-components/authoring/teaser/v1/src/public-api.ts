@@ -14,5 +14,5 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-export * from "./separator.v1.component";
-export * from "./separator.v1.module";
+export * from "./teaser.v1.component";
+export * from "./teaser.v1.module";

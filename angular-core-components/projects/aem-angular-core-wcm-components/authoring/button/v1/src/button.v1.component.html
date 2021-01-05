@@ -35,7 +35,7 @@
     <button [attr.data-cmp-data-layer]="dataLayerString"
             (click)="onClick()"
             type="button"
-            id="button-{{id}}"
+            id="{{id}}"
             class="{{baseCssClass}}">
         <span *ngIf="icon" class="{{iconClass}}"></span>
         <span class="{{baseCssClass}}__text" [innerText]="text"></span>
@@ -44,7 +44,7 @@
 
 <ng-template #routedLink>
     <a [attr.data-cmp-data-layer]="dataLayerString"
-       id="button-{{id}}"
+       id="{{id}}"
        routerLink="{{link}}"
        routerLinkActive="active"
        (click)="onClick()"
@@ -58,7 +58,7 @@
     <a [href]="link"
        (click)="onClick()"
        [attr.data-cmp-data-layer]="dataLayerString"
-       id="button-{{id}}"
+       id="{{id}}"
        class="{{baseCssClass}}"
     >
         <span *ngIf="icon" class="{{iconClass}}"></span>

@@ -21,7 +21,7 @@
 </ng-template>
 
 <ng-template #componentBlock>
-    <ul class="{{baseCssClass}}" [attr.data-cmp-data-layer]="dataLayerString">
+    <ul id="{{id}}" class="{{baseCssClass}}" [attr.data-cmp-data-layer]="dataLayerString">
         <li *ngFor="let item of items" class="{{baseCssClass}}__item">
             <article>
                 <ng-container [ngTemplateOutlet]="item.url && linkItems ? linkedTitle : plainTitle" [ngTemplateOutletContext]="{item:item}"></ng-container>

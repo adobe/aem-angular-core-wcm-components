@@ -21,7 +21,7 @@
 </ng-template>
 
 <ng-template #componentBlock>
-    <div [ngClass]="containerCssClass" [attr.data-cmp-data-layer]="dataLayerString">
+    <div id="{{id}}" [ngClass]="containerCssClass" [attr.data-cmp-data-layer]="dataLayerString">
         <div [ngSwitch]="titleType">
             <h1 *ngSwitchCase="'h1'" class="{{baseCssClass}}__title">
                 <a *ngIf="url" class="{{baseCssClass}}__title-link" [href]="url">{{title}}</a>

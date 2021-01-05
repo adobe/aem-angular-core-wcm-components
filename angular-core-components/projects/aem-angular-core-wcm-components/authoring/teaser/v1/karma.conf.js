@@ -13,24 +13,12 @@
  ~ See the License for the specific language governing permissions and
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-import {NgModule} from '@angular/core';
-import {CommonModule} from "@angular/common";
-import {BrowserModule} from "@angular/platform-browser";
-import {RouterModule} from "@angular/router";
-import {ListV2Component} from "./list.v2.component";
-import {AemAngularCoreWcmComponentsCore} from "@adobe/aem-core-components-angular-base/core";
 
-@NgModule({
-    imports: [CommonModule, BrowserModule, RouterModule,AemAngularCoreWcmComponentsCore],
-    declarations: [
-        ListV2Component
-    ],
-    exports: [
-        ListV2Component
-    ],
-    entryComponents: [
-        ListV2Component,
-    ],
-})
-export class AemAngularCoreWcmComponentsListV2 {
-}
+// Karma configuration file, see link for more information
+// https://karma-runner.github.io/1.0/config/configuration-file.html
+
+const karmaConfigGenerator = require('../../../../../karma-conf-generator');
+
+module.exports = function (config) {
+  return karmaConfigGenerator(config, 'aem-angular-core-wcm-components-teaser-v1');
+};

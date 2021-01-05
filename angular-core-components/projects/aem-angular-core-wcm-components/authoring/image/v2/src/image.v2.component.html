@@ -30,7 +30,7 @@
         </ng-container>
     </div>
     <ng-template #staticBlock>
-        <div [ngClass]="containerCssClass" [attr.data-cmp-data-layer]="dataLayerString">
+        <div id="{{id}}" [ngClass]="containerCssClass" [attr.data-cmp-data-layer]="dataLayerString">
             <img [attr.src]="src" class="{{baseCssClass}}__image" alt="{{alt}}" />
             <meta *ngIf="hasTitle" itemprop="caption" content="{{title}}">
         </div>
