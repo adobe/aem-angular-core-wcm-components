@@ -100,7 +100,7 @@ describe('ButtonV1Component', () => {
         fixture.detectChanges();
         const element = fixture.nativeElement;
 
-        const button = element.querySelector('button#button-myId.cmp-button[data-cmp-data-layer][type="button"]');
+        const button = element.querySelector('button#myId.cmp-button[data-cmp-data-layer][type="button"]');
         expect(button.getAttribute("data-cmp-data-layer")).toEqual('{"testaccordion":{"test1":"test","test2":"test"}}');
 
         expect(button.querySelector("span.cmp-button__icon.cmp-button__icon--awesomeness")).toBeDefined();
@@ -145,7 +145,7 @@ describe('ButtonV1Component', () => {
 
         const element = fixture.nativeElement;
 
-        const link = element.querySelector('a#button-myId.cmp-my-button[data-cmp-data-layer][href="/expectedUrl"]');
+        const link = element.querySelector('a#myId.cmp-my-button[data-cmp-data-layer][href="/expectedUrl"]');
         expect(link.getAttribute("data-cmp-data-layer")).toEqual('{"testaccordion":{"test1":"test","test2":"test"}}');
 
         expect(link.querySelector("span.cmp-my-button__icon.cmp-my-button__icon--awesomeness")).toBeDefined();

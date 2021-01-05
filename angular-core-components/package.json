@@ -27,7 +27,7 @@
     "cover:library:spa:carousel:v1": "ng test aem-angular-core-spa-wcm-components-carousel-v1  --code-coverage=true",
     "cover:library:spa:container:v1": "ng test aem-angular-core-spa-wcm-components-container-v1 --code-coverage=true",
     "cover:library:spa:tabs:v1": "ng test aem-angular-core-spa-wcm-components-tabs-v1 --code-coverage=true",
-    "cover": "run-p cover:**",
+    "cover": "run-p cover:**  --max-parallel 4",
     "build-list": "ng build aem-angular-core-wcm-components-list-v2",
     "build-base": "ng build aem-angular-core-wcm-components",
     "build-spa": "ng build aem-angular-core-spa-wcm-components",
