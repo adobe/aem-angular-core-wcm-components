@@ -14,5 +14,5 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-export * from "./list.v2.component";
-export * from "./list.v2.module";
+export * from "./text.v2.component";
+export * from "./text.v2.module";
