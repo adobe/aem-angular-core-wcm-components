@@ -14,32 +14,5 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-
-
-import {Component, HostBinding, Input} from "@angular/core";
-import {AbstractCoreComponent} from "@adobe/aem-core-components-angular-base/core";
-
-
-export interface TextV2Model {
-    text?: string;
-    richText: boolean
-}
-
-export function TextV2IsEmptyFn(props:TextV2Model): boolean{
-    return props.text == null || props.text.trim().length === 0;
-}
-
-@Component({
-    selector: 'core-text-v2',
-    templateUrl: './text.v2.component.html',
-})
-export class TextV2Component extends AbstractCoreComponent implements TextV2Model {
-
-    @HostBinding('class') class = 'cmp-text';
-    @Input() text?;
-    @Input() richText = false;
-
-    get isEmpty(): boolean {
-        return TextV2IsEmptyFn(this);
-    }
-}
+export * from "./title.v2.component";
+export * from "./title.v2.module";

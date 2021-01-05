@@ -1,0 +1,45 @@
+<!--/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright 2020 Adobe
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
+
+<div *ngIf="isEmpty; then placeHolderBlock else componentBlock"></div>
+
+<ng-template #placeHolderBlock>
+    <core-placeholder *ngIf="shouldShowPlaceHolder" componentTitle="TitleV2"></core-placeholder>
+</ng-template>
+
+<ng-template #componentBlock>
+    <div *ngIf="hasLink; else heading" id="{{id}}" class="{{baseCssClass}}" [attr.data-cmp-data-layer]="dataLayerString">
+        <a *ngIf="routed" class="{{baseCssClass}}__item-link"
+           routerLink="{{ linkURL}}"
+           routerLinkActive="active">
+            <ng-container *ngTemplateOutlet="heading"></ng-container>
+        </a>
+        <a *ngIf="!routed" href="{{linkURL}}" class="{{baseCssClass}}__item-link">
+            <ng-container *ngTemplateOutlet="heading"></ng-container>
+        </a>
+    </div>
+</ng-template>
+
+<ng-template #heading>
+    <div [ngSwitch]="type" id="{{id}}" class="{{baseCssClass}}" [attr.data-cmp-data-layer]="dataLayerString">
+        <h1 class="{{baseCssClass}}__text" *ngSwitchCase="'h1'">{{text}}</h1>
+        <h2 class="{{baseCssClass}}__text" *ngSwitchCase="'h2'">{{text}}</h2>
+        <h4 class="{{baseCssClass}}__text" *ngSwitchCase="'h4'">{{text}}</h4>
+        <h5 class="{{baseCssClass}}__text" *ngSwitchCase="'h5'">{{text}}</h5>
+        <h6 class="{{baseCssClass}}__text" *ngSwitchCase="'h6'">{{text}}</h6>
+        <h3 class="{{baseCssClass}}__text" *ngSwitchDefault>{{text}}</h3>
+    </div>
+</ng-template>

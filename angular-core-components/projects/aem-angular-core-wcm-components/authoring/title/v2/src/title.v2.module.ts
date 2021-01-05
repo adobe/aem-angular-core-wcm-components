@@ -14,25 +14,24 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-
 import {NgModule} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {BrowserModule} from "@angular/platform-browser";
 import {RouterModule} from "@angular/router";
-import {TextV2Component} from "./text.v2.component";
+import {TitleV2Component} from "./title.v2.component";
 import {AemAngularCoreWcmComponentsCore} from "@adobe/aem-core-components-angular-base/core";
 
 @NgModule({
     imports: [CommonModule, BrowserModule, RouterModule,AemAngularCoreWcmComponentsCore],
     declarations: [
-        TextV2Component
+        TitleV2Component
     ],
     exports: [
-        TextV2Component
+        TitleV2Component
     ],
     entryComponents: [
-        TextV2Component,
+        TitleV2Component,
     ],
 })
-export class AemAngularCoreWcmComponentsTextV2 {
+export class AemAngularCoreWcmComponentsTitleV2 {
 }
