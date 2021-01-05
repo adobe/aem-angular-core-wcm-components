@@ -18,10 +18,10 @@ import {CommonModule} from "@angular/common";
 import {BrowserModule} from "@angular/platform-browser";
 import {RouterModule} from "@angular/router";
 import {DefaultV1Component} from "./default.v1.component";
-import {AemAngularCoreWcmComponentsCore, SafePipeModule} from "@adobe/aem-core-components-angular-base/core";
+import {AemAngularCoreWcmComponentsCore} from "@adobe/aem-core-components-angular-base/core";
 
 @NgModule({
-    imports: [CommonModule, BrowserModule, RouterModule, AemAngularCoreWcmComponentsCore,SafePipeModule],
+    imports: [CommonModule, BrowserModule, RouterModule, AemAngularCoreWcmComponentsCore],
     declarations: [
         DefaultV1Component
     ],

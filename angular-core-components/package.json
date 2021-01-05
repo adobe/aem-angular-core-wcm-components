@@ -30,7 +30,6 @@
     "cover": "run-p cover:**",
     "build-list": "ng build aem-angular-core-wcm-components-list-v2",
     "build-base": "ng build aem-angular-core-wcm-components",
-    "build-base-core": "ng build aem-angular-core-wcm-components-core",
     "build-spa": "ng build aem-angular-core-spa-wcm-components",
     "test-spa": "ng test aem-angular-core-spa-wcm-components",
     "test-cover-spa-libs": "npm-run-all test-container-core test-accordion-v1 test-carousel-v1 test-container-v1 test-tabs-v1 build-spa",
