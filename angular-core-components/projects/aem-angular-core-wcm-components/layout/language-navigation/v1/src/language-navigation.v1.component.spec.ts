@@ -111,14 +111,11 @@ describe('LanguageNavigationV1Component', () => {
 
 
         const ul = nav.querySelector('ul.cmp-languagenavigation__group');
-        const checkNavigationItem = (item:LanguageNavigationV1Item, index:number) => {
+        const checkNavigationItem = (item:LanguageNavigationV1Item, index:number, depthSelector:string) => {
 
-            let depthSelector = '';
-            for(let i = 0;i<item.level;i++){
-                depthSelector += 'ul.cmp-languagenavigation__group ';
-            }
+            depthSelector += ' ul.cmp-languagenavigation__group ';
 
-            const liSelector = (depthSelector + 'li.' + component.getItemCssClass(item).split(' ').join('.'));
+            const liSelector = (depthSelector + 'li.' + component.getItemCssClass(item).split(' ').join('.')) + `:nth-child(${index + 1})`;
 
             const li = ul.querySelector(liSelector);
 
@@ -133,11 +130,15 @@ describe('LanguageNavigationV1Component', () => {
             }
 
             if(!!item.children && item.children.length > 0){
-                item.children.forEach(checkNavigationItem);
+                item.children.forEach((child, childIndex) => {
+                    checkNavigationItem(child, childIndex, liSelector);
+                });
             }
         };
 
-        items.forEach(checkNavigationItem );
+        items.forEach((child, childIndex) => {
+            checkNavigationItem(child, childIndex, '');
+        });
 
         //it should never route any language navigation item (we need a refresh on navigate)
         const linkDebugEls = fixture.debugElement.queryAll(By.css('a'));
