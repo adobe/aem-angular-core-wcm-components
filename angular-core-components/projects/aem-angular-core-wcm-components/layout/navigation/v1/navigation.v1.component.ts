@@ -50,7 +50,7 @@ export function NavigationV1IsEmptyFn(props:NavigationV1Model): boolean{
 })
 export class NavigationV1Component extends AbstractRoutedCoreComponent implements NavigationV1Model {
 
-    @HostBinding('class') class = 'cmp-navigation';
+    @Input() baseCssClass = 'cmp-navigation';
 
     navigationUtilService: NavigationUtilityService;
 
@@ -68,9 +68,9 @@ export class NavigationV1Component extends AbstractRoutedCoreComponent implement
 
 
     getItemCssClass(item:NavigationV1Item):string{
-        const active:string = this.isItemActive(item) ? ` ${this.class}__item--active`: '';
-        const level:string = ` ${this.class}__item--level-${item.level}`;
-        return `${this.class}__item${active}${level}`;
+        const active:string = this.isItemActive(item) ? ` ${this.baseCssClass}__item--active`: '';
+        const level:string = ` ${this.baseCssClass}__item--level-${item.level}`;
+        return `${this.baseCssClass}__item${active}${level}`;
     }
 
     /**
