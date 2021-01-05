@@ -14,18 +14,19 @@
   ~ limitations under the License.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
 
-
 <div *ngIf="isEmpty; then placeHolderBlock else componentBlock"></div>
 
 <ng-template #placeHolderBlock>
-    <core-placeholder *ngIf="shouldShowPlaceHolder" componentTitle="LanguageNavigationV1"></core-placeholder>
+    <core-placeholder *ngIf="shouldShowPlaceHolder" componentTitle="NavigationV1"></core-placeholder>
 </ng-template>
 
 <ng-template #componentBlock>
     
-    <nav class="{{baseCssClass}}"
+    <nav id="{{id}}"
+         class="{{baseCssClass}}"
          role="navigation"
          itemScope itemType="http://schema.org/SiteNavigationElement"
+         [attr.data-cmp-data-layer]="dataLayerString"
          [attr.aria-label]="accessibilityLabel">
         <ul class="{{baseCssClass}}__group">
             <ng-container *ngFor="let childItem of items; let i = index">
@@ -47,28 +48,32 @@
 
 <ng-template #navigationItem let-item='item'>
     <li [ngClass]="getItemCssClass(item)">
-        <ng-container *ngIf="item.level===0">
-            <ng-container [ngTemplateOutlet]="navigationSpan" [ngTemplateOutletContext]="{item:item}"></ng-container>
-        </ng-container>
-        <ng-container *ngIf="item.level!==0">
-            <ng-container [ngTemplateOutlet]="navigationLink" [ngTemplateOutletContext]="{item:item}"></ng-container>
-        </ng-container>
+        <ng-container [ngTemplateOutlet]="navigationLink" [ngTemplateOutletContext]="{item:item}"></ng-container>
         <ng-container *ngIf="!!item.children && item.children.length > 0" [ngTemplateOutlet]="navigationGroup"
                       [ngTemplateOutletContext]="{item:item}"></ng-container>
     </li>
 </ng-template>
 
-<ng-template #navigationSpan let-item='item'>
-    <span class="{{baseCssClass}}__item-title" lang="{{item.language}}">{{item.title}}</span>
+<ng-template #navigationLink let-item='item'>
+    <ng-container *ngIf="isItemRouted(item)" [ngTemplateOutlet]="routedLink" [ngTemplateOutletContext]="{item:item}"></ng-container>
+    <ng-container *ngIf="!isItemRouted(item)" [ngTemplateOutlet]="staticLink" [ngTemplateOutletContext]="{item:item}"></ng-container>
 </ng-template>
 
-<ng-template #navigationLink let-item='item'>
+
+<ng-template #routedLink let-item='item'>
+    <a class="{{baseCssClass}}__item-link"
+       title="{{item.title}}"
+       routerLink="{{item.url}}"
+       routerLinkActive="active"
+       [attr.aria-current]="item.active">
+        {{item.title}}
+    </a>
+</ng-template>
+
+<ng-template #staticLink let-item='item'>
     <a class="{{baseCssClass}}__item-link"
        title="{{item.title}}"
        href="{{item.url}}"
-       [attr.hrefLang]="item.language"
-       lang="{{item.language}}"
-       rel="alternate"
        [attr.aria-current]="item.active">
         {{item.title}}
     </a>

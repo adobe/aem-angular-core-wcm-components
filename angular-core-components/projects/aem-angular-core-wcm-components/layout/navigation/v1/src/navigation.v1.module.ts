@@ -17,21 +17,20 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {BrowserModule} from "@angular/platform-browser";
 import {RouterModule} from "@angular/router";
-import {LanguageNavigationV1Component} from "./language-navigation.v1.component";
+import {NavigationV1Component} from "./navigation.v1.component";
 import {AemAngularCoreWcmComponentsCore} from "@adobe/aem-core-components-angular-base/core";
-import {AemAngularCoreWcmComponentsNavigationV1} from "@adobe/aem-core-components-angular-base/layout/navigation/v1";
 
 @NgModule({
-    imports: [CommonModule, BrowserModule, RouterModule,AemAngularCoreWcmComponentsCore,AemAngularCoreWcmComponentsNavigationV1],
+    imports: [CommonModule, BrowserModule, RouterModule,AemAngularCoreWcmComponentsCore],
     declarations: [
-        LanguageNavigationV1Component
+        NavigationV1Component
     ],
     exports: [
-        LanguageNavigationV1Component
+        NavigationV1Component
     ],
     entryComponents: [
-        LanguageNavigationV1Component,
+        NavigationV1Component,
     ],
 })
-export class AemAngularCoreWcmComponentsLanguageNavigationV1 {
+export class AemAngularCoreWcmComponentsNavigationV1 {
 }
