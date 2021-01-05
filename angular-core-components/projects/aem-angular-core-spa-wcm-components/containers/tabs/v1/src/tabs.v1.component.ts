@@ -25,6 +25,7 @@ const CONTAINER_CLASS_NAMES = 'aem-container';
 @Component({
     selector: 'core-tabs-v1',
     host: {
+        '[id]': 'containerId',
         '[class]': 'hostClasses',
         '[attr.data-cq-data-path]':'cqPath'
     },
@@ -36,7 +37,7 @@ const CONTAINER_CLASS_NAMES = 'aem-container';
  */
 export class TabsV1Component extends AbstractContainerComponent implements OnInit{
 
-    @HostBinding('class') baseCssClass = 'cmp-tabs';
+    @Input() baseCssClass = 'cmp-tabs';
 
     activeItemName?:string;
     @Input() activeItem?: string;
@@ -81,6 +82,10 @@ export class TabsV1Component extends AbstractContainerComponent implements OnIni
         }
         this.changeDetectorRef.detectChanges();
 
+    }
+
+    get containerId(){
+        return 'tabs-' + this.id;
     }
 
     get activeTabItem(){

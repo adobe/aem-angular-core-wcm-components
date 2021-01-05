@@ -145,10 +145,7 @@ describe('TabsV1', () => {
         fixture.detectChanges();
 
         const element = fixture.nativeElement;
-
-        const cssClasses = component.getHostClassNames();
-        console.log(cssClasses);
-        expect(element.getAttributeNode("class").value).toBe("cmp-custom-tabs");
+        expect(element.getAttributeNode("class").value).toBe("aem-container cmp-custom-tabs");
     });
 
     it('should NOT create the allowed components if not in the editor', () => {
@@ -242,6 +239,43 @@ describe('TabsV1', () => {
         expect(component.activeTabItem.title).toEqual('Component3');
         expect(component.activeTabItemName).toEqual('component3');
         expect(component.isActiveItemNameSet).toBeTrue();
+    });
+
+    it('should render the expected DOM', async() => {
+        component.title = TEST_COMPONENT_TITLE;
+
+        component.cqItems = LAYOUT[Constants.ITEMS_PROP];
+        component.cqItemsOrder = LAYOUT[Constants.ITEMS_ORDER_PROP];
+        component.classNames = LAYOUT.classNames;
+        component.activeItem = 'component3';
+
+        component.ngOnInit();
+
+        fixture.detectChanges();
+
+        const element = fixture.nativeElement;
+
+        const tabList = element.querySelector(`ol.cmp-tabs__tablist[aria-multiselectable="false"][role="tablist"]`);
+        expect(tabList).toBeDefined();
+
+        expect(tabList.querySelectorAll(`li.cmp-tabs__tab`).length).toEqual(5);
+
+        expect(tabList.querySelector("li.cmp-tabs__tab.cmp-tabs__tab--active:nth-child(2)")).toBeDefined();
+
+        expect(tabList.querySelectorAll(`li.cmp-tabs__tab.cmp-tabs__tab--active`).length).toEqual(1);
+
+        const components = element.querySelectorAll(`[data-cq-data-path]`);
+
+        expect(components.length).toEqual(5);
+
+        const getDisplay = (index:number) => components[index].attributeStyleMap.get("display").value;
+
+        expect(getDisplay(0)).toEqual('none');
+        expect(getDisplay(1)).toEqual('block');
+        expect(getDisplay(2)).toEqual('none');
+        expect(getDisplay(3)).toEqual('none');
+        expect(getDisplay(4)).toEqual('none');
+
     });
 
 

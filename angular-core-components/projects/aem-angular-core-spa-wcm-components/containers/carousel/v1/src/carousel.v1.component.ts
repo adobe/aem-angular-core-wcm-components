@@ -47,13 +47,13 @@ export interface CarouselV1Properties extends ContainerProperties{
     selector: 'core-carousel-v1',
     host: {
         '[class]': 'hostClasses',
-        '[attr.data-cq-data-path]':'cqPath'
+        '[attr.data-cq-data-path]':'cqPath',
+        '[attr.data-cmp-data-layer]': 'dataLayerString'
     },
     templateUrl: './carousel.v1.component.html'
 })
 export class CarouselV1Component extends AbstractContainerComponent implements CarouselV1Properties{
 
-    @Input() id = "carousel";
     @Input() autoplay:boolean = false;
     @Input() accessibilityLabel = 'Carousel';
     @Input() autopauseDisabled: false;

@@ -43,7 +43,7 @@ export class ContainerV1Component extends AEMResponsiveGridComponent implements 
     @Input() id: string;
     @Input() backgroundStyle: string;
 
-    @HostBinding('class') baseCssClass = 'cmp-container';
+    @Input() baseCssClass = 'cmp-container';
 
     constructor(private sanitizer: DomSanitizer) {
         super();
@@ -68,7 +68,7 @@ export class ContainerV1Component extends AEMResponsiveGridComponent implements 
      * Returns the class names of the responsive grid based on the data from the cqModel
      */
     getHostClassNames() {
-        let classNames = super.getHostClassNames();
+        let classNames = super.getHostClassNames() + ' ' + this.baseCssClass;
 
         if(this.showResponsiveGrid()){
             return classNames;

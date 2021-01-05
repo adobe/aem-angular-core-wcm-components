@@ -43,6 +43,526 @@
         }
       }
     },
+    "aem-angular-core-wcm-components-button-v1": {
+      "projectType": "library",
+      "root": "projects/aem-angular-core-wcm-components/authoring/button/v1",
+      "sourceRoot": "projects/aem-angular-core-wcm-components/authoring/button/v1/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/aem-angular-core-wcm-components/authoring/button/v1/tsconfig.lib.json",
+            "project": "projects/aem-angular-core-wcm-components/authoring/button/v1/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/aem-angular-core-wcm-components/authoring/button/v1/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/aem-angular-core-wcm-components/authoring/button/v1/src/test.ts",
+            "tsConfig": "projects/aem-angular-core-wcm-components/authoring/button/v1/tsconfig.spec.json",
+            "karmaConfig": "projects/aem-angular-core-wcm-components/authoring/button/v1/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/aem-angular-core-wcm-components/authoring/button/v1/tsconfig.lib.json",
+              "projects/aem-angular-core-wcm-components/authoring/button/v1/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "aem-angular-core-wcm-components-default-v1": {
+      "projectType": "library",
+      "root": "projects/aem-angular-core-wcm-components/authoring/default/v1",
+      "sourceRoot": "projects/aem-angular-core-wcm-components/authoring/default/v1/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/aem-angular-core-wcm-components/authoring/default/v1/tsconfig.lib.json",
+            "project": "projects/aem-angular-core-wcm-components/authoring/default/v1/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/aem-angular-core-wcm-components/authoring/default/v1/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/aem-angular-core-wcm-components/authoring/default/v1/src/test.ts",
+            "tsConfig": "projects/aem-angular-core-wcm-components/authoring/default/v1/tsconfig.spec.json",
+            "karmaConfig": "projects/aem-angular-core-wcm-components/authoring/default/v1/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/aem-angular-core-wcm-components/authoring/default/v1/tsconfig.lib.json",
+              "projects/aem-angular-core-wcm-components/authoring/default/v1/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "aem-angular-core-wcm-components-download-v1": {
+      "projectType": "library",
+      "root": "projects/aem-angular-core-wcm-components/authoring/download/v1",
+      "sourceRoot": "projects/aem-angular-core-wcm-components/authoring/download/v1/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/aem-angular-core-wcm-components/authoring/download/v1/tsconfig.lib.json",
+            "project": "projects/aem-angular-core-wcm-components/authoring/download/v1/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/aem-angular-core-wcm-components/authoring/download/v1/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/aem-angular-core-wcm-components/authoring/download/v1/src/test.ts",
+            "tsConfig": "projects/aem-angular-core-wcm-components/authoring/download/v1/tsconfig.spec.json",
+            "karmaConfig": "projects/aem-angular-core-wcm-components/authoring/download/v1/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/aem-angular-core-wcm-components/authoring/download/v1/tsconfig.lib.json",
+              "projects/aem-angular-core-wcm-components/authoring/download/v1/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "aem-angular-core-wcm-components-separator-v1": {
+      "projectType": "library",
+      "root": "projects/aem-angular-core-wcm-components/authoring/separator/v1",
+      "sourceRoot": "projects/aem-angular-core-wcm-components/authoring/separator/v1/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/aem-angular-core-wcm-components/authoring/separator/v1/tsconfig.lib.json",
+            "project": "projects/aem-angular-core-wcm-components/authoring/separator/v1/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/aem-angular-core-wcm-components/authoring/separator/v1/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/aem-angular-core-wcm-components/authoring/separator/v1/src/test.ts",
+            "tsConfig": "projects/aem-angular-core-wcm-components/authoring/separator/v1/tsconfig.spec.json",
+            "karmaConfig": "projects/aem-angular-core-wcm-components/authoring/separator/v1/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/aem-angular-core-wcm-components/authoring/separator/v1/tsconfig.lib.json",
+              "projects/aem-angular-core-wcm-components/authoring/separator/v1/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "aem-angular-core-wcm-components-image-v2": {
+      "projectType": "library",
+      "root": "projects/aem-angular-core-wcm-components/authoring/image/v2",
+      "sourceRoot": "projects/aem-angular-core-wcm-components/authoring/image/v2/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/aem-angular-core-wcm-components/authoring/image/v2/tsconfig.lib.json",
+            "project": "projects/aem-angular-core-wcm-components/authoring/image/v2/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/aem-angular-core-wcm-components/authoring/image/v2/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/aem-angular-core-wcm-components/authoring/image/v2/src/test.ts",
+            "tsConfig": "projects/aem-angular-core-wcm-components/authoring/image/v2/tsconfig.spec.json",
+            "karmaConfig": "projects/aem-angular-core-wcm-components/authoring/image/v2/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/aem-angular-core-wcm-components/authoring/image/v2/tsconfig.lib.json",
+              "projects/aem-angular-core-wcm-components/authoring/image/v2/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "aem-angular-core-wcm-components-list-v2": {
+      "projectType": "library",
+      "root": "projects/aem-angular-core-wcm-components/authoring/list/v2",
+      "sourceRoot": "projects/aem-angular-core-wcm-components/authoring/list/v2/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/aem-angular-core-wcm-components/authoring/list/v2/tsconfig.lib.json",
+            "project": "projects/aem-angular-core-wcm-components/authoring/list/v2/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/aem-angular-core-wcm-components/authoring/list/v2/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/aem-angular-core-wcm-components/authoring/list/v2/src/test.ts",
+            "tsConfig": "projects/aem-angular-core-wcm-components/authoring/list/v2/tsconfig.spec.json",
+            "karmaConfig": "projects/aem-angular-core-wcm-components/authoring/list/v2/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/aem-angular-core-wcm-components/authoring/list/v2/tsconfig.lib.json",
+              "projects/aem-angular-core-wcm-components/authoring/list/v2/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "aem-angular-core-wcm-components-core": {
+      "projectType": "library",
+      "root": "projects/aem-angular-core-wcm-components/core",
+      "sourceRoot": "projects/aem-angular-core-wcm-components/core/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/aem-angular-core-wcm-components/core/tsconfig.lib.json",
+            "project": "projects/aem-angular-core-wcm-components/core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/aem-angular-core-wcm-components/core/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/aem-angular-core-wcm-components/core/src/test.ts",
+            "tsConfig": "projects/aem-angular-core-wcm-components/core/tsconfig.spec.json",
+            "karmaConfig": "projects/aem-angular-core-wcm-components/core/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/aem-angular-core-wcm-components/core/tsconfig.lib.json",
+              "projects/aem-angular-core-wcm-components/core/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "aem-angular-core-wcm-components-teaser-v1": {
+      "projectType": "library",
+      "root": "projects/aem-angular-core-wcm-components/authoring/teaser/v1",
+      "sourceRoot": "projects/aem-angular-core-wcm-components/authoring/teaser/v1/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/aem-angular-core-wcm-components/authoring/teaser/v1/tsconfig.lib.json",
+            "project": "projects/aem-angular-core-wcm-components/authoring/teaser/v1/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/aem-angular-core-wcm-components/authoring/teaser/v1/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/aem-angular-core-wcm-components/authoring/teaser/v1/src/test.ts",
+            "tsConfig": "projects/aem-angular-core-wcm-components/authoring/teaser/v1/tsconfig.spec.json",
+            "karmaConfig": "projects/aem-angular-core-wcm-components/authoring/teaser/v1/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/aem-angular-core-wcm-components/authoring/teaser/v1/tsconfig.lib.json",
+              "projects/aem-angular-core-wcm-components/authoring/teaser/v1/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "aem-angular-core-wcm-components-text-v2": {
+      "projectType": "library",
+      "root": "projects/aem-angular-core-wcm-components/authoring/text/v2",
+      "sourceRoot": "projects/aem-angular-core-wcm-components/authoring/text/v2/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/aem-angular-core-wcm-components/authoring/text/v2/tsconfig.lib.json",
+            "project": "projects/aem-angular-core-wcm-components/authoring/text/v2/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/aem-angular-core-wcm-components/authoring/text/v2/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/aem-angular-core-wcm-components/authoring/text/v2/src/test.ts",
+            "tsConfig": "projects/aem-angular-core-wcm-components/authoring/text/v2/tsconfig.spec.json",
+            "karmaConfig": "projects/aem-angular-core-wcm-components/authoring/text/v2/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/aem-angular-core-wcm-components/authoring/text/v2/tsconfig.lib.json",
+              "projects/aem-angular-core-wcm-components/authoring/text/v2/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "aem-angular-core-wcm-components-title-v2": {
+      "projectType": "library",
+      "root": "projects/aem-angular-core-wcm-components/authoring/title/v2",
+      "sourceRoot": "projects/aem-angular-core-wcm-components/authoring/title/v2/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/aem-angular-core-wcm-components/authoring/title/v2/tsconfig.lib.json",
+            "project": "projects/aem-angular-core-wcm-components/authoring/title/v2/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/aem-angular-core-wcm-components/authoring/title/v2/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/aem-angular-core-wcm-components/authoring/title/v2/src/test.ts",
+            "tsConfig": "projects/aem-angular-core-wcm-components/authoring/title/v2/tsconfig.spec.json",
+            "karmaConfig": "projects/aem-angular-core-wcm-components/authoring/title/v2/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/aem-angular-core-wcm-components/authoring/title/v2/tsconfig.lib.json",
+              "projects/aem-angular-core-wcm-components/authoring/title/v2/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "aem-angular-core-wcm-components-breadcrumb-v2": {
+      "projectType": "library",
+      "root": "projects/aem-angular-core-wcm-components/layout/breadcrumb/v2",
+      "sourceRoot": "projects/aem-angular-core-wcm-components/layout/breadcrumb/v2/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/aem-angular-core-wcm-components/layout/breadcrumb/v2/tsconfig.lib.json",
+            "project": "projects/aem-angular-core-wcm-components/layout/breadcrumb/v2/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/aem-angular-core-wcm-components/layout/breadcrumb/v2/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/aem-angular-core-wcm-components/layout/breadcrumb/v2/src/test.ts",
+            "tsConfig": "projects/aem-angular-core-wcm-components/layout/breadcrumb/v2/tsconfig.spec.json",
+            "karmaConfig": "projects/aem-angular-core-wcm-components/layout/breadcrumb/v2/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/aem-angular-core-wcm-components/layout/breadcrumb/v2/tsconfig.lib.json",
+              "projects/aem-angular-core-wcm-components/layout/breadcrumb/v2/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "aem-angular-core-wcm-components-language-navigation-v1": {
+      "projectType": "library",
+      "root": "projects/aem-angular-core-wcm-components/layout/language-navigation/v1",
+      "sourceRoot": "projects/aem-angular-core-wcm-components/layout/language-navigation/v1/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/aem-angular-core-wcm-components/layout/language-navigation/v1/tsconfig.lib.json",
+            "project": "projects/aem-angular-core-wcm-components/layout/language-navigation/v1/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/aem-angular-core-wcm-components/layout/language-navigation/v1/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/aem-angular-core-wcm-components/layout/language-navigation/v1/src/test.ts",
+            "tsConfig": "projects/aem-angular-core-wcm-components/layout/language-navigation/v1/tsconfig.spec.json",
+            "karmaConfig": "projects/aem-angular-core-wcm-components/layout/language-navigation/v1/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/aem-angular-core-wcm-components/layout/language-navigation/v1/tsconfig.lib.json",
+              "projects/aem-angular-core-wcm-components/layout/language-navigation/v1/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "aem-angular-core-wcm-components-navigation-v1": {
+      "projectType": "library",
+      "root": "projects/aem-angular-core-wcm-components/layout/navigation/v1",
+      "sourceRoot": "projects/aem-angular-core-wcm-components/layout/navigation/v1/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/aem-angular-core-wcm-components/layout/navigation/v1/tsconfig.lib.json",
+            "project": "projects/aem-angular-core-wcm-components/layout/navigation/v1/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/aem-angular-core-wcm-components/layout/navigation/v1/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/aem-angular-core-wcm-components/layout/navigation/v1/src/test.ts",
+            "tsConfig": "projects/aem-angular-core-wcm-components/layout/navigation/v1/tsconfig.spec.json",
+            "karmaConfig": "projects/aem-angular-core-wcm-components/layout/navigation/v1/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/aem-angular-core-wcm-components/layout/navigation/v1/tsconfig.lib.json",
+              "projects/aem-angular-core-wcm-components/layout/navigation/v1/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
     "aem-angular-core-spa-wcm-components": {
       "projectType": "library",
       "root": "projects/aem-angular-core-spa-wcm-components",
