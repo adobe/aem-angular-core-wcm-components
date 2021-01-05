@@ -13,25 +13,24 @@
  ~ See the License for the specific language governing permissions and
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+import {NgModule} from '@angular/core';
+import {CommonModule} from "@angular/common";
+import {BrowserModule} from "@angular/platform-browser";
+import {RouterModule} from "@angular/router";
+import {BreadCrumbV2Component} from "./breadcrumb.v2.component";
+import {AemAngularCoreWcmComponentsCore} from "@adobe/aem-core-components-angular-base/core";
 
-
-import 'core-js/es7/reflect';
-import 'zone.js/dist/zone';
-import 'zone.js/dist/zone-testing';
-import { getTestBed } from '@angular/core/testing';
-import {
-  BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting
-} from '@angular/platform-browser-dynamic/testing';
-
-declare const require: any;
-
-// First, initialize the Angular testing environment.
-getTestBed().initTestEnvironment(
-    BrowserDynamicTestingModule,
-    platformBrowserDynamicTesting()
-);
-// Then we find all the tests.
-const context = require.context('./../', true, /\.spec\.ts$/);
-// And load the modules.
-context.keys().map(context);
+@NgModule({
+    imports: [CommonModule, BrowserModule, RouterModule,AemAngularCoreWcmComponentsCore],
+    declarations: [
+        BreadCrumbV2Component
+    ],
+    exports: [
+        BreadCrumbV2Component
+    ],
+    entryComponents: [
+        BreadCrumbV2Component,
+    ],
+})
+export class AemAngularCoreWcmComponentsBreadCrumbV2 {
+}

@@ -19,12 +19,12 @@
     "cover:library:core:teaser:v1": "ng test aem-angular-core-wcm-components-teaser-v1  --code-coverage=true",
     "cover:library:core:text:v2": "ng test aem-angular-core-wcm-components-text-v2  --code-coverage=true",
     "cover:library:core:title:v2": "ng test aem-angular-core-wcm-components-title-v2  --code-coverage=true",
+    "cover:library:core:breadcrumb:v2": "ng test aem-angular-core-wcm-components-breadcrumb-v2 --code-coverage=true",
     "cover:library:spa:container:core": "ng test aem-angular-core-spa-wcm-components-core  --code-coverage=true",
     "cover:library:spa:accordion:v1": "ng test aem-angular-core-spa-wcm-components-accordion-v1  --code-coverage=true",
     "cover:library:spa:carousel:v1": "ng test aem-angular-core-spa-wcm-components-carousel-v1  --code-coverage=true",
     "cover:library:spa:container:v1": "ng test aem-angular-core-spa-wcm-components-container-v1 --code-coverage=true",
     "cover:library:spa:tabs:v1": "ng test aem-angular-core-spa-wcm-components-tabs-v1 --code-coverage=true",
-    
     "cover": "run-p cover:**",
     "build-list": "ng build aem-angular-core-wcm-components-list-v2",
     "build-base": "ng build aem-angular-core-wcm-components",
