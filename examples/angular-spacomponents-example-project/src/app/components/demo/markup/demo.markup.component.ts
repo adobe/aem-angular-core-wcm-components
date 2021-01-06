@@ -15,9 +15,8 @@
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 import {Component, Input, OnInit} from "@angular/core";
-import {AbstractMappedComponent, MappedComponentProperties} from "@adobe/aem-angular-editable-components";
 
-export interface DemoMarkupModel extends MappedComponentProperties {
+export interface DemoMarkupModel {
     markup: string
 }
 
@@ -25,7 +24,7 @@ export interface DemoMarkupModel extends MappedComponentProperties {
     selector: 'demo',
     templateUrl: './demo.markup.component.html'
 })
-export class DemoMarkupComponent extends AbstractMappedComponent implements DemoMarkupModel {
+export class DemoMarkupComponent implements DemoMarkupModel {
 
     @Input() markup;
 

@@ -17,20 +17,18 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ModelManager, Constants } from '@adobe/aem-spa-page-model-manager';
-import {AbstractMappedComponent} from "@adobe/aem-angular-editable-components";
 
 @Component({
   selector: 'app-page',
   templateUrl: './page.component.html',
   styleUrls: ['./page.component.scss']
 })
-export class PageComponent extends AbstractMappedComponent implements OnInit {
+export class PageComponent implements OnInit {
   path;
   items;
   itemsOrder;
 
   constructor(private route: ActivatedRoute) {
-    super();
     // Get the data set by the AemPageDataResolver in the Router
     const path = route.snapshot.data.path;
 

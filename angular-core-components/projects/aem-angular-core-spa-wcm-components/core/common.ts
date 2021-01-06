@@ -1,6 +1,6 @@
-import {ComponentMapping,MappedComponentProperties} from "@adobe/aem-angular-editable-components";
+import {ComponentMapping} from "@adobe/aem-angular-editable-components";
 
-export interface ContainerProperties extends MappedComponentProperties {
+export interface ContainerProperties {
     componentMapping?: typeof ComponentMapping;
     cqItems: {[key: string]: Model};
     cqItemsOrder: string[];

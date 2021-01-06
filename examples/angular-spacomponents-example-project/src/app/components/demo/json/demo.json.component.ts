@@ -15,9 +15,8 @@
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 import {Component, Input} from "@angular/core";
-import {AbstractMappedComponent, MappedComponentProperties} from "@adobe/aem-angular-editable-components";
 
-export interface DemoJsonModel extends MappedComponentProperties{
+export interface DemoJsonModel {
     json:string
 }
 
@@ -25,7 +24,7 @@ export interface DemoJsonModel extends MappedComponentProperties{
     selector: 'demo',
     templateUrl: './demo.json.component.html'
 })
-export class DemoJsonComponent  extends AbstractMappedComponent implements DemoJsonModel{
+export class DemoJsonComponent implements DemoJsonModel{
 
     @Input() json;
 
