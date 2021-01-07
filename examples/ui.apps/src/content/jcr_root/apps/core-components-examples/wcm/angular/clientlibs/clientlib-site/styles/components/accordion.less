@@ -1,0 +1,61 @@
+/*
+ *  Copyright 2020 Adobe
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+
+// we assume there is one accordion styling in the aside
+.cmp-angular-examples-structure__aside {
+    .cmp-accordion {
+        margin-top: @cmp-angular-examples-spacing-1;
+        padding-right: @cmp-angular-examples-spacing-5;
+        padding-bottom: @cmp-angular-examples-spacing-8;
+
+        @media @cmp-angular-examples-screen-s-min {
+            padding-right: @cmp-angular-examples-spacing-8;
+        }
+    }
+
+    .cmp-accordion__button {
+        .appearance(none);
+
+        display: block;
+        margin: @cmp-angular-examples-spacing-1 0;
+        border: 0;
+        border-radius: @cmp-angular-examples-border-radius;
+        padding: @cmp-angular-examples-spacing-2 @cmp-angular-examples-spacing-3;
+        line-height: @cmp-angular-examples-line-height;
+
+        font-size: @cmp-angular-examples-font-size-s;
+        font-weight: @cmp-angular-examples-font-weight-bold;
+        color: @cmp-angular-examples-color-gray-800;
+        background-color: transparent;
+
+        &:hover {
+            background-color: @cmp-angular-examples-color-gray-200;
+            color: @cmp-angular-examples-color-gray-900;
+            cursor: pointer;
+        }
+
+        &:active {
+            background-color: @cmp-angular-examples-color-gray-200;
+            color: @cmp-angular-examples-color-gray-900;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        transition: background-color @cmp-angular-examples-animation-duration-1 ease-in;
+    }
+}

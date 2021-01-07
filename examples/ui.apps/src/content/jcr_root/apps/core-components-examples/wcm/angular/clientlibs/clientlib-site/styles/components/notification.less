@@ -1,0 +1,90 @@
+/*
+ *  Copyright 2018 Adobe
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+
+@cmp-angular-examples-notification-right: @cmp-angular-examples-spacing-8;
+@cmp-angular-examples-notification-animation-offset: @cmp-angular-examples-spacing-3;
+@cmp-angular-examples-notification-bottom: @cmp-angular-examples-notification-right - @cmp-angular-examples-notification-animation-offset;
+
+.cmp-angular-examples-notification {
+    position: fixed;
+    bottom: @cmp-angular-examples-notification-bottom;
+    right: @cmp-angular-examples-notification-right;
+    z-index: @cmp-angular-examples-z-index-notification;
+
+    display: flex;
+    align-items: center;
+    max-width: 290*@px;
+    border-radius: @cmp-angular-examples-border-radius;
+    padding: @cmp-angular-examples-spacing-3 @cmp-angular-examples-spacing-5;
+    line-height: @cmp-angular-examples-line-height;
+
+    font-size: @cmp-angular-examples-font-size-s;
+    font-weight: @cmp-angular-examples-font-weight-regular;
+    color: @cmp-angular-examples-color-white;
+    background-color: @cmp-angular-examples-color-notice;
+    white-space: nowrap;
+
+    animation: ~'cmp-angular-examples-notification-in linear @{cmp-angular-examples-animation-duration-4}';
+    animation-iteration-count: 1;
+
+    .user-select(none);
+}
+
+.cmp-angular-examples-notification__text {
+    margin-left: @cmp-angular-examples-spacing-4;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cmp-angular-examples-notification--out {
+    animation: ~'cmp-angular-examples-notification-out linear @{cmp-angular-examples-animation-duration-4}';
+    animation-iteration-count: 1;
+}
+
+.cmp-angular-examples-notification--success {
+    background-color: @cmp-angular-examples-color-success;
+}
+
+.cmp-angular-examples-notification--error {
+    background-color: @cmp-angular-examples-color-error;
+}
+
+.cmp-angular-examples-notification--warning {
+    background-color: @cmp-angular-examples-color-warning;
+}
+
+@keyframes cmp-angular-examples-notification-in {
+    0% {
+        opacity: 0;
+        .transform(~'translate(0, @{cmp-angular-examples-notification-animation-offset})');
+    }
+    100% {
+        opacity: 1;
+        .transform(translate(0, 0));
+    }
+}
+
+@keyframes cmp-angular-examples-notification-out {
+    0% {
+        opacity: 1;
+        .transform(translate(0, 0));
+    }
+    100% {
+        opacity: 0;
+        .transform(~'translate(0, @{cmp-angular-examples-notification-animation-offset})');
+    }
+}

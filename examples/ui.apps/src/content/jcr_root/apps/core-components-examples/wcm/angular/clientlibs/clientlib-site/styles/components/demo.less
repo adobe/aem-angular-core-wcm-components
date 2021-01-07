@@ -1,0 +1,152 @@
+/*
+ *  Copyright 2018 Adobe
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+
+@cmp-angular-examples-demo-border-width: 1*@px;
+@cmp-angular-examples-demo-info-content-max-lines: 12;
+@cmp-angular-examples-demo-info-content-height: @cmp-angular-examples-demo-info-content-max-lines * (@cmp-angular-examples-font-size-code * @cmp-angular-examples-line-height);
+@cmp-angular-examples-demo-tab-border-width: 2*@px;
+
+.cmp-angular-examples-demo {
+    position: relative;
+    margin: @cmp-angular-examples-spacing-6 0 @cmp-angular-examples-spacing-9;
+    border: 1*@px solid @cmp-angular-examples-color-gray-400;
+    border-radius: @cmp-angular-examples-border-radius;
+    background-color: @cmp-angular-examples-color-background;
+}
+
+.cmp-angular-examples-demo__top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 180*@px;
+    border-radius: @cmp-angular-examples-border-radius;
+    padding: @cmp-angular-examples-spacing-4;
+
+    @media @cmp-angular-examples-screen-m-min {
+        padding: @cmp-angular-examples-spacing-6;
+    }
+
+    @media @cmp-angular-examples-screen-l-min {
+        padding: @cmp-angular-examples-spacing-8;
+    }
+}
+
+.cmp-angular-examples-demo__component--widthFull {
+    width: 100%;
+}
+
+.cmp-angular-examples-demo__info {
+    position: relative;
+    display: none;
+
+    .cmp-tabs__tablist {
+        margin: 0;
+        padding-left: 8*@px;
+        border: @cmp-angular-examples-demo-border-width solid @cmp-angular-examples-color-gray-400;
+        border-width: @cmp-angular-examples-demo-border-width 0 0 0;
+    }
+
+    .cmp-tabs__tab {
+        margin-bottom: -@cmp-angular-examples-demo-border-width;
+        border-bottom: @cmp-angular-examples-demo-tab-border-width solid transparent;
+        padding: @cmp-angular-examples-spacing-3 @cmp-angular-examples-spacing-4 10*@px @cmp-angular-examples-spacing-4;
+
+        font-size: @cmp-angular-examples-font-size-s;
+        line-height: 1.2;
+
+        visibility: hidden;
+        color: @cmp-angular-examples-color-gray-800;
+
+        &:hover,
+        &--active {
+            color: @cmp-angular-examples-color-gray-900;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    @media @cmp-angular-examples-screen-s-min {
+        display: block;
+    }
+
+    @media @cmp-angular-examples-screen-s-min {
+        display: block;
+    }
+}
+
+.cmp-angular-examples-demo__info-actions {
+    position: absolute;
+    top: 0;
+    right: @cmp-angular-examples-spacing-1;
+}
+
+.cmp-angular-examples-demo__info-content {
+    width: auto;
+    height: 0;
+    margin: 0;
+    border-bottom-left-radius: @cmp-angular-examples-border-radius;
+    border-bottom-right-radius: @cmp-angular-examples-border-radius;
+
+    overflow: auto;
+
+    transition: ~'height @{cmp-angular-examples-animation-duration-2} ease-in-out';
+}
+
+.cmp-angular-examples-demo__properties {
+    margin: 0;
+    line-height: @cmp-angular-examples-line-height;
+
+    font-family: @cmp-angular-examples-font-family-monospace;
+    font-size: @cmp-angular-examples-font-size-code;
+    color: @cmp-angular-examples-color-text-light;
+
+    overflow: auto;
+    white-space: nowrap;
+    list-style-type: decimal;
+
+    .cmp-angular-examples-demo__property-title {
+        padding-left: 1rem;
+        color: @cmp-angular-examples-color-blue-600;
+    }
+
+    .cmp-angular-examples-demo__property-value {
+        color: @cmp-angular-examples-color-green-700;
+    }
+
+    .cmp-angular-examples-demo__property-separator {
+        color: @cmp-angular-examples-color-text;
+    }
+}
+
+.cmp-angular-examples-demo__info--open {
+    .cmp-angular-examples-demo__info-content {
+        height: @cmp-angular-examples-demo-info-content-height;
+    }
+
+    .cmp-tabs__tablist {
+        border-bottom-width: @cmp-angular-examples-demo-border-width;
+    }
+
+    .cmp-tabs__tab {
+        visibility: visible;
+
+        &--active {
+            border-color: @cmp-angular-examples-color-gray-900;
+        }
+    }
+}
