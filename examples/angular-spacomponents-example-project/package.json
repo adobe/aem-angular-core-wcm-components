@@ -4,12 +4,16 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build:browser": "cross-env NODE_ENV=browser ng build",
     "build:production": "ng build --prod --build-optimizer",
+    "build:ssr": "ng build --prod && ng run angular-spa:server:production",
+    "bla": "ng run angular-spa:server:production",
+    "serve:ssr": "node dist/server/main.js",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "aempack": "node scripts/aempack.js"
+    "aempack": "node scripts/aempack.js",
+    "postinstall": "ngcc"
   },
   "private": true,
   "dependencies": {
@@ -27,9 +31,13 @@
     "@adobe/aem-spa-page-model-manager": "^1.0.3",
     "@adobe/aem-core-components-angular-spa": "file:../../angular-core-components/dist/aem-angular-core-spa-wcm-components",
     "@adobe/aem-core-components-angular-base": "file:../../angular-core-components/dist/aem-angular-core-wcm-components",
+    "@nguniversal/express-engine": "^9.1.1",
+    "express-serve-static-core": "^0.1.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "node-fetch": "^2.6.1",
+    "node-html-parser": "^2.0.0"
   },
   "devDependencies": {
     "aempack": "^1.1.9",

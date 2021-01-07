@@ -50,7 +50,7 @@
     "@angular/platform-browser": "~9.1.12",
     "@angular/platform-browser-dynamic": "~9.1.12",
     "@angular/router": "~9.1.12",
-    "@adobe/aem-angular-editable-components": "file:../../aem-angular-editable-components/dist/aem-angular-editable-components",
+    "@adobe/aem-angular-editable-components": "^1.0.7",
     "@adobe/aem-spa-component-mapping": "file:../../aem-spa-component-mapping",
     "@adobe/aem-spa-page-model-manager": "file:../../aem-spa-page-model-manager",
     "aem-angular-core-wcm-components": "0.0.2",

@@ -24,10 +24,7 @@ import {RoutedCoreComponentModel} from "./model/RoutedCoreComponentModel";
  * This core component contains 1 or more links.
  * We want to be able to control SPA routing with a property coming from the model.
  */
-@Component({
-    template: ''
-})
-export class AbstractRoutedCoreComponent extends AbstractCoreComponent implements RoutedCoreComponentModel{
+export abstract class AbstractRoutedCoreComponent extends AbstractCoreComponent implements RoutedCoreComponentModel{
 
     /**
      * Flag the entire core component to have routed links

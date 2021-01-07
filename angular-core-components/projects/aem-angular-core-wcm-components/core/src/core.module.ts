@@ -39,9 +39,7 @@ export interface NavigationUtilityConfig {
     ],
     declarations: [
         EditPlaceholderComponent,
-        SafeHtmlPipe,
-        AbstractCoreComponent,
-        AbstractRoutedCoreComponent
+        SafeHtmlPipe
     ],
     entryComponents: [
         EditPlaceholderComponent,

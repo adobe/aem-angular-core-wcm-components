@@ -215,7 +215,6 @@ describe('TabsV1', () => {
         expect(getTabDisplay('component3')).toEqual('block');
 
         expect(component.activeTabItemDataPath).toEqual('component3');
-        expect(component.activeTabItem.title).toEqual('Component3');
         expect(component.activeTabItemName).toEqual('component3');
         expect(component.isActiveItemNameSet).toBeTrue();
     });
@@ -236,7 +235,6 @@ describe('TabsV1', () => {
         expect(getTabDisplay('component3')).toEqual('block');
 
         expect(component.activeTabItemDataPath).toEqual('component3');
-        expect(component.activeTabItem.title).toEqual('Component3');
         expect(component.activeTabItemName).toEqual('component3');
         expect(component.isActiveItemNameSet).toBeTrue();
     });

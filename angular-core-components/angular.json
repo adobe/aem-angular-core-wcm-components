@@ -584,7 +584,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/aem-angular-core-spa-wcm-components/test.ts",
+            "main": "projects/aem-angular-core-spa-wcm-components/src/test.ts",
             "tsConfig": "projects/aem-angular-core-spa-wcm-components/tsconfig.spec.json",
             "karmaConfig": "projects/aem-angular-core-spa-wcm-components/karma.conf.js"
           }

@@ -44,7 +44,7 @@ export function app() {
         const pageModelRootPath = req.headers['page-model-root-url'] || APP_ROOT_PATH;
 
         let model = req.body;
-        ModelManager.destroy();
+        //ModelManager.destroy();
         ModelManager.initialize({ path: pageModelRootPath, model: model }).then(() => {
             res.render(indexHtml, { req } , (err, html) => {
 

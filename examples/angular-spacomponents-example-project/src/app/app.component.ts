@@ -21,7 +21,6 @@ import {DemoComponent} from "./components/demo/demo.component";
 import {DemoJsonComponent} from "./components/demo/json/demo.json.component";
 import {DemoPropertiesComponent} from "./components/demo/properties/demo.properties.component";
 import {DemoMarkupComponent} from "./components/demo/markup/demo.markup.component";
-import {TextComponent} from "./components/text/text.component";
 import {ContainerIsEmptyFn} from "@adobe/aem-core-components-angular-spa/core";
 import {LanguageNavigationV1Component} from "@adobe/aem-core-components-angular-base/layout/language-navigation/v1";
 import {AccordionV1Component} from "@adobe/aem-core-components-angular-spa/containers/accordion/v1";
@@ -65,7 +64,6 @@ export class AppComponent implements OnInit{
     MapTo('core-components-examples/wcm/angular/components/page/angular-spacomponents-page')(AEMContainerComponent);
     MapTo('wcm/foundation/components/responsivegrid')(AEMResponsiveGridComponent);
 
-    MapTo('core-components-examples/wcm/angular/components/lazycomponent')(TextComponent);
     MapTo('core-components-examples/wcm/angular/components/download')(DownloadV1Component,{isEmpty: DownloadV1IsEmptyFn});
     MapTo('core-components-examples/wcm/angular/components/languagenavigation')(LanguageNavigationV1Component);
     MapTo('core-components-examples/wcm/angular/components/list')(ListV2Component,{isEmpty: ListV2IsEmptyFn});

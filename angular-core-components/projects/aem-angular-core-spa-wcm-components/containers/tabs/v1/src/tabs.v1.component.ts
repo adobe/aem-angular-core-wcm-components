@@ -16,7 +16,7 @@
 
 
 
-import {AfterViewInit, ChangeDetectorRef, Component, HostBinding, Input, OnInit} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, HostBinding, Inject, Input, OnInit, PLATFORM_ID} from '@angular/core';
 import {AEMAllowedComponentsContainerComponent} from "@adobe/aem-angular-editable-components";
 import {AbstractContainerComponent} from "@adobe/aem-core-components-angular-spa/core";
 
@@ -44,8 +44,8 @@ export class TabsV1Component extends AbstractContainerComponent implements OnIni
     @Input() accessibilityLabel?: string;
 
 
-    constructor(private changeDetectorRef:ChangeDetectorRef) {
-        super();
+    constructor(private changeDetectorRef:ChangeDetectorRef,@Inject(PLATFORM_ID) protected _platformId: Object) {
+        super(_platformId);
     }
 
     onAuthorIndexChange(index:number){
