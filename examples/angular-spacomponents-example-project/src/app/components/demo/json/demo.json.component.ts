@@ -16,7 +16,7 @@
 
 import {Component, Input} from "@angular/core";
 
-export interface DemoJsonModel{
+export interface DemoJsonModel {
     json:string
 }
 

@@ -27,5 +27,24 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+const modelElement = document.getElementById('__AEM_STATE__');
+
+const model =
+    modelElement
+        ? JSON.parse(modelElement.innerHTML)
+        : {};
+
+//@ts-ignore
+window.initialModel = modelElement ? model.rootModel : undefined;
+//@ts-ignore
+const isServerSideRendered = (window.initialModel !== undefined);
+
+if(isServerSideRendered){
+  modelElement.remove();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  platformBrowserDynamic()
+      .bootstrapModule(AppModule)
+      .catch(err => console.error(err));
+});

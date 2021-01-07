@@ -247,14 +247,14 @@ public class HierarchyPageImpl implements HierarchyPage {
         // If the value is set to a negative value all the child pages will be exposed (full traversal tree - aka infinity)
         // Child pages do not expose their respective child pages
         if (page == null || depth == 0 || Boolean.TRUE.equals(slingRequest.getAttribute(IS_CHILD_PAGE_ATTR))) {
-            return Collections.emptyList();
+            return new ArrayList<>();
         }
 
         List<Page> pages = new ArrayList<>();
         Iterator<Page> childPagesIterator = page.listChildren();
 
         if (childPagesIterator == null || !childPagesIterator.hasNext()) {
-            return Collections.emptyList();
+            return new ArrayList<>();
         }
 
         // we are about to explore one lower level down the tree
@@ -380,7 +380,7 @@ public class HierarchyPageImpl implements HierarchyPage {
         }
 
         if (StringUtils.isBlank(rawPageFilters)) {
-            return Collections.emptyList();
+            return new ArrayList<>();
         }
 
         String[] pageFilters = rawPageFilters.split(",");

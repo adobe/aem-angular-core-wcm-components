@@ -13,7 +13,7 @@
         "importHelpers": true,
         "target": "es2015",
         "lib": [
-            "es2018",
+            "es2020",
             "dom"
         ],
         "paths": {
@@ -29,10 +29,14 @@
             ],
             "@adobe/aem-core-components-angular-base/*": [
                 "./dist/aem-angular-core-wcm-components/*"
+            ],
+            "@adobe/aem-angular-editable-components":[
+                "./node_modules/@adobe/aem-angular-editable-components"
             ]
         }
     },
     "angularCompilerOptions": {
+        "enableIvy": true,
         "fullTemplateTypeCheck": true,
         "strictInjectionParameters": true
     }

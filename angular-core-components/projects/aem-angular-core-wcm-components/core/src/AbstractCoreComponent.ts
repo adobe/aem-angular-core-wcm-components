@@ -22,6 +22,7 @@ import {Utils} from "@adobe/aem-angular-editable-components";
  * AbstractCoreComponent
  * provides shared functionality / properties across all core component controllers
  */
+
 export abstract class AbstractCoreComponent implements CoreComponentModel{
 
     /** Force disable the placeholder at all times. This is useful for nested components. **/

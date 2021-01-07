@@ -56,4 +56,5 @@ public class DemoContainer extends ResponsiveGrid implements DemoContainerExport
     public boolean isFullWidth() {
         return fullWidth;
     }
+
 }

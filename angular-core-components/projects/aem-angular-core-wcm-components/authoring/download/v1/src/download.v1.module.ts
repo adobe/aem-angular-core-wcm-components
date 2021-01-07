@@ -13,8 +13,7 @@
  ~ See the License for the specific language governing permissions and
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-import {NgModule} from '@angular/core';
+import {ComponentFactory, ComponentFactoryResolver, NgModule} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {BrowserModule} from "@angular/platform-browser";
 import {RouterModule} from "@angular/router";
@@ -33,5 +32,5 @@ import {AemAngularCoreWcmComponentsCore} from "@adobe/aem-core-components-angula
         DownloadV1Component,
     ],
 })
-export class AemAngularCoreWcmComponentsDownloadV1 {
+export class AemAngularCoreWcmComponentsDownloadV1{
 }

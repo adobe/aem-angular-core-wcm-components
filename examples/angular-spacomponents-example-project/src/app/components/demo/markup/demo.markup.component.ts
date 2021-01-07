@@ -14,18 +14,17 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import {Component, Input, OnInit} from "@angular/core";
-import {MappedComponentProperties} from "@adobe/aem-core-components-angular-spa/core";
+import {Component, Input} from "@angular/core";
 
-export interface DemoJsonModel{
-    markup:string
+export interface DemoMarkupModel {
+    markup: string
 }
 
 @Component({
     selector: 'demo',
     templateUrl: './demo.markup.component.html'
 })
-export class DemoMarkupComponent implements DemoJsonModel{
+export class DemoMarkupComponent implements DemoMarkupModel {
 
     @Input() markup;
 

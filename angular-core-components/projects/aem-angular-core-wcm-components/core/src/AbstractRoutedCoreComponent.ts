@@ -15,7 +15,7 @@
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 import {AbstractCoreComponent} from "./AbstractCoreComponent";
-import {Input} from "@angular/core";
+import {Component, Input} from "@angular/core";
 import {RoutedCoreComponentModel} from "./model/RoutedCoreComponentModel";
 
 
