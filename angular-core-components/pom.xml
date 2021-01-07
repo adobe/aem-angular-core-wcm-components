@@ -75,7 +75,7 @@
                     <goal>npm</goal>
                 </goals>
                 <configuration>
-                    <arguments>run build</arguments>
+                    <arguments>run build-libs</arguments>
                 </configuration>
             </execution>
             <execution>
