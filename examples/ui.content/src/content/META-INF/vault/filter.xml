@@ -20,4 +20,5 @@
     
     <filter root="/conf/aem-angular-core-spacomponents-example"/>
     <filter root="/content/aem-angular-core-spacomponents-example"/>
+    <filter root="/content/experience-fragments/angular-spa-examples"/>
 </workspaceFilter>

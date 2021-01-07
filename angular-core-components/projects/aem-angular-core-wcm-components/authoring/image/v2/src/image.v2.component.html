@@ -1,0 +1,54 @@
+<!--/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright 2020 Adobe
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
+
+<div *ngIf="isEmpty; then placeHolderBlock else componentBlock"></div>
+
+<ng-template #placeHolderBlock>
+    <core-placeholder *ngIf="shouldShowPlaceHolder" componentTitle="ImageV2"></core-placeholder>
+</ng-template>
+
+<ng-template #componentBlock>
+    <div *ngIf="hasLink; else staticBlock" [ngClass]="containerCssClass" [attr.data-cmp-data-layer]="dataLayerString">
+        <ng-container *ngIf="routed">
+            <ng-container *ngTemplateOutlet="routedLink"></ng-container>
+        </ng-container>
+        <ng-container *ngIf="!routed">
+            <ng-container *ngTemplateOutlet="staticLink"></ng-container>
+        </ng-container>
+    </div>
+    <ng-template #staticBlock>
+        <div id="{{id}}" [ngClass]="containerCssClass" [attr.data-cmp-data-layer]="dataLayerString">
+            <img [attr.src]="src" class="{{baseCssClass}}__image" alt="{{alt}}" />
+            <meta *ngIf="hasTitle" itemprop="caption" content="{{title}}">
+        </div>
+    </ng-template>
+</ng-template>
+
+
+<ng-template #routedLink>
+    <a routerLink="{{link}}"
+       routerLinkActive="active">
+        <img [attr.src]="src" class="{{baseCssClass}}__image" alt="{{alt}}"/>
+        <meta *ngIf="hasTitle" itemprop="caption" content="{{title}}">
+    </a>
+</ng-template>
+
+<ng-template #staticLink>
+    <a href="{{link}}">
+        <img [attr.src]="src" class="{{baseCssClass}}__image" alt="{{alt}}"/>
+        <meta *ngIf="hasTitle" itemprop="caption" content="{{title}}">
+    </a>
+</ng-template>

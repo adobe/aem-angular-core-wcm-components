@@ -1,0 +1,48 @@
+<!--/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright 2020 Adobe
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
+
+<ng-container *ngIf="isAllowedComponentsApplicable(); else container">
+    <div [class]="getAllowedComponentListPlaceholderClassNames()">
+        <div [attr.data-text]="getAllowedComponentListLabel()" [class]="allowedComponentListTitleClassNames"></div>
+        <ng-container *ngFor="let allowedComponent of getAllowedComponents()">
+            <div [attr.data-cq-data-path]="allowedComponent.path"
+                 [attr.data-emptytext]="allowedComponent.title"
+                 [class]="allowedComponentClassNames"></div>
+        </ng-container>
+    </div>
+</ng-container>
+
+<ng-template #container>
+    <ol  role="tablist"
+         class="{{baseCssClass}}__tablist"
+         aria-multiselectable="false">
+        <li role="tab" *ngFor="let itemKey of cqItemsOrder" (click)="onClick(itemKey)" [ngClass]="getTabClass(itemKey)" [innerText]="getTabTitle(itemKey)"></li>
+    </ol>
+
+    <ng-container *ngFor="let itemKey of cqItemsOrder">
+        <div [aemModelProvider]
+             [cqItem]="getItem(itemKey)"
+             [cqPath]="getDataPath(itemKey)"
+             [itemName]="itemKey"
+             [ngStyle]="getItemStyle(itemKey)"
+             [attr.data-cq-data-path]="getDataPath(itemKey)"></div>
+    </ng-container>
+    <div *ngIf="isInEditMode;"
+         [attr.data-cq-data-path]="placeholderPath"
+         [class]="getPlaceholderClassNames()">
+    </div>
+  
+</ng-template>

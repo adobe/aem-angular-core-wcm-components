@@ -17,7 +17,6 @@
 import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ModelManager, Constants } from '@adobe/aem-spa-page-model-manager';
-import {AbstractMappedComponent} from "@adobe/aem-angular-editable-components";
 import {isPlatformBrowser} from "@angular/common";
 
 @Component({
@@ -25,12 +24,11 @@ import {isPlatformBrowser} from "@angular/common";
   templateUrl: './page.component.html',
   styleUrls: ['./page.component.scss']
 })
-export class PageComponent extends AbstractMappedComponent implements OnInit {
+export class PageComponent implements OnInit {
   path;
   items;
   itemsOrder;
   constructor(private route: ActivatedRoute,@Inject(PLATFORM_ID) private _platformId: Object) {
-    super();
     // Get the data set by the AemPageDataResolver in the Router
     const path = route.snapshot.data.path;
 

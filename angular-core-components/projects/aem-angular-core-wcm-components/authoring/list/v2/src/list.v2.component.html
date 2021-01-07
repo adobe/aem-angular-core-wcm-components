@@ -1,0 +1,49 @@
+<!--/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright 2020 Adobe
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
+
+<div *ngIf="isEmpty; then placeHolderBlock else componentBlock"></div>
+
+<ng-template #placeHolderBlock>
+    <core-placeholder *ngIf="shouldShowPlaceHolder" componentTitle="ListV2"></core-placeholder>
+</ng-template>
+
+<ng-template #componentBlock>
+    <ul id="{{id}}" class="{{baseCssClass}}" [attr.data-cmp-data-layer]="dataLayerString">
+        <li *ngFor="let item of items" class="{{baseCssClass}}__item">
+            <article>
+                <ng-container [ngTemplateOutlet]="item.url && linkItems ? linkedTitle : plainTitle" [ngTemplateOutletContext]="{item:item}"></ng-container>
+                <span *ngIf="item.description" class="{{baseCssClass}}__item-description">{{item.description}}</span>
+            </article>
+        </li>
+    </ul>
+</ng-template>
+
+
+<ng-template #linkedTitle let-item='item'>
+    <a *ngIf="isItemRouted(item)" class="{{baseCssClass}}__item-link"
+       routerLink="{{item.url}}"
+       routerLinkActive="active">
+        <ng-container [ngTemplateOutlet]="plainTitle" [ngTemplateOutletContext]="{item:item}"></ng-container>
+    </a>
+    <a *ngIf="!isItemRouted(item)" href="{{item.url}}" class="{{baseCssClass}}__item-link">
+        <ng-container [ngTemplateOutlet]="plainTitle" [ngTemplateOutletContext]="{item:item}"></ng-container>
+    </a>
+</ng-template>
+
+<ng-template #plainTitle let-item='item'>
+    <span class="{{baseCssClass}}__item-title">{{item.title}}</span>
+    <span *ngIf="showModificationDate && item.lastModifiedFormatted" class="{{baseCssClass}}__item-date">{{item.lastModifiedFormatted}}</span>
+</ng-template>
