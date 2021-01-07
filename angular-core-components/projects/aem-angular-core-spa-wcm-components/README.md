@@ -30,7 +30,7 @@ const {CarouselV1, CarouselV1IsEmptyFn} = BaseCoreComponents;
 ### Importing the CarouselV1 component individually (for code splitting):
  
 ```
-import {CarouselV1, CarouselV1IsEmptyFn} from "@adobe/aem-core-components-angular-spa/containers/carousel/v1/CarouselV1";
+import {CarouselV1, CarouselV1IsEmptyFn} from "@adobe/aem-core-components-angular-spa/containers/carousel/v1";
 ```
 
 ### Using the imported code

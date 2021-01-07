@@ -49,7 +49,7 @@ const {ButtonV1, ButtonV1Model, ButtonV1IsEmptyFn} = BaseCoreComponents;
 ### Importing the button component individually:
  
 ```
-import ButtonV1, {ButtonV1Model, ButtonV1IsEmptyFn} from "@adobe/aem-core-components-angular-base/authoring/button/v1/ButtonV1";
+import ButtonV1, {ButtonV1Model, ButtonV1IsEmptyFn} from "@adobe/aem-core-components-angular-base/authoring/button/v1";
 ```
 
 ### Using the imported code
