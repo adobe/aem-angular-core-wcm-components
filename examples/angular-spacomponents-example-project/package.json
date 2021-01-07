@@ -7,7 +7,6 @@
     "build:browser": "cross-env NODE_ENV=browser ng build",
     "build:production": "ng build --prod --build-optimizer",
     "build:ssr": "ng build --prod && ng run angular-spa:server:production",
-    "bla": "ng run angular-spa:server:production",
     "serve:ssr": "node dist/server/main.js",
     "test": "ng test",
     "lint": "ng lint",

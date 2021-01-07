@@ -63,6 +63,7 @@ export class AppComponent implements OnInit{
     MapTo('core-components-examples/wcm/angular/components/tabs')(TabsV1Component);
     MapTo('core-components-examples/wcm/angular/components/page/angular-spacomponents-page')(AEMContainerComponent);
     MapTo('wcm/foundation/components/responsivegrid')(AEMResponsiveGridComponent);
+    MapTo('core-components-examples/wcm/angular/components/experience-fragment')(AEMContainerComponent, {isEmpty: (props) => !props.configured });
 
     MapTo('core-components-examples/wcm/angular/components/download')(DownloadV1Component,{isEmpty: DownloadV1IsEmptyFn});
     MapTo('core-components-examples/wcm/angular/components/languagenavigation')(LanguageNavigationV1Component);
