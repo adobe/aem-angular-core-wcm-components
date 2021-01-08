@@ -20,13 +20,7 @@ import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/tes
 
 
 import {TextV2Component} from './text.v2.component';
-import {
-    AEMAllowedComponentsContainerComponent,
-    AEMComponentDirective,
-    AEMModelProviderComponent,
-    Utils
-} from "@adobe/aem-angular-editable-components";
-import {AemAngularCoreWcmComponentsCore} from "@adobe/aem-core-components-angular-base/core";
+import {AemAngularCoreWcmComponentsCore,MetaUtils} from "@adobe/aem-core-components-angular-base/core";
 import {RouterTestingModule} from "@angular/router/testing";
 
 
@@ -39,14 +33,11 @@ describe('TextV2Component', () => {
 
     beforeEach(() => {
 
-        isInEditorSpy = spyOn(Utils, 'isInEditor').and.returnValue(false);
+        isInEditorSpy = spyOn(MetaUtils, 'isInEditor').and.returnValue(false);
 
         TestBed.configureTestingModule({
             declarations: [
-                TextV2Component,
-                AEMComponentDirective,
-                AEMAllowedComponentsContainerComponent,
-                AEMModelProviderComponent,
+                TextV2Component
             ],
             imports: [
                 AemAngularCoreWcmComponentsCore,

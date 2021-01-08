@@ -20,14 +20,8 @@ import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/tes
 
 
 import {DefaultV1Component} from './default.v1.component';
-import {
-    AEMAllowedComponentsContainerComponent,
-    AEMComponentDirective,
-    AEMModelProviderComponent,
-    Utils
-} from "@adobe/aem-angular-editable-components";
-import {AemAngularCoreWcmComponentsCore} from "@adobe/aem-core-components-angular-base/core";
 
+import {AemAngularCoreWcmComponentsCore,MetaUtils} from "@adobe/aem-core-components-angular-base/core";
 
 describe('ButtonV1Component', () => {
 
@@ -38,15 +32,12 @@ describe('ButtonV1Component', () => {
 
     beforeEach(() => {
 
-        isInEditorSpy = spyOn(Utils, 'isInEditor').and.returnValue(false);
+        isInEditorSpy = spyOn(MetaUtils, 'isInEditor').and.returnValue(false);
 
         TestBed.configureTestingModule({
             imports: [AemAngularCoreWcmComponentsCore],
             declarations: [
-                DefaultV1Component,
-                AEMComponentDirective,
-                AEMAllowedComponentsContainerComponent,
-                AEMModelProviderComponent,
+                DefaultV1Component
             ],
         }).overrideModule(BrowserDynamicTestingModule, {
             set: {

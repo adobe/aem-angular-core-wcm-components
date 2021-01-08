@@ -21,8 +21,7 @@ import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/tes
 
 import {DownloadV1Component} from './download.v1.component';
 
-import {AemAngularCoreWcmComponentsCore} from "@adobe/aem-core-components-angular-base/core";
-import MetaUtils from "../../../../core/src/utils/MetaUtils";
+import {AemAngularCoreWcmComponentsCore,MetaUtils} from "@adobe/aem-core-components-angular-base/core";
 
 
 describe('DownloadV1Component', () => {

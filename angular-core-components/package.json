@@ -53,11 +53,6 @@
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
-  "peerDependencies": {
-    "@adobe/aem-angular-editable-components": "^1.0.3",
-    "@adobe/aem-spa-component-mapping": "^1.0.5",
-    "@adobe/aem-spa-page-model-manager": "^1.0.3"
-  },
   "devDependencies": {
     "@adobe/aem-angular-editable-components": "^1.0.3",
     "@adobe/aem-spa-component-mapping": "^1.0.5",

@@ -16,7 +16,7 @@
 
 import {HostBinding, Input} from "@angular/core";
 import {CoreComponentModel} from "./model/CoreComponentModel";
-import MetaUtils from "./utils/MetaUtils";
+import {MetaUtils} from "./utils/MetaUtils";
 
 /**
  * AbstractCoreComponent

@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-export default class MetaUtils {
+export class MetaUtils {
 
     /**
      * Returns if the code executes in the browser context or not by checking for the

@@ -24,7 +24,7 @@ import {AbstractRoutedCoreComponent} from './AbstractRoutedCoreComponent';
 import {RouterTestingModule} from "@angular/router/testing";
 import {Component, Input} from "@angular/core";
 import {RoutedCoreComponentModel} from "./model/RoutedCoreComponentModel";
-import MetaUtils from "./utils/MetaUtils";
+import {MetaUtils} from "./utils/MetaUtils";
 
 @Component({
     selector: 'test-copmonent',

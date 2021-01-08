@@ -20,14 +20,9 @@ import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/tes
 
 
 import {EditPlaceholderComponent} from './editplaceholder.component';
-import {
-    AEMAllowedComponentsContainerComponent,
-    AEMComponentDirective,
-    AEMModelProviderComponent,
-    Utils
-} from "@adobe/aem-angular-editable-components";
-import {RouterTestingModule} from "@angular/router/testing";
 
+import {RouterTestingModule} from "@angular/router/testing";
+import {MetaUtils} from "../utils/MetaUtils";
 
 describe('EditPlaceholderComponent', () => {
 
@@ -38,14 +33,11 @@ describe('EditPlaceholderComponent', () => {
 
     beforeEach(() => {
 
-        isInEditorSpy = spyOn(Utils, 'isInEditor').and.returnValue(false);
+        isInEditorSpy = spyOn(MetaUtils, 'isInEditor').and.returnValue(false);
 
         TestBed.configureTestingModule({
             declarations: [
-                AEMComponentDirective,
-                EditPlaceholderComponent,
-                AEMAllowedComponentsContainerComponent,
-                AEMModelProviderComponent,
+                EditPlaceholderComponent
             ],
             imports: [
                 RouterTestingModule.withRoutes([]),

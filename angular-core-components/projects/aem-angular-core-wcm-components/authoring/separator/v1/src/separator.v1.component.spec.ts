@@ -20,16 +20,8 @@ import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/tes
 
 
 import {SeparatorV1Component} from './separator.v1.component';
-import {
-    AEMAllowedComponentsContainerComponent,
-    AEMComponentDirective,
-    AEMModelProviderComponent,
-    Utils
-} from "@adobe/aem-angular-editable-components";
-import {AemAngularCoreWcmComponentsCore, EditPlaceholderComponent} from "@adobe/aem-core-components-angular-base/core";
+import {AemAngularCoreWcmComponentsCore, MetaUtils} from "@adobe/aem-core-components-angular-base/core";
 import {RouterTestingModule} from "@angular/router/testing";
-import {RouterLinkWithHref} from "@angular/router";
-import {By} from "@angular/platform-browser";
 
 
 describe('SeparatorV1Component', () => {
@@ -41,14 +33,11 @@ describe('SeparatorV1Component', () => {
 
     beforeEach(() => {
 
-        isInEditorSpy = spyOn(Utils, 'isInEditor').and.returnValue(false);
+        isInEditorSpy = spyOn(MetaUtils, 'isInEditor').and.returnValue(false);
 
         TestBed.configureTestingModule({
             declarations: [
-                SeparatorV1Component,
-                AEMComponentDirective,
-                AEMAllowedComponentsContainerComponent,
-                AEMModelProviderComponent,
+                SeparatorV1Component
             ],
             imports: [
                 AemAngularCoreWcmComponentsCore,

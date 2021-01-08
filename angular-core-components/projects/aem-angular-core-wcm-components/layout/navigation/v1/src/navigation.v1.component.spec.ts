@@ -23,13 +23,12 @@ import {NavigationV1Component, NavigationV1Model,NavigationV1Item} from './navig
 import {
     AemAngularCoreWcmComponentsCore,
     DefaultNavigationUtilityServiceImpl,
-    EditPlaceholderComponent
+    MetaUtils
 } from "@adobe/aem-core-components-angular-base/core";
 import {RouterTestingModule} from "@angular/router/testing";
 import {RouterLinkWithHref} from "@angular/router";
 import {By} from "@angular/platform-browser";
 import {items} from "./navigation.v1.component.spec.mock";
-import MetaUtils from "../../../../core/src/utils/MetaUtils";
 
 
 describe('NavigationV1Component', () => {

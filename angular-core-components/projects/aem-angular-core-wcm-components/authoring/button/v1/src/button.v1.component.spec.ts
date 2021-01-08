@@ -21,12 +21,10 @@ import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/tes
 
 import {ButtonV1Component} from './button.v1.component';
 
-import {EditPlaceholderComponent} from "../../../../core/src/editplaceholder/editplaceholder.component";
 import {RouterTestingModule} from "@angular/router/testing";
 import {RouterLinkWithHref} from "@angular/router";
 import {By} from "@angular/platform-browser";
-import {AemAngularCoreWcmComponentsCore} from "@adobe/aem-core-components-angular-base/core";
-import MetaUtils from "../../../../core/src/utils/MetaUtils";
+import {AemAngularCoreWcmComponentsCore,MetaUtils} from "@adobe/aem-core-components-angular-base/core";
 
 
 describe('ButtonV1Component', () => {
