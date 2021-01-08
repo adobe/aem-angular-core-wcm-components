@@ -1,6 +1,6 @@
 {
   "name": "angular-core",
-  "version": "0.0.0",
+  "version": "1.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -37,8 +37,7 @@
     "build-libs": "npm run build-base && npm run build-spa",
     "test-spa": "ng test aem-angular-core-spa-wcm-components",
     "test-cover-spa-libs": "npm-run-all test-container-core test-accordion-v1 test-carousel-v1 test-container-v1 test-tabs-v1 build-spa",
-    "postcover": "istanbul report json && node combine-coverage.js",
-    "postinstall": "ngcc"
+    "postcover": "istanbul report json && node combine-coverage.js"
   },
   "private": true,
   "dependencies": {
