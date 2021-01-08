@@ -21,8 +21,6 @@ import {DefaultNavigationUtilityServiceImpl, NAVIGATION_UTIL_SERVICE, Navigation
 import {CommonModule} from "@angular/common";
 import {BrowserModule} from "@angular/platform-browser";
 import {RouterModule} from "@angular/router";
-import {AbstractCoreComponent} from "./AbstractCoreComponent";
-import {AbstractRoutedCoreComponent} from "./AbstractRoutedCoreComponent";
 
 export interface NavigationUtilityConfig {
     navigatonUtilityServiceImpl: Type<NavigationUtilityService>;

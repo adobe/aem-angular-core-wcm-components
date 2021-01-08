@@ -20,15 +20,11 @@ import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/tes
 
 
 import {AbstractRoutedCoreComponent} from './AbstractRoutedCoreComponent';
-import {
-    AEMAllowedComponentsContainerComponent,
-    AEMComponentDirective,
-    AEMModelProviderComponent,
-    Utils
-} from "@adobe/aem-angular-editable-components";
+
 import {RouterTestingModule} from "@angular/router/testing";
 import {Component, Input} from "@angular/core";
 import {RoutedCoreComponentModel} from "./model/RoutedCoreComponentModel";
+import MetaUtils from "./utils/MetaUtils";
 
 @Component({
     selector: 'test-copmonent',
@@ -59,14 +55,11 @@ describe('AbstractRoutedCoreComponent', () => {
 
     beforeEach(() => {
 
-        isInEditorSpy = spyOn(Utils, 'isInEditor').and.returnValue(false);
+        isInEditorSpy = spyOn(MetaUtils, 'isInEditor').and.returnValue(false);
 
         TestBed.configureTestingModule({
             declarations: [
-                AEMComponentDirective,
-                TestComponent,
-                AEMAllowedComponentsContainerComponent,
-                AEMModelProviderComponent,
+                TestComponent
             ],
             imports: [
                 RouterTestingModule.withRoutes([]),

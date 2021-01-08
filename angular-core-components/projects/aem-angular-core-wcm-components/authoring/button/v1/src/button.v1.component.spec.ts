@@ -20,17 +20,13 @@ import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/tes
 
 
 import {ButtonV1Component} from './button.v1.component';
-import {
-    AEMAllowedComponentsContainerComponent,
-    AEMComponentDirective,
-    AEMModelProviderComponent,
-    Utils
-} from "@adobe/aem-angular-editable-components";
+
 import {EditPlaceholderComponent} from "../../../../core/src/editplaceholder/editplaceholder.component";
 import {RouterTestingModule} from "@angular/router/testing";
 import {RouterLinkWithHref} from "@angular/router";
 import {By} from "@angular/platform-browser";
 import {AemAngularCoreWcmComponentsCore} from "@adobe/aem-core-components-angular-base/core";
+import MetaUtils from "../../../../core/src/utils/MetaUtils";
 
 
 describe('ButtonV1Component', () => {
@@ -42,14 +38,11 @@ describe('ButtonV1Component', () => {
 
     beforeEach(() => {
 
-        isInEditorSpy = spyOn(Utils, 'isInEditor').and.returnValue(false);
+        isInEditorSpy = spyOn(MetaUtils,'isInEditor').and.returnValue(false);
 
         TestBed.configureTestingModule({
             declarations: [
-                ButtonV1Component,
-                AEMComponentDirective,
-                AEMAllowedComponentsContainerComponent,
-                AEMModelProviderComponent,
+                ButtonV1Component
                 ],
             imports: [
                 AemAngularCoreWcmComponentsCore,
