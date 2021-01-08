@@ -26,7 +26,7 @@ import {
     AEMModelProviderComponent,
     Utils
 } from "@adobe/aem-angular-editable-components";
-import {EditPlaceholderComponent, SafeHtmlPipe} from "@adobe/aem-core-components-angular-base/core";
+import {AemAngularCoreWcmComponentsCore} from "@adobe/aem-core-components-angular-base/core";
 
 
 describe('ButtonV1Component', () => {
@@ -41,17 +41,16 @@ describe('ButtonV1Component', () => {
         isInEditorSpy = spyOn(Utils, 'isInEditor').and.returnValue(false);
 
         TestBed.configureTestingModule({
+            imports: [AemAngularCoreWcmComponentsCore],
             declarations: [
                 DefaultV1Component,
                 AEMComponentDirective,
-                SafeHtmlPipe,
-                EditPlaceholderComponent,
                 AEMAllowedComponentsContainerComponent,
                 AEMModelProviderComponent,
             ],
         }).overrideModule(BrowserDynamicTestingModule, {
             set: {
-                entryComponents: [DefaultV1Component,EditPlaceholderComponent]
+                entryComponents: [DefaultV1Component]
             }
         }).compileComponents();
 

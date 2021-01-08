@@ -26,7 +26,7 @@ import {
     AEMModelProviderComponent,
     Utils
 } from "@adobe/aem-angular-editable-components";
-import {EditPlaceholderComponent,SafeHtmlPipe} from "@adobe/aem-core-components-angular-base/core";
+import {AemAngularCoreWcmComponentsCore} from "@adobe/aem-core-components-angular-base/core";
 
 
 describe('DownloadV1Component', () => {
@@ -41,17 +41,16 @@ describe('DownloadV1Component', () => {
         isInEditorSpy = spyOn(Utils, 'isInEditor').and.returnValue(false);
 
         TestBed.configureTestingModule({
+            imports: [AemAngularCoreWcmComponentsCore],
             declarations: [
                 DownloadV1Component,
                 AEMComponentDirective,
-                EditPlaceholderComponent,
-                SafeHtmlPipe,
                 AEMAllowedComponentsContainerComponent,
                 AEMModelProviderComponent,
             ],
         }).overrideModule(BrowserDynamicTestingModule, {
             set: {
-                entryComponents: [DownloadV1Component,EditPlaceholderComponent]
+                entryComponents: [DownloadV1Component]
             }
         }).compileComponents();
 

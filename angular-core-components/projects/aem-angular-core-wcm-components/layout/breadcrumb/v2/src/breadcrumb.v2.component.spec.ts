@@ -28,8 +28,7 @@ import {
 } from "@adobe/aem-angular-editable-components";
 import {
     AemAngularCoreWcmComponentsCore,
-    DefaultNavigationUtilityServiceImpl,
-    EditPlaceholderComponent
+    DefaultNavigationUtilityServiceImpl
 } from "@adobe/aem-core-components-angular-base/core";
 import {RouterTestingModule} from "@angular/router/testing";
 import {RouterLinkWithHref} from "@angular/router";
@@ -57,7 +56,6 @@ describe('BreadCrumbV2Component', () => {
             declarations: [
                 BreadCrumbV2Component,
                 AEMComponentDirective,
-                EditPlaceholderComponent,
                 AEMAllowedComponentsContainerComponent,
                 AEMModelProviderComponent,
             ],
@@ -68,7 +66,7 @@ describe('BreadCrumbV2Component', () => {
             ],
         }).overrideModule(BrowserDynamicTestingModule, {
             set: {
-                entryComponents: [BreadCrumbV2Component,EditPlaceholderComponent]
+                entryComponents: [BreadCrumbV2Component]
             }
         }).compileComponents();
 

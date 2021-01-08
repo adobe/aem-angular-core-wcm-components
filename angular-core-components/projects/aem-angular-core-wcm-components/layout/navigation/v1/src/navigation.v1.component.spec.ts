@@ -52,7 +52,6 @@ describe('NavigationV1Component', () => {
             declarations: [
                 NavigationV1Component,
                 AEMComponentDirective,
-                EditPlaceholderComponent,
                 AEMAllowedComponentsContainerComponent,
                 AEMModelProviderComponent,
             ],
@@ -63,7 +62,7 @@ describe('NavigationV1Component', () => {
             ],
         }).overrideModule(BrowserDynamicTestingModule, {
             set: {
-                entryComponents: [NavigationV1Component,EditPlaceholderComponent]
+                entryComponents: [NavigationV1Component]
             }
         }).compileComponents();
 

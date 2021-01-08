@@ -26,7 +26,7 @@ import {
     AEMModelProviderComponent,
     Utils
 } from "@adobe/aem-angular-editable-components";
-import {EditPlaceholderComponent} from "@adobe/aem-core-components-angular-base/core";
+import {AemAngularCoreWcmComponentsCore, EditPlaceholderComponent} from "@adobe/aem-core-components-angular-base/core";
 import {RouterTestingModule} from "@angular/router/testing";
 import {RouterLinkWithHref} from "@angular/router";
 import {By} from "@angular/platform-browser";
@@ -48,16 +48,16 @@ describe('ListV2Component', () => {
             declarations: [
                 ListV2Component,
                 AEMComponentDirective,
-                EditPlaceholderComponent,
                 AEMAllowedComponentsContainerComponent,
                 AEMModelProviderComponent,
             ],
             imports: [
+                AemAngularCoreWcmComponentsCore,
                 RouterTestingModule.withRoutes([]),
             ],
         }).overrideModule(BrowserDynamicTestingModule, {
             set: {
-                entryComponents: [ListV2Component,EditPlaceholderComponent]
+                entryComponents: [ListV2Component]
             }
         }).compileComponents();
 

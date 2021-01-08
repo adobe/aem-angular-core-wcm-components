@@ -30,6 +30,7 @@ import {EditPlaceholderComponent} from "../../../../core/src/editplaceholder/edi
 import {RouterTestingModule} from "@angular/router/testing";
 import {RouterLinkWithHref} from "@angular/router";
 import {By} from "@angular/platform-browser";
+import {AemAngularCoreWcmComponentsCore} from "@adobe/aem-core-components-angular-base/core";
 
 
 describe('ButtonV1Component', () => {
@@ -47,16 +48,16 @@ describe('ButtonV1Component', () => {
             declarations: [
                 ButtonV1Component,
                 AEMComponentDirective,
-                EditPlaceholderComponent,
                 AEMAllowedComponentsContainerComponent,
                 AEMModelProviderComponent,
                 ],
             imports: [
+                AemAngularCoreWcmComponentsCore,
                 RouterTestingModule.withRoutes([]),
             ],
         }).overrideModule(BrowserDynamicTestingModule, {
             set: {
-                entryComponents: [ButtonV1Component,EditPlaceholderComponent]
+                entryComponents: [ButtonV1Component]
             }
         }).compileComponents();
 

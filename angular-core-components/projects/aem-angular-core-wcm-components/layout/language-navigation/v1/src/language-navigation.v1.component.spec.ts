@@ -28,8 +28,7 @@ import {
 } from "@adobe/aem-angular-editable-components";
 import {
     AemAngularCoreWcmComponentsCore,
-    DefaultNavigationUtilityServiceImpl,
-    EditPlaceholderComponent
+    DefaultNavigationUtilityServiceImpl
 } from "@adobe/aem-core-components-angular-base/core";
 import {RouterTestingModule} from "@angular/router/testing";
 import {RouterLinkWithHref} from "@angular/router";
@@ -51,7 +50,6 @@ describe('LanguageNavigationV1Component', () => {
             declarations: [
                 LanguageNavigationV1Component,
                 AEMComponentDirective,
-                EditPlaceholderComponent,
                 AEMAllowedComponentsContainerComponent,
                 AEMModelProviderComponent,
             ],
@@ -62,7 +60,7 @@ describe('LanguageNavigationV1Component', () => {
             ],
         }).overrideModule(BrowserDynamicTestingModule, {
             set: {
-                entryComponents: [LanguageNavigationV1Component,EditPlaceholderComponent]
+                entryComponents: [LanguageNavigationV1Component]
             }
         }).compileComponents();
 

@@ -145,7 +145,7 @@ describe('TabsV1', () => {
         fixture.detectChanges();
 
         const element = fixture.nativeElement;
-        expect(element.getAttributeNode("class").value).toBe("aem-container cmp-custom-tabs");
+        expect(element.getAttributeNode("class").value).toContain("cmp-custom-tabs");
     });
 
     it('should NOT create the allowed components if not in the editor', () => {

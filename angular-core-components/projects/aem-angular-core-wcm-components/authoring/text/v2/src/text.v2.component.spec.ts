@@ -26,7 +26,7 @@ import {
     AEMModelProviderComponent,
     Utils
 } from "@adobe/aem-angular-editable-components";
-import {EditPlaceholderComponent, SafeHtmlPipe} from "@adobe/aem-core-components-angular-base/core";
+import {AemAngularCoreWcmComponentsCore} from "@adobe/aem-core-components-angular-base/core";
 import {RouterTestingModule} from "@angular/router/testing";
 
 
@@ -45,17 +45,16 @@ describe('TextV2Component', () => {
             declarations: [
                 TextV2Component,
                 AEMComponentDirective,
-                EditPlaceholderComponent,
-                SafeHtmlPipe,
                 AEMAllowedComponentsContainerComponent,
                 AEMModelProviderComponent,
             ],
             imports: [
+                AemAngularCoreWcmComponentsCore,
                 RouterTestingModule.withRoutes([]),
             ],
         }).overrideModule(BrowserDynamicTestingModule, {
             set: {
-                entryComponents: [TextV2Component,EditPlaceholderComponent]
+                entryComponents: [TextV2Component]
             }
         }).compileComponents();
 

@@ -26,7 +26,7 @@ import {
     AEMModelProviderComponent,
     Utils
 } from "@adobe/aem-angular-editable-components";
-import {EditPlaceholderComponent, SafeHtmlPipe} from "@adobe/aem-core-components-angular-base/core";
+import {AemAngularCoreWcmComponentsCore, EditPlaceholderComponent} from "@adobe/aem-core-components-angular-base/core";
 import {RouterTestingModule} from "@angular/router/testing";
 import {RouterLinkWithHref} from "@angular/router";
 import {By} from "@angular/platform-browser";
@@ -49,19 +49,18 @@ describe('TeaserV1Component', () => {
             declarations: [
                 TeaserV1Component,
                 AEMComponentDirective,
-                SafeHtmlPipe,
-                EditPlaceholderComponent,
                 AEMAllowedComponentsContainerComponent,
                 AEMModelProviderComponent,
                 TitleV2Component,
                 ImageV2Component
             ],
             imports: [
+                AemAngularCoreWcmComponentsCore,
                 RouterTestingModule.withRoutes([]),
             ],
         }).overrideModule(BrowserDynamicTestingModule, {
             set: {
-                entryComponents: [TeaserV1Component,EditPlaceholderComponent]
+                entryComponents: [TeaserV1Component]
             }
         }).compileComponents();
 

@@ -26,7 +26,7 @@ import {
     AEMModelProviderComponent,
     Utils
 } from "@adobe/aem-angular-editable-components";
-import {EditPlaceholderComponent} from "@adobe/aem-core-components-angular-base/core";
+import {AemAngularCoreWcmComponentsCore, EditPlaceholderComponent} from "@adobe/aem-core-components-angular-base/core";
 import {RouterTestingModule} from "@angular/router/testing";
 import {RouterLinkWithHref} from "@angular/router";
 import {By} from "@angular/platform-browser";
@@ -47,16 +47,16 @@ describe('SeparatorV1Component', () => {
             declarations: [
                 SeparatorV1Component,
                 AEMComponentDirective,
-                EditPlaceholderComponent,
                 AEMAllowedComponentsContainerComponent,
                 AEMModelProviderComponent,
             ],
             imports: [
+                AemAngularCoreWcmComponentsCore,
                 RouterTestingModule.withRoutes([]),
             ],
         }).overrideModule(BrowserDynamicTestingModule, {
             set: {
-                entryComponents: [SeparatorV1Component,EditPlaceholderComponent]
+                entryComponents: [SeparatorV1Component]
             }
         }).compileComponents();
 
