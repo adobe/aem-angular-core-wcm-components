@@ -22,6 +22,8 @@ import {DemoComponent} from "./components/demo/demo.component";
 import {DemoJsonComponent} from "./components/demo/json/demo.json.component";
 import {DemoPropertiesComponent} from "./components/demo/properties/demo.properties.component";
 import {DemoMarkupComponent} from "./components/demo/markup/demo.markup.component";
+import {SeparatorV1Component} from "@adobe/aem-core-components-angular-base/authoring/separator/v1";
+import {ContainerV1Component} from "@adobe/aem-core-components-angular-spa/containers/container/v1";
 
 @Component({
   selector: 'app-root',
@@ -60,6 +62,8 @@ export class AppComponent implements OnInit{
     MapTo('core-components-examples/wcm/angular/components/page/angular-spacomponents-page')(AEMContainerComponent);
     MapTo('wcm/foundation/components/responsivegrid')(AEMResponsiveGridComponent);
     MapTo('core-components-examples/wcm/angular/components/experience-fragment')(AEMContainerComponent, {isEmpty: (props) => !props.configured });
+    MapTo('core-components-examples/wcm/angular/components/separator')(SeparatorV1Component);
+    MapTo('core-components-examples/wcm/angular/components/container')(ContainerV1Component)
 
     //lazy components
     LazyMapTo('core-components-examples/wcm/angular/components/lazycomponent')(() => new Promise<unknown>((resolve,reject) => {
@@ -78,10 +82,6 @@ export class AppComponent implements OnInit{
         () => new Promise<unknown>((resolve,reject) => {
       import('@adobe/aem-core-components-angular-base/authoring/list/v2').then((Module) => resolve(Module.ListV2Component)).catch(reject);
     }),{isEmpty: ListV2IsEmptyFn});
-
-    LazyMapTo('core-components-examples/wcm/angular/components/separator')(() => new Promise<unknown>((resolve,reject) => {
-      import('@adobe/aem-core-components-angular-base/authoring/separator/v1').then((Module) => resolve(Module.SeparatorV1Component)).catch(reject);
-    }));
 
     LazyMapTo('core-components-examples/wcm/angular/components/breadcrumb')(() => new Promise<unknown>((resolve,reject) => {
       import('@adobe/aem-core-components-angular-base/layout/breadcrumb/v2').then((Module) => resolve(Module.BreadCrumbV2Component)).catch(reject);
@@ -103,8 +103,5 @@ export class AppComponent implements OnInit{
       import('@adobe/aem-core-components-angular-spa/containers/carousel/v1').then((Module) => resolve(Module.CarouselV1Component)).catch(reject);
     }) );
 
-    LazyMapTo('core-components-examples/wcm/angular/components/container')(() => new Promise<unknown>((resolve,reject) => {
-      import('@adobe/aem-core-components-angular-spa/containers/container/v1').then((Module) => resolve(Module.ContainerV1Component)).catch(reject);
-    }) );
   }
 }
