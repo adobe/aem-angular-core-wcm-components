@@ -19,6 +19,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
+import './styles.scss';
 
 import '@angular/compiler';
 
@@ -26,5 +27,24 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+const modelElement = document.getElementById('__AEM_STATE__');
+
+const model =
+    modelElement
+        ? JSON.parse(modelElement.innerHTML)
+        : {};
+
+//@ts-ignore
+window.initialModel = modelElement ? model.rootModel : undefined;
+//@ts-ignore
+const isServerSideRendered = (window.initialModel !== undefined);
+
+if(isServerSideRendered){
+  modelElement.remove();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  platformBrowserDynamic()
+      .bootstrapModule(AppModule)
+      .catch(err => console.error(err));
+});

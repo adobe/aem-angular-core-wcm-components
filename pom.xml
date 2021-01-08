@@ -73,7 +73,7 @@
         <aem.host>localhost</aem.host>
         <aem.port>4502</aem.port>
         <aem.publish.host>localhost</aem.publish.host>
-        <aem.publish.port>4503</aem.publish.port>
+        <aem.publish.port>4502</aem.publish.port>
         <aem.contextPath/>
         <sling.user>admin</sling.user>
         <sling.password>admin</sling.password>

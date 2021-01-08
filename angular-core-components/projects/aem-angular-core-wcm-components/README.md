@@ -1,24 +1,70 @@
-# AemAngularCoreWcmComponents
+# AEM WCM Components - Angular Core implementation
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.12.
+This module provides a Angular implementation for the [AEM core components](https://www.aemcomponents.dev/). 
+This enables you to use the core components:
+-In the [AEM SPA editor](https://docs.adobe.com/content/help/en/experience-manager-64/developing/headless/spas/spa-overview.html) with Angular
+-Or in any other Angular context, provided you have the input needed to instantiate the components.
 
-## Code scaffolding
 
-Run `ng generate component component-name --project aem-angular-core-wcm-components` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project aem-angular-core-wcm-components`.
-> Note: Don't forget to add `--project aem-angular-core-wcm-components` or else it will be added to the default project in your `angular.json` file. 
+Current supported / exported components:
 
-## Build
+### Page Authoring
+ - Button (V1)
+ - Download (V1)
+ - Image (V2)
+ - List (V2)
+ - Separator (V1)
+ - Teaser (V1)
+ - Text (V2)
+ - Title (V2)
 
-Run `ng build aem-angular-core-wcm-components` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Layout
+ - BreadCrumb (V2)
+ - Language Navigation (V1)
+ - Navigation (V1)
+ 
+### Abstraction
+-  AbstractCoreComponent
+-  CoreComponentModel (interface)
 
-## Publishing
+### Containers
+For the containers (Accordion,Tabs,Carousel,Container) we do not provide any implementation in this project.
+It does not make sense to provide it for web-components as you can leverage the normal Core Components implementation such as a Tab Container, and drag your web components in there.
+Instead we provide them for the SPA editor only, introducing a dependency, and therefore we moved it into a [separate project](https://www.npmjs.com/package/@adobe/aem-core-components-angular-spa).
 
-After building your library with `ng build aem-angular-core-wcm-components`, go to the dist folder `cd dist/aem-angular-core-wcm-components` and run `npm publish`.
 
-## Running unit tests
+## Usage
 
-Run `ng test aem-angular-core-wcm-components` to execute the unit tests via [Karma](https://karma-runner.github.io).
+You can choose to import the entire library at once OR import components individually. 
+The latter is useful if you want to only enable a few components and you want to save your javascript footprint.
+Also, if you want to load all core components, but you want to lazyload them with angular suspense, you will need to import them individually.
 
-## Further help
+### Importing the whole library: 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+import * as BaseCoreComponents from "@adobe/aem-core-components-angular-base";
+const {ButtonV1, ButtonV1Model, ButtonV1IsEmptyFn} = BaseCoreComponents;
+```
+
+### Importing the button component individually:
+ 
+```
+import ButtonV1, {ButtonV1Model, ButtonV1IsEmptyFn} from "@adobe/aem-core-components-angular-base/authoring/button/v1";
+```
+
+### Using the imported code
+
+Now that you have the Button and ButtonV1IsEmptyFn imported, you can use them in your project.
+The properties of the Button 1 on 1 correspond to the Sling Model Exporter (.model.json) output.
+
+Note: There are some exceptions where some extra properties are added (mainly i18n labels) that are currently not present in the OOTB sling model exports.
+These can be added by the project itself with delegation. If they are not present, the default (English) values will be used.
+
+
+#### Button - Example with the spa editor:
+
+```
+MapTo('my-project/wcm/components/button')(ButtonV1, {isEmpty: ButtonV1IsEmptyFn});
+```
+
+For a complete project with examples, visit the [github page](https://github.com/adobe/aem-angular-core-wcm-components/tree/master/examples).

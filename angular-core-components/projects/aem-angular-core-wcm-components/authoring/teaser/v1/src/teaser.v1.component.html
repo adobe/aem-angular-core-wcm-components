@@ -1,0 +1,56 @@
+<!--/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright 2020 Adobe
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
+
+<div *ngIf="isEmpty; then placeHolderBlock else componentBlock"></div>
+
+<ng-template #placeHolderBlock>
+    <core-placeholder *ngIf="shouldShowPlaceHolder" componentTitle="TeaserV1"></core-placeholder>
+</ng-template>
+
+<ng-template #componentBlock>
+    <div id="{{id}}" [attr.data-cmp-data-layer]="dataLayerString" class="{{baseCssClass}}">
+        
+        <div class="{{baseCssClass}}__image" *ngIf="isShowingImage">
+            <core-image-v2 [hidePlaceHolder]="true" [src]="imagePath" [title]="title"></core-image-v2>
+        </div>
+        <div class="{{baseCssClass}}__content">
+            <div *ngIf="pretitle" class="{{baseCssClass}}__pretitle">{{pretitle}}</div>
+            <core-title-v2 [hidePlaceHolder]="true" [routed]="routed" [linkURL]="linkURL" [text]="title" [type]="titleType"></core-title-v2>
+            <div *ngIf="description" class="{{baseCssClass}}__description" [innerHTML]="description | safeHtml"></div>
+            <div *ngIf="actionsEnabled" class="{{baseCssClass}}__action-container">
+                
+                <ng-container *ngFor="let action of actions">
+                    
+                    <ng-template #normalLink>
+                        <a class="{{baseCssClass}}__action-link" href="{{action.URL}}">{{action.title}}</a>
+                    </ng-template>
+                    
+                    <ng-container *ngIf="routed || action.routed; else normalLink">
+                        <a class="{{baseCssClass}}__action-link"
+                           routerLink="{{action.URL}}"
+                           routerLinkActive="active"
+                        >{{action.title}}</a>
+                    </ng-container>
+                    
+                </ng-container>
+            </div>
+    
+        </div>
+
+    </div>
+   
+</ng-template>
+

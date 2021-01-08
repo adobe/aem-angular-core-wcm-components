@@ -1,0 +1,206 @@
+/*
+ *  Copyright 2018 Adobe
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+
+@cmp-angular-examples-structure-header-height: 48*@px;
+@cmp-angular-examples-structure-header-height-l: 118*@px;
+
+@cmp-angular-examples-structure-main-grid-gap-s: @cmp-angular-examples-spacing-4;
+@cmp-angular-examples-structure-main-grid-gap-m: @cmp-angular-examples-spacing-6;
+@cmp-angular-examples-structure-main-grid-gap-l: @cmp-angular-examples-spacing-7;
+
+@cmp-angular-examples-structure-aside-content-width: 200*@px;
+@cmp-angular-examples-structure-aside-width: @cmp-angular-examples-structure-aside-content-width + (2 * @cmp-angular-examples-spacing-5);
+@cmp-angular-examples-structure-aside-width-l: @cmp-angular-examples-structure-aside-content-width + (2 * @cmp-angular-examples-spacing-8);
+
+.cmp-angular-examples-structure {
+    > div > .aem-Grid,
+    > .aem-Grid {
+        .display-grid();
+        width: 100%;
+        max-width: @cmp-angular-examples-breakpoint-l;
+        margin: 0 auto;
+        grid-template-areas: 'header' 'main' 'footer';
+        .grid-template-columns(1fr);
+        .grid-template-rows(@cmp-angular-examples-structure-header-height 1fr auto);
+    }
+}
+
+.cmp-angular-examples-structure__header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-area: header;
+    z-index: @cmp-angular-examples-z-index-fixed;
+
+    width: 100vw;
+    height: @cmp-angular-examples-structure-header-height;
+    margin: 0;
+    border-bottom: 1*@px solid @cmp-angular-examples-color-gray-300;
+    padding: @cmp-angular-examples-spacing-1 @cmp-angular-examples-spacing-2;
+
+    background-color: @cmp-angular-examples-color-background;
+}
+
+.cmp-angular-examples-structure__aside {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    overflow: auto;
+    grid-area: initial;
+    z-index: @cmp-angular-examples-z-index-aside;
+
+    display: block;
+    width: @cmp-angular-examples-structure-aside-width !important;
+    padding: @cmp-angular-examples-structure-header-height-l @cmp-angular-examples-spacing-5 0;
+
+    background-color: @cmp-angular-examples-color-white;
+
+    .transform(translateX(-@cmp-angular-examples-structure-aside-width));
+    .transition-transform(~'@{cmp-angular-examples-animation-duration-2} ease-in-out');
+
+    &--open {
+        .transform(translateX(0));
+    }
+
+    > .aem-Grid,
+    > div > .aem-Grid{
+        height: 100%;
+        overflow-y: auto;
+        width: ~"calc(100% + @{cmp-angular-examples-spacing-5})";
+    }
+}
+
+.cmp-angular-examples-structure__main,
+.cmp-angular-examples-structure__footer {
+    width: auto !important;
+    min-width: 0;
+    margin: @cmp-angular-examples-spacing-8 0 !important;
+    padding: 0 (@cmp-angular-examples-structure-main-grid-gap-s / 2);
+
+    .aem-GridColumn {
+        padding: 0 (@cmp-angular-examples-structure-main-grid-gap-s / 2);
+    }
+}
+
+.cmp-angular-examples-structure__main {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-area: main;
+}
+
+.cmp-angular-examples-structure__footer {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-area: footer;
+
+    font-size: @cmp-angular-examples-font-size-s;
+    text-align: right;
+    color: @cmp-angular-examples-color-gray-800;
+}
+
+@media @cmp-angular-examples-screen-s-min {
+    .cmp-angular-examples-structure__aside {
+        width: @cmp-angular-examples-structure-aside-width-l !important;
+        padding: @cmp-angular-examples-structure-header-height-l @cmp-angular-examples-spacing-8 0;
+        .transform(translateX(-@cmp-angular-examples-structure-aside-width-l));
+
+        &--open {
+            .transform(translateX(0));
+        }
+
+        > .aem-Grid {
+            width: ~"calc(100% + @{cmp-angular-examples-spacing-8})";
+        }
+    }
+}
+
+@media @cmp-angular-examples-screen-m-min {
+    .cmp-angular-examples-structure__main {
+        margin: @cmp-angular-examples-spacing-8 (@cmp-angular-examples-structure-main-grid-gap-m / 2) !important;
+
+        .aem-GridColumn {
+            padding: 0 (@cmp-angular-examples-structure-main-grid-gap-m / 2);
+        }
+    }
+}
+
+@media @cmp-angular-examples-screen-l-min {
+    .cmp-angular-examples-structure {
+        > .aem-Grid {
+            grid-template-areas: 'header header' 'aside main' '. footer';
+            .grid-template-columns(@cmp-angular-examples-structure-aside-width-l 1fr);
+            .grid-template-rows(@cmp-angular-examples-spacing-9 1fr auto);
+        }
+    }
+
+    .cmp-angular-examples-structure__header {
+        left: auto;
+
+        height: @cmp-angular-examples-structure-header-height-l;
+        border-bottom: 0;
+        padding: @cmp-angular-examples-spacing-8;
+
+        background: transparent;
+
+        pointer-events: none;
+    }
+
+    .cmp-angular-examples-structure__aside,
+    .cmp-angular-examples-structure__aside--open {
+        top: @cmp-angular-examples-structure-header-height-l;
+        left: auto;
+
+        -ms-grid-row: 2;
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 1;
+        grid-area: aside;
+
+        display: block;
+        width: @cmp-angular-examples-structure-aside-width-l !important;
+        padding-top: 0;
+
+        // prevents transition flash when resizing window across breakpoints
+        margin-left: @cmp-angular-examples-structure-aside-width-l;
+        .transform(translateX(-@cmp-angular-examples-structure-aside-width-l));
+        transition: none;
+    }
+
+    .cmp-angular-examples-structure__main {
+        -ms-grid-column: 2;
+
+        margin: 0 @cmp-angular-examples-spacing-7 @cmp-angular-examples-spacing-8 @cmp-angular-examples-spacing-4 !important;
+    }
+
+    .cmp-angular-examples-structure__footer {
+        -ms-grid-column: 2;
+
+        margin: 0 @cmp-angular-examples-spacing-7 @cmp-angular-examples-spacing-8 @cmp-angular-examples-spacing-4 !important;
+    }
+}
+
+@media @cmp-angular-examples-screen-xl-min {
+    .cmp-angular-examples-structure__main {
+        .aem-GridColumn {
+            padding: 0 (@cmp-angular-examples-structure-main-grid-gap-l / 2);
+        }
+    }
+}

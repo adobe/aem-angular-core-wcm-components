@@ -15,5 +15,7 @@
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 export const environment = {
-  production: true
+  production: true,
+  API_HOST: 'http://localhost:4502',
+  APP_ROOT_PATH: ''
 };

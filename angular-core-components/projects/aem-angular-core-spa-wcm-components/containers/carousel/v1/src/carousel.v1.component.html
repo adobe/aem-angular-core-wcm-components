@@ -1,0 +1,101 @@
+<!--/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright 2020 Adobe
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
+
+<ng-container *ngIf="isAllowedComponentsApplicable(); else container">
+    <div [class]="getAllowedComponentListPlaceholderClassNames()">
+        <div [attr.data-text]="getAllowedComponentListLabel()" [class]="allowedComponentListTitleClassNames"></div>
+        <ng-container *ngFor="let allowedComponent of getAllowedComponents()">
+            <div [attr.data-cq-data-path]="allowedComponent.path"
+                 [attr.data-emptytext]="allowedComponent.title"
+                 [class]="allowedComponentClassNames"></div>
+        </ng-container>
+    </div>
+</ng-container>
+<ng-template #container>
+    
+    <div class="carousel">
+        <div id="{{id}}" class="{{baseCssClass}}" role="group" [attr.aria-roledescription]="accessibilityLabel">
+            <div class="{{baseCssClass}}__content" (mouseenter)="handleOnMouseEnter()" (mouseleave)="handleOnMouseLeave()"
+            >
+                <div *ngFor="let itemKey of cqItemsOrder; let i = index"
+                     [class]="getSlideCssClass(i)"
+                     id="{{id}}-item-{{i}}"
+                     role="tabpanel"
+                     [attr.aria-label]="getSlideAriaLabel(i)">
+                    <div
+                            [aemModelProvider]
+                            [cqItem]="getItem(itemKey)"
+                            [cqPath]="getDataPath(itemKey)"
+                            [itemName]="itemKey"
+                            [attr.data-cq-data-path]="getDataPath(itemKey)"></div>
+                </div>
+                
+                <div class="{{baseCssClass}}__actions">
+                    <button class="{{baseCssClass}}__action {{baseCssClass}}__action--previous"
+                            type="button"
+                            [attr.aria-label]="accessibility.previous"
+                            (click)="handleOnButtonPrev()">
+                        <span class="{{baseCssClass}}__action-icon"></span>
+                        <span class="{{baseCssClass}}__action-text" [innerText]="accessibility.previous"></span>
+                    </button>
+                    
+                    
+                    <button [ngClass]="baseCssClass + '__action ' + baseCssClass + '__action--pause' + (!autoPlayIntervalOn ? ' ' + baseCssClass + '__action--disabled' : '')"
+                            type="button"
+                            *ngIf="autoplay"
+                            [attr.aria-label]="accessibility.pause"
+                            (click)="toggleAutoPlay(false)">
+                        <span class="{{baseCssClass}}__action-icon"></span>
+                        <span class="{{baseCssClass}}__action-text" [innerText]="accessibility.pause"></span>
+                    </button>
+                    <button [ngClass]="baseCssClass + '__action ' + baseCssClass + '__action--play' + (autoPlayIntervalOn ? ' ' + baseCssClass + '__action--disabled' : '')"
+                            type="button"
+                            *ngIf="autoplay"
+                            [attr.aria-label]="accessibility.play"
+                            (click)="toggleAutoPlay(true)">
+                        <span class="{{baseCssClass}}__action-icon"></span>
+                        <span class="{{baseCssClass}}__action-text" [innerText]="accessibility.play"></span>
+                    </button>
+                    
+                    
+                    <button class="{{baseCssClass}}__action {{baseCssClass}}__action--next"
+                            type="button"
+                            [attr.aria-label]="accessibility.next"
+                            (click)="handleOnButtonNext()">
+                        <span class="{{baseCssClass}}__action-icon"></span>
+                        <span class="{{baseCssClass}}__action-text" [innerText]="accessibility.next"></span>
+                    </button>
+                
+                </div>
+                <ol class="{{baseCssClass}}__indicators" role="tablist" [attr.aria-label]="accessibility.indicators">
+                    <li *ngFor="let itemKey of cqItemsOrder; let i = index"
+                        [class]="getIndicatorCssClass(i)"
+                        role="tab"
+                        (click)="handleIndicatorClick(i)"
+                        [attr.aria-controls]="getAriaControlsId(i)"
+                        [attr.aria-label]="getIndicatorAriaLabel(i)" [innerText]="cqItems[itemKey]['cq:panelTitle']"></li>
+                </ol>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div *ngIf="isInEditMode;"
+         [attr.data-cq-data-path]="placeholderPath"
+         [class]="getPlaceholderClassNames()">
+    </div>
+    
+</ng-template>

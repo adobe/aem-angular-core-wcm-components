@@ -50,15 +50,29 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-@Model(adaptables = SlingHttpServletRequest.class, adapters = {HierarchyPage.class, ContainerExporter.class}, resourceType = HierarchyPageImpl.RESOURCE_TYPE)
+@Model(adaptables = SlingHttpServletRequest.class, adapters = {HierarchyPage.class, ContainerExporter.class}, resourceType = {
+        HierarchyPageImpl.RESOURCE_TYPE,
+        HierarchyPageImpl.RESOURCE_TYPE_XF_PAGE
+})
 @Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME, extensions = ExporterConstants.SLING_MODEL_EXTENSION)
 public class HierarchyPageImpl implements HierarchyPage {
 
-    /**
+  /**
      * Resource type of associated with the current implementation
      */
     protected static final String RESOURCE_TYPE = "core-components-examples/wcm/angular/components/page/angular-spacomponents-page";
-
+    
+    
+    /**
+     * Resource type of associated with the current implementation
+     */
+    protected static final String RESOURCE_TYPE_XF_PAGE = "core-components-examples/wcm/angular/components/page/angular-spacomponents-page/xf-page";
+    
+    /**
+     * Flag to mark a page an experience fragment
+     */
+    private static final String PN_IS_XF_PAGE = "isExperienceFragmentPage";
+    
     /**
      * Request attribute key of the component context
      */
@@ -233,14 +247,14 @@ public class HierarchyPageImpl implements HierarchyPage {
         // If the value is set to a negative value all the child pages will be exposed (full traversal tree - aka infinity)
         // Child pages do not expose their respective child pages
         if (page == null || depth == 0 || Boolean.TRUE.equals(slingRequest.getAttribute(IS_CHILD_PAGE_ATTR))) {
-            return Collections.emptyList();
+            return new ArrayList<>();
         }
 
         List<Page> pages = new ArrayList<>();
         Iterator<Page> childPagesIterator = page.listChildren();
 
         if (childPagesIterator == null || !childPagesIterator.hasNext()) {
-            return Collections.emptyList();
+            return new ArrayList<>();
         }
 
         // we are about to explore one lower level down the tree
@@ -366,7 +380,7 @@ public class HierarchyPageImpl implements HierarchyPage {
         }
 
         if (StringUtils.isBlank(rawPageFilters)) {
-            return Collections.emptyList();
+            return new ArrayList<>();
         }
 
         String[] pageFilters = rawPageFilters.split(",");
@@ -468,6 +482,15 @@ public class HierarchyPageImpl implements HierarchyPage {
         boolean isRootModel;
         
         do {
+            
+            if (page.getContentResource().getValueMap().containsKey(PN_IS_XF_PAGE)) {
+                if (page.getParent() != null && page.getParent().getContentResource().getValueMap().containsKey(PN_IS_XF_PAGE)) {
+                    return page.getParent();
+                } else {
+                    return page;
+                }
+            }
+            
             isRootModel =  page.getContentResource().getResourceType().equalsIgnoreCase("core-components-examples/wcm/angular/components/page/angular-spacomponents-page/app");
             
             if(!isRootModel){

@@ -8,7 +8,7 @@
         "downlevelIteration": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "module": "es2020",
+        "module": "esnext",
         "moduleResolution": "node",
         "importHelpers": true,
         "target": "es2015",
@@ -36,7 +36,7 @@
         }
     },
     "angularCompilerOptions": {
-        "enableIvy": true,
+        "enableIvy": false,
         "fullTemplateTypeCheck": true,
         "strictInjectionParameters": true
     }

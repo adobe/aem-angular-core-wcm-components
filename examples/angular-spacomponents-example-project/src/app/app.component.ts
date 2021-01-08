@@ -1,25 +1,27 @@
-import {Component, OnInit, Type} from '@angular/core';
+import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {ModelManager} from '@adobe/aem-spa-page-model-manager';
-import {AEMContainerComponent, AEMResponsiveGridComponent, MapTo, LazyMapTo} from '@adobe/aem-angular-editable-components';
 
+import {AEMContainerComponent, AEMResponsiveGridComponent, LazyMapTo, MapTo} from '@adobe/aem-angular-editable-components';
+
+import {isPlatformBrowser} from '@angular/common';
 
 import {TabsV1Component} from "@adobe/aem-core-components-angular-spa/containers/tabs/v1";
 
-import {TitleV2Component, TitleV2IsEmptyFn, TitleV2Model} from '@adobe/aem-core-components-angular-base/authoring/title/v2';
+import {TitleV2Component, TitleV2IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/title/v2';
 import {BreadCrumbV2IsEmptyFn} from '@adobe/aem-core-components-angular-base/layout/breadcrumb/v2';
-import {TextV2Component, TextV2IsEmptyFn, TextV2Model} from '@adobe/aem-core-components-angular-base/authoring/text/v2';
-import {NavigationV1Component, NavigationV1IsEmptyFn, NavigationV1Model} from '@adobe/aem-core-components-angular-base/layout/navigation/v1';
+import {TextV2Component, TextV2IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/text/v2';
+import {NavigationV1Component, NavigationV1IsEmptyFn} from '@adobe/aem-core-components-angular-base/layout/navigation/v1';
 import {ButtonV1IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/button/v1';
 import {ImageV2IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/image/v2';
 
 import {TeaserV1Component, TeaserV1IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/teaser/v1';
-import { DownloadV1IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/download/v1';
-import {ListV2IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/list/v2';
-import {DemoComponent, DemoContainerProperties} from "./components/demo/demo.component";
-import {DemoJsonComponent, DemoJsonModel} from "./components/demo/json/demo.json.component";
-import {DemoPropertiesComponent, PropertiesModel} from "./components/demo/properties/demo.properties.component";
-import {DemoMarkupComponent, DemoMarkupModel} from "./components/demo/markup/demo.markup.component";
+import {DownloadV1IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/download/v1';
 
+import {ListV2IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/list/v2';
+import {DemoComponent} from "./components/demo/demo.component";
+import {DemoJsonComponent} from "./components/demo/json/demo.json.component";
+import {DemoPropertiesComponent} from "./components/demo/properties/demo.properties.component";
+import {DemoMarkupComponent} from "./components/demo/markup/demo.markup.component";
 
 @Component({
   selector: 'app-root',
@@ -27,8 +29,19 @@ import {DemoMarkupComponent, DemoMarkupModel} from "./components/demo/markup/dem
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  constructor() {
-    ModelManager.initialize();
+  constructor(@Inject(PLATFORM_ID) private _platformId: Object) {
+
+    if(isPlatformBrowser(_platformId)){
+
+      //@ts-ignore
+      if(window.initialModel){
+        //@ts-ignore
+        ModelManager.initialize({model:window.initialModel});
+      }else{
+        ModelManager.initialize();
+      }
+
+    }
   }
 
   ngOnInit(): void {
@@ -46,6 +59,7 @@ export class AppComponent implements OnInit{
     MapTo('core-components-examples/wcm/angular/components/tabs')(TabsV1Component);
     MapTo('core-components-examples/wcm/angular/components/page/angular-spacomponents-page')(AEMContainerComponent);
     MapTo('wcm/foundation/components/responsivegrid')(AEMResponsiveGridComponent);
+    MapTo('core-components-examples/wcm/angular/components/experience-fragment')(AEMContainerComponent, {isEmpty: (props) => !props.configured });
 
     //lazy components
     LazyMapTo('core-components-examples/wcm/angular/components/lazycomponent')(() => new Promise<unknown>((resolve,reject) => {
@@ -94,4 +108,3 @@ export class AppComponent implements OnInit{
     }) );
   }
 }
-

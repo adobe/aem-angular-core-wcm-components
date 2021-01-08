@@ -1,24 +1,50 @@
-# AemAngularCoreSpaWcmComponents
+# AEM WCM Components - Spa editor - Angular Core implementation
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.12.
+This module provides a Angular implementation for the containers in the [AEM core components](https://www.aemcomponents.dev/). 
+This only works with the [AEM SPA editor](https://docs.adobe.com/content/help/en/experience-manager-64/developing/headless/spas/spa-overview.html).
 
-## Code scaffolding
+Current supported / exported components:
 
-Run `ng generate component component-name --project aem-angular-core-spa-wcm-components` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project aem-angular-core-spa-wcm-components`.
-> Note: Don't forget to add `--project aem-angular-core-spa-wcm-components` or else it will be added to the default project in your `angular.json` file. 
+### Containers
+ - Accordion (V1)
+ - Carousel (V1)
+ - Container (V1)
+ - Tabs (V1)
+ 
+### Abstraction
+-  AbstractCoreContainerComponent
 
-## Build
+## Usage
 
-Run `ng build aem-angular-core-spa-wcm-components` to build the project. The build artifacts will be stored in the `dist/` directory.
+You can choose to import the entire library at once OR import components individually. 
+The latter is useful if you want to only enable a few components and you want to save your javascript footprint.
+Also, if you want to load all core components, but you want to lazyload them with angular suspense, you will need to import them individually.
 
-## Publishing
+### Importing the whole library: 
 
-After building your library with `ng build aem-angular-core-spa-wcm-components`, go to the dist folder `cd dist/aem-angular-core-spa-wcm-components` and run `npm publish`.
+```
+import * as SpaCoreComponents from "@adobe/aem-core-components-angular-spa";
+const {CarouselV1, CarouselV1IsEmptyFn} = BaseCoreComponents;
+```
 
-## Running unit tests
+### Importing the CarouselV1 component individually (for code splitting):
+ 
+```
+import {CarouselV1, CarouselV1IsEmptyFn} from "@adobe/aem-core-components-angular-spa/containers/carousel/v1";
+```
 
-Run `ng test aem-angular-core-spa-wcm-components` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Using the imported code
 
-## Further help
+Now that you have the CarouselV1 and CarouselV1IsEmptyFn imported, you can use them in your project.
+The properties of the Button 1 on 1 correspond to the Sling Model Exporter (.model.json) output.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Note: There are some exceptions where some extra properties are added (mainly i18n labels) that are currently not present in the OOTB sling model exports.
+These can be added by the project itself with delegation. If they are not present, the default (English) values will be used.
+
+#### Carousel - Example with the spa editor:
+
+```
+MapTo('my-project/wcm/components/containers')(CarouselV1, {isEmpty: CarouselV1IsEmptyFn});
+```
+
+For a complete project with examples, visit the [github page](https://github.com/adobe/aem-angular-core-wcm-components/tree/master/examples).

@@ -17,7 +17,7 @@
 import {Component, Input} from "@angular/core";
 import {AEMContainerComponent} from "@adobe/aem-angular-editable-components";
 
-export interface DemoContainerProperties{
+export interface DemoContainerProperties {
     fullWidth: boolean
 }
 

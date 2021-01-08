@@ -1,6 +1,6 @@
 {
   "name": "@adobe/aem-core-components-angular-base",
-  "version": "0.0.8",
+  "version": "1.0.2",
   "author": "Adobe Systems Inc.",
   "license": "Apache-2.0",
   "peerDependencies": {

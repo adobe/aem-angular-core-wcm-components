@@ -95,7 +95,10 @@
         <profile>
             <id>runCodeCoverageCheck</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <property>
+                    <name>env.USE_SPROUT_BUILD_PROFILE</name>
+                    <value>false</value>
+                </property>
             </activation>
             <build>
                 <plugins>
@@ -188,10 +191,7 @@
         <profile>
             <id>ignoreCodeCoverageCheck</id>
             <activation>
-                <property>
-                    <name>env.USE_SPROUT_BUILD_PROFILE</name>
-                    <value>true</value>
-                </property>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <build>
                 <plugins>
