@@ -23,7 +23,7 @@
 <ng-template #componentBlock>
     <div id="{{id}}" [attr.data-cmp-data-layer]="dataLayerString" class="{{baseCssClass}}">
         
-        <div class="{{baseCssClass}}__image">
+        <div class="{{baseCssClass}}__image" *ngIf="isShowingImage">
             <core-image-v2 [hidePlaceHolder]="true" [src]="imagePath" [title]="title"></core-image-v2>
         </div>
         <div class="{{baseCssClass}}__content">

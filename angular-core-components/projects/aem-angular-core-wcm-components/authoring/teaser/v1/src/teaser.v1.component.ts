@@ -20,7 +20,7 @@ import {Component, HostBinding, Input} from "@angular/core";
 import {AbstractRoutedCoreComponent} from "@adobe/aem-core-components-angular-base/core";
 
 export function TeaserV1IsEmptyFn(props:TeaserV1Model): boolean{
-    return (!props.imagePath && !props.description && (!props.actions || props.actions.length == 0))
+    return !props.title || !props.description
 }
 
 export interface TeaserV1Action {
@@ -64,5 +64,9 @@ export class TeaserV1Component extends AbstractRoutedCoreComponent implements Te
 
     get isEmpty(): boolean {
         return TeaserV1IsEmptyFn(this);
+    }
+
+    get isShowingImage(): boolean{
+        return !!this.imagePath && this.imagePath.length > 0;
     }
 }
