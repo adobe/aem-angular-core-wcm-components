@@ -140,7 +140,7 @@
         <!-- AEM Core Components Bundle -->
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>core.wcm.components.angular.bundle</artifactId>
+            <artifactId>core.wcm.components.angular.examples.bundle</artifactId>
             <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>
