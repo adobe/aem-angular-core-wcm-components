@@ -7,9 +7,9 @@
     "build": "run-p build:**",
     "build:base": "ng build aem-angular-core-wcm-components",
     "build:spa": "ng build aem-angular-core-spa-wcm-components",
-    "test:base": "ng test aem-angular-core-spa-wcm-components",
-    "test:spa": "ng test aem-angular-core-wcm-components",
-    "test": "run-p test:** ",
+    "test:spa": "ng test aem-angular-core-spa-wcm-components",
+    "test:base": "ng test aem-angular-core-wcm-components",
+    "test": "npm run test:base  && npm run test:spa",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "cover:libary:core": "ng test aem-angular-core-wcm-components-core --code-coverage=true",
@@ -37,7 +37,8 @@
     "build-libs": "npm run build-base && npm run build-spa",
     "test-spa": "ng test aem-angular-core-spa-wcm-components",
     "test-cover-spa-libs": "npm-run-all test-container-core test-accordion-v1 test-carousel-v1 test-container-v1 test-tabs-v1 build-spa",
-    "postcover": "istanbul report json && node combine-coverage.js"
+    "postcover": "istanbul report json && node combine-coverage.js",
+    "kaas": "ngcc"
   },
   "private": true,
   "dependencies": {
@@ -53,15 +54,10 @@
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
-  "peerDependencies": {
-    "@adobe/aem-angular-editable-components": "^1.0.3",
-    "@adobe/aem-spa-component-mapping": "^1.0.5",
-    "@adobe/aem-spa-page-model-manager": "^1.0.3"
-  },
   "devDependencies": {
-    "@adobe/aem-angular-editable-components": "^1.0.3",
-    "@adobe/aem-spa-component-mapping": "^1.0.5",
-    "@adobe/aem-spa-page-model-manager": "^1.0.3",
+    "@adobe/aem-angular-editable-components": "file:../../aem-angular-editable-components/dist/aem-angular-editable-components",
+    "@adobe/aem-spa-component-mapping": "file:../../aem-spa-component-mapping",
+    "@adobe/aem-spa-page-model-manager": "file:../../aem-spa-page-model-manager",
     "@angular-devkit/build-angular": "~0.901.11",
     "@angular-devkit/build-ng-packagr": "~0.901.11",
     "@angular/cli": "~9.1.8",

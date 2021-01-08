@@ -20,13 +20,8 @@ import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/tes
 
 
 import {DownloadV1Component} from './download.v1.component';
-import {
-    AEMAllowedComponentsContainerComponent,
-    AEMComponentDirective,
-    AEMModelProviderComponent,
-    Utils
-} from "@adobe/aem-angular-editable-components";
-import {EditPlaceholderComponent,SafeHtmlPipe} from "@adobe/aem-core-components-angular-base/core";
+
+import {AemAngularCoreWcmComponentsCore,MetaUtils} from "@adobe/aem-core-components-angular-base/core";
 
 
 describe('DownloadV1Component', () => {
@@ -38,20 +33,16 @@ describe('DownloadV1Component', () => {
 
     beforeEach(() => {
 
-        isInEditorSpy = spyOn(Utils, 'isInEditor').and.returnValue(false);
+        isInEditorSpy = spyOn(MetaUtils, 'isInEditor').and.returnValue(false);
 
         TestBed.configureTestingModule({
+            imports: [AemAngularCoreWcmComponentsCore],
             declarations: [
-                DownloadV1Component,
-                AEMComponentDirective,
-                EditPlaceholderComponent,
-                SafeHtmlPipe,
-                AEMAllowedComponentsContainerComponent,
-                AEMModelProviderComponent,
+                DownloadV1Component
             ],
         }).overrideModule(BrowserDynamicTestingModule, {
             set: {
-                entryComponents: [DownloadV1Component,EditPlaceholderComponent]
+                entryComponents: [DownloadV1Component]
             }
         }).compileComponents();
 

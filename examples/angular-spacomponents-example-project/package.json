@@ -11,6 +11,8 @@
     "e2e": "ng e2e",
     "aempack": "node scripts/aempack.js",
     "test:coverage": "ng test --watch=false --code-coverage",
+    "build:ssr": "ng build --prod && ng run angular-spa:server:production",
+    "serve:ssr": "node dist/server/main.js",
     "postinstall": "ngcc"
   },
   "private": true,
@@ -28,8 +30,13 @@
     "@adobe/aem-spa-page-model-manager": "file:../../../aem-spa-page-model-manager",
     "@adobe/aem-core-components-angular-spa": "file:../../angular-core-components/dist/aem-angular-core-spa-wcm-components",
     "@adobe/aem-core-components-angular-base": "file:../../angular-core-components/dist/aem-angular-core-wcm-components",
-    "rxjs": "~6.5.3",
+    "@angular/platform-server": "~9.1.12",
+    "@nguniversal/express-engine": "^9.1.1",
+    "express-serve-static-core": "^0.1.1",
+    "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
+    "node-html-parser": "^2.0.1",
+    "node-fetch": "^2.6.1",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

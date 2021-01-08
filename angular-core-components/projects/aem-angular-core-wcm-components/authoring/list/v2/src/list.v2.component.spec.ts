@@ -20,13 +20,8 @@ import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/tes
 
 
 import {ListV2Component} from './list.v2.component';
-import {
-    AEMAllowedComponentsContainerComponent,
-    AEMComponentDirective,
-    AEMModelProviderComponent,
-    Utils
-} from "@adobe/aem-angular-editable-components";
-import {EditPlaceholderComponent} from "@adobe/aem-core-components-angular-base/core";
+
+import {AemAngularCoreWcmComponentsCore, MetaUtils} from "@adobe/aem-core-components-angular-base/core";
 import {RouterTestingModule} from "@angular/router/testing";
 import {RouterLinkWithHref} from "@angular/router";
 import {By} from "@angular/platform-browser";
@@ -42,22 +37,19 @@ describe('ListV2Component', () => {
 
     beforeEach(() => {
 
-        isInEditorSpy = spyOn(Utils, 'isInEditor').and.returnValue(false);
+        isInEditorSpy = spyOn(MetaUtils, 'isInEditor').and.returnValue(false);
 
         TestBed.configureTestingModule({
             declarations: [
-                ListV2Component,
-                AEMComponentDirective,
-                EditPlaceholderComponent,
-                AEMAllowedComponentsContainerComponent,
-                AEMModelProviderComponent,
+                ListV2Component
             ],
             imports: [
+                AemAngularCoreWcmComponentsCore,
                 RouterTestingModule.withRoutes([]),
             ],
         }).overrideModule(BrowserDynamicTestingModule, {
             set: {
-                entryComponents: [ListV2Component,EditPlaceholderComponent]
+                entryComponents: [ListV2Component]
             }
         }).compileComponents();
 

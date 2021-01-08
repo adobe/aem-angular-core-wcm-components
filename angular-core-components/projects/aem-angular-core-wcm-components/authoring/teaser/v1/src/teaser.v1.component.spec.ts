@@ -20,18 +20,12 @@ import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/tes
 
 
 import {TeaserV1Component} from './teaser.v1.component';
-import {
-    AEMAllowedComponentsContainerComponent,
-    AEMComponentDirective,
-    AEMModelProviderComponent,
-    Utils
-} from "@adobe/aem-angular-editable-components";
-import {EditPlaceholderComponent, SafeHtmlPipe} from "@adobe/aem-core-components-angular-base/core";
+import {AemAngularCoreWcmComponentsCore, MetaUtils } from "@adobe/aem-core-components-angular-base/core";
 import {RouterTestingModule} from "@angular/router/testing";
 import {RouterLinkWithHref} from "@angular/router";
 import {By} from "@angular/platform-browser";
-import {TitleV2Component} from "@adobe/aem-core-components-angular-base/authoring/title/v2";
-import {ImageV2Component} from "@adobe/aem-core-components-angular-base/authoring/image/v2";
+import {AemAngularCoreWcmComponentsTitleV2, TitleV2Component} from "@adobe/aem-core-components-angular-base/authoring/title/v2";
+import {AemAngularCoreWcmComponentsImageV2, ImageV2Component} from "@adobe/aem-core-components-angular-base/authoring/image/v2";
 
 
 describe('TeaserV1Component', () => {
@@ -43,25 +37,21 @@ describe('TeaserV1Component', () => {
 
     beforeEach(() => {
 
-        isInEditorSpy = spyOn(Utils, 'isInEditor').and.returnValue(false);
+        isInEditorSpy = spyOn(MetaUtils, 'isInEditor').and.returnValue(false);
 
         TestBed.configureTestingModule({
             declarations: [
-                TeaserV1Component,
-                AEMComponentDirective,
-                SafeHtmlPipe,
-                EditPlaceholderComponent,
-                AEMAllowedComponentsContainerComponent,
-                AEMModelProviderComponent,
-                TitleV2Component,
-                ImageV2Component
+                TeaserV1Component
             ],
             imports: [
+                AemAngularCoreWcmComponentsCore,
+                AemAngularCoreWcmComponentsTitleV2,
+                AemAngularCoreWcmComponentsImageV2,
                 RouterTestingModule.withRoutes([]),
             ],
         }).overrideModule(BrowserDynamicTestingModule, {
             set: {
-                entryComponents: [TeaserV1Component,EditPlaceholderComponent]
+                entryComponents: [TeaserV1Component]
             }
         }).compileComponents();
 

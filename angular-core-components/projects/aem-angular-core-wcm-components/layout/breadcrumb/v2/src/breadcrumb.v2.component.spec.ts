@@ -20,16 +20,11 @@ import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/tes
 
 
 import {BreadCrumbV2Component, BreadCrumbV2ItemModel} from './breadcrumb.v2.component';
-import {
-    AEMAllowedComponentsContainerComponent,
-    AEMComponentDirective,
-    AEMModelProviderComponent,
-    Utils
-} from "@adobe/aem-angular-editable-components";
+
 import {
     AemAngularCoreWcmComponentsCore,
-    DefaultNavigationUtilityServiceImpl,
-    EditPlaceholderComponent
+    MetaUtils,
+    DefaultNavigationUtilityServiceImpl
 } from "@adobe/aem-core-components-angular-base/core";
 import {RouterTestingModule} from "@angular/router/testing";
 import {RouterLinkWithHref} from "@angular/router";
@@ -51,15 +46,11 @@ describe('BreadCrumbV2Component', () => {
 
     beforeEach(() => {
 
-        isInEditorSpy = spyOn(Utils, 'isInEditor').and.returnValue(false);
+        isInEditorSpy = spyOn(MetaUtils, 'isInEditor').and.returnValue(false);
 
         TestBed.configureTestingModule({
             declarations: [
-                BreadCrumbV2Component,
-                AEMComponentDirective,
-                EditPlaceholderComponent,
-                AEMAllowedComponentsContainerComponent,
-                AEMModelProviderComponent,
+                BreadCrumbV2Component
             ],
             providers: [DefaultNavigationUtilityServiceImpl],
             imports: [
@@ -68,7 +59,7 @@ describe('BreadCrumbV2Component', () => {
             ],
         }).overrideModule(BrowserDynamicTestingModule, {
             set: {
-                entryComponents: [BreadCrumbV2Component,EditPlaceholderComponent]
+                entryComponents: [BreadCrumbV2Component]
             }
         }).compileComponents();
 

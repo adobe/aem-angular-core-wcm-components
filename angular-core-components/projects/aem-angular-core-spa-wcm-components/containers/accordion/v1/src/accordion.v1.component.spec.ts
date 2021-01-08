@@ -132,8 +132,8 @@ describe('AccordionV1', () => {
 
         const cssClasses = component.getHostClassNames();
         console.log(cssClasses);
-        expect(element.getAttributeNode("class").value).toBe("aem-container cmp-accordion");
-        expect(cssClasses).toBe("aem-container cmp-accordion");
+        expect(element.getAttributeNode("class").value).toContain("cmp-accordion");
+        expect(cssClasses).toContain("cmp-accordion");
     });
 
     it('should NOT create the allowed components if not in the editor', () => {

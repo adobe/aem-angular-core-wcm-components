@@ -21,15 +21,9 @@ import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/tes
 
 import {NavigationV1Component, NavigationV1Model,NavigationV1Item} from './navigation.v1.component';
 import {
-    AEMAllowedComponentsContainerComponent,
-    AEMComponentDirective,
-    AEMModelProviderComponent,
-    Utils
-} from "@adobe/aem-angular-editable-components";
-import {
     AemAngularCoreWcmComponentsCore,
     DefaultNavigationUtilityServiceImpl,
-    EditPlaceholderComponent
+    MetaUtils
 } from "@adobe/aem-core-components-angular-base/core";
 import {RouterTestingModule} from "@angular/router/testing";
 import {RouterLinkWithHref} from "@angular/router";
@@ -46,15 +40,11 @@ describe('NavigationV1Component', () => {
 
     beforeEach(() => {
 
-        isInEditorSpy = spyOn(Utils, 'isInEditor').and.returnValue(false);
+        isInEditorSpy = spyOn(MetaUtils, 'isInEditor').and.returnValue(false);
 
         TestBed.configureTestingModule({
             declarations: [
-                NavigationV1Component,
-                AEMComponentDirective,
-                EditPlaceholderComponent,
-                AEMAllowedComponentsContainerComponent,
-                AEMModelProviderComponent,
+                NavigationV1Component
             ],
             providers: [DefaultNavigationUtilityServiceImpl],
             imports: [
@@ -63,7 +53,7 @@ describe('NavigationV1Component', () => {
             ],
         }).overrideModule(BrowserDynamicTestingModule, {
             set: {
-                entryComponents: [NavigationV1Component,EditPlaceholderComponent]
+                entryComponents: [NavigationV1Component]
             }
         }).compileComponents();
 

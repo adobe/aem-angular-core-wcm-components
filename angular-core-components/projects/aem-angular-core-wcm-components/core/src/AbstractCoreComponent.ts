@@ -16,7 +16,7 @@
 
 import {HostBinding, Input} from "@angular/core";
 import {CoreComponentModel} from "./model/CoreComponentModel";
-import {Utils} from "@adobe/aem-angular-editable-components";
+import {MetaUtils} from "./utils/MetaUtils";
 
 /**
  * AbstractCoreComponent
@@ -49,7 +49,7 @@ export abstract class AbstractCoreComponent implements CoreComponentModel{
     }
 
     public get isInEditor(){
-        return Utils.isInEditor();
+        return MetaUtils.isInEditor();
     }
 
     public get dataLayerString(){
