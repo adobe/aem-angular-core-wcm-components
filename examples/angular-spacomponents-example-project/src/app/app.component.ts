@@ -63,45 +63,18 @@ export class AppComponent implements OnInit{
     MapTo('wcm/foundation/components/responsivegrid')(AEMResponsiveGridComponent);
     MapTo('core-components-examples/wcm/angular/components/experience-fragment')(AEMContainerComponent, {isEmpty: (props) => !props.configured });
     MapTo('core-components-examples/wcm/angular/components/separator')(SeparatorV1Component);
-    MapTo('core-components-examples/wcm/angular/components/container')(ContainerV1Component)
+    MapTo('core-components-examples/wcm/angular/components/container')(ContainerV1Component);
 
     //lazy components
-    LazyMapTo('core-components-examples/wcm/angular/components/lazycomponent')(() => new Promise<unknown>((resolve,reject) => {
-      import('./components/text/text.component').then((Module) => resolve(Module.TextComponent)).catch(reject);
-    }) );
-
-    LazyMapTo('core-components-examples/wcm/angular/components/download')(() => new Promise<unknown>((resolve,reject) => {
-      import('@adobe/aem-core-components-angular-base/authoring/download/v1').then((Module) => resolve(Module.DownloadV1Component)).catch(reject);
-    }), {isEmpty: DownloadV1IsEmptyFn} );
-
-    LazyMapTo('core-components-examples/wcm/angular/components/languagenavigation')(() => new Promise<unknown>((resolve,reject) => {
-      import('@adobe/aem-core-components-angular-base/layout/language-navigation/v1').then((Module) => resolve(Module.LanguageNavigationV1Component)).catch(reject);
-    }) );
-
-    LazyMapTo('core-components-examples/wcm/angular/components/list')(
-        () => new Promise<unknown>((resolve,reject) => {
-      import('@adobe/aem-core-components-angular-base/authoring/list/v2').then((Module) => resolve(Module.ListV2Component)).catch(reject);
-    }),{isEmpty: ListV2IsEmptyFn});
-
-    LazyMapTo('core-components-examples/wcm/angular/components/breadcrumb')(() => new Promise<unknown>((resolve,reject) => {
-      import('@adobe/aem-core-components-angular-base/layout/breadcrumb/v2').then((Module) => resolve(Module.BreadCrumbV2Component)).catch(reject);
-    }),{isEmpty: BreadCrumbV2IsEmptyFn} );
-
-    LazyMapTo('core-components-examples/wcm/angular/components/button')(() => new Promise<unknown>((resolve,reject) => {
-      import('@adobe/aem-core-components-angular-base/authoring/button/v1').then((Module) => resolve(Module.ButtonV1Component)).catch(reject);
-    }),{isEmpty: ButtonV1IsEmptyFn} );
-
-    LazyMapTo('core-components-examples/wcm/angular/components/image')(() => new Promise<unknown>((resolve,reject) => {
-      import('@adobe/aem-core-components-angular-base/authoring/image/v2').then((Module) => resolve(Module.ImageV2Component)).catch(reject);
-    }), {isEmpty: ImageV2IsEmptyFn} );
-
-    LazyMapTo('core-components-examples/wcm/angular/components/accordion')(() => new Promise<unknown>((resolve,reject) => {
-      import('@adobe/aem-core-components-angular-spa/containers/accordion/v1').then((Module) => resolve(Module.AccordionV1Component)).catch(reject);
-    }) );
-
-    LazyMapTo('core-components-examples/wcm/angular/components/carousel')(() => new Promise<unknown>((resolve,reject) => {
-      import('@adobe/aem-core-components-angular-spa/containers/carousel/v1').then((Module) => resolve(Module.CarouselV1Component)).catch(reject);
-    }) );
+    LazyMapTo('core-components-examples/wcm/angular/components/lazycomponent')(()=>import('./components/text/text.component').then((m) => m.TextComponent));
+    LazyMapTo('core-components-examples/wcm/angular/components/download')(()=>import('@adobe/aem-core-components-angular-base/authoring/download/v1').then((m) => m.DownloadV1Component), DownloadV1IsEmptyFn);
+    LazyMapTo('core-components-examples/wcm/angular/components/languagenavigation')(()=>import('@adobe/aem-core-components-angular-base/layout/language-navigation/v1').then((m) => m.LanguageNavigationV1Component));
+    LazyMapTo('core-components-examples/wcm/angular/components/list')(()=>import('@adobe/aem-core-components-angular-base/authoring/list/v2').then((m) => m.ListV2Component), ListV2IsEmptyFn);
+    LazyMapTo('core-components-examples/wcm/angular/components/breadcrumb')(()=>import('@adobe/aem-core-components-angular-base/layout/breadcrumb/v2').then((m) => m.BreadCrumbV2Component), BreadCrumbV2IsEmptyFn);
+    LazyMapTo('core-components-examples/wcm/angular/components/button')(()=>import('@adobe/aem-core-components-angular-base/authoring/button/v1').then((m) => m.ButtonV1Component), ButtonV1IsEmptyFn);
+    LazyMapTo('core-components-examples/wcm/angular/components/image')(()=>import('@adobe/aem-core-components-angular-base/authoring/image/v2').then((m) => m.ImageV2Component), ImageV2IsEmptyFn);
+    LazyMapTo('core-components-examples/wcm/angular/components/accordion')(()=>import('@adobe/aem-core-components-angular-spa/containers/accordion/v1').then((m) => m.AccordionV1Component));
+    LazyMapTo('core-components-examples/wcm/angular/components/carousel')(()=>import('@adobe/aem-core-components-angular-spa/containers/carousel/v1').then((m) => m.CarouselV1Component));
 
   }
 }
