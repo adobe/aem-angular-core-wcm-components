@@ -25,9 +25,11 @@ const CONTAINER_CLASS_NAMES = 'aem-container';
 @Component({
     selector: 'core-tabs-v1',
     host: {
-        '[id]': 'containerId',
+        '[id]': 'id',
         '[class]': 'hostClasses',
-        '[attr.data-cq-data-path]':'cqPath'
+        '[attr.data-cq-data-path]':'cqPath',
+        '[attr.aria-roledescription]': 'accessibilityLabel',
+        '[attr.data-cmp-data-layer]': 'dataLayerString'
     },
     templateUrl: './tabs.v1.component.html'
 })
@@ -82,10 +84,6 @@ export class TabsV1Component extends AbstractContainerComponent implements OnIni
         }
         this.changeDetectorRef.detectChanges();
 
-    }
-
-    get containerId(){
-        return 'tabs-' + this.id;
     }
 
     get activeTabItem(){

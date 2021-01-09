@@ -25,6 +25,7 @@ export interface AccordionV1Properties extends ContainerProperties{
 @Component({
     selector: 'core-accordion-v1',
     host: {
+        '[id]': 'id',
         '[class]': 'hostClasses',
         '[attr.data-cq-data-path]':'cqPath',
         '[attr.data-cmp-data-layer]': 'dataLayerString'

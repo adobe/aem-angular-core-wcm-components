@@ -42,6 +42,7 @@ export class ContainerV1Component extends AEMResponsiveGridComponent implements 
     @Input() layout: ContainerLayout;
     @Input() id: string;
     @Input() backgroundStyle: string;
+    @Input() dataLayer: {[key: string]: {[key: string]: string}} = {};
 
     @Input() baseCssClass = 'cmp-container';
 
