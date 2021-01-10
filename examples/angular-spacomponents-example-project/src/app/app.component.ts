@@ -19,11 +19,12 @@ import {DownloadV1IsEmptyFn} from '@adobe/aem-core-components-angular-base/autho
 
 import {ListV2IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/list/v2';
 import {DemoComponent} from "./components/demo/demo.component";
-import {DemoJsonComponent} from "./components/demo/json/demo.json.component";
+import {DemoJsonComponent, DemoJsonModel} from "./components/demo/json/demo.json.component";
 import {DemoPropertiesComponent} from "./components/demo/properties/demo.properties.component";
 import {DemoMarkupComponent} from "./components/demo/markup/demo.markup.component";
 import {SeparatorV1Component} from "@adobe/aem-core-components-angular-base/authoring/separator/v1";
 import {ContainerV1Component} from "@adobe/aem-core-components-angular-spa/containers/container/v1";
+import {AccordionV1Properties} from "@adobe/aem-core-components-angular-spa/containers/accordion/v1";
 
 @Component({
   selector: 'app-root',
@@ -50,7 +51,7 @@ export class AppComponent implements OnInit{
 
     //always need these components
     MapTo('core-components-examples/wcm/angular/components/demo')(DemoComponent);
-    MapTo('core-components-examples/wcm/angular/components/demo/json')(DemoJsonComponent);
+    MapTo<DemoJsonModel>('core-components-examples/wcm/angular/components/demo/json')(DemoJsonComponent);
     MapTo('core-components-examples/wcm/angular/components/demo/properties')(DemoPropertiesComponent);
     MapTo('core-components-examples/wcm/angular/components/demo/markup')(DemoMarkupComponent);
     MapTo('core-components-examples/wcm/angular/components/demo/component')(AEMContainerComponent);
@@ -67,14 +68,14 @@ export class AppComponent implements OnInit{
 
     //lazy components
     LazyMapTo('core-components-examples/wcm/angular/components/lazycomponent')(()=>import('./components/text/text.component').then((m) => m.TextComponent));
-    LazyMapTo('core-components-examples/wcm/angular/components/download')(()=>import('@adobe/aem-core-components-angular-base/authoring/download/v1').then((m) => m.DownloadV1Component), DownloadV1IsEmptyFn);
+    LazyMapTo('core-components-examples/wcm/angular/components/download')(()=>import('@adobe/aem-core-components-angular-base/authoring/download/v1').then((m) => m.DownloadV1Component), {isEmpty: DownloadV1IsEmptyFn});
     LazyMapTo('core-components-examples/wcm/angular/components/languagenavigation')(()=>import('@adobe/aem-core-components-angular-base/layout/language-navigation/v1').then((m) => m.LanguageNavigationV1Component));
-    LazyMapTo('core-components-examples/wcm/angular/components/list')(()=>import('@adobe/aem-core-components-angular-base/authoring/list/v2').then((m) => m.ListV2Component), ListV2IsEmptyFn);
-    LazyMapTo('core-components-examples/wcm/angular/components/breadcrumb')(()=>import('@adobe/aem-core-components-angular-base/layout/breadcrumb/v2').then((m) => m.BreadCrumbV2Component), BreadCrumbV2IsEmptyFn);
-    LazyMapTo('core-components-examples/wcm/angular/components/button')(()=>import('@adobe/aem-core-components-angular-base/authoring/button/v1').then((m) => m.ButtonV1Component), ButtonV1IsEmptyFn);
-    LazyMapTo('core-components-examples/wcm/angular/components/image')(()=>import('@adobe/aem-core-components-angular-base/authoring/image/v2').then((m) => m.ImageV2Component), ImageV2IsEmptyFn);
-    LazyMapTo('core-components-examples/wcm/angular/components/accordion')(()=>import('@adobe/aem-core-components-angular-spa/containers/accordion/v1').then((m) => m.AccordionV1Component));
+    LazyMapTo('core-components-examples/wcm/angular/components/list')(()=>import('@adobe/aem-core-components-angular-base/authoring/list/v2').then((m) => m.ListV2Component), {isEmpty: ListV2IsEmptyFn});
+    LazyMapTo('core-components-examples/wcm/angular/components/breadcrumb')(()=>import('@adobe/aem-core-components-angular-base/layout/breadcrumb/v2').then((m) => m.BreadCrumbV2Component), {isEmpty: BreadCrumbV2IsEmptyFn});
+    LazyMapTo('core-components-examples/wcm/angular/components/button')(()=>import('@adobe/aem-core-components-angular-base/authoring/button/v1').then((m) => m.ButtonV1Component), {isEmpty: ButtonV1IsEmptyFn});
+    LazyMapTo('core-components-examples/wcm/angular/components/image')(()=>import('@adobe/aem-core-components-angular-base/authoring/image/v2').then((m) => m.ImageV2Component), {isEmpty: ImageV2IsEmptyFn});
     LazyMapTo('core-components-examples/wcm/angular/components/carousel')(()=>import('@adobe/aem-core-components-angular-spa/containers/carousel/v1').then((m) => m.CarouselV1Component));
+    LazyMapTo<AccordionV1Properties>('core-components-examples/wcm/angular/components/accordion')(()=>import('@adobe/aem-core-components-angular-spa/containers/accordion/v1').then((m) => m.AccordionV1Component));
 
   }
 }
