@@ -14,8 +14,7 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import {ComponentMapping} from "@adobe/aem-angular-editable-components";
-
+import {ComponentMapping,MappedComponentProperties} from "@adobe/aem-angular-editable-components";
 
 export interface ContainerProperties extends MappedComponentProperties {
     componentMapping?: typeof ComponentMapping;
@@ -65,14 +64,4 @@ export interface LabelledModel extends Model{
  */
 export interface ReloadForceAble {
     cqForceReload?: boolean;
-}
-
-/**
- * MappedComponentProperties
- * Properties given to every component runtime by the SPA editor.
- */
-export interface MappedComponentProperties extends ReloadForceAble {
-    isInEditor: boolean;
-    cqPath: string;
-    baseCssClass:string;
 }
