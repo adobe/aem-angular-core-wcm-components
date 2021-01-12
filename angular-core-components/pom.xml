@@ -70,12 +70,22 @@
                 </configuration>
             </execution>
             <execution>
+                <id>npm ngcc</id>
+                <goals>
+                    <goal>npm</goal>
+                </goals>
+                <!-- Optional configuration which provides for running any npm command -->
+                <configuration>
+                    <arguments>ngcc</arguments>
+                </configuration>
+            </execution>
+            <execution>
                 <id>npm run build</id>
                 <goals>
                     <goal>npm</goal>
                 </goals>
                 <configuration>
-                    <arguments>run build-prod:internal</arguments>
+                    <arguments>run build-prod-internal</arguments>
                 </configuration>
             </execution>
             <execution>

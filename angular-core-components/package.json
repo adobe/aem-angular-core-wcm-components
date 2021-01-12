@@ -10,7 +10,7 @@
     "build:spa": "ng build aem-angular-core-spa-wcm-components",
     "build-prod:base": "ng build aem-angular-core-wcm-components --prod",
     "build-prod:spa": "ng build aem-angular-core-spa-wcm-components --prod",
-    "build-prod:internal": "run-p build-prod:**  && ngcc -s ./dist",
+    "build-prod-internal": "run-p build-prod:**  && ngcc -s ./dist",
     
     "test:spa": "ng test aem-angular-core-spa-wcm-components",
     "test:base": "ng test aem-angular-core-wcm-components",
@@ -39,8 +39,7 @@
     "cover:library:spa:container:v1": "ng test aem-angular-core-spa-wcm-components-container-v1 --code-coverage=true",
     "cover:library:spa:tabs:v1": "ng test aem-angular-core-spa-wcm-components-tabs-v1 --code-coverage=true",
     "cover": "run-p cover:**  --max-parallel 4",
-    "postcover": "istanbul report json && node combine-coverage.js",
-    "postinstall": "ngcc"
+    "postcover": "istanbul report json && node combine-coverage.js"
   },
   "private": true,
   "dependencies": {
