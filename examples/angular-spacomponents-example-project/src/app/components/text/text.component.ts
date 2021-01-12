@@ -16,8 +16,10 @@
 
 import {Component, Input, OnInit} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
+import {MappedComponentProperties, AbstractMappedComponent} from '@adobe/aem-angular-editable-components';
 
-export interface TextComponentProperties {
+
+export interface TextComponentProperties extends MappedComponentProperties{
   richText: boolean;
   text: string;
 }
@@ -27,11 +29,13 @@ export interface TextComponentProperties {
   templateUrl: './text.component.html',
   styleUrls: ['./text.component.scss']
 })
-export class TextComponent implements OnInit {
+export class TextComponent extends AbstractMappedComponent implements OnInit, TextComponentProperties {
   @Input() richText;
   @Input() text;
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer) {
+    super();
+  }
 
   get content() {
     const textValue = this.text || '';

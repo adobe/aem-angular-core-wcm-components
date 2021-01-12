@@ -1,6 +1,7 @@
 import {Component, Input} from "@angular/core";
+import { MappedComponentProperties, AbstractMappedComponent } from '@adobe/aem-angular-editable-components';
 
-export interface PropertiesModel {
+export interface PropertiesModel extends MappedComponentProperties{
     properties: { [key: string]: string; }
 }
 
@@ -9,7 +10,7 @@ export interface PropertiesModel {
     selector: 'demo',
     templateUrl: './demo.properties.component.html'
 })
-export class DemoPropertiesComponent implements PropertiesModel{
+export class DemoPropertiesComponent extends AbstractMappedComponent implements PropertiesModel{
 
     @Input() properties;
 
