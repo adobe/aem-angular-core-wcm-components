@@ -64,9 +64,9 @@ For existing projects, take example from the [AEM Project Archetype](https://git
 
 ### System Requirements
 
-Core Components | AEM as a Cloud Service | AEM 6.5 | AEM 6.4 | Java SE | Maven
-----------------|------------------------|---------|---------|---------|---------
-[2.10.0](https://github.com/adobe/aem-core-wcm-components/releases/tag/core.wcm.components.reactor-2.10.0) | Continual | 6.5.5.0+ | 6.4.8.1+ | 8, 11 | 3.3.9+
+Core Components | AEM as a Cloud Service | AEM 6.5 | Java SE | Maven
+----------------|------------------------|---------|---------|---------
+[2.10.0](https://github.com/adobe/aem-core-wcm-components/releases/tag/core.wcm.components.reactor-2.10.0) | Continual | 6.5.5.0+ | 8, 11 | 3.3.9+
 
 For the requirements from previous Core Component releases, see [Historical System Requirements](VERSIONS.md).
 
@@ -78,7 +78,13 @@ Setup your local development environment for [AEM as a Cloud Service SDK](https:
 
 To compile your own version of the Core Components, you can build and install everything on your running AEM instance by issuing the following command in the top level folder of the project:
 
-    mvn clean install -PautoInstallSinglePackage
+AEM as cloud service:
+
+    mvn clean install -PautoInstallSinglePackage -PautoInstallPackage
+    
+AEM 6.5.5+:
+
+    mvn clean install -PautoInstallSinglePackage -PautoInstallPackage -Pclassic
 
 You can also install individual packages/bundles by issuing the following command in the top-level folder of the project:
 
