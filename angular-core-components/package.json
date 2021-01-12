@@ -39,7 +39,8 @@
     "cover:library:spa:container:v1": "ng test aem-angular-core-spa-wcm-components-container-v1 --code-coverage=true",
     "cover:library:spa:tabs:v1": "ng test aem-angular-core-spa-wcm-components-tabs-v1 --code-coverage=true",
     "cover": "run-p cover:**  --max-parallel 4",
-    "postcover": "istanbul report json && node combine-coverage.js"
+    "postcover": "istanbul report json && node combine-coverage.js",
+    "ngcc": "ngcc"
   },
   "private": true,
   "dependencies": {

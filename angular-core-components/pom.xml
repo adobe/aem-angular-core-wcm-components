@@ -76,7 +76,7 @@
                 </goals>
                 <!-- Optional configuration which provides for running any npm command -->
                 <configuration>
-                    <arguments>ngcc</arguments>
+                    <arguments>run ngcc</arguments>
                 </configuration>
             </execution>
             <execution>
