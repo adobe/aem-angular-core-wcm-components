@@ -35,5 +35,3 @@ export class DemoComponent extends AEMContainerComponent implements DemoContaine
 
 }
 
-export default DemoComponent;
-

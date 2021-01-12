@@ -1,17 +1,17 @@
 import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {ModelManager} from '@adobe/aem-spa-page-model-manager';
 
-import {AEMContainerComponent,AEMContainerComponentProperties, AEMResponsiveGridComponent, AEMResponsiveGridComponentProperties, LazyMapTo, MapTo} from '@adobe/aem-angular-editable-components';
+import {AEMContainerComponent,AEMContainerComponentProperties, AEMResponsiveGridComponent, AEMResponsiveGridComponentProperties, LazyMapTo, MappedComponentProperties, MapTo} from '@adobe/aem-angular-editable-components';
 
 import {isPlatformBrowser} from '@angular/common';
 
 import {TabsV1Component} from "@adobe/aem-core-components-angular-spa/containers/tabs/v1";
 
-import {TitleV2Component, TitleV2IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/title/v2';
+import {TitleV2Component, TitleV2IsEmptyFn, TitleV2Model} from '@adobe/aem-core-components-angular-base/authoring/title/v2';
 import {BreadCrumbV2IsEmptyFn} from '@adobe/aem-core-components-angular-base/layout/breadcrumb/v2';
-import {TextV2Component, TextV2IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/text/v2';
+import {TextV2Component, TextV2IsEmptyFn, TextV2Model} from '@adobe/aem-core-components-angular-base/authoring/text/v2';
 import {NavigationV1Component, NavigationV1IsEmptyFn} from '@adobe/aem-core-components-angular-base/layout/navigation/v1';
-import {ButtonV1IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/button/v1';
+import { ButtonV1IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/button/v1';
 import {ImageV2IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/image/v2';
 
 import {TeaserV1Component, TeaserV1IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/teaser/v1';

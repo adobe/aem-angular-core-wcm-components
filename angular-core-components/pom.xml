@@ -75,7 +75,7 @@
                     <goal>npm</goal>
                 </goals>
                 <configuration>
-                    <arguments>run build-libs</arguments>
+                    <arguments>run build-prod:internal</arguments>
                 </configuration>
             </execution>
             <execution>
