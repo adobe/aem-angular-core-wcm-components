@@ -15,9 +15,9 @@
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 import {Component, Input} from "@angular/core";
-import {AEMContainerComponent} from "@adobe/aem-angular-editable-components";
+import {AEMContainerComponent,AEMContainerComponentProperties  } from "@adobe/aem-angular-editable-components";
 
-export interface DemoContainerProperties {
+export interface DemoContainerProperties extends AEMContainerComponentProperties {
     fullWidth: boolean
 }
 
@@ -25,7 +25,7 @@ export interface DemoContainerProperties {
     selector: 'demo',
     templateUrl: './demo.component.html'
 })
-export class DemoComponent extends AEMContainerComponent implements DemoContainerProperties{
+export class DemoComponent extends AEMContainerComponent implements DemoContainerProperties {
 
     @Input() fullWidth;
 
@@ -34,6 +34,4 @@ export class DemoComponent extends AEMContainerComponent implements DemoContaine
     }
 
 }
-
-export default DemoComponent;
 

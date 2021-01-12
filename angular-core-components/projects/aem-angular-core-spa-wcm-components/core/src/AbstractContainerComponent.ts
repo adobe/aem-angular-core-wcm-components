@@ -16,7 +16,7 @@
 
 
 
-import {ComponentMapping, AEMAllowedComponentsContainerComponent, Utils} from "@adobe/aem-angular-editable-components";
+import {ComponentMapping, AEMAllowedComponentsContainerComponent, MappedComponentProperties, Utils} from "@adobe/aem-angular-editable-components";
 import {Component, HostBinding, Injectable, Input, OnDestroy, AfterViewInit, PLATFORM_ID, Inject} from "@angular/core";
 import {ContainerModel, ContainerProperties, Model} from "./common";
 import {isPlatformBrowser} from "@angular/common";
@@ -29,7 +29,7 @@ export function ContainerIsEmptyFn(props:ContainerModel){
     selector: 'aem-core-abstract-container',
     template: ''
 })
-export class AbstractContainerComponent extends AEMAllowedComponentsContainerComponent implements ContainerProperties, AfterViewInit, OnDestroy{
+export class AbstractContainerComponent extends AEMAllowedComponentsContainerComponent implements ContainerProperties, AfterViewInit, OnDestroy, MappedComponentProperties{
     @Input() componentMapping: typeof ComponentMapping = ComponentMapping;
     @Input() cqForceReload: boolean = false;
     @Input() cqItems: {[key: string]: Model} = {};
@@ -44,6 +44,7 @@ export class AbstractContainerComponent extends AEMAllowedComponentsContainerCom
 
     constructor(@Inject(PLATFORM_ID) protected _platformId: Object) {
         super();
+
         //@ts-ignore
         if (isPlatformBrowser(_platformId) && window.Granite && window.Granite.author && window.Granite.author.MessageChannel) {
             //@ts-ignore
@@ -84,10 +85,6 @@ export class AbstractContainerComponent extends AEMAllowedComponentsContainerCom
         if(this.messageChannel){
             this.messageChannel.unsubscribeRequestMessage("cmp.panelcontainer", this.callback);
         }
-    }
-
-    public get isInEditor(){
-        return Utils.isInEditor();
     }
 
     public get dataLayerString(){

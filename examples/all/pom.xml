@@ -160,6 +160,11 @@
                                     <artifactId>core.wcm.components.angular.examples.ui.apps</artifactId>
                                     <filter>true</filter>
                                 </subPackage>
+                                <subPackage>
+                                    <groupId>com.adobe.cq</groupId>
+                                    <artifactId>core.wcm.components.content</artifactId>
+                                    <filter>true</filter>
+                                </subPackage>
                             </subPackages>
                             <dependencies>
                                 <dependency>

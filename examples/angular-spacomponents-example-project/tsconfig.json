@@ -34,10 +34,10 @@
       "@adobe/aem-spa-component-mapping/*": [
         "./node_modules/@adobe/aem-spa-component-mapping/*"
       ],
-      "@adobe/aem-spa-model-manager": [
+      "@adobe/aem-spa-page-model-manager": [
         "./node_modules/@adobe/aem-spa-model-manager"
       ],
-      "@adobe/aem-spa-model-manager/*": [
+      "@adobe/aem-spa-page-model-manager/*": [
         "./node_modules/@adobe/aem-spa-model-manager/*"
       ],
       "@adobe/aem-core-components-angular-spa/*": [
