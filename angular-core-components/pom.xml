@@ -41,66 +41,81 @@
     <!-- ====================================================================== -->
     <build>
     <plugins>
-    <plugin>
-        <groupId>com.github.eirslett</groupId>
-        <artifactId>frontend-maven-plugin</artifactId>
-        <version>${frontend-maven-plugin.version}</version>
-
-        <executions>
-
-        <execution>
-            <id>install node and npm</id>
-            <goals>
-            <goal>install-node-and-npm</goal>
-            </goals>
+        <plugin>
+            <artifactId>maven-clean-plugin</artifactId>
+            <version>3.1.0</version>
             <configuration>
-            <nodeVersion>${node.version}</nodeVersion>
-            <npmVersion>${npm.version}</npmVersion>
-        </configuration>
-        </execution>
-    
-            <execution>
-                <id>npm install</id>
-                <goals>
-                    <goal>npm</goal>
-                </goals>
-                <!-- Optional configuration which provides for running any npm command -->
-                <configuration>
-                    <arguments>install</arguments>
-                </configuration>
-            </execution>
-            <execution>
-                <id>npm ngcc</id>
-                <goals>
-                    <goal>npm</goal>
-                </goals>
-                <!-- Optional configuration which provides for running any npm command -->
-                <configuration>
-                    <arguments>run ngcc</arguments>
-                </configuration>
-            </execution>
-            <execution>
-                <id>npm run build</id>
-                <goals>
-                    <goal>npm</goal>
-                </goals>
-                <configuration>
-                    <arguments>run build-prod-internal</arguments>
-                </configuration>
-            </execution>
-            <execution>
-                <id>test</id>
-                <phase>test</phase>
-                <goals>
-                    <goal>npm</goal>
-                </goals>
-                <configuration>
-                    <arguments>run test</arguments>
-                </configuration>
-            </execution>
-
-        </executions>
-    </plugin>
+                <filesets>
+                    <fileset>
+                        <directory>dist</directory>
+                        <includes>
+                            <include>**/*.*</include>
+                        </includes>
+                        <followSymlinks>false</followSymlinks>
+                    </fileset>
+                </filesets>
+            </configuration>
+        </plugin>
+        <plugin>
+            <groupId>com.github.eirslett</groupId>
+            <artifactId>frontend-maven-plugin</artifactId>
+            <version>${frontend-maven-plugin.version}</version>
+        
+            <executions>
+            
+                <execution>
+                    <id>install node and npm</id>
+                    <goals>
+                        <goal>install-node-and-npm</goal>
+                    </goals>
+                    <configuration>
+                        <nodeVersion>${node.version}</nodeVersion>
+                        <npmVersion>${npm.version}</npmVersion>
+                    </configuration>
+                </execution>
+            
+                <execution>
+                    <id>npm install</id>
+                    <goals>
+                        <goal>npm</goal>
+                    </goals>
+                    <!-- Optional configuration which provides for running any npm command -->
+                    <configuration>
+                        <arguments>install</arguments>
+                    </configuration>
+                </execution>
+                <execution>
+                    <id>npm ngcc</id>
+                    <goals>
+                        <goal>npm</goal>
+                    </goals>
+                    <!-- Optional configuration which provides for running any npm command -->
+                    <configuration>
+                        <arguments>run ngcc</arguments>
+                    </configuration>
+                </execution>
+                <execution>
+                    <id>npm run build</id>
+                    <goals>
+                        <goal>npm</goal>
+                    </goals>
+                    <configuration>
+                        <arguments>run build-prod-internal</arguments>
+                    </configuration>
+                </execution>
+                <execution>
+                    <id>test</id>
+                    <phase>test</phase>
+                    <goals>
+                        <goal>npm</goal>
+                    </goals>
+                    <configuration>
+                        <arguments>run test</arguments>
+                    </configuration>
+                </execution>
+        
+            </executions>
+        </plugin>
     </plugins>
 </build>
 </project>

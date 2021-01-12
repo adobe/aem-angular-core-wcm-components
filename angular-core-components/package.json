@@ -11,13 +11,12 @@
     "build-prod:base": "ng build aem-angular-core-wcm-components --prod",
     "build-prod:spa": "ng build aem-angular-core-spa-wcm-components --prod",
     "build-prod-internal": "run-p build-prod:**  && ngcc -s ./dist",
-    
+    "build-prod-release": "run-p build-prod:**",
     "test:spa": "ng test aem-angular-core-spa-wcm-components",
     "test:base": "ng test aem-angular-core-wcm-components",
     "test": "npm run test:base  && npm run test:spa",
     "test-spa": "ng test aem-angular-core-spa-wcm-components",
     "test-cover-spa-libs": "npm-run-all test-container-core test-accordion-v1 test-carousel-v1 test-container-v1 test-tabs-v1 build-spa",
-    
     "lint": "ng lint",
     "e2e": "ng e2e",
     "cover:libary:core": "ng test aem-angular-core-wcm-components-core --code-coverage=true",
@@ -59,7 +58,7 @@
   "devDependencies": {
     "@adobe/aem-angular-editable-components": "^1.2.0",
     "@adobe/aem-spa-component-mapping": "^1.1.0",
-    "@adobe/aem-spa-page-model-manager": "^1.3.2",
+    "@adobe/aem-spa-page-model-manager": "^1.3.3",
     "@angular-devkit/build-angular": "~0.901.11",
     "@angular-devkit/build-ng-packagr": "~0.901.11",
     "@angular/cli": "~9.1.8",
