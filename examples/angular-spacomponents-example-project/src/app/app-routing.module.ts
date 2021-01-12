@@ -24,7 +24,7 @@ import { PageComponent} from './components/page/page.component';
 export function AemPageMatcher ( url: UrlSegment[] ): UrlMatchResult {
   const path = url.join('/');
 
-  if (path.startsWith('content/aem-angular-core-spacomponents-example') || path.startsWith('content/experience-fragments/angular-spa-examples')) {
+  if (path.startsWith('content/aem-angular-core-spacomponents-example') || path.startsWith('conf/aem-angular-core-spacomponents-example') || path.startsWith('content/experience-fragments/angular-spa-examples')) {
     return ({
       consumed: url,
       posParams: { path: url[url.length - 1]}
