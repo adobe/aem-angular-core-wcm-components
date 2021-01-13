@@ -47,8 +47,10 @@ export interface CarouselV1Properties extends ContainerProperties{
 @Component({
     selector: 'core-carousel-v1',
     host: {
+        '[id]': 'id',
         '[class]': 'hostClasses',
         '[attr.data-cq-data-path]':'cqPath',
+        '[attr.aria-roledescription]': 'accessibilityLabel',
         '[attr.data-cmp-data-layer]': 'dataLayerString'
     },
     templateUrl: './carousel.v1.component.html'

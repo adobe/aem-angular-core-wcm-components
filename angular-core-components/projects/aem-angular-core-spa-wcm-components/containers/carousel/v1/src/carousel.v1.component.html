@@ -26,76 +26,71 @@
 </ng-container>
 <ng-template #container>
     
-    <div class="carousel">
-        <div id="{{id}}" class="{{baseCssClass}}" role="group" [attr.aria-roledescription]="accessibilityLabel">
-            <div class="{{baseCssClass}}__content" (mouseenter)="handleOnMouseEnter()" (mouseleave)="handleOnMouseLeave()"
-            >
-                <div *ngFor="let itemKey of cqItemsOrder; let i = index"
-                     [class]="getSlideCssClass(i)"
-                     id="{{id}}-item-{{i}}"
-                     role="tabpanel"
-                     [attr.aria-label]="getSlideAriaLabel(i)">
-                    <div
-                            [aemModelProvider]
-                            [cqItem]="getItem(itemKey)"
-                            [cqPath]="getDataPath(itemKey)"
-                            [itemName]="itemKey"
-                            [attr.data-cq-data-path]="getDataPath(itemKey)"></div>
-                </div>
-                
-                <div class="{{baseCssClass}}__actions">
-                    <button class="{{baseCssClass}}__action {{baseCssClass}}__action--previous"
-                            type="button"
-                            [attr.aria-label]="accessibility.previous"
-                            (click)="handleOnButtonPrev()">
-                        <span class="{{baseCssClass}}__action-icon"></span>
-                        <span class="{{baseCssClass}}__action-text" [innerText]="accessibility.previous"></span>
-                    </button>
-                    
-                    
-                    <button [ngClass]="baseCssClass + '__action ' + baseCssClass + '__action--pause' + (!autoPlayIntervalOn ? ' ' + baseCssClass + '__action--disabled' : '')"
-                            type="button"
-                            *ngIf="autoplay"
-                            [attr.aria-label]="accessibility.pause"
-                            (click)="toggleAutoPlay(false)">
-                        <span class="{{baseCssClass}}__action-icon"></span>
-                        <span class="{{baseCssClass}}__action-text" [innerText]="accessibility.pause"></span>
-                    </button>
-                    <button [ngClass]="baseCssClass + '__action ' + baseCssClass + '__action--play' + (autoPlayIntervalOn ? ' ' + baseCssClass + '__action--disabled' : '')"
-                            type="button"
-                            *ngIf="autoplay"
-                            [attr.aria-label]="accessibility.play"
-                            (click)="toggleAutoPlay(true)">
-                        <span class="{{baseCssClass}}__action-icon"></span>
-                        <span class="{{baseCssClass}}__action-text" [innerText]="accessibility.play"></span>
-                    </button>
-                    
-                    
-                    <button class="{{baseCssClass}}__action {{baseCssClass}}__action--next"
-                            type="button"
-                            [attr.aria-label]="accessibility.next"
-                            (click)="handleOnButtonNext()">
-                        <span class="{{baseCssClass}}__action-icon"></span>
-                        <span class="{{baseCssClass}}__action-text" [innerText]="accessibility.next"></span>
-                    </button>
-                
-                </div>
-                <ol class="{{baseCssClass}}__indicators" role="tablist" [attr.aria-label]="accessibility.indicators">
-                    <li *ngFor="let itemKey of cqItemsOrder; let i = index"
-                        [class]="getIndicatorCssClass(i)"
-                        role="tab"
-                        (click)="handleIndicatorClick(i)"
-                        [attr.aria-controls]="getAriaControlsId(i)"
-                        [attr.aria-label]="getIndicatorAriaLabel(i)" [innerText]="cqItems[itemKey]['cq:panelTitle']"></li>
-                </ol>
-            </div>
+    <div class="{{baseCssClass}}__content" (mouseenter)="handleOnMouseEnter()" (mouseleave)="handleOnMouseLeave()">
+        <div *ngFor="let itemKey of cqItemsOrder; let i = index"
+             [class]="getSlideCssClass(i)"
+             id="{{id}}-item-{{i}}"
+             role="tabpanel"
+             [attr.aria-label]="getSlideAriaLabel(i)">
+            <div
+                    [aemModelProvider]
+                    [cqItem]="getItem(itemKey)"
+                    [cqPath]="getDataPath(itemKey)"
+                    [itemName]="itemKey"
+                    [attr.data-cq-data-path]="getDataPath(itemKey)"></div>
+        </div>
+        
+        <div class="{{baseCssClass}}__actions">
+            <button class="{{baseCssClass}}__action {{baseCssClass}}__action--previous"
+                    type="button"
+                    [attr.aria-label]="accessibility.previous"
+                    (click)="handleOnButtonPrev()">
+                <span class="{{baseCssClass}}__action-icon"></span>
+                <span class="{{baseCssClass}}__action-text" [innerText]="accessibility.previous"></span>
+            </button>
+            
+            
+            <button [ngClass]="baseCssClass + '__action ' + baseCssClass + '__action--pause' + (!autoPlayIntervalOn ? ' ' + baseCssClass + '__action--disabled' : '')"
+                    type="button"
+                    *ngIf="autoplay"
+                    [attr.aria-label]="accessibility.pause"
+                    (click)="toggleAutoPlay(false)">
+                <span class="{{baseCssClass}}__action-icon"></span>
+                <span class="{{baseCssClass}}__action-text" [innerText]="accessibility.pause"></span>
+            </button>
+            <button [ngClass]="baseCssClass + '__action ' + baseCssClass + '__action--play' + (autoPlayIntervalOn ? ' ' + baseCssClass + '__action--disabled' : '')"
+                    type="button"
+                    *ngIf="autoplay"
+                    [attr.aria-label]="accessibility.play"
+                    (click)="toggleAutoPlay(true)">
+                <span class="{{baseCssClass}}__action-icon"></span>
+                <span class="{{baseCssClass}}__action-text" [innerText]="accessibility.play"></span>
+            </button>
+            
+            
+            <button class="{{baseCssClass}}__action {{baseCssClass}}__action--next"
+                    type="button"
+                    [attr.aria-label]="accessibility.next"
+                    (click)="handleOnButtonNext()">
+                <span class="{{baseCssClass}}__action-icon"></span>
+                <span class="{{baseCssClass}}__action-text" [innerText]="accessibility.next"></span>
+            </button>
         
         </div>
+        <ol class="{{baseCssClass}}__indicators" role="tablist" [attr.aria-label]="accessibility.indicators">
+            <li *ngFor="let itemKey of cqItemsOrder; let i = index"
+                [class]="getIndicatorCssClass(i)"
+                role="tab"
+                (click)="handleIndicatorClick(i)"
+                [attr.aria-controls]="getAriaControlsId(i)"
+                [attr.aria-label]="getIndicatorAriaLabel(i)" [innerText]="cqItems[itemKey]['cq:panelTitle']"></li>
+        </ol>
     </div>
+    
     
     <div *ngIf="isInEditMode;"
          [attr.data-cq-data-path]="placeholderPath"
          [class]="getPlaceholderClassNames()">
     </div>
-    
+
 </ng-template>
