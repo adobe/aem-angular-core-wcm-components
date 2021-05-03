@@ -50,6 +50,16 @@
                             <artifactId>core.wcm.components.angular.examples.bundle</artifactId>
                             <target>/apps/core-components-examples/wcm/install</target>
                         </embedded>
+                        <embedded>
+                            <groupId>com.adobe.aem</groupId>
+                            <artifactId>spa.project.core.core</artifactId>
+                            <target>/apps/core-components-examples/wcm/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.adobe.aem</groupId>
+                            <artifactId>spa.project.core.ui.apps</artifactId>
+                            <target>/apps/core-components-examples/wcm/install</target>
+                        </embedded>
                     </embeddeds>
                     <subPackages>
                         <subPackage>
@@ -153,6 +163,16 @@
                                     <artifactId>core.wcm.components.core</artifactId>
                                     <target>/apps/core-components-examples/wcm/install</target>
                                 </embedded>
+                                <embedded>
+                                    <groupId>com.adobe.aem</groupId>
+                                    <artifactId>spa.project.core.core</artifactId>
+                                    <target>/apps/core-components-examples/wcm/install</target>
+                                </embedded>
+                                <embedded>
+                                    <groupId>com.adobe.aem</groupId>
+                                    <artifactId>spa.project.core.ui.apps</artifactId>
+                                    <target>/apps/core-components-examples/wcm/install</target>
+                                </embedded>
                             </embeddeds>
                             <subPackages>
                                 <subPackage>
@@ -214,6 +234,15 @@
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>spa.project.core.ui.apps</artifactId>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>spa.project.core.core</artifactId>
         </dependency>
     </dependencies>
 </project>

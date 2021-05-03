@@ -4,4 +4,4 @@
           jcr:description="XF Page - Angular"
           jcr:primaryType="cq:Component"
           jcr:title="Page"
-          sling:resourceSuperType="cq/experience-fragments/components/xfpage"/>
+          sling:resourceSuperType="spa-project-core/components/xf-page"/>

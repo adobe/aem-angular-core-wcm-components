@@ -46,6 +46,8 @@ export class AppComponent implements OnInit{
         ModelManager.initialize();
       }
 
+      ModelManager.initialize();
+
     }
   }
 

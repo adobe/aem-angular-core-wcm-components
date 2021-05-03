@@ -32,7 +32,7 @@ import {AemAngularCoreWcmComponentsTeaserV1} from "@adobe/aem-core-components-an
   ],
   imports: [
     BrowserModule.withServerTransition({
-      appId: 'angular-spacomponents-demo'
+      appId: 'angular-spa'
     }),
     AppRoutingModule,
     SpaAngularEditableComponentsModule,
