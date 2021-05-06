@@ -36,11 +36,7 @@ export class AccordionV1Component extends AbstractContainerComponent implements 
     @Input() expandedItems: string[] = [];
 
     @Input() baseCssClass = 'cmp-accordion';
-
-    get isActiveItemNameSet(){
-        return !!this.expandedItems && this.expandedItems.length > 0;
-    }
-
+    
     onClick(itemKey){
 
         const isActive = this.expandedItems.indexOf(itemKey) > -1;
