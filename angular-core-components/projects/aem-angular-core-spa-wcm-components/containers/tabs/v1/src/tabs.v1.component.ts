@@ -27,7 +27,8 @@ const CONTAINER_CLASS_NAMES = 'aem-container';
     host: {
         '[id]': 'containerId',
         '[class]': 'hostClasses',
-        '[attr.data-cq-data-path]':'cqPath'
+        '[attr.data-cq-data-path]':'cqPath',
+        '[attr.data-panelcontainer]': '"tabs"'
     },
     templateUrl: './tabs.v1.component.html'
 })

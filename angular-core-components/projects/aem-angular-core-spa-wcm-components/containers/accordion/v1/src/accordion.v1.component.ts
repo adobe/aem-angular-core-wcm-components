@@ -27,7 +27,8 @@ export interface AccordionV1Properties extends ContainerProperties{
     host: {
         '[class]': 'hostClasses',
         '[attr.data-cq-data-path]':'cqPath',
-        '[attr.data-cmp-data-layer]': 'dataLayerString'
+        '[attr.data-cmp-data-layer]': 'dataLayerString',
+        '[attr.data-panelcontainer]': '"accordion"'
     },
     templateUrl: './accordion.v1.component.html'
 })

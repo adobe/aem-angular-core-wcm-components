@@ -49,7 +49,8 @@ export interface CarouselV1Properties extends ContainerProperties{
     host: {
         '[class]': 'hostClasses',
         '[attr.data-cq-data-path]':'cqPath',
-        '[attr.data-cmp-data-layer]': 'dataLayerString'
+        '[attr.data-cmp-data-layer]': 'dataLayerString',
+        '[attr.data-panelcontainer]': '"carousel"'
     },
     templateUrl: './carousel.v1.component.html'
 })

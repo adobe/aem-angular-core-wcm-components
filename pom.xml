@@ -103,6 +103,7 @@
                             <exclude>velocity.log</exclude>
                             <!-- don't check anything in target -->
                             <exclude>**/target/*</exclude>
+                            <exclude>**/.factorypath</exclude>
                             <!-- README files in markdown format -->
                             <exclude>**/README.md</exclude>
                             <exclude>CODE_OF_CONDUCT.md</exclude>
